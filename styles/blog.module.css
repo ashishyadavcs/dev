@@ -1,0 +1,16 @@
+.blog .tag a {
+  padding: 3px 10px;
+  display: inline-block;
+  border-radius: 20px;
+  color: aliceblue;
+  background: teal;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 5px 5px 0;
+  text-decoration: none;
+}
+.sticky {
+  position: sticky;
+  z-index: 2;
+  top: 85px;
+}

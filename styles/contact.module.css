@@ -1,0 +1,13 @@
+.contact {
+  background: radial-gradient(rgb(148, 251, 219), white);
+  min-height: 90vh;
+  padding: 2rem 0;
+}
+.contact form {
+  box-shadow: 0 1px 2px #ddd;
+  background: #fff;
+  padding: 2rem;
+}
+.contact form > div {
+  width: 100%;
+}

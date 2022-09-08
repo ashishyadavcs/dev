@@ -1,0 +1,16 @@
+$color: red;
+$bg: green;
+@mixin colorpalete {
+  color: red;
+  font-size: 20px;
+  background: black;
+}
+@mixin awesomefonts($font, $color, $bg) {
+  font-size: $font;
+  color: $color;
+}
+
+.box {
+  @include awesomefonts(12px, red, black);
+  @include colorpalete;
+}

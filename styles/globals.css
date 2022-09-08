@@ -1,0 +1,372 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+input {
+  padding: 10px 15px;
+
+  outline: none;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: 10px 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+  font-family: "Open Sans", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.layout {
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
+}
+.heading {
+  font-size: clamp(30px, 3vw, 38px) !important;
+  font-weight: 700 !important;
+}
+
+h1 {
+  font-size: clamp(24px, 3vw, 20px) !important;
+  font-weight: 700 !important;
+}
+h2 {
+  font-size: clamp(22px, 3vw, 19px) !important;
+  font-weight: 700 !important;
+}
+h3 {
+  font-size: clamp(19px, 3vw, 17px) !important;
+  font-weight: 600 !important;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+.pointer {
+  cursor: pointer;
+}
+.event-none {
+  pointer-events: none;
+}
+.layout header {
+  text-transform: capitalize;
+  background: #fff;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.layout header .container {
+  height: 60px;
+}
+.layout > .wawe {
+  min-height: 80vh;
+}
+.layout header .menu {
+  display: none;
+}
+.layout header a {
+  text-decoration: none;
+  color: #333;
+}
+.layout header li a {
+  padding: 0.5rem 1rem;
+}
+.layout > .container {
+  padding-bottom: 2rem;
+}
+
+.error404 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgb(240, 209, 209), rgb(213, 213, 248));
+}
+.gradient-text {
+  background: -webkit-linear-gradient(
+    120deg,
+    rgb(169, 77, 240),
+    rgb(14, 45, 181)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.layout footer {
+  background: teal;
+  padding: 1rem;
+  color: #fff;
+}
+@keyframes blink {
+  0% {
+    color: aqua;
+  }
+  20% {
+    color: rgb(21, 105, 105);
+  }
+  40% {
+    color: rgb(98, 255, 0);
+  }
+  60% {
+    color: rgb(255, 47, 0);
+  }
+  100% {
+    color: rgb(104, 12, 75);
+  }
+}
+.layout header b {
+  font-size: 20px;
+  animation: blink 2s linear infinite alternate;
+  transition: all 0.4s;
+}
+
+@media screen and (max-width: 768px) {
+  .layout header .menu {
+    display: block;
+  }
+
+  .layout header ul {
+    width: 100%;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    background: #f1f1f1;
+    height: 0;
+    overflow: hidden;
+  }
+  .layout header ul li a {
+    width: 100%;
+    display: block;
+    padding: 14px 10px;
+  }
+  .layout header ul li {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid rgba(252, 220, 220, 0.595);
+  }
+  .layout header ul.active {
+    height: 100vh;
+  }
+}
+
+.theme-btn {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, rgb(238, 209, 209), rgb(0, 255, 128));
+}
+.heading {
+  font-size: 40px;
+  font-weight: 800;
+}
+.textarea {
+  margin: 10px 0;
+  width: 100%;
+  resize: none;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ddd;
+  min-height: 120px;
+}
+.textarea:focus {
+  border: 2px solid blue;
+}
+.textarea *::first-letter {
+  text-transform: capitalize;
+}
+.cta-btn {
+  border-radius: 26px;
+}
+
+/*themes font colors*/
+.awesome-green {
+  color: rgb(56, 230, 128);
+}
+.awesome-red {
+  color: rgb(253, 98, 98);
+}
+.themebtn {
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  border: none;
+  background: linear-gradient(rgb(76, 5, 85), rgb(236, 184, 251));
+  padding: 10px;
+}
+/*footer*/
+footer {
+  background: rgba(0, 0, 0, 0.95);
+  color: rgb(170, 167, 167);
+  background-position: center;
+  background-blend-mode: overlay;
+}
+.sub-footer {
+  background: #000000f2;
+  color: #ccc;
+}
+footer a {
+  color: rgb(170, 167, 167);
+  transition: all 0.3s ease-in-out;
+}
+footer a:hover {
+  color: #000;
+}
+footer li {
+  margin-bottom: 7px;
+}
+.fa-chevron-right {
+  color: yellow;
+  margin-right: 5px;
+}
+.social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #2a2a2a;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+footer .smallheading {
+  color: rgb(57, 57, 45);
+  font-size: 20px;
+}
+.gototop {
+  height: 50px;
+  position: fixed;
+  bottom: 70px;
+  left: 15px;
+  width: 50px;
+  z-index: 3;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #1c1a1a;
+}
+.gototop svg {
+  transition: all 0.3s ease-in-out;
+}
+.gototop.active svg {
+  transform: rotate(180deg);
+}
+
+/*themes font colors*/
+/*whatsapp*/
+
+/*whatsapp*/
+.orderpop {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+}
+.orderpop > div {
+  position: absolute;
+  top: 50%;
+  max-width: 95% !important;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.close {
+  display: none;
+}
+.orderpop .close {
+  display: flex;
+}
+.orderpop .close {
+  position: absolute;
+  line-height: 1;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  background: #ddd;
+  border-radius: 50%;
+}
+button {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  margin: 20px;
+  box-shadow: 0 2px 2px 1px;
+}
+.dropdown {
+  position: absolute !important;
+  top: 80%;
+  width: 250px;
+  border-radius: 0 0 8px 8px;
+  right: 0;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  color: rgb(136, 136, 136);
+}
+.dropdown.active {
+  opacity: 1;
+  top: 100%;
+  pointer-events: all;
+}
+.pointer {
+  cursor: pointer;
+}
+.dropdown li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.dropdown li:hover {
+  background: #f1f1f17a;
+}
+input::-webkit-file-upload-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #999;
+  border-radius: 20px;
+}
+/*orders table*/
+.orders table td {
+  min-width: max-content;
+  white-space: nowrap;
+}
+.orders table td svg {
+  margin-right: 10px;
+}
+/**/
+.login {
+  display: inline-block;
+  padding: 10px;
+  background: teal;
+  color: #fff;
+  border-radius: 20px;
+}
