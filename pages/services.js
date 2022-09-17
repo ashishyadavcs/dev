@@ -4,9 +4,11 @@ import Image from "next/image";
 import styles from "../styles/services.module.css";
 import { openform } from "../utils/common";
 import { createContext } from "react";
+import { redirect } from "next/dist/server/api-utils";
 const Servicecount = createContext();
 const Servicespage = () => {
   const data = { name: "Ashish" };
+
   return (
     <>
       <div className={styles.hero}>
@@ -32,19 +34,22 @@ const Servicespage = () => {
             </div>
 
             <div className="col-md-5 position-relative">
-              <Image
-                src={"/images/service/service.jpg"}
-                alt=""
-                layout="fill"
-              ></Image>
+              <span style={{ pointerEvents: "none" }}>
+                <Image
+                  src={"/images/service/service.png"}
+                  alt=""
+                  objectFit="contain"
+                  height={600}
+                  width={500}
+                  objectPosition="right"
+                ></Image>
+              </span>
             </div>
           </div>
         </div>
       </div>
       <div className="container">
-        <Servicecount.Provider value={data}>
-          <Services />
-        </Servicecount.Provider>
+        <Services />
       </div>
     </>
   );

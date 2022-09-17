@@ -1,10 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const Privacy= () => {
-  return (
-    <div className='container'>
-        
-    </div>
-  )
-}
-export default Privacy
+const Privacy = () => {
+  return <div className="container"></div>;
+};
+export default Privacy;

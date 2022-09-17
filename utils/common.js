@@ -1,5 +1,5 @@
 export const openform = () => {
-  document.querySelector(".orderpop").classList.remove("d-none");
+  document.querySelector(".orderpop").classList.add("active");
 };
 export const setThumbnail = (filetype) => {
   let types = [

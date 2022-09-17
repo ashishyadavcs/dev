@@ -4,6 +4,7 @@ export default async function handler(req, res) {
   const data = await fetch(`${process.env.CMS_API}/${slug}?populate=*`, {
     headers: {
       Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
     },
   });
   const result = await data.json();

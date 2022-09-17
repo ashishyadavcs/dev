@@ -1,18 +1,25 @@
 import Image from "next/image";
 import React from "react";
-import styles from '../styles/about.module.css';
+import styles from "../styles/about.module.css";
 
 const Aboutus = () => {
   return (
     <div className="container">
-      <div className={`${styles.bg} d-flex align-items-center position-relative`}>
-      <h1>About Us</h1>
-      <Image src={'/images/card.jpg'} alt="" layout="fill" objectFit="cover
-      "></Image>
-      <div className="bottom-left">
-        <div></div>
-        <div></div>
-      </div>
+      <div
+        className={`${styles.bg} d-flex align-items-center position-relative`}
+      >
+        <h1>About Us</h1>
+        <Image
+          src={"/images/card.jpg"}
+          alt=""
+          layout="fill"
+          objectFit="cover
+      "
+        ></Image>
+        <div className="bottom-left">
+          <div></div>
+          <div></div>
+        </div>
       </div>
       <div className="row">
         <div className="col-md-6 col-12">
@@ -31,7 +38,12 @@ const Aboutus = () => {
           </p>
         </div>
         <div className="col-md-6 col-12 position-relative">
-            <Image objectFit="contain" src="/images/brandwebdesigner.jpg" alt="brand web designer" layout="fill"></Image>
+          <Image
+            objectFit="contain"
+            src="/images/brandwebdesigner.jpg"
+            alt="brand web designer"
+            layout="fill"
+          ></Image>
         </div>
       </div>
     </div>

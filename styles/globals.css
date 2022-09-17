@@ -280,6 +280,8 @@ footer .smallheading {
 
 /*whatsapp*/
 .orderpop {
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
   z-index: 10;
   top: 0;
@@ -287,6 +289,10 @@ footer .smallheading {
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.8);
+}
+.orderpop.active {
+  opacity: 1;
+  pointer-events: all;
 }
 .orderpop > div {
   position: absolute;

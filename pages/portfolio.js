@@ -3,7 +3,7 @@ const Portfolio = ({ projects }) => {
   console.log(projects);
   return (
     <div className="container my-4 d-flex flex-wrap">
-      {projects.map((project) => {
+      {projects?.map((project) => {
         return (
           <div
             key={project.id}
@@ -23,10 +23,16 @@ export async function getServerSideProps() {
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio?populate=*`
   );
-  const result = await data.json();
-  return {
-    props: {
-      projects: result.data.attributes.project,
-    },
-  };
+  try {
+    const result = await data.json();
+    return {
+      props: {
+        projects: result.data.attributes.project,
+      },
+    };
+  } catch (err) {
+    return {
+      props: {},
+    };
+  }
 }

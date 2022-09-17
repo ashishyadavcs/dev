@@ -1,11 +1,17 @@
-import React,{useState} from 'react'
-import Orderform from './orderform'
-
- const Orderpop = (handler) => {
+import Orderform from "./orderform";
+import styles from "../styles/orderform.module.css";
+const Orderpop = (handler) => {
   return (
-    <div className={`orderpop d-none`}>
-       <Orderform/>
+    <div
+      onClick={(e) =>
+        e.target === e.currentTarget
+          ? e.currentTarget.classList.remove("active")
+          : ""
+      }
+      className={`orderpop`}
+    >
+      <Orderform />
     </div>
-  )
-}
-export default Orderpop
+  );
+};
+export default Orderpop;

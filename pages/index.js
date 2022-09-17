@@ -3,6 +3,7 @@ import Orderform from "../components/orderform";
 import Services from "../components/service";
 import Testimonial from "../components/testimonial";
 import { BsCheck2Circle } from "react-icons/bs";
+import { NextSeo } from "next-seo";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -14,6 +15,11 @@ export default function Home() {
   ];
   return (
     <>
+      <NextSeo
+        title="Brand web designer"
+        key="webdesign,web developer"
+        canonical={process.env.NEXT_PUBLIC_APP_URL}
+      />
       <div className={styles.landing}>
         <div className="container">
           <div className="row">
@@ -44,7 +50,7 @@ export default function Home() {
         <Services />
       </div>
       <div className={styles.portfolio}></div>
-      <div className={styles.testimonial}>
+      {/* <div className={styles.testimonial}>
         <div className="container">
           <h2>Happy Clients with us</h2>
           <p>What our clients say about us.</p>
@@ -54,12 +60,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.faqs} id="faq">
-        <div className="container">
-          <h2>Answers to your doubts</h2>
-        </div>
-      </div>
+      </div> */}
     </>
   );
 }

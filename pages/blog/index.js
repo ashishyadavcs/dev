@@ -2,51 +2,47 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "../../styles/blog.module.css";
-
+import { toast } from "react-toastify";
 const Blog = ({ posts }) => {
-  console.log(posts);
   return (
     <div className={`${styles.blog} container`}>
       <div className="row">
         <div className="col-md-9">
-          {posts?.map(({ attributes, id }) => {
-            return (
-              <div className="my-4" key={id}>
-                <Link href={`/blog/${id}`} passHref>
-                  <h2>{attributes.title}</h2>
-                </Link>
-                {attributes.description}
-                <div
-                  className="position-relative my-4"
-                  style={{ height: "400px" }}
-                >
-                  {attributes.files.data[0].attributes.mime.includes(
-                    "image/png"
-                  ) ? (
-                    <Image
-                      src={
-                        "http://localhost:1337" +
-                        attributes.files.data[0].attributes?.formats?.medium
-                          ?.url
-                      }
-                      layout="fill"
-                      alt=""
-                      objectFit="cover"
-                    />
-                  ) : (
-                    <iframe
-                      height={300}
-                      width={400}
-                      src={
-                        "http://localhost:1337" +
-                        attributes.files.data[0].attributes?.url
-                      }
-                    ></iframe>
-                  )}
+          {posts?.length &&
+            posts?.map(({ attributes, id }) => {
+              return (
+                <div className="my-4" key={id}>
+                  <Link href={`/blog/${attributes.slug}`} passHref>
+                    <h2>{attributes.title}</h2>
+                  </Link>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: attributes.description }}
+                  />
+                  <div
+                    className="position-relative my-4"
+                    style={{ height: "400px" }}
+                  >
+                    {attributes.files.data[0].attributes.mime.includes(
+                      "image/png"
+                    ) ? (
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_CMS_URL}${attributes.files.data[0].attributes?.formats?.medium?.url}
+                      `}
+                        layout="fill"
+                        alt=""
+                        objectFit="cover"
+                      />
+                    ) : (
+                      <iframe
+                        height={300}
+                        width={400}
+                        src={`${process.env.NEXT_PUBLIC_CMS_URL}${attributes.files.data[0].attributes?.url}`}
+                      ></iframe>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
         <div className="col-md-3">
           <div className={`my-4 ${styles.sticky}`}>
@@ -69,10 +65,17 @@ const Blog = ({ posts }) => {
 export default Blog;
 export async function getServerSideProps() {
   const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/blog/`);
-  const result = await data.json();
-  return {
-    props: {
-      posts: result.data,
-    },
-  };
+  try {
+    const result = await data.json();
+    return {
+      props: {
+        posts: result.data,
+      },
+    };
+  } catch (err) {
+    toast.error("internal server error");
+    return {
+      props: {},
+    };
+  }
 }

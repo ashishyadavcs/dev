@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+  const { slug } = req.query;
   const data = await fetch(`${process.env.NEXT_PUBLIC_API}/order`);
   const result = await data.json();
   if (result) {
