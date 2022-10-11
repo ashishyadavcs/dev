@@ -19,7 +19,6 @@ input {
 
 * {
   box-sizing: border-box;
-  user-select: none;
   margin: 0;
   padding: 0;
   transition: all 0.3s ease-in-out;
@@ -113,6 +112,7 @@ h3 {
   padding: 1rem;
   color: #fff;
 }
+
 @keyframes blink {
   0% {
     color: aqua;
@@ -375,4 +375,13 @@ input::-webkit-file-upload-button {
   background: teal;
   color: #fff;
   border-radius: 20px;
+}
+
+/*testp*/
+.body {
+  min-height: 70vh;
+}
+.progressbar {
+  background: red;
+  height: 4px;
 }

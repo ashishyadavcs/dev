@@ -18,12 +18,12 @@ const Servicespage = () => {
               <h1 className="heading">
                 Web developement services<br></br>Fast , affordable and with
                 <br></br>{" "}
-                <span className="awesome-green">100% satisfaction</span>.{" "}
+                <span className="awesome-green">100% satisfaction</span>{" "}
               </h1>
               <p>
-                Need a website for your{" "}
-                <span className="awesome-green">business</span>. Get your
-                website developed by expert web developer.
+                Do you Need a website for your &nbsp;
+                <span className="awesome-green">business</span>?<br></br> Get
+                your website developed by expert web developer.
               </p>
               <button onClick={openform} className="theme-btn cta-btn">
                 Get Your website Now

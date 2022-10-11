@@ -3,7 +3,8 @@ import Link from "next/link";
 import styles from "../../styles/blog.module.css";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 
-const Post = ({ post }) => {
+const Post = ({ data, allpost }) => {
+  console.log(allpost);
   const {
     title,
     slug,
@@ -13,7 +14,8 @@ const Post = ({ post }) => {
     author,
     publishedAt,
     updatedAt,
-  } = post?.data?.attributes;
+    post,
+  } = data?.attributes;
   return (
     <>
       <NextSeo
@@ -57,10 +59,11 @@ const Post = ({ post }) => {
         authorName={author}
         description={description}
       />
-      {feature_image.data && (
+      {feature_image?.data && (
         <div className="position-relative" style={{ height: "400px" }}>
           <Image
             alt=""
+            priority={1}
             objectFit="cover"
             src={`${process.env.NEXT_PUBLIC_CMS_URL}${feature_image?.data?.attributes?.url}`}
             layout="fill"
@@ -72,22 +75,43 @@ const Post = ({ post }) => {
           <div className="col-md-9">
             <div className="my-4">
               <h1 className="text-info">{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: description }}></div>
-              <div
-                className="position-relative my-4"
-                style={{ height: "400px" }}
-              >
-                <Image
-                  src={
-                    process.env.NEXT_PUBLIC_CMS_URL + ""
-                    // files.data[0].attributes?.formats?.medium?.url
-                  }
-                  layout="fill"
-                  alt=""
-                  objectFit="cover"
-                />
-              </div>
-              <p>Author : {author.data.attributes.name}</p>
+              <div dangerouslySetInnerHTML={{ __html: post }}></div>
+              {files.data.map((img) => {
+                return (
+                  <div
+                    key={img.id}
+                    className="position-relative my-4"
+                    style={{
+                      height: img.attributes.mime.split("/").includes("image")
+                        ? "400px"
+                        : "30px",
+                    }}
+                  >
+                    {img.attributes.mime.split("/").includes("image") ? (
+                      <Image
+                        src={
+                          process.env.NEXT_PUBLIC_CMS_URL + img.attributes?.url
+                        }
+                        layout="fill"
+                        alt=""
+                        objectFit="cover"
+                      />
+                    ) : (
+                      <a
+                        height="100%"
+                        width="100%"
+                        download
+                        href={
+                          process.env.NEXT_PUBLIC_CMS_URL + img.attributes?.url
+                        }
+                      >
+                        {img.attributes.name}
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+              <p>Author : {author?.data?.attributes?.name}</p>
               <div className="d-flex justify-content-between">
                 <datetime>
                   Published at : {new Date(publishedAt).toDateString()}
@@ -100,12 +124,16 @@ const Post = ({ post }) => {
           </div>
           <div className="col-md-3">
             <div className={`my-4 ${styles.sticky}`}>
-              <h2>Sidebar</h2>
+              <h2>All Posts</h2>
               <ul className={`list-unstyled d-flex flex-wrap ${styles.tag}`}>
-                {[...Array(10)].map((tag) => {
+                {allpost.map((tag) => {
                   return (
                     <li key={Math.random()}>
-                      <Link href="">HTML</Link>
+                      <Link href={`/blog/${tag.attributes.slug}`}>
+                        <a className="text-capitalize">
+                          {tag.attributes.title}
+                        </a>
+                      </Link>
                     </li>
                   );
                 })}
@@ -119,20 +147,21 @@ const Post = ({ post }) => {
 };
 
 export default Post;
+
 export async function getServerSideProps({ params }) {
-  try {
-    const data = await fetch(
-      `${process.env.NEXT_PUBLIC_APP_URL}/api/blog/${params.slug}?populate=*`
-    );
-    const result = await data.json();
-    return {
-      props: {
-        post: result || {},
-      },
-    };
-  } catch (err) {
-    return {
-      notFound: true,
-    };
-  }
+  const data = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/blog/${params.slug}`
+  )
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+  const allpost = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/blog/`
+  ).then((res) => res.json());
+
+  return {
+    props: {
+      data: data.data || {},
+      allpost: allpost.data || [],
+    },
+  };
 }

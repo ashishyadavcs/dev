@@ -1,15 +1,6 @@
-import { useState } from "react";
-
+import { usePostsQuery } from "../query";
 const Fetch = () => {
-  const [posts, setposts] = useState();
-  const getPosts = async () => {
-    const data = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const result = await data.json();
-    return result;
-  };
-  getPosts()
-    .then((res) => setposts(res))
-    .catch((err) => console.log(err));
+  const { data: posts, error, isLoading } = usePostsQuery("");
   return (
     <div className="container">
       <h1 className="my-4 text-center">Latest Posts</h1>

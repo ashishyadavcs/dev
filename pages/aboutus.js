@@ -39,9 +39,10 @@ const Aboutus = () => {
         </div>
         <div className="col-md-6 col-12 position-relative">
           <Image
-            objectFit="contain"
+            objectFit="cover"
             src="/images/brandwebdesigner.jpg"
             alt="brand web designer"
+            className="rounded"
             layout="fill"
           ></Image>
         </div>

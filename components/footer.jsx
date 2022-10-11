@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useEffect } from "react";
 import { contact } from "../public/data/contact";
 import {
   FaArrowDown,
@@ -11,32 +10,6 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
-  const bookmark = () => {
-    document.dispatchEvent(
-      new KeyboardEvent("keydown", { key: "d", ctrlKey: true })
-    );
-  };
-  useEffect(() => {
-    bookmark();
-    const gotop = document.querySelector(".gototop");
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        gotop.classList.add("active");
-      } else {
-        gotop.classList.remove("active");
-      }
-    });
-    gotop.addEventListener("click", (e) => {
-      console.log("ji");
-      if (e.currentTarget.classList.contains("active")) {
-        window.scroll(0, 0);
-      } else {
-        window.scroll(0, 0);
-      }
-      window.scroll(0, document.body.scrollHeight);
-    });
-  });
-
   return (
     <>
       <footer className="py-4 position-relative">
@@ -140,21 +113,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-md-4">
-              <h3 className="smallheading">Digital Products</h3>
-              <ul className="list-unstyled">
-                <li className="d-flex align-items-center">
-                  <a href="">SEO package</a>
-                </li>
-                <li className="d-flex align-items-center">
-                  <a href="">English vocab PDF</a>
-                </li>
-                <li className="d-flex align-items-center">
-                  <a href="">Custom Website</a>
-                </li>
-                <li className="d-flex align-items-center">
-                  <a href="">Android Application</a>
-                </li>
-              </ul>
+              <h3 className="smallheading">Digital Services</h3>
+              <ul className="list-unstyled"></ul>
             </div>
           </div>
         </div>

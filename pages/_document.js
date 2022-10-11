@@ -10,6 +10,9 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <style data-href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap">
+          {`@font-face{font-family:'Open Sans'}`}
+        </style>
         <meta name="theme-color" content="#fff" />
       </Head>
       <body>

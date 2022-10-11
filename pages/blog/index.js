@@ -11,7 +11,7 @@ const Blog = ({ posts }) => {
           {posts?.length &&
             posts?.map(({ attributes, id }) => {
               return (
-                <div className="my-4" key={id}>
+                <div className="my-4 pointer" key={id}>
                   <Link href={`/blog/${attributes.slug}`} passHref>
                     <h2>{attributes.title}</h2>
                   </Link>
