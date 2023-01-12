@@ -20,7 +20,7 @@ const Servicespage = () => {
                 <br></br>{" "}
                 <span className="awesome-green">100% satisfaction</span>{" "}
               </h1>
-              <p>
+              <p className="my-3">
                 Do you Need a website for your &nbsp;
                 <span className="awesome-green">business</span>?<br></br> Get
                 your website developed by expert web developer.
@@ -28,9 +28,8 @@ const Servicespage = () => {
               <button onClick={openform} className="theme-btn cta-btn">
                 Get Your website Now
               </button>
-              <div className="p-3">
-                <h3>Trust Us, Get awesome work done by Us.</h3>
-              </div>
+
+              <h3 className="my-4">Trust Us, Get awesome work done by Us.</h3>
             </div>
 
             <div className="col-md-5 position-relative">
