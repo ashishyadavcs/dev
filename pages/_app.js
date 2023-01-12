@@ -21,5 +21,4 @@ function MyApp({ Component, pageProps }) {
     </Provider>
   );
 }
-export const config = { amp: true };
 export default MyApp;
