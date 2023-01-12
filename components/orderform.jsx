@@ -40,7 +40,8 @@ const Orderform = () => {
           name="mobile"
           className="w-100"
           required
-          type="number"
+          maxLength={10}
+          type="tel"
           placeholder="Mobile number"
         ></input>
         <button className="my-1 theme-btn d-block w-100">submit</button>

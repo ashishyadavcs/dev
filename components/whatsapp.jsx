@@ -27,9 +27,9 @@ const Whatsapp = () => {
     <>
       <FaShare
         onClick={share}
-        color="#000"
+        color="#fff"
         size={38}
-        className={styles.share}
+        className={`${styles.share} pointer`}
       />
       <a href="" target="_blank"></a>
       <div

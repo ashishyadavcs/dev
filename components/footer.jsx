@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <h3 className="smallheading">Brand Web Designer</h3>
+              <h3 className="smallheading">Address</h3>
               <p>
                 {contact.address} <br />
                 Hariyana, India
@@ -86,9 +86,9 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="d-flex align-items-center">
-                  <a className="ml-1" href="">
+                  <Link className="ml-1" href="/term-of-service">
                     Terms of service
-                  </a>
+                  </Link>
                 </li>
                 <li className="d-flex align-items-center">
                   <Link href="/privacy-policy">
@@ -120,23 +120,15 @@ const Footer = () => {
         </div>
       </footer>
       <div className="sub-footer d-flex align-items-center">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-9 co-12">
-              <p className="mb-0 p-2">
-                <small>
-                  copyright&copy;2022-{new Date().getFullYear() + 1}
-                </small>
-              </p>
-            </div>
-            <div className="col-md-3 col-12">
-              <ul className="list-unstyled d-flex align-items-center"></ul>
-            </div>
-          </div>
+        <div className="container py-2 d-flex justify-content-between align-items-center">
+          <small>copyright&copy;2022-{new Date().getFullYear() + 1}</small>
+          <Link href="" className="text-white">
+            <a> About</a>
+          </Link>
         </div>
       </div>
       <div className="gototop text-white d-flex justify-content-center align-items-center">
-        <FaArrowDown size={22} />
+        <FaArrowDown size={15} />
       </div>
     </>
   );

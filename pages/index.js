@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <NextSeo
-        title="Brand web designer"
+        title="ashishui"
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
       />
@@ -29,12 +29,12 @@ export default function Home() {
                 <br></br> within 2 days
               </h1>
 
-              <ul className="list-unstyled">
+              <ul className="list-unstyled mt-3">
                 {steps.map((li, i) => {
                   return (
                     <li key={i} className="mb-2 d-flex align-items-center">
                       <BsCheck2Circle color="#4cd964" size={20} />
-                      <span className="ml-2">{li}</span>
+                      <span className="mx-2">{li}</span>
                     </li>
                   );
                 })}

@@ -12,25 +12,16 @@ export const Register = () => {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    console.log(formdata);
-    const data = await fetch(`http://localhost:4000/register`, {
+    const data = await fetch(`/api/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formdata),
     })
-      .then((res) => {
-        if (res.ok) res.json();
-        return {
-          error: {
-            message: res.statusText,
-            status: res.status,
-          },
-        };
-      })
-
+      .then((res) => res.json())
       .catch((err) => console.log(err));
+    console.log(data);
     if (data?.error) {
       toast.error(data?.error.message);
     } else {

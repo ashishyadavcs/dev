@@ -4,21 +4,19 @@ import { FcGoogle } from "react-icons/fc";
 import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
-import { saveUser } from "../store/userSlice";
 import { useDispatch } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 export const Page = () => {
   const [show, setShow] = useState(true);
   const router = useRouter();
   const dispatch = useDispatch();
-
   const login = async (e) => {
     const formdata = {
       email: e.target.email.value,
       password: e.target.password.value,
     };
 
-    const data = await fetch(`http://localhost:4000/login`, {
+    const data = await fetch(`/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,15 +37,10 @@ export const Page = () => {
       })
       .catch((err) => console.log(err));
     console.log(data);
-    if (data?.error) {
-      toast.error(data?.error.message);
-    } else {
-      console.log(data);
-      await dispatch(saveUser(data?.user));
+    if (data?.success) {
       toast.success("loged in successfully");
-      router.push({
-        pathname: "/",
-      });
+    } else {
+      toast.error(data?.message);
     }
   };
   return (

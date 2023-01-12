@@ -6,6 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/userSlice";
+import Notes from "./ui/note";
+import Dropdown from "./ui/dropdown";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -13,11 +15,12 @@ const Header = () => {
   const refs = useRef({});
   return (
     <>
+      <Notes />
       <header className="d-flex align-items-center">
         <div className="d-flex container justify-content-between align-items-center position-relative">
           <Link href="/">
             <a>
-              <b className="m-0">Dev</b>
+              <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
             </a>
           </Link>
           <ul className="list-unstyled d-flex align-items-center mb-0">
@@ -30,6 +33,7 @@ const Header = () => {
                   }
                 >
                   <Link href={li.url}>{li.text}</Link>
+                  <Dropdown />
                 </li>
               );
             })}

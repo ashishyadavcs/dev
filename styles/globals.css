@@ -81,9 +81,17 @@ h3 {
 .layout header a {
   text-decoration: none;
   color: #333;
+  font-weight: 600;
 }
 .layout header li a {
   padding: 0.5rem 1rem;
+}
+.layout header li > ul {
+  display: none;
+}
+.layout header li:hover > ul {
+  display: block;
+  height: 400px;
 }
 .layout > .container {
   padding-bottom: 2rem;
@@ -166,14 +174,43 @@ h3 {
     height: 100vh;
   }
 }
-
+.cancel-btn {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  min-width: 200px;
+  text-align: center;
+  text-transform: capitalize;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: teal;
+}
+.submit-btn {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  min-width: 200px;
+  text-align: center;
+  text-transform: capitalize;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: teal;
+  color: #fff;
+}
 .theme-btn {
   padding: 10px 20px;
   outline: none;
   border: none;
   text-transform: capitalize;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(to right, rgb(238, 209, 209), rgb(0, 255, 128));
+  color: #fff;
+  border-radius: 10px;
+  background: rgb(8, 8, 31);
+}
+
+.themebtn:active {
+  transform: scale(1.1);
 }
 .heading {
   font-size: 40px;
@@ -225,8 +262,10 @@ footer {
   background: #000000f2;
   color: #ccc;
 }
+
 footer a {
-  color: rgb(170, 167, 167);
+  color: #ddd;
+  text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
 footer a:hover {
@@ -254,7 +293,7 @@ footer li {
   transition: 0.3s;
 }
 footer .smallheading {
-  color: rgb(57, 57, 45);
+  color: #fff;
   font-size: 20px;
 }
 .gototop {
