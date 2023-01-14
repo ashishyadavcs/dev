@@ -16,12 +16,8 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <h3 className="smallheading">Address</h3>
+              <h3 className="smallheading">Contact</h3>
               <p>
-                {contact.address} <br />
-                Hariyana, India
-                <br />
-                <br />
                 <strong>Phone : </strong>
                 <a href={`tel:${contact.mobile}`}>{contact.mobile}</a>
                 <br />

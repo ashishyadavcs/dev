@@ -16,7 +16,16 @@ input {
   border: 1px solid #ddd;
   margin: 10px 0 !important;
 }
-
+:root {
+  /*required*/
+  --bg-light: #1b263b;
+  --notesbg: rgb(0 50 201);
+  --color: #e0e1dd;
+  --whiter: #778da9;
+  --whitest: #415a77;
+  --bg: #0d1b2a;
+  /*required*/
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,10 +34,13 @@ input {
   font-family: "Open Sans", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
+.notes {
+  background: var(--notesbg);
+  color: var(--color);
+}
 .layout {
   max-height: 100vh;
   min-height: 100vh;
-  overflow: auto;
 }
 .heading {
   font-size: clamp(30px, 3vw, 38px) !important;
@@ -116,9 +128,9 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 .layout footer {
-  background: teal;
+  background: var(--bg);
   padding: 1rem;
-  color: #fff;
+  color: var(--color);
 }
 
 @keyframes blink {
@@ -269,7 +281,7 @@ footer a {
   transition: all 0.3s ease-in-out;
 }
 footer a:hover {
-  color: #000;
+  color: var(--whiter);
 }
 footer li {
   margin-bottom: 7px;
@@ -414,13 +426,4 @@ input::-webkit-file-upload-button {
   background: teal;
   color: #fff;
   border-radius: 20px;
-}
-
-/*testp*/
-.body {
-  min-height: 70vh;
-}
-.progressbar {
-  background: red;
-  height: 4px;
 }

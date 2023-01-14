@@ -16,11 +16,11 @@ export const nav = [
     text: "Portfolio",
   },
   {
-    url: "/review",
-    text: "Reviews",
-  },
-  {
     url: "/services",
     text: "services",
+  },
+  {
+    url: "/blog",
+    text: "blog",
   },
 ];

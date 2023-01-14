@@ -46,9 +46,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="container">
-        <Services />
-      </div>
+
       <div className={styles.portfolio}></div>
       {/* <div className={styles.testimonial}>
         <div className="container">
