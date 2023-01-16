@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "nprogress/nprogress.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import Layout from "../components/layout";
 import Router, { useRouter } from "next/router";
@@ -7,7 +8,14 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { layout } from "../public/data/layout";
-
+import nProgress from "nprogress";
+Router.events.on("routeChangeStart", () => nProgress.start());
+Router.events.on("routeChangeComplete", () => {
+  nProgress.done();
+  if (document.querySelector(".mainscrollbar"))
+    document.querySelector(".mainscrollbar").scrollTo(0, 0);
+});
+Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeComplete", () => {
     window.scrollTo(0, 0);

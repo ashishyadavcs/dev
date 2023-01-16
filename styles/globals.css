@@ -19,7 +19,7 @@ input {
 :root {
   /*required*/
   --bg-light: #1b263b;
-  --notesbg: rgb(0 50 201);
+  --notesbg: rgb(252, 34, 187);
   --color: #e0e1dd;
   --whiter: #778da9;
   --whitest: #415a77;
@@ -34,13 +34,21 @@ input {
   font-family: "Open Sans", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
+#nprogress .bar {
+  background: teal !important;
+  height: 7px;
+}
 .notes {
   background: var(--notesbg);
+  color: var(--color);
+}
+.notes a {
   color: var(--color);
 }
 .layout {
   max-height: 100vh;
   min-height: 100vh;
+  overflow: auto;
 }
 .heading {
   font-size: clamp(30px, 3vw, 38px) !important;
@@ -183,7 +191,8 @@ h3 {
     border-bottom: 1px solid rgba(252, 220, 220, 0.595);
   }
   .layout header ul.active {
-    height: 100vh;
+    height: 400px;
+    border-top: 1px solid #ddd;
   }
 }
 .cancel-btn {

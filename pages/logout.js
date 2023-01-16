@@ -1,13 +1,24 @@
-const Logout = () => {
-  return "";
+const logout = () => {
+  return <div>Please wait</div>;
 };
-
-export default Logout;
-export async function getServerSideProps(req, res) {
+export async function getServerSideProps({ req, res }) {
+  const token = req.cookies["x-token"] || req.headers.cookies;
+  res.setHeader("Set-Cookie", [
+    `x-token=deleted; Max-Age=0;domain=${process.env.COOKIE_DOMAIN};`,
+    `x-refresh=deleted; Max-Age=0;domain=${process.env.COOKIE_DOMAIN};`,
+    `_user=deleted; Max-Age=0;domain=${process.env.COOKIE_DOMAIN};`,
+  ]);
+  await fetch(`${process.env.BASE_URL}/auth/logout/`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return {
     redirect: {
-      permanent: false,
-      destination: "/login",
+      parmanent: false,
+      destination: "/login/",
     },
   };
 }
+export default logout;

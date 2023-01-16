@@ -1,7 +1,8 @@
-import React from "react";
 import styles from "../styles/orderform.module.css";
 import { createOrder } from "../utils/order";
+import { useRouter } from "next/router";
 const Orderform = () => {
+  const router = useRouter();
   return (
     <div className={styles.orderform}>
       <span
@@ -15,7 +16,7 @@ const Orderform = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createOrder(e);
+          createOrder(e, router);
         }}
       >
         <h2>Order for website design</h2>
@@ -29,7 +30,6 @@ const Orderform = () => {
         ></textarea>
         <label>Reference website image or urls</label>
         <input
-          required
           accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
           multiple
           name="file"
@@ -39,10 +39,9 @@ const Orderform = () => {
         <input
           name="mobile"
           className="w-100"
-          required
           maxLength={10}
           type="tel"
-          placeholder="Mobile number"
+          placeholder="whatsapp number"
         ></input>
         <button className="my-1 theme-btn d-block w-100">submit</button>
       </form>

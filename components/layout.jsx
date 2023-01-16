@@ -3,6 +3,7 @@ import Header from "./header";
 import Footer from "./footer";
 import Whatsapp from "./whatsapp";
 import Orderpop from "./orderpop";
+import Cookies from "cookies";
 const Layout = ({ children }) => {
   useEffect(() => {
     const gotop = document.querySelector(".gototop");

@@ -1,14 +1,16 @@
 import { toast } from "react-toastify";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import Cookies from "cookies";
 export const Page = () => {
   const [show, setShow] = useState(true);
   const router = useRouter();
+
   const dispatch = useDispatch();
   const login = async (e) => {
     const formdata = {
@@ -39,6 +41,7 @@ export const Page = () => {
     console.log(data);
     if (data?.success) {
       toast.success("loged in successfully");
+      router.push("/dashboard");
     } else {
       toast.error(data?.message);
     }

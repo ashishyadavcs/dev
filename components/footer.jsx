@@ -8,6 +8,7 @@ import {
   FaSkype,
   FaTwitter,
 } from "react-icons/fa";
+import { ismobile } from "../utils/device";
 
 const Footer = () => {
   return (
@@ -123,9 +124,11 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="gototop text-white d-flex justify-content-center align-items-center">
-        <FaArrowDown size={15} />
-      </div>
+      {ismobile && (
+        <div className="gototop text-white d-flex justify-content-center align-items-center">
+          <FaArrowDown size={15} />
+        </div>
+      )}
     </>
   );
 };
