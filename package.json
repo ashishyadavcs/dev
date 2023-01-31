@@ -13,7 +13,7 @@
     "@ckeditor/ckeditor5-react": "^5.0.6",
     "@reduxjs/toolkit": "^1.8.3",
     "@stripe/stripe-js": "^1.32.0",
-    "bootstrap": "4.6.0",
+    "bootstrap": "^5.2.3",
     "cookies": "^0.8.0",
     "form-data": "^4.0.0",
     "formidable": "^2.1.1",
