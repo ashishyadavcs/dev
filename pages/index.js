@@ -4,6 +4,7 @@ import Services from "../components/service";
 import Testimonial from "../components/testimonial";
 import { BsCheck2Circle } from "react-icons/bs";
 import { NextSeo } from "next-seo";
+import Upload from "@/components/upload";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -41,24 +42,13 @@ export default function Home() {
               </ul>
             </div>
             <div className="col-md-5 col-12">
-              <Orderform />
+              <Orderform title="Hire me for website" />
             </div>
           </div>
         </div>
       </div>
 
       <div className={styles.portfolio}></div>
-      {/* <div className={styles.testimonial}>
-        <div className="container">
-          <h2>Happy Clients with us</h2>
-          <p>What our clients say about us.</p>
-          <div className="row">
-            <div className="col-12">
-              <Testimonial />
-            </div>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

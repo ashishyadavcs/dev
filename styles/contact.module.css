@@ -1,5 +1,5 @@
 .contact {
-  background: radial-gradient(rgb(148, 251, 219), white);
+  background: radial-gradient(rgb(248, 238, 218), white);
   min-height: 90vh;
   padding: 2rem 0;
 }
@@ -10,4 +10,8 @@
 }
 .contact form > div {
   width: 100%;
+}
+.contact input,
+.contact textarea {
+  border: 1px solid #888;
 }

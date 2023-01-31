@@ -1,30 +1,43 @@
+import styles from "@/styles/dashboard.module.css";
 import Link from "next/link";
-
+import { AiOutlineHome } from "react-icons/ai";
+import { FiCode } from "react-icons/fi";
 const Page = ({ orders }) => {
   return (
-    <div className="container py-3">
-      <ul>
-        {orders.map((order, i) => (
-          <li key={order._id}>
-            <Link href={`/dashboard/order/${order._id}`}>
-              {order.description}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className={styles.dashboard}>
+        <div className={styles.sidebar}>
+          <ul>
+            <li>
+              <Link href="">
+                <a>
+                  <AiOutlineHome size={25} />
+                  Home
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="">
+                <a>
+                  <AiOutlineHome size={25} />
+                  Profile
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="">
+                <a>
+                  <FiCode size={25} />
+                  orders
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className={styles.main}></div>
+      </div>
+    </>
   );
 };
 
 export default Page;
-export async function getServerSideProps(context) {
-  const data = await fetch(`${process.env.APP_URL}/api/order`).then((res) =>
-    res.json()
-  );
-
-  return {
-    props: {
-      orders: data.order,
-    },
-  };
-}

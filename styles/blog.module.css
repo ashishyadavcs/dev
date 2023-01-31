@@ -1,16 +1,123 @@
 .blog .tag a {
-  padding: 3px 10px;
+  padding: 5px 20px;
   display: inline-block;
   border-radius: 20px;
   color: aliceblue;
   background: teal;
   font-size: 12px;
   font-weight: 600;
-  margin: 0 5px 5px 0;
+  margin: 0 10px 10px 0;
   text-decoration: none;
+}
+.blog img {
+  max-width: 100%;
+}
+.newsletter {
+  margin-top: 30px;
+  border-radius: 1rem;
+}
+.newsletter input {
+  border: 2px solid teal;
+  box-shadow: 0 1px 2px rgba(254, 230, 230, 0.4);
 }
 .sticky {
   position: sticky;
   z-index: 2;
   top: 85px;
+}
+.items {
+  display: grid;
+  margin: 2rem 0;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.post {
+  box-shadow: 0 4px 4px rgb(155, 152, 152);
+  overflow: hidden;
+  border-radius: 4px;
+  min-height: 150px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.post .thumbnail {
+  position: relative;
+}
+
+.post .content {
+  padding: 1rem;
+  position: absolute;
+  z-index: 2;
+}
+.addpost {
+  padding: 10px;
+  border: 1px dashed;
+}
+.addpost input,
+.addpost textarea {
+  border: 2px solid teal;
+  padding: 5px;
+}
+.addpost label {
+  margin: 10px;
+}
+.addpost .content {
+  min-height: 500px;
+}
+
+.addpost form .left {
+  display: flex;
+  flex-direction: column;
+}
+.post .action {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+}
+.blog table {
+  width: 100%;
+}
+.blog table tr:hover {
+  background: #f1f1f1;
+}
+.blog td {
+  padding: 10px;
+  border: 2px solid #ddd;
+}
+.addpost .faq {
+  border: 1px dashed teal;
+}
+.postbanner {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+.postbanner img {
+  z-index: -1;
+}
+.postbanner h1 {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(40px, 4vw, 70px) !important;
+  text-shadow: 0px 1px 1px #000;
+}
+
+@media (max-width: 767px) {
+  .post {
+    flex-direction: column;
+    width: 100%;
+  }
+  .post .thumbnail {
+    width: 100%;
+    min-width: 100%;
+  }
 }

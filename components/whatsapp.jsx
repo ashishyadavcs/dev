@@ -19,9 +19,7 @@ const Whatsapp = () => {
         text: document.title,
         url: window.location.href,
       });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
   return (
     <>

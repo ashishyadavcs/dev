@@ -1,0 +1,37 @@
+.toc {
+  margin-top: 30px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.toc b {
+  margin-bottom: 10px;
+  display: block;
+}
+.toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.toc a {
+  text-decoration: none;
+  display: grid !important;
+  grid-column-gap: 8px;
+  grid-template-columns: 22px calc(100% - 25px);
+  color: teal;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.toc a span {
+  background: teal;
+  color: #fff;
+  height: 22px;
+  margin-top: 5px;
+  min-width: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

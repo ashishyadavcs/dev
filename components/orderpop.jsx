@@ -1,5 +1,4 @@
 import Orderform from "./orderform";
-import styles from "../styles/orderform.module.css";
 const Orderpop = (handler) => {
   return (
     <div

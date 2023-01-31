@@ -1,167 +1,64 @@
 import Image from "next/image";
-import Link from "next/link";
+import Toc from "@/components/tableofcontent";
 import styles from "../../styles/blog.module.css";
-import { ArticleJsonLd, NextSeo } from "next-seo";
-
-const Post = ({ data, allpost }) => {
-  console.log(allpost);
-  const {
-    title,
-    slug,
-    description,
-    feature_image,
-    files,
-    author,
-    publishedAt,
-    updatedAt,
-    post,
-  } = data?.attributes;
+import Sidebar from "@/components/sidebar";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
+import Share from "@/components/ui/share";
+import Ashish from "@/components/ashish";
+const Blog = ({ post, blogs }) => {
+  const router = useRouter();
+  console.log(post);
   return (
-    <>
-      <NextSeo
-        canonical={`${process.env.NEXT_PUBLIC_APP_URL}/${slug}`}
-        title={title}
-        description={description}
-        openGraph={{
-          type: "website",
-          url: `${process.env.NEXT_PUBLIC_APP_URL}/${slug}`,
-          title: title,
-          description: description,
-          images: [
-            {
-              url: "https://www.example.ie/og-image-01.jpg",
-              width: 800,
-              height: 600,
-              alt: "Og Image Alt",
-              type: "image/jpeg",
-            },
-          ],
-          site_name: process.env.NEXT_PUBLIC_SITENAME,
-        }}
-        twitter={{
-          handle: `@${process.env.NEXT_PUBLIC_SITENAME}`,
-          site: `@${process.env.NEXT_PUBLIC_SITENAME}`,
-          cardType: "summary_large_image",
-        }}
-      />
-
-      <ArticleJsonLd
-        type="Blog"
-        url={`${process.env.NEXT_PUBLIC_APP_URL}/${slug}`}
-        title="Blog headline"
-        images={[
-          "https://example.com/photos/1x1/photo.jpg",
-          "https://example.com/photos/4x3/photo.jpg",
-          "https://example.com/photos/16x9/photo.jpg",
-        ]}
-        datePublished={publishedAt}
-        dateModified={updatedAt}
-        authorName={author}
-        description={description}
-      />
-      {feature_image?.data && (
-        <div className="position-relative" style={{ height: "400px" }}>
+    <main className={`${styles.blog} mainscrollbar mb-4`}>
+      <Share />
+      <div className={styles.postbanner}>
+        <h1>{post.title}</h1>
+        {post.thumbnail && (
           <Image
-            alt=""
-            priority={1}
+            priority
+            src={
+              typeof post.thumbnail == undefined
+                ? post.thumbnail
+                : "https://media.istockphoto.com/id/1288739928/photo/its-boring.jpg?s=170667a&w=0&k=20&c=uO7tJnfS1ioV2UOdT0hAt4O6daNm4TGl1malL-7kDBg="
+            }
             objectFit="cover"
-            src={`${process.env.NEXT_PUBLIC_CMS_URL}${feature_image?.data?.attributes?.url}`}
             layout="fill"
+            alt={post.title}
           />
-        </div>
-      )}
-      <div className={`${styles.blog} container`}>
+        )}
+      </div>
+      <NextSeo title={post.title} description={post.description} />
+      <div className="container">
         <div className="row">
-          <div className="col-md-9">
-            <div className="my-4">
-              <h1 className="text-info">{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: post }}></div>
-              {files.data.map((img) => {
-                return (
-                  <div
-                    key={img.id}
-                    className="position-relative my-4"
-                    style={{
-                      height: img.attributes.mime.split("/").includes("image")
-                        ? "400px"
-                        : "30px",
-                    }}
-                  >
-                    {img.attributes.mime.split("/").includes("image") ? (
-                      <Image
-                        src={
-                          process.env.NEXT_PUBLIC_CMS_URL + img.attributes?.url
-                        }
-                        layout="fill"
-                        alt=""
-                        objectFit="cover"
-                      />
-                    ) : (
-                      <a
-                        height="100%"
-                        width="100%"
-                        download
-                        href={
-                          process.env.NEXT_PUBLIC_CMS_URL + img.attributes?.url
-                        }
-                      >
-                        {img.attributes.name}
-                      </a>
-                    )}
-                  </div>
-                );
-              })}
-              <p>Author : {author?.data?.attributes?.name}</p>
-              <div className="d-flex justify-content-between">
-                <datetime>
-                  Published at : {new Date(publishedAt).toDateString()}
-                </datetime>
-                <datetime>
-                  Updated at : {new Date(updatedAt).toDateString()}
-                </datetime>
-              </div>
-            </div>
+          <div className="col-md-8">
+            <div
+              className="my-4 article"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
           </div>
-          <div className="col-md-3">
-            <div className={`my-4 ${styles.sticky}`}>
-              <h2>All Posts</h2>
-              <ul className={`list-unstyled d-flex flex-wrap ${styles.tag}`}>
-                {allpost.map((tag) => {
-                  return (
-                    <li key={Math.random()}>
-                      <Link href={`/blog/${tag.attributes.slug}`}>
-                        <a className="text-capitalize">
-                          {tag.attributes.title}
-                        </a>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+          <div className="col-md-4">
+            <Toc />
+            <Sidebar styles={styles} />
+            <Ashish />
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };
-
-export default Post;
-
-export async function getServerSideProps({ params }) {
-  const data = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/blog/${params.slug}`
-  )
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-  const allpost = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/blog/`
-  ).then((res) => res.json());
+export default Blog;
+export async function getServerSideProps(req) {
+  const { slug } = req?.query;
+  const [blogs, post] = await Promise.all([
+    fetch(`${process.env.APP_URL}/api/post`).then((res) => res.json()),
+    fetch(`${process.env.APP_URL}/api/post/${slug}`).then((res) => res.json()),
+  ]);
 
   return {
     props: {
-      data: data.data || {},
-      allpost: allpost.data || [],
+      post: post.post || [],
+      blogs: blogs.posts || [],
     },
   };
 }

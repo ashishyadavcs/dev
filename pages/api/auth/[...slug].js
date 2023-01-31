@@ -1,7 +1,6 @@
 import Cookies from "cookies";
 export default async function handler(req, res) {
   const token = req.cookies["x-token"] || req.headers.cookies;
-  const user = req.cookies["_user"];
   const { slug } = req.query;
   const option = {
     method: req.method,
@@ -24,7 +23,6 @@ export default async function handler(req, res) {
     ).then((res) => res.json());
     if (result.success) {
       const cookies = new Cookies(req, res, { keys: ["keras-token"] });
-
       if (result.data.user) {
         cookies.set("_user", result.data.user._id, {
           overwrite: true,
@@ -55,10 +53,15 @@ export default async function handler(req, res) {
       }
       res.json(result);
     } else {
+      res.json({
+        ...result,
+        success: false,
+      });
     }
   } catch (err) {
     res.json({
-      error: err.message,
+      success: false,
+      message: err.message,
     });
   }
 }

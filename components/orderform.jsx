@@ -1,7 +1,7 @@
 import styles from "../styles/orderform.module.css";
 import { createOrder } from "../utils/order";
 import { useRouter } from "next/router";
-const Orderform = () => {
+const Orderform = ({ title }) => {
   const router = useRouter();
   return (
     <div className={styles.orderform}>
@@ -19,7 +19,8 @@ const Orderform = () => {
           createOrder(e, router);
         }}
       >
-        <h2>Order for website design</h2>
+        <h2>{title || "Order for website design"}</h2>
+
         <input hidden type="text" name="type" />
         <textarea
           autoFocus

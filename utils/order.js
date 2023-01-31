@@ -14,13 +14,16 @@ export const createOrder = async (e, router) => {
     body: JSON.stringify(formdata),
   })
     .then((res) => res.json())
-    .catch((err) => console.log(err));
+    .catch((err) => ({
+      success: false,
+      message: err.message,
+    }));
 
   if (data.success) {
     toast.success("Order created successfully");
     router.push(`/dashboard/order/${data.order._id}`);
-    document.querySelector(".orderpop")?.classList.add("d-none");
+    document.querySelector(".orderpop")?.classList.remove("active");
   } else {
-    toast.error("something went wrong");
+    toast.error(data.message);
   }
 };

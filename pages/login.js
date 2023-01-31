@@ -1,17 +1,16 @@
 import { toast } from "react-toastify";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import styles from "../styles/auth.module.css";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import Cookies from "cookies";
 export const Page = () => {
   const [show, setShow] = useState(true);
   const router = useRouter();
-
   const dispatch = useDispatch();
+  const from = router.query.from;
   const login = async (e) => {
     const formdata = {
       email: e.target.email.value,
@@ -25,23 +24,16 @@ export const Page = () => {
       },
       body: JSON.stringify(formdata),
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return {
-            error: {
-              message: res.status,
-              status: res.statusText,
-            },
-          };
-        }
-      })
-      .catch((err) => console.log(err));
-    console.log(data);
+      .then((res) => res.json())
+      .catch((err) =>
+        res.json({
+          success: false,
+          message: "",
+        })
+      );
     if (data?.success) {
       toast.success("loged in successfully");
-      router.push("/dashboard");
+      router.push(from || "/dashboard");
     } else {
       toast.error(data?.message);
     }
@@ -105,3 +97,19 @@ export const Page = () => {
 };
 
 export default Page;
+export async function getServerSideProps({ req }) {
+  if (req.cookies["x-refresh"] || req.cookies["x-token"]) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: req.headers.referer
+          ? req.headers.referer.split(process.env.APP_URL)[1]
+          : "/dashboard",
+      },
+    };
+  } else {
+    return {
+      props: {},
+    };
+  }
+}

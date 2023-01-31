@@ -8,20 +8,24 @@
   box-shadow: 0 4px 4px rgb(155, 152, 152);
   overflow: hidden;
   border-radius: 4px;
-  min-height:550px;
+  min-height: 550px;
+  background: #fff;
 }
 
-.card>div:first-child{
-    overflow: hidden;
-    height: 45%;
+.card > div:first-child {
+  overflow: hidden;
+  height: 45%;
 }
-.card>div:last-child{padding:1.5rem;height: 55%;}
+.card > div:last-child {
+  padding: 1.5rem;
+  height: 55%;
+}
 
-
-
-.hero{
+.hero {
   padding: 2rem 0;
-  min-height: 100vh;
   color: #fff;
-  background: linear-gradient(87.1deg, #253059 37.01%, #1A2346 98.89%);
+  background: linear-gradient(87.1deg, #253059 37.01%, #1a2346 98.89%);
+}
+.hero .cta {
+  margin-top: 30px;
 }

@@ -15,50 +15,43 @@ const Header = () => {
   const refs = useRef({});
   return (
     <>
-      <Notes />
-      <header className="d-flex align-items-center">
+      {/* <Notes /> */}
+      <header
+        ref={(el) => (refs.current.header = el)}
+        className="d-flex align-items-center"
+      >
         <div className="d-flex container justify-content-between align-items-center position-relative">
           <Link href="/">
             <a>
               <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
             </a>
           </Link>
-          <ul className="list-unstyled d-flex align-items-center mb-0">
-            {nav.map((li, i) => {
-              return (
-                <li
-                  key={i}
-                  onClick={(e) =>
-                    e.currentTarget.parentElement.classList.remove("active")
-                  }
-                >
-                  <Link href={li.url}>{li.text}</Link>
-                  <Dropdown />
-                </li>
-              );
-            })}
-          </ul>
-          <ul className="list-unstyled d-flex align-items-center mb-0">
-            {user ? (
-              <li
-                className="pointer login"
-                onClick={(e) => refs.current.profile.classList.toggle("active")}
-              >
-                <CgProfile size={30} color="teal" />
-              </li>
-            ) : (
-              <li>
-                <Link href="/login">Login</Link>
-              </li>
-            )}
-          </ul>
-          <GiHamburgerMenu
-            className="pointer menu"
-            onClick={(e) =>
-              e.currentTarget.previousElementSibling.classList.toggle("active")
-            }
-            size={20}
-          />
+          <div className="d-flex justify-content-between mobilelinks">
+            <ul className="list-unstyled d-flex align-items-center mb-0">
+              {nav.map((li, i) => {
+                return (
+                  <li
+                    key={i}
+                    onClick={(e) =>
+                      refs.current.header.classList.remove("active")
+                    }
+                  >
+                    <Link href={li.url}>{li.text}</Link>
+                    <Dropdown />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <button
+            role="menu"
+            className="menu"
+            onClick={(e) => refs.current.header.classList.toggle("active")}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
           {user && (
             <>

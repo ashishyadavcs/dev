@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "../styles/services.module.css";
 import { openform } from "../utils/common";
 import { createContext } from "react";
-import { redirect } from "next/dist/server/api-utils";
 const Servicecount = createContext();
 const Servicespage = () => {
   const data = { name: "Ashish" };
@@ -14,22 +13,23 @@ const Servicespage = () => {
       <div className={styles.hero}>
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
-              <h1 className="heading">
-                Web developement services<br></br>Fast , affordable and with
-                <br></br>{" "}
-                <span className="awesome-green">100% satisfaction</span>{" "}
-              </h1>
-              <p className="my-3">
-                Do you Need a website for your &nbsp;
-                <span className="awesome-green">business</span>?<br></br> Get
-                your website developed by expert web developer.
-              </p>
-              <button onClick={openform} className="theme-btn cta-btn">
-                Get Your website Now
-              </button>
+            <div className="col-md-7 d-flex align-items-center">
+              <div>
+                <h1 className="heading">
+                  Web developement services<br></br>Fast , affordable and with
+                  <br></br>{" "}
+                  <span className="awesome-green">100% satisfaction</span>{" "}
+                </h1>
 
-              <h3 className="my-4">Trust Us, Get awesome work done by Us.</h3>
+                <button
+                  onClick={openform}
+                  className={`theme-btn cta-btn ${styles.cta}`}
+                >
+                  Get Your website Now
+                </button>
+              </div>
+
+              {/* <h3 className="my-4">Trust Us, Get awesome work done by Us.</h3> */}
             </div>
 
             <div className="col-md-5 position-relative">
@@ -38,7 +38,7 @@ const Servicespage = () => {
                   src={"/images/service/service.png"}
                   alt=""
                   objectFit="contain"
-                  height={600}
+                  height={300}
                   width={500}
                   objectPosition="right"
                 ></Image>

@@ -1,0 +1,48 @@
+.dashboard {
+  background: #f1f1f1;
+  display: grid;
+  grid-template-columns: 20% calc(80% - 20px);
+  grid-column-gap: 20px;
+  padding: 1rem;
+  min-height: 90vh;
+  font-weight: 600;
+}
+.main {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+.sidebar {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.sidebar li svg {
+  margin-right: 10px;
+}
+.sidebar {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.sidebar a {
+  text-decoration: none;
+  color: #888;
+  padding: 1rem;
+  display: block;
+  width: 100%;
+}
+.sidebar a:hover {
+  background: #fffbfb;
+}

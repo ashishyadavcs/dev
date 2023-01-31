@@ -1,10 +1,14 @@
 .status ul {
   list-style: none;
   display: flex;
-  justify-content: center;
   padding: 0;
   overflow: auto;
-  margin: 2rem 0;
+  margin: 1rem 0;
+  padding: 1rem 0;
+}
+.status ul::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
 }
 .status li {
   margin-right: 20px;
@@ -12,7 +16,7 @@
   min-width: max-content;
   background: #fff;
   padding: 10px 20px;
-  border: 2px solid;
+  border: 1px solid #ddd;
   border-radius: 10px;
 }
 .status li:not(:last-child)::before {

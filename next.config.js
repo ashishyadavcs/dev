@@ -5,6 +5,14 @@ const nextConfig = {
     locales: ["en-US", "fr", "nl-NL"],
     defaultLocale: "en-US",
   },
+
+  api: {
+    bodyParser: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   images: {
     domains: [
       "static.tutorbin.com",
@@ -12,6 +20,7 @@ const nextConfig = {
       "images.unsplash.com",
       "localhost",
       "tutorbin.com",
+      "media.istockphoto.com",
       "publicpagestutorbin.blob.core.windows.net",
       "ui-avatars.com",
       "mediatb.blob.core.windows.net",

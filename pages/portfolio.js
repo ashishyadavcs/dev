@@ -1,38 +1,45 @@
-import React from "react";
+import styles from "@/styles/portfolio.module.css";
+import Image from "next/image";
+
 const Portfolio = ({ projects }) => {
-  console.log(projects);
   return (
-    <div className="container my-4 d-flex flex-wrap">
-      {projects?.map((project) => {
-        return (
-          <div
-            key={project.id}
-            className="project rounded-lg shadow-sm border border-1 border-success m-3 p-3"
-          >
-            <h2>{project?.title}</h2>
-            <p>{project?.description}</p>
-            <a href={project?.link}>{project?.link}</a>
-          </div>
-        );
-      })}
+    <div className="container my-4 ">
+      <div className={styles.portfolios}>
+        {projects?.map((project) => {
+          return (
+            <div key={project.id} className={styles.item}>
+              <div className={styles.thumbnail}>
+                {project.image && (
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    alt={project.title}
+                    src={project.image}
+                  />
+                )}
+              </div>
+              <div className={styles.content}>
+                <h2>{project?.title}</h2>
+                <p>{project?.description}</p>
+                <a target="_blank" rel="noreferrer" href={project?.url}>
+                  live
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 export default Portfolio;
 export async function getServerSideProps() {
-  const data = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio?populate=*`
-  );
-  try {
-    const result = await data.json();
-    return {
-      props: {
-        projects: result.data.attributes.project,
-      },
-    };
-  } catch (err) {
-    return {
-      props: {},
-    };
-  }
+  const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`)
+    .then((res) => res.json())
+    .catch((err) => res.json({ portfolio: [] }));
+  return {
+    props: {
+      projects: data.portfolio || [],
+    },
+  };
 }

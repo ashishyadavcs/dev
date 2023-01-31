@@ -118,10 +118,9 @@ const Footer = () => {
       </footer>
       <div className="sub-footer d-flex align-items-center">
         <div className="container py-2 d-flex justify-content-between align-items-center">
-          <small>copyright&copy;2022-{new Date().getFullYear() + 1}</small>
-          <Link href="" className="text-white">
-            <a> About</a>
-          </Link>
+          <small className="text-secondary">
+            copyright&copy;2022-{new Date().getFullYear() + 1}
+          </small>
         </div>
       </div>
       {ismobile && (

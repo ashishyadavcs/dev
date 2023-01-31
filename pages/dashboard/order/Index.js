@@ -21,7 +21,6 @@ export async function getServerSideProps(context) {
   const data = await fetch(`${process.env.APP_URL}/api/order`).then((res) =>
     res.json()
   );
-
   return {
     props: {
       orders: data.order,

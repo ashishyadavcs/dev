@@ -35,3 +35,7 @@ export const setThumbnail = (filetype) => {
   }
   return types[i];
 };
+
+export const replacewithdash = (text) => {
+  return `${text.toLowerCase().trim().replace(/ /g, "-")}`;
+};

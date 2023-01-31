@@ -4,7 +4,9 @@ import { FcGoogle } from "react-icons/fc";
 import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useRouter } from "next/router";
 export const Register = () => {
+  const router = useRouter();
   const [show, setShow] = useState(true);
   const signup = async (e) => {
     const formdata = {
@@ -20,13 +22,12 @@ export const Register = () => {
       body: JSON.stringify(formdata),
     })
       .then((res) => res.json())
-      .catch((err) => console.log(err));
-    console.log(data);
-    if (data?.error) {
-      toast.error(data?.error.message);
+      .catch((err) => "");
+    if (data.success) {
+      toast.success("Registered successfully ");
+      router.push("/dashboard");
     } else {
-      localStorage.setItem("token", data?.token);
-      toast.success("Registred successfully");
+      toast.error(data.message);
     }
   };
   return (
