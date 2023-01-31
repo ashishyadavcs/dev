@@ -1,5 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
-import { Image } from "react-bootstrap";
+
 const payment = () => {
   const item = {
     name: "Apple AirPods",
