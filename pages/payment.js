@@ -1,4 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
+import Image from "next/image";
 
 const payment = () => {
   const item = {
