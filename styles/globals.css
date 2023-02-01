@@ -75,13 +75,6 @@ h3 {
   font-weight: 600 !important;
 }
 
-::-webkit-scrollbar {
-  width: 3px;
-}
-::-webkit-scrollbar-thumb {
-  background: #ddd;
-  border-radius: 10px;
-}
 .pointer {
   cursor: pointer;
 }
@@ -170,7 +163,6 @@ h3 {
 }
 .layout footer {
   background: var(--bg);
-  padding: 1rem;
   color: var(--color);
 }
 
