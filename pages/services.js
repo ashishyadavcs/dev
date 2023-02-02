@@ -1,9 +1,10 @@
 import React from "react";
 import Services from "../components/service";
-import Image from "next/image";
+
 import styles from "../styles/services.module.css";
 import { openform } from "../utils/common";
 import { createContext } from "react";
+import Image from "next/image";
 const Servicecount = createContext();
 const Servicespage = () => {
   const data = { name: "Ashish" };
@@ -11,6 +12,15 @@ const Servicespage = () => {
   return (
     <>
       <div className={styles.hero}>
+        <span className={styles.heroimg}>
+          <Image
+            src={"/images/service/service.png"}
+            alt=""
+            objectFit="contain"
+            layout="fill"
+            objectPosition="right"
+          ></Image>
+        </span>
         <div className="container">
           <div className="row">
             <div className="col-md-7 d-flex align-items-center">
@@ -30,19 +40,6 @@ const Servicespage = () => {
               </div>
 
               {/* <h3 className="my-4">Trust Us, Get awesome work done by Us.</h3> */}
-            </div>
-
-            <div className="col-md-5 position-relative">
-              <span style={{ pointerEvents: "none" }}>
-                <Image
-                  src={"/images/service/service.png"}
-                  alt=""
-                  objectFit="contain"
-                  height={300}
-                  width={500}
-                  objectPosition="right"
-                ></Image>
-              </span>
             </div>
           </div>
         </div>

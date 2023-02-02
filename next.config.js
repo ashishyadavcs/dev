@@ -2,10 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    locales: ["en-US", "fr", "nl-NL"],
-    defaultLocale: "en-US",
+    locales: ["en"],
+    defaultLocale: "en",
   },
-
   api: {
     bodyParser: false,
   },
@@ -15,6 +14,7 @@ const nextConfig = {
 
   images: {
     domains: [
+      "cms.frontendzone.com",
       "static.tutorbin.com",
       "via.placeholder.com",
       "images.unsplash.com",

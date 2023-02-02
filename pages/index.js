@@ -5,6 +5,8 @@ import Testimonial from "../components/testimonial";
 import { BsCheck2Circle } from "react-icons/bs";
 import { NextSeo } from "next-seo";
 import Upload from "@/components/upload";
+import Blog from "@/components/banners/blog";
+import Ashish from "@/components/ashish";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -26,8 +28,9 @@ export default function Home() {
           <div className="row">
             <div className="col-md-7 col-12">
               <h1 className="gradient-text heading text-capitalize">
-                get your website designed<br></br> by expert web designer
-                <br></br> within 2 days
+                Get your website<br></br> designed & developed<br></br> by
+                expert web developer
+                <br></br>
               </h1>
 
               <ul className="list-unstyled mt-3">
@@ -41,8 +44,9 @@ export default function Home() {
                 })}
               </ul>
             </div>
-            <div className="col-md-5 col-12">
-              <Orderform title="Hire me for website" />
+            <div className="col-md-5 col-12 d-flex justify-content-end">
+              {/* <Orderform title="Hire me for website" /> */}
+              <Ashish />
             </div>
           </div>
         </div>

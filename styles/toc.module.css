@@ -5,6 +5,8 @@
   overflow: hidden;
   transition: all 0.3s;
   cursor: pointer;
+  max-height: 270px;
+  overflow: auto;
 }
 .toc b {
   margin-bottom: 10px;
@@ -15,21 +17,23 @@
   padding: 0;
   list-style: none;
 }
+
 .toc a {
   text-decoration: none;
   display: grid !important;
   grid-column-gap: 8px;
-  grid-template-columns: 22px calc(100% - 25px);
+  grid-template-columns: 15px calc(100% - 25px);
   color: teal;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   font-weight: 600;
 }
 .toc a span {
   background: teal;
   color: #fff;
-  height: 22px;
+  font-size: 10px;
+  height: 15px;
   margin-top: 5px;
-  min-width: 22px;
+  min-width: 15px;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;

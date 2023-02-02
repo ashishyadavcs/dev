@@ -37,15 +37,7 @@ const Aboutus = () => {
             by utlizing our eceptional web design and seo skills.{" "}
           </p>
         </div>
-        <div className="col-md-6 col-12 position-relative">
-          <Image
-            objectFit="cover"
-            src="/images/brandwebdesigner.jpg"
-            alt="brand web designer"
-            className="rounded"
-            layout="fill"
-          ></Image>
-        </div>
+        <div className="col-md-6 col-12 position-relative"></div>
       </div>
     </div>
   );

@@ -1,32 +1,29 @@
 export const services = [
   {
-    title: "website design",
+    title: "React website",
     name: "website-design",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore laudantium dolores eum nemo deleniti nobis aliquid, fugiat blanditiis aperiam, sint voluptatum vel corrupti sequi ut velit earum eius natus ipsum.",
+      "Are you looking for your website designed and developed in react js .",
   },
   {
-    title: "Wordpress theme design",
+    title: "Next.js website",
     name: "wordpress-theme",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore laudantium dolores eum nemo deleniti nobis aliquid, fugiat blanditiis aperiam, sint voluptatum vel corrupti sequi ut velit earum eius natus ipsum.",
+    description: "Get your website in next js (an react js freamework)",
   },
   {
     title: "Wordpress Blog Setup",
     name: "wordpress-blog",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore laudantium dolores eum nemo deleniti nobis aliquid, fugiat blanditiis aperiam, sint voluptatum vel corrupti sequi ut velit earum eius natus ipsum.",
+      "Get your wordpress blog fully setup with admin panel and and latest designed theme for your business or personal website",
   },
   {
     title: "Custom website design",
     name: "cutsom-website-design",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore laudantium dolores eum nemo deleniti nobis aliquid, fugiat blanditiis aperiam, sint voluptatum vel corrupti sequi ut velit earum eius natus ipsum.",
+    description: "get your custom website design",
   },
   {
-    title: "architecture website design",
+    title: "Node.js application",
     name: "",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore laudantium dolores eum nemo deleniti nobis aliquid, fugiat blanditiis aperiam, sint voluptatum vel corrupti sequi ut velit earum eius natus ipsum.",
+    description: "Get your node js website.",
   },
 ];

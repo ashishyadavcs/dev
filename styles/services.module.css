@@ -8,13 +8,17 @@
   box-shadow: 0 4px 4px rgb(155, 152, 152);
   overflow: hidden;
   border-radius: 4px;
-  min-height: 550px;
+  min-height: 370px;
   background: #fff;
 }
-
+.heroimg {
+  pointer-events: none;
+  z-index: -1;
+}
 .card > div:first-child {
   overflow: hidden;
   height: 45%;
+  position: relative;
 }
 .card > div:last-child {
   padding: 1.5rem;
@@ -24,8 +28,14 @@
 .hero {
   padding: 2rem 0;
   color: #fff;
+  position: relative;
   background: linear-gradient(87.1deg, #253059 37.01%, #1a2346 98.89%);
 }
 .hero .cta {
   margin-top: 30px;
+}
+@media (max-width: 767px) {
+  .heroimg {
+    opacity: 0.3;
+  }
 }

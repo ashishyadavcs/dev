@@ -9,7 +9,6 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { ismobile } from "../utils/device";
-
 const Footer = () => {
   return (
     <>
@@ -17,6 +16,13 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
+              <div className="mb-3">
+                <h3 className="smallheading ">
+                  {process.env.NEXT_PUBLIC_APP_NAME}
+                </h3>
+                <p>Frontend tutorials, tricks and tips</p>
+              </div>
+
               <h3 className="smallheading">Contact</h3>
               <p>
                 <strong>Phone : </strong>
@@ -82,16 +88,16 @@ const Footer = () => {
                     <a className="ml-1">About us</a>
                   </Link>
                 </li>
-                <li className="d-flex align-items-center">
+                {/* <li className="d-flex align-items-center">
                   <Link className="ml-1" href="/term-of-service">
                     Terms of service
                   </Link>
-                </li>
-                <li className="d-flex align-items-center">
+                </li> */}
+                {/* <li className="d-flex align-items-center">
                   <Link href="/privacy-policy">
                     <a className="ml-1">Privacy policy</a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="d-flex align-items-center">
                   <Link href={"/services"}>
                     <a className="ml-1">Services</a>
@@ -103,7 +109,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="d-flex align-items-center">
-                  <Link href={"/blog"}>
+                  <Link href={"/tutorial"}>
                     <a className="ml-1">Blog</a>
                   </Link>
                 </li>
@@ -123,7 +129,7 @@ const Footer = () => {
           </small>
         </div>
       </div>
-      {ismobile && (
+      {!ismobile && (
         <div className="gototop text-white d-flex justify-content-center align-items-center">
           <FaArrowDown size={15} />
         </div>

@@ -7,8 +7,14 @@ import {
 import styles from "@/styles/share.module.css";
 
 import { FiLink2 } from "react-icons/fi";
+import { useEffect } from "react";
 
 const Share = () => {
+  useEffect(() => {
+    document.body.classList.add("share");
+    return () => document.body.classList.remove("share");
+  }, []);
+
   const copyurl = () => {
     const input = document.createElement("input");
     input.value = window.location.href;

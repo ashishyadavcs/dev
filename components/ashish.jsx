@@ -24,15 +24,16 @@ const Ashish = () => {
         </strong>
       </div>
       <p>
-        Hi, I am a software engineer working at BOLD. I love to learn and work
-        on technologies besed on js. I have {new Date().getFullYear() - 2021}{" "}
-        years of experience in web development
+        Hi, I am a software engineer . I love to learn and work on technologies
+        . I have {new Date().getFullYear() - 2021} years of experience in web
+        development
       </p>
       <div className="techs">
         {techs.map((t, i) => (
           <strong key={i}>{t}</strong>
         ))}
       </div>
+      <strong className="ml-2 my-3 d-block">ashishbhu221306@gmail.com</strong>
     </div>
   );
 };

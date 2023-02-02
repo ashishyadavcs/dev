@@ -1,6 +1,11 @@
-import React from "react";
+import { NextSeo } from "next-seo";
 
 const Privacy = () => {
-  return <div className="container"></div>;
+  return (
+    <>
+      <NextSeo noindex />
+      <div className="container"></div>
+    </>
+  );
 };
 export default Privacy;
