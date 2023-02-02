@@ -20,7 +20,7 @@ export const nav = [
     text: "services",
   },
   {
-    url: "/blog",
-    text: "blog",
+    url: "/tutorial",
+    text: "tutorial",
   },
 ];

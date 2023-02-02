@@ -48,4 +48,4 @@ const Toc = () => {
   );
 };
 
-export default memo(Toc);
+export default Toc;

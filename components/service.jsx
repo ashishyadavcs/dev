@@ -26,9 +26,9 @@ const Services = () => {
               <div className={styles.card}>
                 <h2>{card.title}</h2>
                 <p>{card.description}</p>
-                <button onClick={openform} className="themebtn">
+                {/* <button onClick={openform} className="themebtn">
                   Order Now
-                </button>
+                </button> */}
               </div>
             </div>
           );

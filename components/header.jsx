@@ -20,7 +20,7 @@ const Header = () => {
         ref={(el) => (refs.current.header = el)}
         className="d-flex align-items-center"
       >
-        <div className="d-flex container justify-content-between align-items-center position-relative">
+        <div className="d-flex container justify-content-between align-items-center">
           <Link href="/">
             <a>
               <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
