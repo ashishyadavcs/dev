@@ -8,6 +8,7 @@ import Image from "next/image";
 import styles from "@/styles/blog.module.css";
 import { useRouter } from "next/router";
 import Post from "@/components/post";
+import Link from "next/link";
 const Blog = ({ posts, category }) => {
   const router = useRouter();
   return (
@@ -23,7 +24,12 @@ const Blog = ({ posts, category }) => {
               return <Post key={post._id} post={post} styles={styles} />;
             })
           ) : (
-            <p className="text-center">No Post</p>
+            <div className="w-100 d-flex justify-content-between">
+              <p className="text-center">No Post</p>
+              <Link href="/tutorial">
+                <a className="theme-btn">go home</a>
+              </Link>
+            </div>
           )}
         </div>
       </div>

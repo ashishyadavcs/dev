@@ -43,6 +43,9 @@
   min-height: max-content;
   margin-bottom: 10px;
 }
+.post:active {
+  box-shadow: none;
+}
 
 .post .thumbnail {
   position: relative;
@@ -120,6 +123,9 @@
   object-fit: contain;
   height: auto;
   margin: 1rem 0;
+}
+.blog a:hover {
+  color: #fff;
 }
 @media (max-width: 767px) {
   .postbanner {
