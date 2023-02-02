@@ -13,29 +13,37 @@ const Blog = ({ post, categories }) => {
   console.log(post);
   return (
     <main className={`${styles.blog} mainscrollbar mb-4`}>
-      <NextSeo
-        title={post.title}
-        description={` ${post?.excerpt.replace(/<[^>]+>/g, "").slice(0, 145)}`}
-        canonical={`${process.env.NEXT_PUBLIC_APP_URL}/tutorial/${post?.slug}`}
-        openGraph={{
-          type: "article",
-          url: `${process.env.NEXT_PUBLIC_APP_URL}/tutorial/${post.slug}`,
-          title: post?.title,
-          description: ` ${post.excerpt.replace(/<[^>]+>/g, "").slice(0, 145)}`,
+      {post?.title && (
+        <NextSeo
+          title={post.title}
+          description={` ${post?.excerpt
+            .replace(/<[^>]+>/g, "")
+            .slice(0, 145)}`}
+          canonical={`${process.env.NEXT_PUBLIC_APP_URL}/tutorial/${post?.slug}`}
+          openGraph={{
+            type: "article",
+            url: `${process.env.NEXT_PUBLIC_APP_URL}/tutorial/${post.slug}`,
+            title: post?.title,
+            description: ` ${post.excerpt
+              .replace(/<[^>]+>/g, "")
+              .slice(0, 145)}`,
 
-          images: [
-            {
-              url: post?.featuredImage?.node.mediaDetails.sizes[3].sourceUrl,
-              width: post?.featuredImage?.node.mediaDetails.sizes[3].width,
-              height: post?.featuredImage?.node.mediaDetails.sizes[3].height,
-              alt: post?.title,
-              type: "image/jpeg",
-            },
-            { url: post?.featuredImage?.node.mediaDetails.sizes[3].sourceUrl },
-          ],
-          siteName: process.env.NEXT_PUBLIC_APP_NAME,
-        }}
-      />
+            images: [
+              {
+                url: post?.featuredImage?.node.mediaDetails.sizes[3].sourceUrl,
+                width: post?.featuredImage?.node.mediaDetails.sizes[3].width,
+                height: post?.featuredImage?.node.mediaDetails.sizes[3].height,
+                alt: post?.title,
+                type: "image/jpeg",
+              },
+              {
+                url: post?.featuredImage?.node.mediaDetails.sizes[3].sourceUrl,
+              },
+            ],
+            siteName: process.env.NEXT_PUBLIC_APP_NAME,
+          }}
+        />
+      )}
       <Share />
       <div className={styles.postbanner}>
         <h1 className="p-2">{post.title}</h1>
@@ -74,10 +82,15 @@ export async function getServerSideProps(req) {
   const post = await getSinglePost(slug);
   const data = await getCategorySlugs();
 
+  if (post != null) {
+    return {
+      props: {
+        post: post || [],
+        categories: data,
+      },
+    };
+  }
   return {
-    props: {
-      post: post || [],
-      categories: data,
-    },
+    notFound: true,
   };
 }
