@@ -124,8 +124,21 @@
   height: auto;
   margin: 1rem 0;
 }
-.blog a:hover {
-  color: #fff;
+
+.blog pre {
+  box-shadow: 0 1px 4px #3f4049;
+  border-radius: 2px;
+  color: #fff !important;
+  font-family: "roboto";
+  font-size: 15px;
+  padding: 2px;
+}
+
+.blog pre code {
+  font-size: 16px;
+}
+.blog ul {
+  list-style-position: inside;
 }
 @media (max-width: 767px) {
   .postbanner {

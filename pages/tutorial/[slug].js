@@ -6,11 +6,17 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import Share from "@/components/ui/share";
 import Ashish from "@/components/ashish";
+import "highlight.js/styles/github.css";
+import hljs from "highlight.js";
 
 import { getCategorySlugs, getSinglePost } from "lib/posts";
+import { useEffect } from "react";
 const Blog = ({ post, categories }) => {
   const router = useRouter();
-  console.log(post);
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   return (
     <main className={`${styles.blog} mainscrollbar mb-4`}>
       {post?.title && (
