@@ -258,6 +258,9 @@ h3 {
   .layout header a {
     color: #fff;
   }
+  footer .smallheading:not(:first-child) {
+    margin-top: 30px;
+  }
 }
 .cancel-btn {
   padding: 10px 20px;
