@@ -133,7 +133,13 @@
   font-size: 15px;
   padding: 2px;
 }
-
+.blog h1,
+.blog h2,
+.blog h3,
+.blog h4,
+.blog h5 {
+  scroll-margin-top: 80px;
+}
 .blog pre code {
   font-size: 16px;
 }

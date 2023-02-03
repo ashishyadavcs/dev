@@ -92,7 +92,7 @@ export async function getServerSideProps(req) {
     return {
       props: {
         post: post || [],
-        categories: data,
+        categories: data || [],
       },
     };
   }
