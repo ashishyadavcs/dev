@@ -1,9 +1,11 @@
 import styles from "@/styles/portfolio.module.css";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 
 const Portfolio = ({ projects }) => {
   return (
     <div className="container my-4 ">
+      <NextSeo noindex nofollow />
       <div className={styles.portfolios}>
         {projects?.map((project) => {
           return (

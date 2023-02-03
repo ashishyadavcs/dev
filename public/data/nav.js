@@ -23,4 +23,8 @@ export const nav = [
     url: "/tutorial",
     text: "tutorial",
   },
+  {
+    url: "/login",
+    text: "login",
+  },
 ];

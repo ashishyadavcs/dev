@@ -5,6 +5,7 @@ import Sidebar from "@/components/sidebar";
 import Post from "@/components/post";
 import { getCategorySlugs, getPostList } from "lib/posts";
 const Blog = ({ posts, categories }) => {
+  console.log(categories);
   return (
     <div className={`${styles.blog} container my-4`}>
       <div className="row">
@@ -27,6 +28,7 @@ export default Blog;
 export async function getStaticProps() {
   const data = await getPostList();
   const categories = await getCategorySlugs();
+
   return {
     props: {
       posts: data.nodes,

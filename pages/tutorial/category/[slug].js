@@ -2,7 +2,12 @@ import Ashish from "@/components/ashish";
 import Sidebar from "@/components/sidebar";
 import Toc from "@/components/tableofcontent";
 import Share from "@/components/ui/share";
-import { getCategoryDetails, getPostList, getSinglePost } from "lib/posts";
+import {
+  getCategoryDetails,
+  getCategorySlugs,
+  getPostList,
+  getSinglePost,
+} from "lib/posts";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import styles from "@/styles/blog.module.css";
@@ -12,32 +17,46 @@ import Link from "next/link";
 const Blog = ({ posts, category }) => {
   const router = useRouter();
   return (
-    <main className={`${styles.blog} mainscrollbar mb-4`}>
-      <Share />
-      <div className={styles.postbanner}>
-        <h1 className="p-2">{category.name}</h1>
-      </div>
-      <div className="container my-4">
-        <div className={styles.items}>
-          {posts?.length > 0 ? (
-            posts?.map((post) => {
-              return <Post key={post._id} post={post} styles={styles} />;
-            })
-          ) : (
-            <div className="w-100 d-flex justify-content-between">
-              <p className="text-center">No Post</p>
-              <Link href="/tutorial">
-                <a className="theme-btn">go home</a>
-              </Link>
+    <>
+      {category && (
+        <main className={`${styles.blog} mainscrollbar mb-4`}>
+          <Share />
+          <div className={styles.postbanner}>
+            <h1 className="p-2">{category.name}</h1>
+          </div>
+          <div className="container my-4">
+            <div className={styles.items}>
+              {posts?.length > 0 &&
+                posts?.map((post) => {
+                  return <Post key={post._id} post={post} styles={styles} />;
+                })}
             </div>
-          )}
-        </div>
-      </div>
-    </main>
+            {posts.length == 0 && (
+              <div className="w-100 d-flex justify-content-between">
+                <p className="text-center">No Post</p>
+                <Link href="/tutorial">
+                  <a className="theme-btn">go home</a>
+                </Link>
+              </div>
+            )}
+          </div>
+        </main>
+      )}
+    </>
   );
 };
 export default Blog;
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const categories = await getCategorySlugs();
+  const paths = categories.map((post) => ({
+    params: { slug: post.params.categoryName },
+  }));
+  return {
+    paths,
+    fallback: true,
+  };
+}
+export async function getStaticProps({ params }) {
   const posts = await getPostList(null, {
     key: "categoryName",
     value: params.slug,
@@ -49,5 +68,6 @@ export async function getServerSideProps({ params }) {
       posts: posts.nodes,
       category: data,
     },
+    revalidate: 10,
   };
 }
