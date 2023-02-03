@@ -60,7 +60,7 @@ const Blog = ({ post, categories }) => {
           <Share />
           <div className={styles.postbanner}>
             <h1 className="p-2">{post?.title}</h1>
-            {post.featuredImage && (
+            {/* {post.featuredImage && (
               <Image
                 priority
                 src={post.featuredImage.node.mediaDetails.sizes[5].sourceUrl}
@@ -68,7 +68,7 @@ const Blog = ({ post, categories }) => {
                 layout="fill"
                 alt={post?.title}
               />
-            )}
+            )} */}
           </div>
 
           <div className="container">

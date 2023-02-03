@@ -45,6 +45,7 @@ const Header = () => {
           </div>
           <button
             role="menu"
+            aria-label="button"
             className="menu"
             onClick={(e) => refs.current.header.classList.toggle("active")}
           >

@@ -23,7 +23,7 @@ const Toc = () => {
     <>
       {data.length > 0 && (
         <div className={styles.toc}>
-          <b>Content in this article</b>
+          <b>What&apos;s Inside</b>
           <ul>
             {data.length > 0 &&
               data.map((h, i) => (
