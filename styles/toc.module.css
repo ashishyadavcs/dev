@@ -7,6 +7,8 @@
   cursor: pointer;
   max-height: 270px;
   overflow: auto;
+  background: #fff;
+  border-radius: 8px;
 }
 .toc b {
   margin-bottom: 10px;

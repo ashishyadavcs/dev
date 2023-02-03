@@ -22,7 +22,7 @@ const Toc = () => {
   return (
     <>
       {data.length > 0 && (
-        <div className={styles.toc}>
+        <div className={`${styles.toc} sticky`}>
           <b>What&apos;s Inside</b>
           <ul>
             {data.length > 0 &&
