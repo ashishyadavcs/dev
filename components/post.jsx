@@ -3,7 +3,12 @@ import Link from "next/link";
 
 const Post = ({ styles, remove, edit, post }) => {
   return (
-    <Link key={post._id} href={`/tutorial/${post.slug}`} passHref>
+    <Link
+      key={post._id}
+      href={`/blog/${post.slug}`}
+      as={`/blog/${post.slug}`}
+      passHref
+    >
       <div className={styles.post} key={post._id}>
         <span className={styles.thumbnail}>
           <Image

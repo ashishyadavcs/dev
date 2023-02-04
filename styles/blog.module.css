@@ -1,7 +1,6 @@
 .blog .tag a {
   padding: 5px 20px;
   display: inline-block;
-  border-radius: 20px;
   color: aliceblue;
   background: #3f4049;
   font-size: 15px;
@@ -39,8 +38,7 @@
   background: #fff;
   position: relative;
   cursor: pointer;
-  height: 350px;
-  min-height: max-content;
+  min-height: 350px;
   margin-bottom: 10px;
 }
 .post:active {

@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Header />
-      {children}
+      <main> {children}</main>
       <Footer />
       {/* <Whatsapp /> */}
       <Orderpop />

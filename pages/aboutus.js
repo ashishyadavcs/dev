@@ -12,6 +12,7 @@ const Aboutus = () => {
         <Image
           src={"/images/card.jpg"}
           alt=""
+          priority
           layout="fill"
           objectFit="cover
       "

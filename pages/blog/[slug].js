@@ -12,7 +12,6 @@ import hljs from "highlight.js";
 import { getCategorySlugs, getPostList, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
 const Blog = ({ post, categories }) => {
-  console.log(post);
   const router = useRouter();
   useEffect(() => {
     hljs.highlightAll();
@@ -28,10 +27,10 @@ const Blog = ({ post, categories }) => {
               description={` ${post?.excerpt
                 .replace(/<[^>]+>/g, "")
                 .slice(0, 145)}`}
-              canonical={`${process.env.NEXT_PUBLIC_APP_URL}/tutorial/${post?.slug}`}
+              canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
               openGraph={{
                 type: "article",
-                url: `${process.env.NEXT_PUBLIC_APP_URL}/tutorial/${post.slug}`,
+                url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
                 title: post?.title,
                 description: ` ${post.excerpt
                   .replace(/<[^>]+>/g, "")
@@ -80,9 +79,11 @@ const Blog = ({ post, categories }) => {
                 />
               </div>
               <div className="col-md-4">
-                <Toc />
-                <Sidebar categories={categories || []} styles={styles} />
-                <Ashish />
+                <div className="sticky">
+                  <Toc />
+                  <Sidebar categories={categories || []} styles={styles} />
+                  <Ashish />
+                </div>
               </div>
             </div>
           </div>
