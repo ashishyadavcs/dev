@@ -10,6 +10,10 @@ module.exports = {
     "/admin/*",
     "/dashboard/*",
     "/payment",
+    "/server-sitemap.xml",
+    "/resetpassword",
+    "/logout",
+    "/blog/category/uncategorized",
   ],
   //   alternateRefs: [
   //     {

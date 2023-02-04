@@ -4,13 +4,16 @@ import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
-import Share from "@/components/ui/share";
 import Ashish from "@/components/ashish";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
+const Share = dynamic(() => import("@/components/ui/share"), {
+  ssr: false,
+});
 
 import { getCategorySlugs, getPostList, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 const Blog = ({ post, categories }) => {
   const router = useRouter();
   useEffect(() => {

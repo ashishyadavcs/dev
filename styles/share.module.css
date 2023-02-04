@@ -24,6 +24,7 @@
 .share li {
   margin: 0.4rem 0;
   cursor: pointer;
+  transition: all 0.3s;
 }
 .share li:hover {
   transform: scale(1.3);
