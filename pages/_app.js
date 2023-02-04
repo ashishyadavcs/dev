@@ -12,14 +12,9 @@ import nProgress from "nprogress";
 Router.events.on("routeChangeStart", () => nProgress.start());
 Router.events.on("routeChangeComplete", () => {
   nProgress.done();
-  if (document.querySelector(".mainscrollbar"))
-    document.querySelector(".mainscrollbar").scrollTo(0, 0);
 });
 Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps }) {
-  Router.events.on("routeChangeComplete", () => {
-    window.scrollTo(0, 0);
-  });
   const router = useRouter();
   return (
     <Provider store={store}>

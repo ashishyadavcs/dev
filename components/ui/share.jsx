@@ -35,19 +35,7 @@ const Share = () => {
     input.select();
     document.execCommand("copy");
   };
-  const openpopup = (link) => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const popheight = (window.innerHeight * 80) / 100;
-    const popwidth = (window.innerHeight * 80) / 100;
-    const left = (width - popwidth) / 2;
-    const top = (height - popheight) / 2;
-    window.open(
-      link,
-      "share",
-      `top:${top},left:${left},height:${popheight},width:${popwidth}`
-    );
-  };
+
   const share = async (link) => {
     if (navigator.share) {
       try {
@@ -56,9 +44,7 @@ const Share = () => {
           text: document.title,
           url: window.location.href,
         });
-      } catch (err) {
-        openpopup(link);
-      }
+      } catch (err) {}
     } else {
       if (!link) return;
       var left = screen.width / 2 - 800 / 2;
