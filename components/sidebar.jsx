@@ -9,7 +9,7 @@ const Sidebar = ({ styles, categories }) => {
             {categories.map((tag) => {
               return (
                 <li key={Math.random()}>
-                  <Link href={`/tutorial/category/${tag.params.categoryName}`}>
+                  <Link href={`/blog/category/${tag.params.categoryName}`}>
                     {tag.params.categoryName}
                   </Link>
                 </li>

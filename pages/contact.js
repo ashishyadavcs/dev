@@ -4,6 +4,7 @@ import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
 import { toast } from "react-toastify";
 import { contact } from "public/data/contact";
+import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -39,7 +40,24 @@ const Contact = () => {
   return (
     <div className={styles.contact}>
       <div className="container">
-        <div className="row">
+        <div className="row flex-md-row-reverse">
+          <div className="col-md-6 col-12">
+            <div className={`${styles.right} mt-3 mt-md-0`}>
+              <h1>Contact Us</h1>
+              <p className="my-2">
+                <b className="mr-2">
+                  <FaWhatsapp size={20} />
+                </b>
+                <a href={`tel:${contact.mobile}`}> {contact.mobile}</a>
+              </p>
+              <p>
+                <b className="mr-2">
+                  <FaEnvelope size={20} />
+                </b>
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </p>
+            </div>
+          </div>
           <div className="col-md-6 col-12">
             <form onSubmit={sendemail} className="d-flex flex-column">
               <input
@@ -69,18 +87,6 @@ const Contact = () => {
               ></textarea>
               <button className="theme-btn">Submit </button>
             </form>
-          </div>
-          <div className="col-md-6 col-12">
-            <div className="mt-3">
-              <h1>Contact Us</h1>
-              <p>
-                <b className="mr-2">mobile</b>
-                {contact.mobile}
-              </p>
-              <p>
-                <b>email</b>: {contact.email}
-              </p>
-            </div>
           </div>
         </div>
       </div>

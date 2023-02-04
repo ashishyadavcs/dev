@@ -24,18 +24,10 @@ const Aboutus = () => {
       </div>
       <div className="row">
         <div className="col-md-6 col-12">
-          <h2>Who we are ?</h2>
+          <h2 className="mt-3">About Frontendzone</h2>
           <p>
-            We are professional website designer. Having mastery in website
-            design and seo . We are expert in creating animated website and
-            awesome ui that attracts users and visitors .{" "}
-          </p>
-
-          <h2>what We Do ?</h2>
-          <p>
-            We serve our clients awesome web design services. We are available
-            24x7 to provide support . we are dedicated to your uplift your brand
-            by utlizing our eceptional web design and seo skills.{" "}
+            Frontendzone is a destination to learn all frontend technologies
+            practically with industry experience.
           </p>
         </div>
         <div className="col-md-6 col-12 position-relative"></div>
