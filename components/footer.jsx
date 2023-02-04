@@ -109,7 +109,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="d-flex align-items-center">
-                  <Link href={"/tutorial"}>
+                  <Link href={"/blog"}>
                     <a className="ml-1">Blog</a>
                   </Link>
                 </li>
