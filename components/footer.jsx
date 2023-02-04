@@ -116,8 +116,12 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-md-4">
-              <h3 className="smallheading">Digital Services</h3>
-              <ul className="list-unstyled"></ul>
+              <h3 className="smallheading">tools</h3>
+              <ul className="list-unstyled">
+                <li>
+                  <Link href="/online-html-css-editor">Online html editor</Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
