@@ -3,7 +3,14 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   generateRobotsTxt: true,
-  exclude: ["/api", "/dashboard", "/admin", "/admin/*", "/dashboard/*"],
+  exclude: [
+    "/api",
+    "/dashboard",
+    "/admin",
+    "/admin/*",
+    "/dashboard/*",
+    "/payment",
+  ],
   //   alternateRefs: [
   //     {
   //       href: "https://es.example.com",
