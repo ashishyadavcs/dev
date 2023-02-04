@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <NextSeo
-        title="ashishui"
+        title={process.env.NEXT_PUBLIC_APP_NAME}
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
       />

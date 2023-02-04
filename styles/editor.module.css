@@ -1,21 +1,20 @@
 .editor .code {
   width: 100%;
-  padding: 10px;
   outline: none;
   position: relative;
+  height: 92%;
 }
 .editor iframe {
   border: 1px solid #ddd;
   width: 100%;
-  height: 82vh;
-  margin-top: 40px;
+  height: 100%;
 }
+
 .code > textarea {
   width: 100%;
   outline: none;
   display: block;
-  margin: 10px 0;
-  height: 200px;
+  height: 100%;
   border: 1px solid #ddd;
   padding: 10px;
   overflow-y: auto;
@@ -26,9 +25,59 @@
   top: 300px;
   width: 100px;
   transform: translateY(-50%);
-  left: 20px;
+  left: 10px;
   font-weight: bold;
   color: rgb(8, 160, 109);
   transition: all 1s;
   opacity: 0;
+}
+.faq {
+  margin-top: 60px;
+}
+.faq h3 {
+  color: #555;
+  font-size: 16px;
+}
+.tab {
+  background: #ccc;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+.tab li {
+  width: 33.33%;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s;
+}
+.tab li.active {
+  background: teal;
+  color: #fff;
+}
+.main {
+  height: 80vh;
+  display: flex;
+  margin-bottom: 80px;
+}
+.main > * {
+  width: 50%;
+  min-width: 50%;
+}
+@media (max-width: 767px) {
+  .main {
+    flex-direction: column;
+    height: unset;
+  }
+  .main > div {
+    width: 100%;
+  }
+  .main .code {
+    height: 300px;
+  }
+  .main .right {
+    height: 500px;
+  }
 }
