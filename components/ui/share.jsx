@@ -30,14 +30,12 @@ const Share = () => {
     reddit: `https://reddit.com/submit?url=${url}&title=${text}`,
   };
   const copyurl = () => {
-    if (typeof window == undefined) return;
-    const input = document.createElement("input");
+    const input = document.createElement("textarea");
     input.value = window.location.href;
     input.select();
     document.execCommand("copy");
   };
   const openpopup = (link) => {
-    if (typeof window === undefined) return;
     const width = window.innerWidth;
     const height = window.innerHeight;
     const popheight = (window.innerHeight * 80) / 100;
@@ -51,7 +49,7 @@ const Share = () => {
     );
   };
   const share = async (link) => {
-    if (!navigator.share) {
+    if (navigator.share) {
       try {
         await navigator.share({
           title: document.title,
@@ -89,7 +87,7 @@ const Share = () => {
         <li onClick={(e) => share(shareto.linkedin)}>
           <FaLinkedinIn size={25} />
         </li>
-        <li onClick={(e) => share()}>
+        <li onClick={(e) => copyurl()}>
           <FiLink2 onClick={(e) => copyurl()} size={25} />
         </li>
       </ul>

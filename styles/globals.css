@@ -50,10 +50,7 @@ input {
 .notes a {
   color: var(--color);
 }
-.layout {
-  max-height: 100vh;
-  min-height: 100vh;
-}
+
 .heading {
   font-size: clamp(30px, 3vw, 38px) !important;
   font-weight: 700 !important;

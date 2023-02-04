@@ -1,7 +1,3 @@
-import Ashish from "@/components/ashish";
-import Sidebar from "@/components/sidebar";
-import Toc from "@/components/tableofcontent";
-import Share from "@/components/ui/share";
 import {
   getCategoryDetails,
   getCategorySlugs,
@@ -14,6 +10,10 @@ import styles from "@/styles/blog.module.css";
 import { useRouter } from "next/router";
 import Post from "@/components/post";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+const Share = dynamic(() => import("@/components/ui/share"), {
+  ssr: false,
+});
 const Blog = ({ posts, category }) => {
   const router = useRouter();
   return (
