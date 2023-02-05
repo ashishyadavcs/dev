@@ -9,6 +9,7 @@ import Blog from "@/components/banners/blog";
 import Ashish from "@/components/ashish";
 import Image from "next/image";
 import { openform } from "utils/common";
+import Whatsapp from "@/components/whatsapp";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -146,7 +147,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.portfolio}></div>
+      <Whatsapp />
     </>
   );
 }
