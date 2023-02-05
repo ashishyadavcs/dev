@@ -8,6 +8,7 @@ import Upload from "@/components/upload";
 import Blog from "@/components/banners/blog";
 import Ashish from "@/components/ashish";
 import Image from "next/image";
+import { openform } from "utils/common";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -137,6 +138,9 @@ export default function Home() {
                 monitoring and support to keep your website performing at its
                 best.
               </p>
+              <button onClick={openform} className="theme-btn">
+                Order Now
+              </button>
             </div>
           </div>
         </div>
