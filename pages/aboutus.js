@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React from "react";
 import styles from "../styles/about.module.css";
@@ -5,6 +6,13 @@ import styles from "../styles/about.module.css";
 const Aboutus = () => {
   return (
     <div className="container">
+      <NextSeo
+        title="About us | Frontendzone"
+        description="Welcome to Frontendzone, your ultimate destination
+            for all things of front-end development. Frontendzone is a
+            destination to learn all frontend technologies practically with
+            industry experience."
+      />
       <div
         className={`${styles.bg} d-flex align-items-center position-relative`}
       >
@@ -27,9 +35,9 @@ const Aboutus = () => {
           <h2>About Frontendzone</h2>
           <p>
             Welcome to <strong>Frontendzone</strong>, your ultimate destination
-            for all things front-end development Frontendzone is a destination
-            to learn all frontend technologies practically with industry
-            experience.
+            for all things of front-end development. Frontendzone is a
+            destination to learn all frontend technologies practically with
+            industry experience.
           </p>
           <p>
             We are a team of passionate <strong>front-end developers</strong>{" "}

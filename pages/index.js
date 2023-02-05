@@ -21,6 +21,10 @@ export default function Home() {
     <>
       <NextSeo
         title={process.env.NEXT_PUBLIC_APP_NAME}
+        description="welcome to Frontendzone, your ultimate destination
+            for all things of front-end development. Frontendzone is a
+            destination to learn all frontend technologies practically with
+            industry experience."
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
       />

@@ -4,10 +4,12 @@ import { toast } from "react-toastify";
 import Sidebar from "@/components/sidebar";
 import Post from "@/components/post";
 import { getCategorySlugs, getPostList } from "lib/posts";
+import { NextSeo } from "next-seo";
 const Blog = ({ posts, categories }) => {
   console.log(posts);
   return (
     <div className={`${styles.blog} container my-4`}>
+      <NextSeo title="Frontendzone blog" />
       <div className="row">
         <div className="col-md-8">
           <div className={styles.items}>
