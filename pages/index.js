@@ -110,7 +110,7 @@ export default function Home() {
           <div className="row d-flex align-items-center">
             <div className="col-md-5">
               <Image
-                src="/dev/optimized-website.svg"
+                src="/dev/optimized-website.png"
                 height={400}
                 width={400}
                 alt="website design services near me"

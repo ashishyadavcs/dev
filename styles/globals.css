@@ -343,7 +343,7 @@ footer {
   background-blend-mode: overlay;
 }
 .sub-footer {
-  background: #000000f2;
+  background: #010921f2;
   color: #ccc;
 }
 .layout footer p {
@@ -354,12 +354,14 @@ footer a {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
+footer a:hover {
+  text-decoration: none;
+  color: #04ff04;
+}
 .layout a {
   text-decoration: none;
 }
-footer a:hover {
-  color: var(--whiter);
-}
+
 footer li {
   margin-bottom: 7px;
 }

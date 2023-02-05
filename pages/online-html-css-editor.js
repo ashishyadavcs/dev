@@ -168,7 +168,7 @@ alert("hi")
         }}
       />
       <div className={` my-3 ${styles.editor}`}>
-        <div className="text-center">
+        <div className="text-center container">
           <h1>
             <strong> Realtime Free Online Html Editor 👋</strong>
           </h1>
