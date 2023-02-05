@@ -26,7 +26,7 @@ const Header = () => {
               <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
             </a>
           </Link>
-          <div className="d-flex justify-content-between mobilelinks">
+          <nav className="d-flex justify-content-between mobilelinks">
             <ul className="list-unstyled d-flex align-items-center mb-0">
               {nav.map((li, i) => {
                 return (
@@ -36,13 +36,15 @@ const Header = () => {
                       refs.current.header.classList.remove("active")
                     }
                   >
-                    <Link href={li.url}>{li.text}</Link>
+                    <Link href={li.url}>
+                      <a title={li?.title}> {li.text}</a>
+                    </Link>
                     <Dropdown />
                   </li>
                 );
               })}
             </ul>
-          </div>
+          </nav>
           <button
             role="menu"
             aria-label="button"

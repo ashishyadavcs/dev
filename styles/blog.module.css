@@ -98,6 +98,7 @@
 }
 .postbanner {
   position: relative;
+  padding: 1rem;
   min-height: 300px;
   display: flex;
   justify-content: center;

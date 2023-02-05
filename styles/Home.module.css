@@ -1,5 +1,10 @@
-.landing{
-    min-height: 90vh;
-    padding: 2rem 0;
-    background:rgb(245 252 255)
+.landing {
+  min-height: 90vh;
+  padding: 2rem 0;
+  background: rgb(245 252 255);
+}
+@media (max-width: 767px) {
+  .landing [class*="row"]:nth-child(3) {
+    flex-direction: column-reverse;
+  }
 }

@@ -61,7 +61,7 @@ const Blog = ({ post, categories }) => {
           )}
           <Share />
           <div className={styles.postbanner}>
-            <h1 className="p-2">{post?.title}</h1>
+            <h1 className="container">{post?.title}</h1>
             {/* {post.featuredImage && (
               <Image
                 priority

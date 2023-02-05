@@ -16,6 +16,11 @@ export const nav = [
     text: "services",
   },
   {
+    url: "https://www.youtube.com/channel/UCSj5DTDPkqGJ6izZs2CvfQA",
+    text: "youtube",
+    title: "frontendzone",
+  },
+  {
     url: "/blog",
     text: "blog",
   },

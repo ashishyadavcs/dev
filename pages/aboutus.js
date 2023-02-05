@@ -22,15 +22,35 @@ const Aboutus = () => {
           <div></div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-md-6 col-12">
-          <h2 className="mt-3">About Frontendzone</h2>
+      <div className="row my-4">
+        <div className="col-md-8 col-12 my-4">
+          <h2>About Frontendzone</h2>
           <p>
-            Frontendzone is a destination to learn all frontend technologies
-            practically with industry experience.
+            Welcome to <strong>Frontendzone</strong>, your ultimate destination
+            for all things front-end development Frontendzone is a destination
+            to learn all frontend technologies practically with industry
+            experience.
+          </p>
+          <p>
+            We are a team of passionate <strong>front-end developers</strong>{" "}
+            and designers who are dedicated to sharing our knowledge and
+            expertise with the community. Our goal is to provide a one-stop
+            resource for <strong>front-end</strong> developers of all levels,
+            offering tutorials, articles, and resources that help you improve
+            your skills and stay up-to-date with the latest technology and
+            trends.
           </p>
         </div>
-        <div className="col-md-6 col-12 position-relative"></div>
+        <div className="col-md-4 col-12 position-relative">
+          <Image
+            src="/dev/about-frontend.png"
+            height={500}
+            objectFit="contain"
+            width={500}
+            className="rounded"
+            alt="frontendzone"
+          />
+        </div>
       </div>
     </div>
   );

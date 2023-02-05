@@ -14,7 +14,7 @@ const Servicespage = () => {
       <div className={styles.hero}>
         <span className={styles.heroimg}>
           <Image
-            src={"/images/service/service.png"}
+            src={"/dev/service-girl.png"}
             alt=""
             objectFit="contain"
             layout="fill"
