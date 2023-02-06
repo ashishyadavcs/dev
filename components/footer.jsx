@@ -10,6 +10,7 @@ import {
   FaPhone,
   FaSkype,
   FaTwitter,
+  FaYoutube,
 } from "react-icons/fa";
 import { ismobile } from "../utils/device";
 const Footer = () => {
@@ -68,14 +69,14 @@ const Footer = () => {
                 >
                   <FaInstagram />
                 </a>
-                <a
+                {/* <a
                   target="_blank"
                   rel="noreferrer"
                   href="#"
                   className="google-plus"
                 >
                   <FaSkype />
-                </a>
+                </a> */}
                 <a
                   target="_blank"
                   rel="noreferrer"
@@ -83,6 +84,15 @@ const Footer = () => {
                   className="linkedin"
                 >
                   <FaLinkedinIn />
+                </a>
+                <a
+                  title="youtube"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={contact.youtube}
+                  className="linkedin"
+                >
+                  <FaYoutube />
                 </a>
               </div>
             </div>

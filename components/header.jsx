@@ -22,7 +22,7 @@ const Header = () => {
       >
         <div className="d-flex container justify-content-between align-items-center">
           <Link href="/">
-            <a>
+            <a title="frontendzone">
               <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
             </a>
           </Link>

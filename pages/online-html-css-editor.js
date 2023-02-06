@@ -154,6 +154,26 @@ alert("hi")
         title="Online html css editor"
         description="Edit your html and css online with frontendzone online html editor"
         canonical={`${process.env.NEXT_PUBLIC_APP_URL}/online-html-css-editor`}
+        openGraph={{
+          type: "software",
+          url: `${process.env.NEXT_PUBLIC_APP_URL}/online-html-css-editor`,
+          title: "Online html css editor",
+          description: ` Edit your html and css online with frontendzone online html editor`,
+
+          images: [
+            {
+              url: "/online-html-editor.png",
+              width: 400,
+              height: 400,
+              alt: "Online html css editor",
+              type: "image/png",
+            },
+            {
+              url: "/online-html-editor.png",
+            },
+          ],
+          siteName: process.env.NEXT_PUBLIC_APP_NAME,
+        }}
       />
       <ProductJsonLd
         productName="free Online html editor"

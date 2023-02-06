@@ -23,12 +23,12 @@ const Whatsapp = () => {
   };
   return (
     <>
-      <FaShare
+      {/* <FaShare
         onClick={share}
         color="#fff"
         size={38}
         className={`${styles.share} pointer`}
-      />
+      /> */}
       <a href="" target="_blank"></a>
       <div
         onClick={(e) => {
