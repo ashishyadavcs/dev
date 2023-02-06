@@ -19,7 +19,14 @@ const Ashish = () => {
       <div className="hero d-flex align-items-center mb-4">
         <Image src="/ashish.jpg" alt="" height={90} width={90}></Image>
         <strong className="ml-4">
-          Ashish Yadav<br></br>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://linkedin.com/in/ashishfgiet"
+          >
+            Ashish Yadav
+          </a>
+          <br></br>
           <small>Software Engineer</small>
         </strong>
       </div>
@@ -33,7 +40,6 @@ const Ashish = () => {
           <strong key={i}>{t}</strong>
         ))}
       </div>
-      <strong className="ml-2 my-3 d-block">ashishbhu221306@gmail.com</strong>
     </div>
   );
 };

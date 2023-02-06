@@ -14,8 +14,8 @@ const Group = () => {
         <Image
           src="/dev/group.jpeg"
           objectFit="contain"
-          height={500}
-          width={500}
+          height={230}
+          width={200}
           alt="frontend developers whatsapp group"
         />
       </a>

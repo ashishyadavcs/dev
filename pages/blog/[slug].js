@@ -4,7 +4,6 @@ import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
-import Ashish from "@/components/ashish";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
 const Share = dynamic(() => import("@/components/ui/share"), {
@@ -85,7 +84,6 @@ const Blog = ({ post, categories }) => {
                 <div className="sticky">
                   <Toc />
                   <Sidebar categories={categories || []} styles={styles} />
-                  <Ashish />
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ const Post = ({ styles, remove, edit, post }) => {
             alt=""
             src={
               post.featuredImage
-                ? post.featuredImage?.node.mediaDetails.sizes[5].sourceUrl
+                ? post.featuredImage?.node.mediaDetails.sizes[3]?.sourceUrl
                 : "/images/default.png"
             }
           ></Image>
