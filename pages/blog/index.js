@@ -7,7 +7,6 @@ import { getCategorySlugs, getPostList } from "lib/posts";
 import { NextSeo } from "next-seo";
 import Group from "@/components/group";
 const Blog = ({ posts, categories }) => {
-  console.log(posts);
   return (
     <div className={`${styles.blog} container my-4`}>
       <NextSeo title="Frontendzone blog" />

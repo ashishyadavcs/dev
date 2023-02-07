@@ -134,6 +134,12 @@
 .blog h5 {
   scroll-margin-top: 80px;
 }
+.blog h2 {
+  margin-top: 2rem;
+}
+.blog ul.list li {
+  margin-bottom: 1.5rem;
+}
 .blog pre code {
   font-size: 16px;
 }
