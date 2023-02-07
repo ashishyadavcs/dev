@@ -4,8 +4,6 @@
   overflow: auto;
   transition: all 0.3s;
   cursor: pointer;
-  max-height: 270px;
-  overflow: auto;
   padding: 1rem;
   background: #fff;
   border-radius: 8px;

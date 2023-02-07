@@ -116,6 +116,7 @@
   object-fit: contain;
   height: auto;
   margin: 1rem 0;
+  width: 100%;
 }
 
 .blog pre {
