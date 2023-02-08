@@ -53,14 +53,16 @@ const Footer = () => {
                 >
                   <FaFacebookF />
                 </a>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={contact.twitter}
-                  className="facebook"
-                >
-                  <FaTwitter />
-                </a>
+                {contact.twitter && (
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={contact.twitter}
+                    className="facebook"
+                  >
+                    <FaTwitter />
+                  </a>
+                )}
                 <a
                   target="_blank"
                   rel="noreferrer"
@@ -133,14 +135,14 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
-                <li className="d-flex align-items-center">
+                {/* <li className="d-flex align-items-center">
                   <Link href={"/review"}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
                       Reviews
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="d-flex align-items-center">
                   <Link href={"/blog"}>
                     <a className="ml-1">

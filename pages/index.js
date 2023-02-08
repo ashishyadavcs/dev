@@ -52,8 +52,7 @@ export default function Home() {
               </ul>
             </div>
             <div className="col-md-5 col-12 d-flex justify-content-end">
-              <Orderform title="Hire me for website" />
-              {/* <Ashish /> */}
+              <Ashish />
             </div>
           </div>
           <div className="row my-4 pt-4">
@@ -139,9 +138,6 @@ export default function Home() {
                 monitoring and support to keep your website performing at its
                 best.
               </p>
-              <button onClick={openform} className="theme-btn">
-                Order Now
-              </button>
             </div>
           </div>
         </div>
