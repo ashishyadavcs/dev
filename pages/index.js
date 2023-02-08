@@ -10,6 +10,7 @@ import Ashish from "@/components/ashish";
 import Image from "next/image";
 import { openform } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
+import Blogpost from "@/components/blogpost";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -30,7 +31,7 @@ export default function Home() {
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
       />
-      <div className={styles.landing}>
+      <div className={`${styles.landing} homepage`}>
         <div className="container">
           <div className="row">
             <div className="col-md-7 col-12">
@@ -141,8 +142,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="container">
+          <h2 className="text-center my-4">Latest blog posts</h2>
+          <Blogpost />
+        </div>
       </div>
-
       <Whatsapp />
     </>
   );

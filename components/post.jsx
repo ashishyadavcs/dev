@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "@/styles/post.module.css";
 
-const Post = ({ styles, remove, edit, post }) => {
+const Post = ({ remove, edit, post }) => {
   return (
     <Link
       key={post._id}

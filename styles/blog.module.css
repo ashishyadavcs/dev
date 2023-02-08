@@ -112,6 +112,7 @@
   font-size: clamp(30px, 4vw, 70px) !important;
   text-shadow: 0px 1px 1px #000;
 }
+
 .article img {
   object-fit: contain;
   height: auto;

@@ -293,6 +293,9 @@ h3 {
   border-radius: 10px;
   background: rgb(8, 8, 31);
 }
+main :where(ul, ol) {
+  list-style-position: inside;
+}
 
 .themebtn:active {
   transform: scale(1.1);
