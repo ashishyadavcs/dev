@@ -164,6 +164,14 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/css/button-generator">
+                    <a>
+                      <FaChevronRight className="mr-1" size={15} />
+                      css button generator
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
