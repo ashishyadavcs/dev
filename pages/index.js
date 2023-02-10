@@ -11,6 +11,7 @@ import Image from "next/image";
 import { openform } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
 import Blogpost from "@/components/blogpost";
+import { contact } from "public/data/contact";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -51,6 +52,12 @@ export default function Home() {
                   );
                 })}
               </ul>
+              <a
+                href={`tel:contact.whatsapp`}
+                className="theme-btn d-inline-block mb-4"
+              >
+                contact
+              </a>
             </div>
             <div className="col-md-5 col-12 d-flex justify-content-end">
               <Ashish />

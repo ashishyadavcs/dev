@@ -1,3 +1,3 @@
 export const layout = {
-  landing: ["/dashboard/*"],
+  landing: ["/dashboard/*", "/css/button-generator"],
 };

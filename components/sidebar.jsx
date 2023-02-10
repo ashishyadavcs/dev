@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Group from "./group";
 const Sidebar = ({ styles, categories }) => {
   return (
-    <div className={`my-4 `}>
+    <div className={`my-4 sticky`}>
       {categories?.length > 0 && (
         <>
           <h2 className="mt-4 mb-3">Categories</h2>
@@ -16,6 +17,7 @@ const Sidebar = ({ styles, categories }) => {
               );
             })}
           </ul>
+          <Group />
         </>
       )}
 

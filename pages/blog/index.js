@@ -5,7 +5,6 @@ import Sidebar from "@/components/sidebar";
 import Post from "@/components/post";
 import { getCategorySlugs, getPostList } from "lib/posts";
 import { NextSeo } from "next-seo";
-import Group from "@/components/group";
 const Blog = ({ posts, categories }) => {
   return (
     <div className={`${styles.blog} container my-4`}>
@@ -21,7 +20,6 @@ const Blog = ({ posts, categories }) => {
         </div>
         <div className="col-md-4">
           <Sidebar categories={categories} styles={styles} />
-          <Group />
         </div>
       </div>
     </div>

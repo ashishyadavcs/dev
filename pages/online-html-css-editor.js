@@ -151,7 +151,7 @@ alert("hi")
   return (
     <>
       <NextSeo
-        title="Online html css editor"
+        title="Online html css editor ➜ #𝟙"
         description="Edit your html and css online with frontendzone online html editor"
         canonical={`${process.env.NEXT_PUBLIC_APP_URL}/online-html-css-editor`}
         openGraph={{

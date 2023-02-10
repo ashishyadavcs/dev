@@ -31,19 +31,19 @@ const Footer = () => {
               </div>
 
               <h3 className="smallheading">Contact</h3>
-              <p>
-                <a href={`tel:${contact.mobile}`}>
+
+              <div className="d-flex flex-column">
+                <a href={`tel:${contact.mobile}`} className="mb-1">
                   <FaPhone className="mr-2" />
                   {contact.mobile}
                 </a>
-                <br />
 
                 <a href={`mailto:${contact.email}`}>
                   <FaEnvelope className="mr-2" />
                   {contact.email}
                 </a>
-                <br />
-              </p>
+              </div>
+
               <div className="social-links mt-3 md-mb-0 mb-3">
                 <a
                   target="_blank"

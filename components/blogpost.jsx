@@ -13,7 +13,7 @@ const Blogpost = () => {
   return (
     <>
       {posts.length > 0 &&
-        posts.map((post, i) => <Post styles={""} post={post} />)}
+        posts.map((post, i) => <Post key={i} styles={""} post={post} />)}
     </>
   );
 };
