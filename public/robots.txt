@@ -5,12 +5,14 @@ Allow: /
 # *
 User-agent: *
 Disallow: /api/*
+Disallow: /dashboard
+Disallow: /admin
 Disallow: /dashboard/*
 Disallow: /admin/*
 
 # Host
-Host: http://localhost:3000
+Host: https://frontendzone.com
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
-Sitemap: http://localhost:3000/server-sitemap.xml
+Sitemap: https://frontendzone.com/sitemap.xml
+Sitemap: https://frontendzone.com/server-sitemap.xml
