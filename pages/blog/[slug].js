@@ -16,7 +16,7 @@ import Relatedposts from "@/components/relatedposts";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
     hljs.highlightAll();
-  }, []);
+  }, [post]);
 
   return (
     <>
