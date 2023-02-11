@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
-import { memo } from "react";
 
 const Toc = () => {
   const router = useRouter();
@@ -17,7 +16,7 @@ const Toc = () => {
       el.classList.add("hashlink");
     });
     setData([...headings]);
-  }, []);
+  }, [router]);
 
   return (
     <>
