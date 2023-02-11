@@ -11,8 +11,8 @@ Disallow: /dashboard/*
 Disallow: /admin/*
 
 # Host
-Host: https://frontendzone.com
+Host: https://www.frontendzone.com
 
 # Sitemaps
-Sitemap: https://frontendzone.com/sitemap.xml
-Sitemap: https://frontendzone.com/server-sitemap.xml
+Sitemap: https://www.frontendzone.com/sitemap.xml
+Sitemap: https://www.frontendzone.com/server-sitemap.xml
