@@ -13,6 +13,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { ismobile } from "../utils/device";
+import tools from "public/data/tools";
 const Footer = () => {
   return (
     <>
@@ -156,22 +157,16 @@ const Footer = () => {
             <div className="col-md-3">
               <h3 className="smallheading">tools</h3>
               <ul className="list-unstyled">
-                <li>
-                  <Link href="/online-html-css-editor">
-                    <a>
-                      <FaChevronRight className="mr-1" size={15} />
-                      Online html editor
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/css/button-generator">
-                    <a>
-                      <FaChevronRight className="mr-1" size={15} />
-                      css button generator
-                    </a>
-                  </Link>
-                </li>
+                {tools.map((t, i) => (
+                  <li key={i}>
+                    <Link href={t.href}>
+                      <a>
+                        <FaChevronRight className="mr-1" size={15} />
+                        {t.text}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

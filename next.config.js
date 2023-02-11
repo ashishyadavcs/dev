@@ -35,6 +35,14 @@ const nextConfig = {
     //   },
     // },
   },
+  async rewrites() {
+    return [
+      {
+        source: "/tools/online-json-formatter",
+        destination: "/online-json-formatter",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
