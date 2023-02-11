@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.APP_URL,
+  siteUrl: "https://www.frontendzone.com",
   priority: 0.7,
   sitemapSize: 5000,
   generateRobotsTxt: true,
@@ -15,17 +15,7 @@ module.exports = {
     "/logout",
     "/blog/category/uncategorized",
   ],
-  //   alternateRefs: [
-  //     {
-  //       href: "https://es.example.com",
-  //       hreflang: "es",
-  //     },
-  //     {
-  //       href: "https://fr.example.com",
-  //       hreflang: "fr",
-  //     },
-  //   ],
-  // Default transformation function
+
   transform: async (config, path) => {
     return {
       loc: path, // => this will be exported as http(s)://<config.siteUrl>/<path>
