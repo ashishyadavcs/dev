@@ -39,7 +39,7 @@ const Page = () => {
     <div>
       <NextSeo
         title="#Online JSON Formatter, beautifier & minifier  ➜ #𝟙"
-        canonical={`${process.env.NEXT_PUBLIC_APP_URL}/css/button-generator`}
+        canonical={`${process.env.NEXT_PUBLIC_APP_URL}/tools/online-json-formatter`}
         description="online JSON formatter is a web-based tool that helps to format and organize JSON data. It takes the raw JSON data and converts it into a readable and organized format, making it easy to understand and analyze."
       />
       <style jsx>{`
