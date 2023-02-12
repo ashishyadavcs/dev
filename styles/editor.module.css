@@ -20,6 +20,7 @@
   overflow-y: auto;
   resize: vertical;
 }
+
 .saving {
   position: fixed;
   top: 300px;
@@ -58,7 +59,7 @@
   color: #fff;
 }
 .main {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   margin-bottom: 80px;
 }

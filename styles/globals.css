@@ -32,7 +32,6 @@ input {
 }
 * {
   box-sizing: border-box;
-  transition: all 0.3s;
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
@@ -569,6 +568,7 @@ input::-webkit-file-upload-button {
   max-height: 1400px;
   padding: 20px 0;
 }
+
 /*input range css*/
 .tab strong {
   margin: 10px 0;
@@ -607,7 +607,13 @@ input[type="range"]::-moz-range-thumb {
   background: #04aa6d; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
-
+#editor * {
+  font-family: monospace !important;
+  transition: none;
+  font-size: 16px !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
 /*input range css end*/
 @media (min-width: 1024px) {
   #readmore + label {

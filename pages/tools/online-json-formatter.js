@@ -46,7 +46,8 @@ const Page = () => {
         textarea {
           min-height: 350px;
           outline: none;
-          border: 1px solid #ddd;
+          border: 2px solid #888;
+          border-radius: 8px;
         }
         section {
           margin-top: 100px;
@@ -96,7 +97,7 @@ const Page = () => {
               readOnly
               value={data.result}
               className="h-100  w-100 p-3"
-              placeholder="Place your json here"
+              placeholder="output"
             ></textarea>
           </div>
         </div>

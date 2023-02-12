@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import "highlight.js/styles/github.css";
 import styles from "@/styles/editor.module.css";
-import hljs from "highlight.js";
+
 import Image from "next/image";
 import { FaCss3, FaHtml5, FaJava } from "react-icons/fa";
 import { DiJavascript } from "react-icons/di";
 import { NextSeo, ProductJsonLd } from "next-seo";
+import dynamic from "next/dynamic";
+const Editor = dynamic(() => import("../components/aceditor"), {
+  loading: () => "loading...",
+  ssr: false,
+});
 const Page = () => {
   const [code, setcode] = useState({
     html: `<main>
@@ -70,7 +74,6 @@ alert("hi")
 }`,
   });
   useEffect(() => {
-    hljs.highlightAll();
     document.addEventListener("keydown", (e) => {
       if (e.ctrlKey && e.which == 83) {
         e.preventDefault();
@@ -142,10 +145,10 @@ alert("hi")
       .querySelectorAll(`.${styles.tab} li`)
       [tab].classList.add(`${styles.active}`);
     document
-      .querySelectorAll(`.${styles.code} textarea`)
+      .querySelectorAll(`.${styles.code} .textareas`)
       .forEach((el) => el.classList.add("d-none"));
     document
-      .querySelectorAll(`.${styles.code} textarea`)
+      .querySelectorAll(`.${styles.code} .textareas`)
       [tab].classList.remove("d-none");
   };
   return (
@@ -212,37 +215,15 @@ alert("hi")
               </li>
             </ul>
             <div className={styles.code}>
-              <textarea
-                value={code.html}
-                onChange={(e) =>
-                  setcode((code) => ({
-                    ...code,
-                    html: e.target.value,
-                  }))
-                }
-                className={styles.html}
-              ></textarea>
-              <textarea
-                value={code.css}
-                onChange={(e) =>
-                  setcode((code) => ({
-                    ...code,
-                    css: e.target.value,
-                  }))
-                }
-                className={`${styles.css} d-none`}
-              ></textarea>
-
-              <textarea
-                value={code.js}
-                onChange={(e) =>
-                  setcode((code) => ({
-                    ...code,
-                    js: e.target.value,
-                  }))
-                }
-                className={`${styles.js} d-none`}
-              ></textarea>
+              {Object.keys(code).map((ed, i) => (
+                <Editor
+                  key={i}
+                  value={code[ed]}
+                  setdata={setcode}
+                  name={ed}
+                  mode={ed == "js" ? "javascript" : ed}
+                />
+              ))}
             </div>
           </div>
 
