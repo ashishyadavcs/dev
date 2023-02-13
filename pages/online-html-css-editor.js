@@ -155,7 +155,9 @@ alert("hi")
     <>
       <NextSeo
         title="Online html css editor ➜ #𝟙"
-        description="Edit your html and css online with frontendzone online html editor"
+        description="online HTML CSS editor is a convenient solution for
+          coding websites, especially for beginners. With their user-friendly
+          interfaces and real-time previews"
         canonical={`${process.env.NEXT_PUBLIC_APP_URL}/online-html-css-editor`}
         openGraph={{
           type: "software",
