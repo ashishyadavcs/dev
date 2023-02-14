@@ -10,7 +10,11 @@ const Post = ({ remove, edit, post }) => {
       as={`/blog/${post.slug}`}
       passHref
     >
-      <div className={styles.post} key={post._id}>
+      <a
+        style={{ textDecoration: "none" }}
+        className={styles.post}
+        key={post._id}
+      >
         <span className={styles.thumbnail}>
           <Image
             objectFit="cover"
@@ -28,7 +32,7 @@ const Post = ({ remove, edit, post }) => {
           <h3> {post.title}</h3>
           <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
         </div>
-      </div>
+      </a>
     </Link>
   );
 };
