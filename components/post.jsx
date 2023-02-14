@@ -11,6 +11,7 @@ const Post = ({ remove, edit, post }) => {
       passHref
     >
       <a
+        title={post.title}
         style={{ textDecoration: "none" }}
         className={styles.post}
         key={post._id}
