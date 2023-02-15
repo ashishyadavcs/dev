@@ -68,7 +68,12 @@ h3 {
   font-size: clamp(19px, 3vw, 17px) !important;
   font-weight: 600 !important;
 }
-
+.linkbtn {
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  background: transparent;
+}
 .pointer {
   cursor: pointer;
 }
