@@ -1,6 +1,7 @@
 import styles from "../styles/orderform.module.css";
 import { createOrder } from "../utils/order";
 import { useRouter } from "next/router";
+import { openwhatsapp } from "utils/device";
 const Orderform = ({ title }) => {
   const router = useRouter();
   return (
@@ -13,7 +14,7 @@ const Orderform = ({ title }) => {
       >
         x
       </span>
-      <form
+      {/* <form
         onSubmit={(e) => {
           e.preventDefault();
           createOrder(e, router);
@@ -45,7 +46,16 @@ const Orderform = ({ title }) => {
           placeholder="whatsapp number"
         ></input>
         <button className="my-1 theme-btn d-block w-100">submit</button>
-      </form>
+      </form> */}
+      <h3>
+        Please contact on whatsapp{" "}
+        <button
+          className="linkbtn theme-btn my-4"
+          onClick={(e) => window.open(openwhatsapp())}
+        >
+          click here
+        </button>
+      </h3>
     </div>
   );
 };
