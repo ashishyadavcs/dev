@@ -88,6 +88,12 @@ transition:all 0.3s;
         title="3D HTML CSS Button Generator online ➜ #𝟙"
         description="CSS Button Generator is a free online tool to create CSS buttons without code. Use  premium designed templates to easily generate CSS buttons"
         canonical={`${process.env.NEXT_PUBLIC_APP_URL}/css/button-generator`}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "css button generator, css 3D button generator",
+          },
+        ]}
         openGraph={{
           type: "software",
           url: `${process.env.NEXT_PUBLIC_APP_URL}/css/button-generator`,

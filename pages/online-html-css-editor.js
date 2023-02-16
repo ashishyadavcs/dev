@@ -156,6 +156,12 @@ alert("hi")
         description="online HTML CSS editor is a convenient solution for
           coding websites, especially for beginners. With their user-friendly
           interfaces and real-time previews"
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "html editor,online html editor,html editor,css editor",
+          },
+        ]}
         canonical={`${process.env.NEXT_PUBLIC_APP_URL}/online-html-css-editor`}
         openGraph={{
           type: "software",
