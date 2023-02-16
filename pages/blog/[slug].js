@@ -25,9 +25,9 @@ const Blog = ({ post, posts }) => {
           {post?.title && (
             <NextSeo
               title={post?.title}
-              description={` ${post?.excerpt
+              description={`${post?.title}, ${post?.excerpt
                 .replace(/<[^>]+>/g, "")
-                .slice(0, 145)}`}
+                .slice(0, 125)}`.slice(0, 150)}
               canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
               openGraph={{
                 type: "article",
@@ -55,6 +55,12 @@ const Blog = ({ post, posts }) => {
                 ],
                 siteName: process.env.NEXT_PUBLIC_APP_NAME,
               }}
+              additionalMetaTags={[
+                {
+                  name: "keywords",
+                  content: post?.title,
+                },
+              ]}
             />
           )}
           <Share />

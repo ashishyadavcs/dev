@@ -8,7 +8,18 @@ import { NextSeo } from "next-seo";
 const Blog = ({ posts, categories }) => {
   return (
     <div className={`${styles.blog} container my-4`}>
-      <NextSeo title="Frontendzone blog" />
+      <NextSeo
+        title="Frontendzone blog"
+        canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog`}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: `frontendzone, ${categories
+              .map((el) => el.params.categoryName)
+              .join()}`,
+          },
+        ]}
+      />
       <div className="row">
         <div className="col-md-8">
           <div className={styles.items}>

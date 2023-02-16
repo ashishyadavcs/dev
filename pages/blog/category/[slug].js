@@ -20,6 +20,16 @@ const Blog = ({ posts, category }) => {
     <>
       {category && (
         <main className={`${styles.blog} mainscrollbar mb-4`}>
+          <NextSeo
+            title={`Frontendzone | ${category.name}`}
+            additionalMetaTags={[
+              {
+                name: "keywords",
+                content: category?.name,
+              },
+            ]}
+            canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/category/${category?.slug}`}
+          />
           <Share />
           <div className={styles.postbanner}>
             <h1 className="p-2">{category.name}</h1>

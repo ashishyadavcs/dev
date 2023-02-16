@@ -25,12 +25,41 @@ export default function Home() {
     <>
       <NextSeo
         title={process.env.NEXT_PUBLIC_APP_NAME}
-        description="welcome to Frontendzone, your ultimate destination
+        description={`welcome to Frontendzone, your ultimate destination
             for all things of front-end development. Frontendzone is a
             destination to learn all frontend technologies practically with
-            industry experience."
+            industry experience.`.slice(0, 150)}
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
+        openGraph={{
+          type: "website",
+          url: `${process.env.NEXT_PUBLIC_APP_URL}`,
+          title: process.env.NEXT_PUBLIC_APP_NAME,
+          description: `welcome to Frontendzone, your ultimate destination
+            for all things of front-end development. Frontendzone is a
+            destination to learn all frontend technologies practically with
+            industry experience `,
+
+          images: [
+            {
+              url: "/dev/favicon.svg",
+              width: "100",
+              height: "100",
+              alt: "frontendzone",
+              type: "image/jpeg",
+            },
+            {
+              url: "/dev/favicon.svg",
+            },
+          ],
+          siteName: process.env.NEXT_PUBLIC_APP_NAME,
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "Frontendzone | web developement services",
+          },
+        ]}
       />
       <div className={`${styles.landing} homepage`}>
         <div className="container">
