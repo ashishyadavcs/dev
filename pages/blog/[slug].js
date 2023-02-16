@@ -14,7 +14,6 @@ import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 const Blog = ({ post, posts }) => {
-  console.log(post);
   useEffect(() => {
     hljs.highlightAll();
   }, [post]);

@@ -14,7 +14,6 @@ const Contenteditor = ({ setcontent, content }) => {
             })
               .then((res) => res.json())
               .then((res) => {
-                console.log(res);
                 resolve({
                   default: res.file.url,
                 });

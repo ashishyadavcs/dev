@@ -13,7 +13,7 @@ const Paynow = ({ product }) => {
     })
       .then((res) => res.json())
       .catch((err) => "");
-    console.log(data);
+
     const options = {
       key, // Enter the Key ID generated from the Dashboard
       amount: data.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise

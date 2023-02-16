@@ -12,9 +12,6 @@ const Editor = ({ styles, addPost, updatePost, edit, data }) => {
   const [content, setcontent] = useState(edit ? edit.content : "");
   const [thumbnail, setthumbnail] = useState(edit ? edit.thumbnail : false);
   const [faq, setfaq] = useState(edit.faq ? faq : []);
-  useEffect(() => {
-    console.log(categories);
-  }, [categories]);
 
   return (
     <div className={`${styles.addpost}`}>

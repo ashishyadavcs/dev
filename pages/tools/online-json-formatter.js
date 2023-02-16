@@ -27,7 +27,6 @@ const Page = () => {
   const uploadjson = (e) => {
     let reader = new FileReader();
     reader.onload = async (event) => {
-      console.log(event.target.result);
       setdata((prev) => ({
         ...prev,
         input: event.target.result,

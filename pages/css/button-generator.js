@@ -80,7 +80,6 @@ transition:all 0.3s;
   useEffect(() => {
     hljs.highlightAll();
     document.querySelector(".demo button").style = buttonstyle;
-    console.log("font", data.font);
   }, [data, buttonstyle]);
 
   return (

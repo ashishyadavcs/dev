@@ -12,7 +12,6 @@ const Upload = () => {
       .then((res) => res.json())
       .catch((err) => "");
     if (data.success) {
-      console.log(data);
       toast.success("file uploaded!");
     } else {
       toast.error("error occured");

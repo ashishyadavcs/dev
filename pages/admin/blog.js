@@ -76,9 +76,7 @@ const Post = ({ posts, categories }) => {
       toast.error(data.message);
     }
   };
-  useEffect(() => {
-    console.log(edit);
-  }, [edit]);
+  useEffect(() => {}, [edit]);
 
   return (
     <div className={`container my-4`}>
@@ -145,7 +143,7 @@ export async function getServerSideProps() {
     fetch(`${process.env.APP_URL}/api/post`).then((res) => res.json()),
     fetch(`${process.env.APP_URL}/api/category/`).then((res) => res.json()),
   ]);
-  console.log(categorydata.categories);
+
   return {
     props: {
       posts: postsdata.posts.reverse() || [],

@@ -86,9 +86,7 @@ alert("hi")
 
     try {
       document.querySelector("iframe").contentWindow.eval(code.js);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
 
     setTimeout(() => {
       document.querySelector(`.${styles.saving}`).style.opacity = 1;

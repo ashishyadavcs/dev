@@ -5,7 +5,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 const Category = ({ category }) => {
   const router = useRouter();
-  console.log(category);
+
   const addcategory = async (e) => {
     e.preventDefault();
     const data = await fetch("/api/category", {
@@ -80,7 +80,7 @@ export async function getServerSideProps({ req }) {
   const data = await fetch(`${process.env.APP_URL}/api/category`)
     .then((res) => res.json())
     .catch((err) => "");
-  console.log(data);
+
   return {
     props: {
       category: data.categories || [],
