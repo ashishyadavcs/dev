@@ -63,7 +63,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 export async function getStaticProps({ params }) {
@@ -72,7 +72,10 @@ export async function getStaticProps({ params }) {
     value: params.slug,
   });
   const data = await getCategoryDetails(params.slug);
-
+  if (data == undefined)
+    return {
+      notFound: true,
+    };
   return {
     props: {
       posts: posts.nodes,
