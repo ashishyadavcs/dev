@@ -111,12 +111,13 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 }
 export async function getStaticProps(req) {
   const post = await getSinglePost(req.params.slug);
   const { nodes: posts } = await getPostList(post);
+
   return {
     props: {
       post,
