@@ -29,11 +29,19 @@ const Share = () => {
     olx: `https://olx.com/post`,
     reddit: `https://reddit.com/submit?url=${url}&title=${text}`,
   };
-  const copyurl = () => {
+  const copyurl = (e) => {
     const input = document.createElement("textarea");
     input.value = window.location.href;
+    document.body.appendChild(input);
     input.select();
     document.execCommand("copy");
+    input.remove();
+    const li = e.currentTarget;
+    li.classList.add(`${styles.copied}`);
+    const removeclass = () => li.classList.remove(`${styles.copied}`);
+    setTimeout(function () {
+      removeclass();
+    }, 800);
   };
 
   const share = async (link) => {
@@ -73,8 +81,8 @@ const Share = () => {
         <li onClick={(e) => share(shareto.linkedin)}>
           <FaLinkedinIn size={25} />
         </li>
-        <li onClick={(e) => copyurl()}>
-          <FiLink2 onClick={(e) => copyurl()} size={25} />
+        <li title="copy url" onClick={(e) => copyurl(e)}>
+          <FiLink2 size={25} />
         </li>
       </ul>
     </div>
