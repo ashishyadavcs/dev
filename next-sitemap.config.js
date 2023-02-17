@@ -35,7 +35,7 @@ module.exports = {
 
       {
         userAgent: "*",
-        disallow: ["/api/*", "/dashboard/*", "/admin/*"],
+        disallow: ["/dashboard", "/admin"],
       },
     ],
     additionalSitemaps: [`${process.env.APP_URL}/server-sitemap.xml`],
