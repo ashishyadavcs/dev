@@ -4,7 +4,6 @@ Allow: /
 
 # *
 User-agent: *
-Disallow: /api/*
 Disallow: /dashboard
 Disallow: /admin
 Disallow: /dashboard/*
