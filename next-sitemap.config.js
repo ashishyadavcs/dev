@@ -2,7 +2,7 @@ module.exports = {
   siteUrl: "https://www.frontendzone.com",
   priority: 0.7,
   sitemapSize: 5000,
-  generateRobotsTxt: false,
+  generateRobotsTxt: true,
   exclude: [
     "/api",
     "/dashboard",
