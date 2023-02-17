@@ -5,7 +5,8 @@ import Sidebar from "@/components/sidebar";
 import Post from "@/components/post";
 import { getCategorySlugs, getPostList } from "lib/posts";
 import { NextSeo } from "next-seo";
-const Blog = ({ posts, categories }) => {
+import Loadmore from "@/components/loadmorepost";
+const Blog = ({ posts, categories, data }) => {
   return (
     <div className={`${styles.blog} container my-4`}>
       <NextSeo
@@ -27,6 +28,7 @@ const Blog = ({ posts, categories }) => {
               posts?.map((post) => {
                 return <Post key={post.slug} post={post} styles={styles} />;
               })}
+            <Loadmore pageInfo={data.pageInfo} />
           </div>
         </div>
         <div className="col-md-4">
@@ -43,6 +45,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      data,
       posts: data.nodes || [],
       categories,
     },

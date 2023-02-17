@@ -9,7 +9,7 @@ const Share = dynamic(() => import("@/components/ui/share"), {
   ssr: false,
 });
 
-import { getPostList, getSinglePost } from "lib/posts";
+import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
@@ -105,7 +105,7 @@ const Blog = ({ post, posts }) => {
 export default Blog;
 
 export async function getStaticPaths() {
-  const { nodes: posts } = await getPostList();
+  const posts = await getPostSlugs();
   const paths = posts.map((post) => ({
     params: { slug: post.slug },
   }));
