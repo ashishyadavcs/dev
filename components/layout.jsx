@@ -5,11 +5,13 @@ import Whatsapp from "./whatsapp";
 import Orderpop from "./orderpop";
 import Settings from "./settings";
 import Notes from "./ui/note";
+import { useRouter } from "next/router";
 
 const Layout = ({ children }) => {
+  const router = useRouter();
   return (
     <div className="layout">
-      <Notes />
+      {router.pathname.includes("blog") && <Notes />}
       <Settings />
       <Header />
       <main> {children}</main>

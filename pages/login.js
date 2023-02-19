@@ -17,7 +17,7 @@ export const Page = () => {
       password: e.target.password.value,
     };
 
-    const data = await fetch(`/api/auth/login`, {
+    const data = await fetch(`/api/baseauth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

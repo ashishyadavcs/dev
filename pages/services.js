@@ -6,6 +6,7 @@ import { openform } from "../utils/common";
 import { createContext } from "react";
 import Image from "next/image";
 import Whatsapp from "@/components/whatsapp";
+
 const Servicecount = createContext();
 const Servicespage = () => {
   const data = { name: "Ashish" };

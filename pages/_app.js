@@ -9,35 +9,38 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { layout } from "../public/data/layout";
 import nProgress from "nprogress";
+import { SessionProvider } from "next-auth/react";
 Router.events.on("routeChangeStart", () => nProgress.start());
 Router.events.on("routeChangeComplete", () => {
   nProgress.done();
 });
 Router.events.on("routeChangeError", () => nProgress.done());
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter();
   return (
-    <Provider store={store}>
-      {!layout.landing.includes(router.pathname) ? (
-        <Layout>
-          <Component {...pageProps} />
-          <ToastContainer
-            position="bottom-left"
-            autoClose="1000"
-            theme="light"
-          />
-        </Layout>
-      ) : (
-        <>
-          <Component {...pageProps} />
-          <ToastContainer
-            position="bottom-left"
-            autoClose="1000"
-            theme="light"
-          />
-        </>
-      )}
-    </Provider>
+    <SessionProvider session={session} basePath="/api/auth">
+      <Provider store={store}>
+        {!layout.landing.includes(router.pathname) ? (
+          <Layout>
+            <Component {...pageProps} />
+            <ToastContainer
+              position="bottom-left"
+              autoClose="1000"
+              theme="light"
+            />
+          </Layout>
+        ) : (
+          <>
+            <Component {...pageProps} />
+            <ToastContainer
+              position="bottom-left"
+              autoClose="1000"
+              theme="light"
+            />
+          </>
+        )}
+      </Provider>
+    </SessionProvider>
   );
 }
 export default MyApp;

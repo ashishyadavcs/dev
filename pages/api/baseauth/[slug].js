@@ -1,5 +1,6 @@
 import Cookies from "cookies";
 export default async function handler(req, res) {
+  return;
   const token = req.cookies["x-token"] || req.headers.cookies;
   const { slug } = req.query;
   const option = {
