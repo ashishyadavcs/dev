@@ -93,7 +93,8 @@
 .blog table tr:hover {
   background: #f1f1f1;
 }
-.blog td {
+.blog td,
+.blog th {
   padding: 10px;
   border: 2px solid #ddd;
 }
