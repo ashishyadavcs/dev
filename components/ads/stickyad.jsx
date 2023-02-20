@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import styles from "@/styles/ad.module.css";
 const Stickyad = () => {
   useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {}
     document.body.classList.add("stickyad");
     return () => {
       document.body.classList.remove("stickyad");
@@ -34,4 +36,4 @@ const Stickyad = () => {
   );
 };
 
-export default Stickyad;
+export default memo(Stickyad);

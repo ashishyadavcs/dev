@@ -1,14 +1,16 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import styles from "@/styles/ad.module.css";
 const Inpostad = () => {
   useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {}
   }, []);
 
   return (
     <>
       <div className={styles.sidebarAd}>
-        <span className="close">&times;</span>
+        <span className={styles.close}>&times;</span>
         <ins
           className="adsbygoogle"
           style={{ display: "block", width: "100%", height: "100%" }}
@@ -20,4 +22,4 @@ const Inpostad = () => {
   );
 };
 
-export default Inpostad;
+export default memo(Inpostad);
