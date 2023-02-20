@@ -583,7 +583,9 @@ input::-webkit-file-upload-button {
   max-height: 1400px;
   padding: 20px 0;
 }
-
+.table {
+  overflow: auto;
+}
 /*input range css*/
 .tab strong {
   margin: 10px 0;
