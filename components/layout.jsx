@@ -6,24 +6,21 @@ import Orderpop from "./orderpop";
 import Settings from "./settings";
 import Notes from "./ui/note";
 import { useRouter } from "next/router";
-import Stickyad from "./stickyad";
+import Stickyad from "@/components/ads/stickyad";
 
 const Layout = ({ children }) => {
   const router = useRouter();
   return (
     <div className="layout">
-      {router.pathname.includes("blog") && (
-        <>
-          <Notes />
-          <Stickyad />
-        </>
-      )}
+      {router.pathname.includes("blog") && <Notes />}
       <Settings />
       <Header />
       <main> {children}</main>
       <Footer />
-      {/* <Whatsapp /> */}
       <Orderpop />
+      {(router.pathname.includes("blog") ||
+        router.pathname.includes("online") ||
+        router.pathname.includes("button")) && <Stickyad />}
     </div>
   );
 };

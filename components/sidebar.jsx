@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Inpostad from "./ads/inpostad";
 import Group from "./group";
 const Sidebar = ({ styles, categories }) => {
   return (
@@ -18,6 +19,7 @@ const Sidebar = ({ styles, categories }) => {
             })}
           </ul>
           <Group />
+          <Inpostad />
         </>
       )}
 

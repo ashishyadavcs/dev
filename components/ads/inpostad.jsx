@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-
-const Stickyad = () => {
+import styles from "@/styles/ad.module.css";
+const Inpostad = () => {
   useEffect(() => {
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   }, []);
 
   return (
     <>
-      <div className="footerads">
+      <div className={styles.sidebarAd}>
         <span className="close">&times;</span>
         <ins
           className="adsbygoogle"
@@ -20,4 +20,4 @@ const Stickyad = () => {
   );
 };
 
-export default Stickyad;
+export default Inpostad;
