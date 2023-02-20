@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-
+import styles from "@/styles/ad.module.css";
 const Stickyad = () => {
   useEffect(() => {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
     document.body.classList.add("stickyad");
     return () => {
       document.body.classList.remove("stickyad");
@@ -10,7 +11,7 @@ const Stickyad = () => {
 
   return (
     <>
-      <div className="footerads">
+      <div className={styles.footerads}>
         {/* <span
           className="close"
           onClick={(e) => {
