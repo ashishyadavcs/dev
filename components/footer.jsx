@@ -152,6 +152,14 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/how-to/javascript">
+                    <a className="ml-1">
+                      <FaChevronRight className="mr-1" size={15} />
+                      how to js
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="col-md-3">
