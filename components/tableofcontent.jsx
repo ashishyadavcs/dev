@@ -29,9 +29,7 @@ const Toc = () => {
                 <li key={i}>
                   <Link
                     scroll={false}
-                    href={`${router.query.slug}#${replacewithdash(
-                      h.innerText
-                    )}`}
+                    href={`#${replacewithdash(h.innerText)}`}
                   >
                     <a id={replacewithdash(h.innerText)} className="d-block">
                       <span>{i + 1}</span>

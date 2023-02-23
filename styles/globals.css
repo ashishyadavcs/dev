@@ -68,6 +68,16 @@ h3 {
   font-size: clamp(19px, 3vw, 17px) !important;
   font-weight: 600 !important;
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  scroll-margin-top: 80px;
+}
+:where(h2)::first-letter {
+  text-transform: capitalize;
+}
 article h3 {
   font-size: clamp(25px, 3vw, 17px) !important;
 }
