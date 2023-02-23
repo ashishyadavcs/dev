@@ -2,6 +2,7 @@ import hljs from "highlight.js";
 import { useEffect } from "react";
 import Toc from "@/components/tableofcontent";
 import dynamic from "next/dynamic";
+import { NextSeo } from "next-seo";
 
 const Codeblock = dynamic(() => import("@/components/codeblock"), {
   loading: () => "loading...",
@@ -21,6 +22,7 @@ const Page = () => {
   }, []);
   return (
     <div className="container my-4 article">
+      <NextSeo title="how to javascript" />
       <style>{`section{margin-bottom:2rem}`}</style>
       <div className="row">
         <div className="col-md-8">
