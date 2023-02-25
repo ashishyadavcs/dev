@@ -1,0 +1,972 @@
+[
+    {
+        "que": "What does CSS stand for?",
+        "options": [
+            " Cascading Style Sheets",
+            " Creative Style Sheets",
+            " Complete Style Sheets",
+            "Combined Style Sheets"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which of the following is NOT a type of CSS selector?",
+        "options": [
+            " ID selector",
+            "Class selector",
+            "Element selector",
+            "Style selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets all elements of a specific HTML tag?",
+        "options": [
+            "ID selector",
+            "Class selector",
+            "Element selector",
+            "Attribute selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements with a specific attribute value?",
+        "options": [
+            " ID selector",
+            "Class selector",
+            "Element selector",
+            "Attribute selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements with a specific class name?",
+        "options": [
+            "   ID selector",
+            "Class selector",
+            "Element selector",
+            " Attribute selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the first element within another element?",
+        "options": [
+            "First child selector",
+            "Last child selector",
+            "Adjacent sibling selector",
+            "Descendant selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets the last element within another element?",
+        "options": [
+            "First child selector",
+            " Last child selector",
+            "Adjacent sibling selector",
+            " Descendant selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that are immediately adjacent to another element?",
+        "options": [
+            "First child selector",
+            "Last child selector",
+            " Adjacent sibling selector",
+            "Descendant selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that are nested within another element?",
+        "options": [
+            "  First child selector",
+            "Last child selector",
+            "Adjacent sibling selector",
+            "Descendant selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that are not a certain type?",
+        "options": [
+            "Pseudo-class selector",
+            "Attribute selector",
+            "Negation selector",
+            "Child selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets the first occurrence of an element in a group of elements?",
+        "options": [
+            "First-of-type selector",
+            " Last-of-type selector",
+            "Nth-of-type selector",
+            "Only-of-type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets the last occurrence of an element in a group of elements?",
+        "options": [
+            "First-of-type selector",
+            "Last-of-type selector",
+            "Nth-of-type selector",
+            "Only-of-type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements of a specific type within a group of elements?",
+        "options": [
+            " First-of-type selector",
+            "Last-of-type selector",
+            "Nth-of-type selector",
+            "Only-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets the only occurrence of an element in a group of elements?",
+        "options": [
+            " First-of-type selector",
+            " Last-of-type selector",
+            " Nth-of-type selector",
+            "Only-of-type selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that are the first child of a specific type within another element?",
+        "options": [
+            " First-child-of-type selector",
+            "Last-child-of-type selector",
+            " Nth-child-of-type selector,",
+            "Only-child-of-type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that are the nth child of a specific type within another element?",
+        "options": [
+            " First-child-of-type selector,",
+            "Last-child-of-type selector",
+            " Nth-child-of-type selector",
+            "Only-child-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets the only child element of its parent?",
+        "options": [
+            " First-child selector",
+            "Last-child selector",
+            " Only-child selector",
+            "All-child selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets an element that has a certain relationship to another element?",
+        "options": [
+            " Attribute selector",
+            "Combinator selector",
+            " Class selector",
+            "ID selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the first element within another element that matches a specific CSS selector?",
+        "options": [
+            " Descendant combinator",
+            "Child combinator",
+            " Adjacent sibling combinator",
+            "General sibling combinator"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements based on their position in the document?",
+        "options": [
+            " Structural selector",
+            " Attribute selector",
+            " Class selector",
+            " ID selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute?",
+        "options": [
+            " Attribute selector",
+            " Class selector",
+            " ID selector",
+            " Type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements with a certain class?",
+        "options": [
+            " Attribute selector",
+            " Class selector",
+            " ID selector",
+            " Type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements with a certain ID?",
+        "options": [
+            " Attribute selector",
+            " Class selector",
+            " ID selector",
+            " Type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets only the first element in a group of elements?",
+        "options": [
+            " First-child selector",
+            " Only-child selector",
+            " First-of-type selector",
+            " Only-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets only the last element in a group of elements?",
+        "options": [
+            " Last-child selector",
+            " Only-child selector",
+            " Last-of-type selector",
+            " Only-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets only elements that are immediately preceded by another specific element?",
+        "options": [
+            " Child selector",
+            " Adjacent sibling selector",
+            " Descendant selector",
+            " General sibling selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets all elements that are descendants of a specific element?",
+        "options": [
+            " Child selector",
+            " Adjacent sibling selector",
+            " Descendant selector",
+            " General sibling selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that are not of a certain type?",
+        "options": [
+            " Attribute selector",
+            " Negation selector",
+            " Child selector",
+            " Descendant selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets all elements that are siblings of a specific element, regardless of their position?",
+        "options": [
+            " Child selector",
+            " Adjacent sibling selector",
+            " Descendant selector",
+            " General sibling selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements based on their position within a group of siblings, starting from the last element?",
+        "options": [
+            " First-child selector",
+            " Last-child selector",
+            " Nth-last-child selector",
+            " Only-child selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements based on their position within a group of siblings, starting from the last element of a specific type?",
+        "options": [
+            " First-of-type selector",
+            " Last-of-type selector",
+            " Nth-last-of-type selector",
+            " Only-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that starts with a specific string?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value equals"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that ends with a specific string?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value equals"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that contains a specific string?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value equals"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that equals a specific string?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value equals"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that does not equal a specific string?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value not equals"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets the first letter of the first line of text in an element?",
+        "options": [
+            " First-letter pseudo-element selector",
+            " First-line pseudo-element selector",
+            " Last-letter pseudo-element selector",
+            " Last-line pseudo-element selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the first letter of each word in an element?",
+        "options": [
+            " First-letter pseudo-element selector",
+            " First-word pseudo-element selector",
+            " Last-letter pseudo-element selector",
+            " Last-word pseudo-element selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the content that is generated before or after an element?",
+        "options": [
+            " Pseudo-class selector",
+            " Pseudo-element selector",
+            " Attribute selector",
+            " Class selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that is a space-separated list of words, where one of the words is a specific value?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value includes"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that is a hyphen-separated list of words, where the first word is a specific value?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value dash"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that is greater than or equal to a specific value?",
+        "options": [
+            " Attribute selector with attribute value greater than",
+            " Attribute selector with attribute value less than",
+            " Attribute selector with attribute value greater than or equal to",
+            " Attribute selector with attribute value less than or equal to"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that is less than or equal to a specific value?",
+        "options": [
+            " Attribute selector with attribute value greater than",
+            " Attribute selector with attribute value less than",
+            " Attribute selector with attribute value greater than or equal to",
+            " Attribute selector with attribute value less than or equal to"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements based on their position within a group of siblings, starting from a specific index?",
+        "options": [
+            " Nth-child selector",
+            " Nth-of-type selector",
+            " Nth-last-child selector",
+            " Nth-last-of-type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements based on their position within a group of siblings of a specific type, starting from a specific index?",
+        "options": [
+            " Nth-child selector",
+            " Nth-of-type selector",
+            " Nth-last-child selector",
+            " Nth-last-of-type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the first element that matches a specific selector?",
+        "options": [
+            " :first selector",
+            ":last selector",
+            ":only selector",
+            ":nth selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets the last element that matches a specific selector?",
+        "options": [
+            " :first selector",
+            ":last selector",
+            ":only selector",
+            ":nth selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the only element that matches a specific selector?",
+        "options": [
+            " :first selector",
+            ":last selector",
+            ":only selector",
+            ":nth selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that starts with a specific value?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value includes"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that ends with a specific value?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value includes"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that have a certain attribute with a value that contains a specific value?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value includes"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that are the immediate children of a specific parent element?",
+        "options": [
+            " Child selector",
+            " Descendant selector",
+            " Adjacent sibling selector",
+            " General sibling selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that are descendants of a specific parent element, regardless of their distance in the DOM tree?",
+        "options": [
+            " Child selector",
+            " Descendant selector",
+            " Adjacent sibling selector",
+            " General sibling selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the next sibling element that immediately follows a specific element?",
+        "options": [
+            " Child selector",
+            " Descendant selector",
+            " Adjacent sibling selector",
+            " General sibling selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets all sibling elements that come after a specific element?",
+        "options": [
+            " Child selector",
+            " Descendant selector",
+            " Adjacent sibling selector",
+            " General sibling selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that are empty, i.e., they don't have any child elements or text content?",
+        "options": [
+            " :empty selector",
+            ":not selector",
+            ":target selector",
+            ":active selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that have a certain class name?",
+        "options": [
+            " Class selector",
+            " ID selector",
+            " Type selector",
+            " Attribute selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that have a specific ID attribute value?",
+        "options": [
+            " Class selector",
+            " ID selector",
+            " Type selector",
+            " Attribute selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the first child element of a specific parent element?",
+        "options": [
+            " :first-child selector",
+            ":last-child selector",
+            ":only-child selector",
+            ":nth-child selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets the last child element of a specific parent element?",
+        "options": [
+            " :first-child selector",
+            ":last-child selector",
+            ":only-child selector",
+            ":nth-child selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that are the only child of a specific parent element?",
+        "options": [
+            " :first-child selector",
+            ":last-child selector",
+            ":only-child selector",
+            ":nth-child selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that are the nth child of a specific parent element, where n is a specific number or formula?",
+        "options": [
+            " :first-child selector",
+            ":last-child selector",
+            ":only-child selector",
+            ":nth-child selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that are the nth child of a specific parent element, counting from the last child element?",
+        "options": [
+            " :nth-child selector",
+            ":nth-last-child selector",
+            ":nth-of-type selector",
+            ":nth-last-of-type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that are the nth of a specific type of element within a parent element, where n is a specific number or formula?",
+        "options": [
+            " :nth-child selector",
+            ":nth-last-child selector",
+            ":nth-of-type selector",
+            ":nth-last-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that are the nth of a specific type of element within a parent element, counting from the last element?",
+        "options": [
+            " :nth-child selector",
+            ":nth-last-child selector",
+            ":nth-of-type selector",
+            ":nth-last-of-type selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that have a specific attribute with a value that is one of several specified values?",
+        "options": [
+            " Attribute selector with attribute value prefix",
+            " Attribute selector with attribute value suffix",
+            " Attribute selector with attribute value contains",
+            " Attribute selector with attribute value list"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that don't match a specific selector?",
+        "options": [
+            " :not selector",
+            ":empty selector",
+            ":first-child selector",
+            ":last-child selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that are currently being hovered over by the mouse cursor?",
+        "options": [
+            " :hover selector",
+            ":active selector",
+            ":focus selector",
+            ":visited selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets the first occurrence of a specific type of element in a document?",
+        "options": [
+            " :first-of-type selector",
+            ":last-of-type selector",
+            ":only-of-type selector",
+            ":nth-of-type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets the last occurrence of a specific type of element in a document?",
+        "options": [
+            " :first-of-type selector",
+            ":last-of-type selector",
+            ":only-of-type selector",
+            ":nth-of-type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that contain a specific string of text?",
+        "options": [
+            " :contains selector",
+            ":empty selector",
+            ":not selector",
+            ":has selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that don't contain any child elements?",
+        "options": [
+            " :contains selector",
+            ":empty selector",
+            ":not selector",
+            ":has selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that contain at least one child element that matches a specific selector?",
+        "options": [
+            " :contains selector",
+            ":empty selector",
+            ":not selector",
+            ":has selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that are currently in the process of being clicked (i.e., when the mouse button is pressed down)?",
+        "options": [
+            " :hover selector",
+            ":active selector",
+            ":focus selector",
+            ":visited selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that have focus, such as when a user clicks on an input field?",
+        "options": [
+            " :hover selector",
+            ":active selector",
+            ":focus selector",
+            ":visited selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets links that have been visited by the user?",
+        "options": [
+            " :hover selector",
+            ":active selector",
+            ":focus selector",
+            ":visited selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements that are adjacent to a specific element?",
+        "options": [
+            " Adjacent sibling selector",
+            " General sibling selector",
+            " Child selector",
+            " Descendant selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that are siblings of a specific element?",
+        "options": [
+            " Adjacent sibling selector",
+            " General sibling selector",
+            " Child selector",
+            " Descendant selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets elements that are the direct child of a specific element?",
+        "options": [
+            " Adjacent sibling selector",
+            " General sibling selector",
+            " Child selector",
+            " Descendant selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets elements that are descendants of a specific element, regardless of their position in the hierarchy?",
+        "options": [
+            " Adjacent sibling selector",
+            " General sibling selector",
+            " Child selector",
+            " Descendant selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements based on their attributes?",
+        "options": [
+            " Attribute selector",
+            " ID selector",
+            " Class selector",
+            " Type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which attribute selector targets elements that have a specific attribute present?",
+        "options": [
+            " [attribute ] selector",
+            "[attribute=value] selector",
+            "[attribute^=value ] selector",
+            "[attribute$=value] selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which attribute selector targets elements that have a specific attribute with a specific value?",
+        "options": [
+            " [attribute ] selector",
+            "[attribute=value ] selector",
+            "[attribute^=value ] selector",
+            "[attribute$=value  ] selector],"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which attribute selector targets elements that have a specific attribute with a value that begins with a specific string?",
+        "options": [
+            " [attribute ] selector",
+            "[attribute=value] selector",
+            "[attribute^=value] selector",
+            "[attribute$=value ] selector "
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which attribute selector targets elements that have a specific attribute with a value that ends with a specific string?",
+        "options": [
+            " [attribute ] selector",
+            "[attribute=value] selector",
+            "[attribute^=values ] selector",
+            "[attribute$=value] selector "
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements based on their position in the document, regardless of their type or other attributes?",
+        "options": [
+            " :nth-child selector",
+            ":nth-of-type selector",
+            ":first-child selector",
+            ":last-child selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements based on their position in the document, taking into account only elements of a specific type?",
+        "options": [
+            " :nth-child selector",
+            ":nth-of-type selector",
+            ":first-child selector",
+            ":last-child selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the first occurrence of a specific element in a document, regardless of its position or type?",
+        "options": [
+            " :first-child selector",
+            ":first-of-type selector",
+            ":last-child selector",
+            ":last-of-type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets the last occurrence of a specific element in a document, regardless of its position or type?",
+        "options": [
+            " :first-child selector",
+            ":first-of-type selector",
+            ":last-child selector",
+            ":last-of-type selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets only the first child element of a specific parent element?",
+        "options": [
+            " :first-child selector",
+            ":first-of-type selector",
+            ":last-child selector",
+            ":last-of-type selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets all elements that have a specific class?",
+        "options": [
+            " ID selector",
+            " Class selector",
+            " Attribute selector",
+            " Type selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets an element with a specific ID?",
+        "options": [
+            " ID selector",
+            " Class selector",
+            " Attribute selector",
+            " Type selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that do not match a specific selector?",
+        "options": [
+            " :not() selector",
+            ":empty selector",
+            ":enabled selector",
+            ":disabled selector"
+        ],
+        "ans": 0
+    },
+    {
+        "que": "Which selector targets elements that do not contain any child elements?",
+        "options": [
+            " :not() selector",
+            ":empty selector",
+            ":enabled selector",
+            ":disabled selector"
+        ],
+        "ans": 1
+    },
+    {
+        "que": "Which selector targets form elements that are currently enabled?",
+        "options": [
+            " :not() selector",
+            ":empty selector",
+            ":enabled selector",
+            ":disabled selector"
+        ],
+        "ans": 2
+    },
+    {
+        "que": "Which selector targets form elements that are currently disabled?",
+        "options": [
+            " :not() selector",
+            ":empty selector",
+            ":enabled selector",
+            ":disabled selector"
+        ],
+        "ans": 3
+    },
+    {
+        "que": "Which selector targets elements based on their visibility?",
+        "options": [
+            " :visible selector",
+            ":hidden selector",
+            ":empty selector",
+            ":enabled selector"
+        ],
+        "ans": 1
+    }
+]
