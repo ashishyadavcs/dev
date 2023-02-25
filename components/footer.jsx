@@ -160,6 +160,14 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
+                <li className="d-flex align-items-center">
+                  <Link href="/the-selector-in-css-is-mcq">
+                    <a className="ml-1">
+                      <FaChevronRight className="mr-1" size={15} />
+                      CSS MCQ
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="col-md-3">

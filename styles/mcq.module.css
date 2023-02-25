@@ -41,6 +41,12 @@
 @media (max-width: 767px) {
   .result {
     width: 100%;
+    display: grid;
+    grid-template-columns: 70% 30%;
     left: 0;
+    align-items: center;
+  }
+  .result button {
+    height: 60px;
   }
 }
