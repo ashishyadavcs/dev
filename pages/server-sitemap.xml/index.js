@@ -9,7 +9,7 @@ export const getServerSideProps = async (ctx) => {
     lastmod: new Date().toISOString(),
   }));
   const path2 = categories.map((post) => ({
-    loc: `${process.env.APP_URL}/blog/catgeory/${post.params.categoryName}`,
+    loc: `${process.env.APP_URL}/blog/category/${post.params.categoryName}`,
     lastmod: new Date().toISOString(),
   }));
   const fields = [...path1, ...path2];
