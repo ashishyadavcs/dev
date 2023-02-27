@@ -32,7 +32,7 @@ const Ashish = () => {
       </div>
       <p>
         Hi, I am a software engineer . I love to learn and work on technologies
-        . I have {new Date().getFullYear() - 2021} years of experience in web
+        . I have {new Date().getFullYear() - 2020} years of experience in web
         development
       </p>
       <div className="techs">
