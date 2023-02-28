@@ -3,7 +3,12 @@ body {
   padding: 0;
   margin: 0;
 }
-
+.backlink {
+  border-top: none;
+}
+.backlink a {
+  color: transparent;
+}
 a {
   color: inherit;
   text-decoration: none;

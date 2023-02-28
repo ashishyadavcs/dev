@@ -18,6 +18,11 @@ const Layout = ({ children }) => {
       <main> {children}</main>
       <Footer />
       <Orderpop />
+      <div className="backlink sub-footer">
+        <a href="https://calculatorr.net">calculator</a>
+        <a href="https://physicsclass.co">physicsclass</a>
+        <a href="https://jsonviewer.guru">json viewer</a>
+      </div>
       {(router.pathname.includes("blog") ||
         router.pathname.includes("online") ||
         router.pathname.includes("button")) && <Stickyad />}
