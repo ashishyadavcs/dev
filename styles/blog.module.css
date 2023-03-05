@@ -148,7 +148,7 @@
 .blog h2 {
   margin-top: 2rem;
 }
-.blog ul.list li {
+.blog article ul li:not(.sticky li) {
   margin-bottom: 1.5rem;
 }
 .blog pre code {
