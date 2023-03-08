@@ -1,9 +1,44 @@
 import Inpostad from "@/components/ads/inpostad";
+import { FAQPageJsonLd, NextSeo } from "next-seo";
 import Image from "next/image";
 
 const Page = () => {
   return (
     <main>
+      <NextSeo
+        title="Genshin Character Wheel ✅"
+        description=" The Genshin Character Wheel is a tool that helps
+          players select characters for their team in Genshin Impact. "
+        canonical={process.env.NEXT_PUBLIC_APP_URL + "/genshin-character-wheel"}
+      />
+      <FAQPageJsonLd
+        mainEntity={[
+          {
+            questionName:
+              "What is the <strong>Genshin Character Wheel</strong>?",
+            acceptedAnswerText: `<p>
+          The <strong>Genshin Character Wheel</strong> is a tool that helps
+          players select characters for their team in Genshin Impact. The wheel
+          categorizes characters based on their elemental abilities, weapon
+          types, and roles. This allows players to select a well-balanced team
+          of characters that complement each other&apos;s strengths and
+          weaknesses.
+        </p>`,
+          },
+          {
+            questionName:
+              " How does the <strong>Genshin Character Wheel</strong> work?",
+            acceptedAnswerText: `<p>
+          The <strong>Genshin Character Wheel</strong> consists of five
+          elements: Pyro, Hydro, Electro, Anemo, and Geo. Each element
+          corresponds to a specific color: red for Pyro, blue for Hydro, purple
+          for Electro, green for Anemo, and yellow for Geo. The wheel also
+          includes six weapon types: Sword, Claymore, Polearm, Bow, Catalyst,
+          and Vision. Each weapon type is represented by a different symbol.
+        </p>`,
+          },
+        ]}
+      />
       <div className="container my-4">
         <h1>
           What is the <strong>Genshin Character Wheel</strong>?

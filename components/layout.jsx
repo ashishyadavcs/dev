@@ -7,12 +7,14 @@ import Settings from "./settings";
 import Notes from "./ui/note";
 import { useRouter } from "next/router";
 import Stickyad from "@/components/ads/stickyad";
+import Breadcrumb from "./breadcrumb";
 
 const Layout = ({ children }) => {
   const router = useRouter();
   return (
     <div className="layout">
       {router.pathname.includes("blog") && <Notes />}
+      <Breadcrumb />
       <Settings />
       <Header />
       <main> {children}</main>
