@@ -118,11 +118,7 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
-                {/* <li className="d-flex align-items-center">
-                  <Link className="ml-1" href="/term-of-service">
-                    Terms of service
-                  </Link>
-                </li> */}
+
                 {/* <li className="d-flex align-items-center">
                   <Link href="/privacy-policy">
                     <a className="ml-1">Privacy policy</a>
@@ -133,6 +129,15 @@ const Footer = () => {
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
                       Services
+                    </a>
+                  </Link>
+                </li>
+                <li className="d-flex align-items-center">
+                  <Link className="ml-1" href="/website-design">
+                    <a className="ml-1">
+                      {" "}
+                      <FaChevronRight className="mr-1" size={15} /> website
+                      design
                     </a>
                   </Link>
                 </li>

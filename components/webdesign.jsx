@@ -11,7 +11,7 @@ const Webdesign = ({ title = "" }) => {
           <div className={styles.design}>
             <NextSeo
               title={`Website Design ${title}`}
-              description={`Website Design ${title}: Crafting Engaging Digital Experiences`}
+              description={`Website Design ${title} | Hire Now`}
               canonical={`${process.env.NEXT_PUBLIC_APP_URL}/${title}`}
             />
             <h1>

@@ -5,14 +5,14 @@ const Page = () => {
   const tags = [
     "Wink",
     "ymca",
-    "wild apricot",
+    "wild-apricot",
     "western",
-    "york pa",
-    "woodstock ga",
-    "wichita ks ",
-    "watertown ny",
-    "walla walla",
-    "thousand oaks",
+    "york-pa",
+    "woodstock-ga",
+    "wichita-ks ",
+    "watertown-ny",
+    "walla-walla",
+    "thousand-oaks",
   ];
   return (
     <>
