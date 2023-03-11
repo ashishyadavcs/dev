@@ -4,7 +4,6 @@ import Ashish from "./ashish";
 import Toc from "./tableofcontent";
 import Whatsapp from "./whatsapp";
 const Webdesign = ({ title = "" }) => {
-  console.log(title);
   return (
     <div className="container my-4">
       <div className="row">
