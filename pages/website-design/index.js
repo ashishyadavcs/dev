@@ -1,19 +1,8 @@
 import Webdesign from "@/components/webdesign";
 import styles from "@/styles/website.module.css";
 import Link from "next/link";
+import { tags } from "public/data/webdesign";
 const Page = () => {
-  const tags = [
-    "Wink",
-    "ymca",
-    "wild-apricot",
-    "western",
-    "york-pa",
-    "woodstock-ga",
-    "wichita-ks ",
-    "watertown-ny",
-    "walla-walla",
-    "thousand-oaks",
-  ];
   return (
     <>
       <Webdesign />
