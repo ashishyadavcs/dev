@@ -647,9 +647,7 @@ input[type="range"]::-moz-range-thumb {
   text-align: left !important;
 }
 /*sticky footer ad*/
-body.stickyad .sub-footer {
-  margin-bottom: 70px;
-}
+
 /*sticky footer ad*/
 
 /*input range css end*/

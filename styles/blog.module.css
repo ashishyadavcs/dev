@@ -157,6 +157,9 @@
 .blog ul {
   list-style-position: inside;
 }
+.blog article :not(.sticky):where(ol, ul) li {
+  margin-bottom: 10px;
+}
 @media (max-width: 767px) {
   .postbanner {
     min-height: 175px;
