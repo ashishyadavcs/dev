@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(req) {
   return {
     props: {
-      title: req.query || "",
+      title: req.params.slug || "",
     },
   };
 }

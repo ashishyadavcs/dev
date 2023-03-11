@@ -4,14 +4,17 @@ import Ashish from "./ashish";
 import Toc from "./tableofcontent";
 import Whatsapp from "./whatsapp";
 const Webdesign = ({ title = "" }) => {
+  console.log(title);
   return (
     <div className="container my-4">
       <div className="row">
         <div className="col-md-8 article">
           <div className={styles.design}>
             <NextSeo
-              title={`Website Design ${title}`}
-              description={`Website Design ${title} | Hire Now`}
+              title={`Website Design ${title}  | Hire Now`}
+              description={`Website Design ${title}, a website is an essential element for
+              any business, organization, or individual. It is the first point
+              of contact for many potential customers`}
               canonical={`${process.env.NEXT_PUBLIC_APP_URL}/${title}`}
             />
             <h1>
