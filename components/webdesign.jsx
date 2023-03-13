@@ -14,7 +14,7 @@ const Webdesign = ({ title = "" }) => {
               description={`Website Design ${title}, a website is an essential element for
               any business, organization, or individual. It is the first point
               of contact for many potential customers`}
-              canonical={`${process.env.NEXT_PUBLIC_APP_URL}/${title}`}
+              canonical={`${process.env.NEXT_PUBLIC_APP_URL}/website-design/${title}`}
             />
             <h1>
               {title} Website Design: Crafting Engaging Digital Experiences
