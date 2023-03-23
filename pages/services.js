@@ -6,6 +6,7 @@ import { openform } from "../utils/common";
 import { createContext } from "react";
 import Image from "next/image";
 import Whatsapp from "@/components/whatsapp";
+import { NextSeo } from "next-seo";
 
 const Servicecount = createContext();
 const Servicespage = () => {
@@ -13,6 +14,10 @@ const Servicespage = () => {
 
   return (
     <>
+      <NextSeo
+        title="web development services | Frontendzone"
+        description="Get your business website designed & developed by experienced developer in $500 "
+      />
       <div className={styles.hero}>
         <span className={styles.heroimg}>
           <Image

@@ -5,6 +5,7 @@ import "intl-tel-input/build/css/intlTelInput.css";
 import { toast } from "react-toastify";
 import { contact } from "public/data/contact";
 import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { NextSeo } from "next-seo";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -39,6 +40,10 @@ const Contact = () => {
 
   return (
     <div className={styles.contact}>
+      <NextSeo
+        title="Contact Now for website design HTML-CSS-JS-NextJs-React-js-SEO | Frontendzone"
+        description="Get your business website designed & developed by experienced developer in $500 "
+      />
       <div className="container">
         <div className="row flex-md-row-reverse">
           <div className="col-md-6 col-12">
