@@ -17,7 +17,7 @@ export default function Home() {
   const steps = [
     "Submit your order",
     "Make half payment to confirm your order",
-    "Review Your website Website",
+    "Review Your website",
     "confirm order completed",
     "Make remaining Payment.",
     "Rate us",
