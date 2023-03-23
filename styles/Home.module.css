@@ -3,6 +3,47 @@
   padding: 2rem 0;
   background: rgb(245 252 255);
 }
+
+.banner {
+  background: linear-gradient(rgb(247 239 239), rgb(217 240 237));
+  min-height: max(500px, calc(100vh - 60px));
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+@keyframes bgskin {
+  0% {
+    background: linear-gradient(to left, red, #ffecb300);
+  }
+  20% {
+    background: linear-gradient(to left, rgb(247, 131, 131), #ffecb300);
+  }
+  40% {
+    background: linear-gradient(to left, rgb(186, 129, 129), #ffecb300);
+  }
+  80% {
+    background: linear-gradient(to left, rgb(242, 175, 175), #ffecb300);
+  }
+  100% {
+    background: linear-gradient(to left, red, #ffecb300);
+  }
+}
+@media (min-width: 768px) {
+  .banner::before {
+    content: "";
+    height: 100%;
+    width: 60%;
+    transition: all 1s;
+    position: absolute;
+    right: 0;
+    top: 0;
+    clip-path: polygon(27% 0, 100% 0, 100% 100%, 0% 100%);
+    background: linear-gradient(to left, red, #ffecb300);
+  }
+}
+.landing h2 {
+  font-size: clamp(40px, 3vw, 50px) !important;
+}
 @media (max-width: 767px) {
   .landing [class*="row"]:nth-child(3) {
     flex-direction: column-reverse;

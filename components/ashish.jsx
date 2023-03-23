@@ -16,7 +16,10 @@ const Ashish = () => {
   ];
   return (
     <div className="ashish">
-      <div className="hero d-flex align-items-center mb-4">
+      <div
+        title="click to see on linkedin"
+        className="hero d-flex align-items-center mb-4"
+      >
         <Image src="/ashish.jpg" alt="" height={90} width={90}></Image>
         <strong className="ml-4">
           <a

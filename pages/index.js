@@ -12,6 +12,7 @@ import { openform } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
 import Blogpost from "@/components/blogpost";
 import { contact } from "public/data/contact";
+import Link from "next/link";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -61,7 +62,7 @@ export default function Home() {
           },
         ]}
       />
-      <div className={`${styles.landing} homepage`}>
+      <div className={styles.banner}>
         <div className="container">
           <div className="row">
             <div className="col-md-7 col-12">
@@ -81,17 +82,18 @@ export default function Home() {
                   );
                 })}
               </ul>
-              <a
-                href={`tel:contact.whatsapp`}
-                className="theme-btn d-inline-block mb-4"
-              >
-                contact
-              </a>
+              <Link href={`/contact`}>
+                <a className="theme-btn d-inline-block mb-4"> contact</a>
+              </Link>
             </div>
             <div className="col-md-5 col-12 d-flex justify-content-end">
               <Ashish />
             </div>
           </div>
+        </div>
+      </div>
+      <div className={`${styles.landing} homepage`}>
+        <div className="container">
           <div className="row my-4 pt-4">
             <div className="col-md-5">
               <Image
