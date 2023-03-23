@@ -27,17 +27,25 @@ const Header = () => {
             </a>
           </Link>
           <nav className="d-flex justify-content-between mobilelinks">
-            <ul className="list-unstyled d-flex align-items-center mb-0">
+            <ul
+              itemScope
+              itemType="http://www.schema.org/SiteNavigationElement"
+              className="list-unstyled d-flex align-items-center mb-0"
+            >
               {nav.map((li, i) => {
                 return (
                   <li
+                    itemProp="name"
                     key={i}
                     onClick={(e) =>
                       refs.current.header.classList.remove("active")
                     }
                   >
                     <Link href={li.url}>
-                      <a title={li?.title}> {li.text}</a>
+                      <a itemProp="url" title={li?.title}>
+                        {" "}
+                        {li.text}
+                      </a>
                     </Link>
                     <Dropdown />
                   </li>
