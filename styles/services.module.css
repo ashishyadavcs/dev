@@ -18,11 +18,13 @@
 .card > div:first-child {
   overflow: hidden;
   height: 45%;
+  min-height: 200px;
   position: relative;
 }
 .card > div:last-child {
   padding: 1.5rem;
   height: 55%;
+  min-height: 150px;
 }
 
 .hero {
