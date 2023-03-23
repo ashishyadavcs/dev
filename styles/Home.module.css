@@ -1,12 +1,12 @@
 .landing {
-  min-height: 90vh;
   padding: 2rem 0;
   background: rgb(245 252 255);
 }
 
 .banner {
   background: linear-gradient(rgb(247 239 239), rgb(217 240 237));
-  min-height: max(500px, calc(100vh - 60px));
+  height: 92vh;
+  max-height: 700px;
   position: relative;
   display: flex;
   align-items: center;
@@ -45,6 +45,12 @@
   font-size: clamp(40px, 3vw, 50px) !important;
 }
 @media (max-width: 767px) {
+  .banner {
+    padding: 2rem 0;
+    display: block;
+    height: unset;
+    max-height: unset;
+  }
   .landing [class*="row"]:nth-child(3) {
     flex-direction: column-reverse;
   }
