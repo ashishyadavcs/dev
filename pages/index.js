@@ -3,7 +3,7 @@ import Orderform from "../components/orderform";
 import Services from "../components/service";
 import Testimonial from "../components/testimonial";
 import { BsCheck2Circle } from "react-icons/bs";
-import { NextSeo } from "next-seo";
+import { NextSeo, OrganizationJsonLd } from "next-seo";
 import Upload from "@/components/upload";
 import Blog from "@/components/banners/blog";
 import Ashish from "@/components/ashish";
@@ -13,6 +13,7 @@ import Whatsapp from "@/components/whatsapp";
 import Blogpost from "@/components/blogpost";
 import { contact } from "public/data/contact";
 import Link from "next/link";
+import Seo from "@/components/organization";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -24,44 +25,7 @@ export default function Home() {
   ];
   return (
     <>
-      <NextSeo
-        title={process.env.NEXT_PUBLIC_APP_NAME}
-        description={`welcome to Frontendzone, your ultimate destination
-            for all things of front-end development. Frontendzone is a
-            destination to learn all frontend technologies practically with
-            industry experience.`.slice(0, 150)}
-        key="webdesign,web developer"
-        canonical={process.env.NEXT_PUBLIC_APP_URL}
-        openGraph={{
-          type: "website",
-          url: `${process.env.NEXT_PUBLIC_APP_URL}`,
-          title: process.env.NEXT_PUBLIC_APP_NAME,
-          description: `welcome to Frontendzone, your ultimate destination
-            for all things of front-end development. Frontendzone is a
-            destination to learn all frontend technologies practically with
-            industry experience `,
-
-          images: [
-            {
-              url: "/dev/favicon.svg",
-              width: "100",
-              height: "100",
-              alt: "frontendzone",
-              type: "image/jpeg",
-            },
-            {
-              url: "/dev/favicon.svg",
-            },
-          ],
-          siteName: process.env.NEXT_PUBLIC_APP_NAME,
-        }}
-        additionalMetaTags={[
-          {
-            name: "keywords",
-            content: "Frontendzone | web developement services",
-          },
-        ]}
-      />
+      <Seo />
       <div className={styles.banner}>
         <div className="container">
           <div className="row">

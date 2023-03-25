@@ -106,7 +106,10 @@
   padding: 1rem;
   min-height: 300px;
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  color: #ccc;
   background: rgb(10 31 72);
 }
 .postbanner img {

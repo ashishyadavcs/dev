@@ -2,7 +2,7 @@ import Image from "next/image";
 import Toc from "@/components/tableofcontent";
 import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
-import { NextSeo } from "next-seo";
+import { ArticleJsonLd, NextSeo } from "next-seo";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
 const Share = dynamic(() => import("@/components/ui/share"), {
@@ -13,7 +13,9 @@ import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
+import moment from "moment";
 const Blog = ({ post, posts }) => {
+  console.log(post);
   useEffect(() => {
     hljs.highlightAll();
   }, [post]);
@@ -23,21 +25,50 @@ const Blog = ({ post, posts }) => {
       {post && (
         <main className={`${styles.blog} mainscrollbar mb-4`}>
           {post?.title && (
-            <NextSeo
-              title={post?.title}
-              description={`${post?.title}, ${post?.excerpt
-                .replace(/<[^>]+>/g, "")
-                .slice(0, 125)}`.slice(0, 150)}
-              canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
-              openGraph={{
-                type: "article",
-                url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
-                title: post?.title,
-                description: ` ${post.excerpt
+            <>
+              <NextSeo
+                title={post?.title}
+                description={`${post?.title}, ${post?.excerpt
                   .replace(/<[^>]+>/g, "")
-                  .slice(0, 145)}`,
+                  .slice(0, 125)}`.slice(0, 150)}
+                canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
+                openGraph={{
+                  type: "article",
+                  url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
+                  title: post?.title,
+                  description: ` ${post.excerpt
+                    .replace(/<[^>]+>/g, "")
+                    .slice(0, 145)}`,
 
-                images: [
+                  images: [
+                    {
+                      url: post?.featuredImage?.node.mediaDetails.sizes[3]
+                        .sourceUrl,
+                      width:
+                        post?.featuredImage?.node.mediaDetails.sizes[3].width,
+                      height:
+                        post?.featuredImage?.node.mediaDetails.sizes[3].height,
+                      alt: post?.title,
+                      type: "image/jpeg",
+                    },
+                    {
+                      url: post?.featuredImage?.node.mediaDetails.sizes[3]
+                        .sourceUrl,
+                    },
+                  ],
+                  siteName: process.env.NEXT_PUBLIC_APP_NAME,
+                }}
+                additionalMetaTags={[
+                  {
+                    name: "keywords",
+                    content: post?.title,
+                  },
+                ]}
+              />
+              <ArticleJsonLd
+                url={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
+                title={post.title}
+                images={[
                   {
                     url: post?.featuredImage?.node.mediaDetails.sizes[3]
                       .sourceUrl,
@@ -52,21 +83,29 @@ const Blog = ({ post, posts }) => {
                     url: post?.featuredImage?.node.mediaDetails.sizes[3]
                       .sourceUrl,
                   },
-                ],
-                siteName: process.env.NEXT_PUBLIC_APP_NAME,
-              }}
-              additionalMetaTags={[
-                {
-                  name: "keywords",
-                  content: post?.title,
-                },
-              ]}
-            />
+                ]}
+                datePublished={post.date}
+                dateModified={post.date}
+                authorName={[
+                  {
+                    name: "Frontendzone",
+                    url: `${process.env.NEXT_PUBLIC_APP_URL}/about`,
+                  },
+                ]}
+                publisherName="Frontendzone"
+                publisherLogo={`${process.env.NEXT_PUBLIC_APP_URL}/dev/logo.svg`}
+                description={post.description}
+                isAccessibleForFree={true}
+              />
+            </>
           )}
           <Share />
           <article>
             <div className={styles.postbanner}>
               <h1 className="container">{post?.title}</h1>
+
+              <datetime>{moment(post.date).format("LLLL")}</datetime>
+
               {/* {post.featuredImage && (
               <Image
                 priority
@@ -80,9 +119,9 @@ const Blog = ({ post, posts }) => {
 
             <div className="container">
               <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-8 my-4">
                   <div
-                    className={`my-4 article ${styles.article}`}
+                    className={` article ${styles.article}`}
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
                 </div>
