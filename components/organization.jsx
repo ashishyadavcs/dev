@@ -134,9 +134,9 @@ const Seo = () => {
           {
             author: "John Doe",
             datePublished: "2006-05-04",
-            name: "A masterpiece of literature",
+            name: "Expert web developers",
             reviewBody:
-              "I really enjoyed this book. It captures the essential challenge people face as they try make sense of their lives and grow to adulthood.",
+              "I really enjoyed their website design service. They delivered it fast with quality works",
             reviewRating: {
               bestRating: "5",
               worstRating: "1",
@@ -147,9 +147,9 @@ const Seo = () => {
           {
             author: "Bob Smith",
             datePublished: "2006-06-15",
-            name: "A good read.",
+            name: "I will suggest startup or business owner to make website from frontendzone to enhance their social & online presence",
             reviewBody:
-              "Catcher in the Rye is a fun book. It's a good book to read.",
+              "100% quality and geneuine work , Thankyou frontendzone",
             reviewRating: {
               ratingValue: "4",
             },
@@ -159,13 +159,12 @@ const Seo = () => {
           {
             priceSpecification: {
               type: "UnitPriceSpecification",
-              priceCurrency: "EUR",
-              price: "1000-10000",
+              priceCurrency: "IN",
+              price: "10000-100000",
             },
             itemOffered: {
-              name: "Motion Design Services",
-              description:
-                "We are the expert of animation and motion design productions.",
+              name: "website Design Services",
+              description: "We are the expert of website design.",
             },
           },
           {
@@ -200,7 +199,7 @@ const Seo = () => {
         action={{
           actionName: "potentialAction",
           actionType: "ReviewAction",
-          target: "https://www.example.com/review/this/business",
+          target: process.env.NEXT_PUBLIC_APP_URL,
         }}
       />
       <SocialProfileJsonLd
