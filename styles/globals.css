@@ -108,7 +108,6 @@ article h3 {
 .layout header {
   text-transform: capitalize;
   background: #fff;
-  position: sticky;
   z-index: 10;
   top: 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -655,6 +654,9 @@ input[type="range"]::-moz-range-thumb {
 @media (min-width: 1024px) {
   #readmore + label {
     margin: -40px auto auto;
+  }
+  .layout header {
+    position: sticky;
   }
   .sticky {
     position: sticky;
