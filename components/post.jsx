@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/post.module.css";
 import { useRouter } from "next/router";
+import moment from "moment";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 const Post = ({ remove, edit, post }) => {
   const router = useRouter();
@@ -36,6 +38,9 @@ const Post = ({ remove, edit, post }) => {
             <div className={styles.content}>
               <h3> {post.title}</h3>
               <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+              <datetime className={styles.date}>
+                <AiOutlineClockCircle size={15} /> {moment(post.date).fromNow()}
+              </datetime>
             </div>
           </a>
         </Link>

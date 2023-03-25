@@ -147,6 +147,11 @@ export default function Home() {
         <div className="container">
           <h2 className="text-center my-4">Latest blog posts</h2>
           <Blogpost />
+          <Link href="/blog">
+            <a className="theme-btn d-block mx-auto text-center">
+              Read More Blogs
+            </a>
+          </Link>
         </div>
       </div>
       <Whatsapp />
