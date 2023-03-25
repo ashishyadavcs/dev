@@ -6,7 +6,7 @@ const Sidebar = ({ styles, categories }) => {
     <div className={`my-4 sticky`}>
       {categories?.length > 0 && (
         <>
-          <h2 className="mt-4 mb-3">Categories</h2>
+          <h2 className="mt-4 mb-3 related">Categories</h2>
           <ul className={`list-unstyled d-flex flex-wrap ${styles.tag}`}>
             {categories.map((tag) => {
               return (

@@ -672,3 +672,31 @@ input[type="range"]::-moz-range-thumb {
     width: 6px;
   }
 }
+.related {
+  position: relative;
+  background: #fff;
+  padding: 5px 10px;
+  z-index: 2;
+  color: #fff;
+}
+.related::after {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  content: "";
+  width: 200px;
+  height: 101%;
+  background: #03072d;
+  z-index: -1;
+  clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+}
+.related::before {
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: #03072d;
+}
