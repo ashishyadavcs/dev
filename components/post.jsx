@@ -6,6 +6,7 @@ import moment from "moment";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
 const Post = ({ remove, edit, post }) => {
+  const defaultimg = [1, 2];
   const router = useRouter();
   return (
     <>
@@ -31,7 +32,11 @@ const Post = ({ remove, edit, post }) => {
                 src={
                   post.featuredImage
                     ? post.featuredImage?.node.mediaDetails.sizes[3]?.sourceUrl
-                    : "/images/default.png"
+                    : `/images/default${
+                        defaultimg[
+                          Math.floor(Math.random() * defaultimg.length)
+                        ]
+                      }.png`
                 }
               ></Image>
             </span>
