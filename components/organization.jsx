@@ -73,7 +73,7 @@ const Seo = () => {
       />
 
       <LocalBusinessJsonLd
-        type="Store"
+        type="ProfessionalService"
         id={process.env.NEXT_PUBLIC_APP_URL}
         name="Frontendzone"
         description="Dave's latest department store in San Jose, now open"
