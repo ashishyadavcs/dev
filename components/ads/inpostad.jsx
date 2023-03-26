@@ -10,7 +10,6 @@ const Inpostad = () => {
   return (
     <>
       <div className={styles.sidebarAd}>
-        <span className={styles.close}>&times;</span>
         <ins
           className="adsbygoogle"
           style={{ display: "block", width: "100%", height: "100%" }}
