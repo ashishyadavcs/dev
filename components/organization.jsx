@@ -13,7 +13,7 @@ const Seo = () => {
         description={`welcome to Frontendzone, your ultimate destination
             for all things of front-end development. Frontendzone is a
             destination to learn all frontend technologies practically with
-            industry experience.`.slice(0, 150)}
+            industry experience.`}
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
         openGraph={{
