@@ -47,11 +47,17 @@ export default function Home() {
                 })}
               </ul>
               <Link href={`/contact`}>
-                <a className="theme-btn d-inline-block mb-4"> contact</a>
+                <a className={styles.cta}> Contact Now</a>
               </Link>
             </div>
             <div className="col-md-5 col-12 d-flex justify-content-end">
-              <Ashish />
+              <Image
+                alt="website design services in india"
+                objectFit="contain"
+                height={300}
+                width={400}
+                src="/dev/business-website.svg"
+              />
             </div>
           </div>
         </div>
@@ -65,7 +71,7 @@ export default function Home() {
                 objectFit="contain"
                 height={300}
                 width={400}
-                src="/dev/business-website.svg"
+                src="/dev/website-design-services.png"
               />
             </div>
             <div className="col-md-7 d-flex flex-column justify-content-center">

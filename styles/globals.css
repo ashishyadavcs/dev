@@ -701,3 +701,11 @@ input[type="range"]::-moz-range-thumb {
   height: 4px;
   background: #03072d;
 }
+@media (max-width: 576px) {
+  .theme-btn.cta {
+    width: 100%;
+    max-width: unset;
+    text-align: center;
+    text-decoration: none;
+  }
+}
