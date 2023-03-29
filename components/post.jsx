@@ -26,6 +26,7 @@ const Post = ({ remove, edit, post }) => {
             <span className={styles.thumbnail}>
               <Image
                 objectFit="cover"
+                objectPosition="left"
                 layout="fill"
                 priority
                 alt=""

@@ -15,7 +15,6 @@ import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
 const Blog = ({ post, posts }) => {
-  console.log(post);
   useEffect(() => {
     hljs.highlightAll();
   }, [post]);
@@ -28,9 +27,9 @@ const Blog = ({ post, posts }) => {
             <>
               <NextSeo
                 title={post?.title}
-                description={`${post?.title}, ${post?.excerpt
+                description={`${post?.excerpt
                   .replace(/<[^>]+>/g, "")
-                  .slice(0, 125)}`.slice(0, 150)}
+                  .slice(0, 125)}`}
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
                 openGraph={{
                   type: "article",
@@ -103,20 +102,8 @@ const Blog = ({ post, posts }) => {
           <article>
             <div className={styles.postbanner}>
               <h1 className="container">{post?.title}</h1>
-
               <datetime>{moment(post.date).format("LLLL")}</datetime>
-
-              {/* {post.featuredImage && (
-              <Image
-                priority
-                src={post.featuredImage.node.mediaDetails.sizes[5].sourceUrl}
-                objectFit="cover"
-                layout="fill"
-                alt={post?.title}
-              />
-            )} */}
             </div>
-
             <div className="container">
               <div className="row">
                 <div className="col-md-8 my-4">
@@ -133,7 +120,7 @@ const Blog = ({ post, posts }) => {
               </div>
             </div>
           </article>
-          <div className="container">
+          <div className="container my-4">
             <Relatedposts posts={posts} />
           </div>
         </main>
