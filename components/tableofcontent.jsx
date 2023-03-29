@@ -3,9 +3,15 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
+import { FaAngleDown } from "react-icons/fa";
 
 const Toc = () => {
   const router = useRouter();
+  const close = (e) => {
+    e == true
+      ? document.querySelector(`.${styles.toc}`).classList.remove(styles.active)
+      : e.target.parentElement.classList.toggle(styles.active);
+  };
   const [data, setData] = useState([]);
   useEffect(() => {
     const headings = document
@@ -22,7 +28,9 @@ const Toc = () => {
     <>
       {data.length > 0 && (
         <div className={`${styles.toc}`}>
-          <b>What&apos;s Inside</b>
+          <b className="d-flex justify-content-between">
+            What&apos;s Inside <FaAngleDown />
+          </b>
           <ul>
             {data.length > 0 &&
               data.map((h, i) => (

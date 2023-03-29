@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
+import Ashish from "@/components/ashish";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
     hljs.highlightAll();
@@ -115,6 +116,7 @@ const Blog = ({ post, posts }) => {
                 <div className="col-md-4">
                   <div className="sticky">
                     <Toc />
+                    <Sidebar />
                   </div>
                 </div>
               </div>

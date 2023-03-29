@@ -8,10 +8,16 @@
   background: #fff;
   border-radius: 8px;
   border-left: 2px solid teal;
+  position: sticky;
+  top: 65px;
 }
-
-.toc b {
+.toc.active b {
   margin-bottom: 10px;
+}
+.toc.toc.active ul {
+  max-height: 500px;
+}
+.toc b {
   display: block;
 }
 .toc ul {
@@ -19,6 +25,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  max-height: 0;
+  overflow: hidden;
 }
 .toc li {
   margin-bottom: 5px !important;
