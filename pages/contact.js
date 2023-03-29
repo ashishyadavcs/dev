@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { contact } from "public/data/contact";
 import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { NextSeo } from "next-seo";
+import Image from "next/image";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -62,6 +63,15 @@ const Contact = () => {
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </p>
             </div>
+            <span className="d-none d-md-block">
+              {" "}
+              <Image
+                src="/images/contact-us.png"
+                height={300}
+                width={300}
+                alt="contact for web development services"
+              />
+            </span>
           </div>
           <div className="col-md-6 col-12">
             <form onSubmit={sendemail} className="d-flex flex-column">
