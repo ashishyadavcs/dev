@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   const router = useRouter();
   return (
     <div className="layout">
-      {router.pathname.includes("blog") && <Notes />}
+      {/* {router.pathname.includes("blog") && <Notes />} */}
       <Breadcrumb />
       <Settings />
       <Header />
