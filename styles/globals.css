@@ -685,7 +685,7 @@ input[type="range"]::-moz-range-thumb {
   top: 0;
   left: 0%;
   content: "";
-  width: 200px;
+  width: 250px;
   height: 101%;
   background: #03072d;
   z-index: -1;
