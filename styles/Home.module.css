@@ -16,7 +16,6 @@
 }
 .cta:hover {
   text-decoration: none;
-  transform: translateY(-6px) scale(1.1);
   color: #fff;
 }
 .banner {
@@ -29,6 +28,9 @@
 }
 
 @media (min-width: 768px) {
+  .cta:hover {
+    transform: translateY(-6px) scale(1.1);
+  }
   .banner::before {
     content: "";
     height: 100%;
