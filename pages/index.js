@@ -11,9 +11,9 @@ import Image from "next/image";
 import { openform } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
 import Blogpost from "@/components/blogpost";
-import { contact } from "public/data/contact";
 import Link from "next/link";
 import Seo from "@/components/organization";
+import { openwhatsapp } from "utils/device";
 export default function Home() {
   const steps = [
     "Submit your order",
@@ -46,14 +46,21 @@ export default function Home() {
                   );
                 })}
               </ul>
-              <Link href={`/contact`}>
-                <a className={styles.cta}> Contact Now</a>
-              </Link>
+
+              <a
+                className={styles.cta}
+                onClick={(e) => {
+                  e.currentTarget.href = openwhatsapp();
+                }}
+              >
+                Contact Now
+              </a>
             </div>
             <div className="col-md-5 col-12 d-flex justify-content-end">
               <Image
                 alt="website design services in india"
                 objectFit="contain"
+                priority
                 height={300}
                 width={400}
                 src="/dev/business-website.svg"
@@ -147,6 +154,14 @@ export default function Home() {
                 monitoring and support to keep your website performing at its
                 best.
               </p>
+              <a
+                className={styles.cta}
+                onClick={(e) => {
+                  e.currentTarget.href = openwhatsapp();
+                }}
+              >
+                Order Website Now
+              </a>
             </div>
           </div>
         </div>

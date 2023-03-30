@@ -1,3 +1,6 @@
+import { contact } from "public/data/contact";
+import { ismobile } from "./device";
+
 export const openform = () => {
   document.querySelector(".orderpop").classList.add("active");
 };
@@ -38,4 +41,12 @@ export const setThumbnail = (filetype) => {
 
 export const replacewithdash = (text) => {
   return `${text.toLowerCase().trim().replace(/ /g, "-")}`;
+};
+
+export const openwhatsapp = () => {
+  if (ismobile()) {
+    return `https://api.whatsapp.com/send?phone=${contact.whatsapp}`;
+  } else {
+    return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
+  }
 };

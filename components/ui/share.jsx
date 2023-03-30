@@ -66,7 +66,7 @@ const Share = () => {
     }
   };
   return (
-    <div className={styles.share}>
+    <div className={`${styles.share} `}>
       <ul>
         <li>share</li>
         <li onClick={(e) => share(shareto.facebook)}>
