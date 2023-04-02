@@ -1,15 +1,6 @@
-import { getPostList } from "lib/posts";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import Post from "./post";
-const Blogpost = () => {
-  const [posts, setposts] = useState([]);
-  const fetchPost = async () => {
-    const data = await getPostList();
-    setposts([...data.nodes.slice(0, 3)]);
-  };
-  useEffect(() => {
-    fetchPost();
-  }, []);
+const Blogpost = ({ posts }) => {
   return (
     <>
       {posts.length > 0 &&

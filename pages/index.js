@@ -14,7 +14,8 @@ import Blogpost from "@/components/blogpost";
 import Link from "next/link";
 import Seo from "@/components/organization";
 import { openwhatsapp } from "utils/device";
-export default function Home() {
+import { getPostList } from "lib/posts";
+export default function Home({ posts }) {
   const steps = [
     "Submit your order",
     "Make half payment to confirm your order",
@@ -167,7 +168,7 @@ export default function Home() {
         </div>
         <div className="container">
           <h2 className="text-center my-4">Latest blog posts</h2>
-          <Blogpost />
+          <Blogpost posts={posts} />
           <Link href="/blog">
             <a className="theme-btn d-block mx-auto text-center">
               Read More Blogs
@@ -179,3 +180,7 @@ export default function Home() {
     </>
   );
 }
+Home.getInitialProps = async () => {
+  const res = await getPostList();
+  return { posts: res.nodes.splice(0, 3) };
+};
