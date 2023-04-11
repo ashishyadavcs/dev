@@ -31,8 +31,7 @@ export default function Home() {
           <div className="row">
             <div className="col-md-7 col-12">
               <h1 className="gradient-text heading text-capitalize">
-                Get your website<br></br> designed & developed<br></br> by
-                expert web developer
+                Looking for Help<br></br> For Your website<br></br> development
                 <br></br>
               </h1>
 
@@ -160,7 +159,7 @@ export default function Home() {
                   e.currentTarget.href = openwhatsapp();
                 }}
               >
-                Order Website Now
+                Get Help Now
               </a>
             </div>
           </div>
