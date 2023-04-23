@@ -5,12 +5,15 @@ import Layout from "../components/layout";
 import Router, { useRouter } from "next/router";
 import store from "../store/store";
 import { Provider } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { layout } from "../public/data/layout";
 import nProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
-Router.events.on("routeChangeStart", () => nProgress.start());
+Router.events.on("routeChangeStart", () => {
+  nProgress.start();
+  navigator.onLine ? toast.error("You are offline") : "";
+});
 Router.events.on("routeChangeComplete", () => {
   nProgress.done();
 });
