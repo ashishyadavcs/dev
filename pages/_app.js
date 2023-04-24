@@ -12,7 +12,7 @@ import nProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
 Router.events.on("routeChangeStart", () => {
   nProgress.start();
-  navigator.onLine ? toast.error("You are offline") : "";
+  !navigator.onLine ? toast.error("You are offline") : "";
 });
 Router.events.on("routeChangeComplete", () => {
   nProgress.done();
