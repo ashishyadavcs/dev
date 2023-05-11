@@ -14,9 +14,9 @@ import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
-import Ashish from "@/components/ashish";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
+    document.querySelectorAll('article img').forEach(img=>img.setAttribute('loading','lazy'))
     hljs.highlightAll();
   }, [post]);
 

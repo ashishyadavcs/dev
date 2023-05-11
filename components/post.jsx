@@ -29,7 +29,7 @@ const Post = ({ remove, edit, post }) => {
                 objectPosition="left"
                 layout="fill"
                 priority
-                alt=""
+                alt={post.title}
                 src={
                   post.featuredImage
                     ? post.featuredImage?.node.mediaDetails.sizes[3]?.sourceUrl

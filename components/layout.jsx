@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import Whatsapp from "./whatsapp";
