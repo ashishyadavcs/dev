@@ -16,7 +16,9 @@ import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
-    document.querySelectorAll('article img').forEach(img=>img.setAttribute('loading','lazy'))
+    document.addEventListener("DOMContentLoaded",()=>{
+      document.querySelectorAll('article img').forEach(img=>img.setAttribute('loading','lazy'))
+    })
     hljs.highlightAll();
   }, [post]);
 
