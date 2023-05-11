@@ -10,17 +10,17 @@ const Share = dynamic(() => import("@/components/ui/share"), {
 });
 
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
-    document.addEventListener("DOMContentLoaded",()=>{
-      document.querySelectorAll('article img').forEach(img=>img.setAttribute('loading','lazy'))
-    })
     hljs.highlightAll();
   }, [post]);
+  useLayoutEffect(()=>{
+     document.querySelectorAll('article img').forEach(img=>img.setAttribute('loading','lazy'))
+  })
 
   return (
     <>
