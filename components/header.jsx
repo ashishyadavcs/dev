@@ -55,6 +55,7 @@ const Header = () => {
           </nav>
           <button
             role="menu"
+            aria-labelledby="menubutton"
             aria-label="button"
             className="menu"
             onClick={(e) => refs.current.header.classList.toggle("active")}
