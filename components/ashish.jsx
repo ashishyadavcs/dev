@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Ashish = () => {
+const Ashish = ({width}) => {
   const techs = [
     "html",
     "css",
@@ -15,7 +15,7 @@ const Ashish = () => {
     "mongodb",
   ];
   return (
-    <div className="ashish">
+    <div className="ashish" style={{maxWidth:width}}>
       <div
         title="click to see on linkedin"
         className="hero d-flex align-items-center mb-4"

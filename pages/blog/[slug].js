@@ -15,6 +15,7 @@ import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
 import Inpostad from "@/components/ads/inpostad";
+import Ashish from "@/components/ashish";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
     hljs.highlightAll();
@@ -116,15 +117,19 @@ const Blog = ({ post, posts }) => {
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
                   <Inpostad/>
+                   <Ashish width="100%"/>
                 </div>
                 <div className="col-md-4">
                   <div className="sticky">
                     <Toc />
                     <Sidebar />
                   </div>
+                      <Inpostad />
                 </div>
               </div>
+                 
             </div>
+        
           </article>
           <div className="container my-4">
             <Relatedposts posts={posts} />

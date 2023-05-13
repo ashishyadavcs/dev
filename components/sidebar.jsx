@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Inpostad from "./ads/inpostad";
 import Group from "./group";
 const Sidebar = ({ styles, categories }) => {
   return (
@@ -29,7 +28,6 @@ const Sidebar = ({ styles, categories }) => {
           <input type="email" placeholder="Enter your email" />
         </form>
       </div> */}
-       <Inpostad />
     </div>
   );
 };

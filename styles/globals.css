@@ -558,7 +558,6 @@ input::-webkit-file-upload-button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   padding: 1rem;
   border-radius: 8px;
-  max-width: 350px;
   z-index: 5;
   text-align: left;
   background: #fff;
