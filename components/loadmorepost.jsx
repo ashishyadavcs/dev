@@ -1,6 +1,7 @@
 import { getPostList } from "lib/posts";
 import { memo, useState } from "react";
 import Post from "./post";
+import Inpostad from "./ads/inpostad";
 const Loadmore = ({ pageInfo }) => {
   const [more, setmore] = useState({ posts: [], pageInfo });
   const loadmore = async (e) => {
@@ -17,8 +18,10 @@ const Loadmore = ({ pageInfo }) => {
   return (
     <>
       {more?.posts?.length > 0 &&
-        more?.posts?.map((post) => {
-          return <Post key={post.slug} post={post} />;
+        more?.posts?.map((post,i) => {
+          return <>
+          {i%3==0?<Inpostad/>:<Post key={post.slug} post={post}  />}
+          </>
         })}
       {more.pageInfo.hasNextPage && (
         <button

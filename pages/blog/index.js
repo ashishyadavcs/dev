@@ -6,6 +6,7 @@ import Post from "@/components/post";
 import { getCategorySlugs, getPostList } from "lib/posts";
 import { NextSeo } from "next-seo";
 import Loadmore from "@/components/loadmorepost";
+import Inpostad from "@/components/ads/inpostad";
 const Blog = ({ posts, categories, data }) => {
   return (
     <div className={`${styles.blog} container my-4`}>
@@ -25,8 +26,10 @@ const Blog = ({ posts, categories, data }) => {
         <div className="col-md-8">
           <div className={styles.items}>
             {posts?.length > 0 &&
-              posts?.map((post) => {
-                return <Post key={post.slug} post={post} styles={styles} />;
+              posts?.map((post,i) => {
+                return <div>
+{i%3==0?<Inpostad/>:<Post key={post.slug} post={post} styles={styles} />}
+                </div>
               })}
             <Loadmore pageInfo={data.pageInfo} />
           </div>
