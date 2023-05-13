@@ -11,5 +11,9 @@ const tools = [
     text: "online json formatter",
     href: "/tools/online-json-formatter",
   },
+   {
+    text: "iframe generator",
+    href: "/html-responsive-iframe-generator",
+  },
 ];
 export default tools;
