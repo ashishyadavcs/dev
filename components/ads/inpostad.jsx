@@ -9,7 +9,7 @@ const Inpostad = () => {
 
   return (
     <>
-      <div className={styles.sidebarAd}>
+      <div className={styles.sidebarAd} style={{  width: "100%",overflow:"hidden"}}>
         <ins
           className="adsbygoogle"
           style={{ display: "block", width: "100%", height: "100%" }}
