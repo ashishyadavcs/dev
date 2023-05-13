@@ -71,7 +71,7 @@ const Page = () => {
       `}</style>
       <NextSeo
         title="HTML Responsive Iframe generator : generate online & copy code"
-        description="HTML responsive iframe generator online, generate responsive html iframe with this free tool"
+        description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool"
       />
       <div className="p-3  mb-4 text-white title">
         <h1 className="text-center mt-4">HTML Responsive Iframe generator</h1>
