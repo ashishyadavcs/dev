@@ -14,6 +14,7 @@ import { useEffect, useLayoutEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
+import Inpostad from "@/components/ads/inpostad";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
     hljs.highlightAll();
@@ -114,6 +115,7 @@ const Blog = ({ post, posts }) => {
                     className={` article ${styles.article}`}
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
+                  <Inpostad/>
                 </div>
                 <div className="col-md-4">
                   <div className="sticky">

@@ -19,7 +19,7 @@ const Sidebar = ({ styles, categories }) => {
             })}
           </ul>
           <Group />
-          <Inpostad />
+         
         </>
       )}
 
@@ -29,6 +29,7 @@ const Sidebar = ({ styles, categories }) => {
           <input type="email" placeholder="Enter your email" />
         </form>
       </div> */}
+       <Inpostad />
     </div>
   );
 };
