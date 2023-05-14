@@ -96,7 +96,7 @@ const Page = () => {
                   onChange={(e) =>
                     setiframe((prev) => ({ ...prev, src: e.target.value }))
                   }
-                  className="ml-2"
+             
                   type="url"
                   placeholder="https://frontendzone.com"
                 />
@@ -108,7 +108,7 @@ const Page = () => {
                   onChange={(e) =>
                     setiframe((prev) => ({ ...prev, height: e.target.value }))
                   }
-                  className="ml-2"
+             
                   type="number"
                 />
               </label>
@@ -119,7 +119,7 @@ const Page = () => {
                   onChange={(e) =>
                     setiframe((prev) => ({ ...prev, width: e.target.value }))
                   }
-                  className="ml-2"
+             
                   type="text"
                 />
               </label>
