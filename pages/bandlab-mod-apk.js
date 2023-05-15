@@ -3,10 +3,13 @@ import React from "react";
 
 const Page = () => {
   return (
-    <div>
+    <div className="container my-4">
       <NextSeo title="bandlab mod apk" description="bandlab mod apk " />
       <h1>bandlab mod apk</h1>
-      <a className="theme-btn d-block mx-auto" href="bandlab.com">
+      <a
+        className="theme-btn d-block mx-auto text-center my-3"
+        href="bandlab.com"
+      >
         download
       </a>
       <p>
