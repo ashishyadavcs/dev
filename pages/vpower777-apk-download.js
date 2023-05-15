@@ -122,7 +122,7 @@ const Page = () => {
           with local laws and regulations before engaging in online gambling
           activities.
         </i>
-        <DownloadPopup url={`/files/highstake_012.apk`} />
+        <DownloadPopup url={`/files/vpower-apk-v8.0.31.5.apk`} />
         <Faq
           title={"out faq on apk download wbeiste"}
           data={[
