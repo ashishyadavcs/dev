@@ -91,6 +91,7 @@ const DownloadPopup = ({ url }) => {
       )}
       <Inpostad />
       <button
+        id="apk-download"
         onClick={(e) => {
           setactive(true);
           starttime(e);
