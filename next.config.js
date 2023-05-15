@@ -11,7 +11,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-
+swcMinify: false,
   images: {
     domains: [
       "cms.frontendzone.com",

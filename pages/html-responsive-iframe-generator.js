@@ -70,8 +70,8 @@ const Page = () => {
         }
       `}</style>
       <NextSeo
-        title="HTML Responsive Iframe generator : generate online & copy code"
-        description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool"
+        title="HTML Responsive Iframe Generator : copy code"
+        description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
       />
       <div className="p-3  mb-4 text-white title">
         <h1 className="text-center mt-4">HTML Responsive Iframe generator</h1>
@@ -96,7 +96,6 @@ const Page = () => {
                   onChange={(e) =>
                     setiframe((prev) => ({ ...prev, src: e.target.value }))
                   }
-             
                   type="url"
                   placeholder="https://frontendzone.com"
                 />
@@ -108,7 +107,6 @@ const Page = () => {
                   onChange={(e) =>
                     setiframe((prev) => ({ ...prev, height: e.target.value }))
                   }
-             
                   type="number"
                 />
               </label>
@@ -119,7 +117,6 @@ const Page = () => {
                   onChange={(e) =>
                     setiframe((prev) => ({ ...prev, width: e.target.value }))
                   }
-             
                   type="text"
                 />
               </label>
@@ -309,7 +306,8 @@ const Page = () => {
             content to be loaded within the iframe. Here's an example of how an
             iframe can be used:
           </p>
-          <iframe className="my-4"
+          <iframe
+            className="my-4"
             width="100%"
             height="445"
             src="https://www.youtube.com/embed/TMXFE9oedCw"
