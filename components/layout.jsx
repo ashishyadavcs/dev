@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
     <div className="layout">
       {/* {router.pathname.includes("blog") && <Notes />} */}
       <Breadcrumb />
-      <Settings />
+      <Settings/>
       <Header />
       <main> {children}</main>
       <Footer />
