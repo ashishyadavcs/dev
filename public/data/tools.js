@@ -14,6 +14,8 @@ const tools = [
    {
     text: "iframe generator",
     href: "/html-responsive-iframe-generator",
-  },
+  },{
+    text:"tarot card generator",href:"/random-tarot-card-generator"
+  }
 ];
 export default tools;
