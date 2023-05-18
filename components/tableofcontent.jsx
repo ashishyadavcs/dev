@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
 import { FaAngleDown } from "react-icons/fa";
+import { MdOutlineContentPaste } from "react-icons/md";
 
 const Toc = () => {
   const router = useRouter();
@@ -27,9 +28,17 @@ const Toc = () => {
   return (
     <>
       {data.length > 0 && (
-        <div className={`${styles.toc}`}>
+        <div className={`${styles.toc}`} onClick={(e) => {
+          e.currentTarget.classList.toggle(`${styles.active}`)
+          const ans = e.currentTarget.lastChild;
+          if(e.currentTarget!=ans){
+          ans.style.height == ""
+            ? (ans.style.height = ans.scrollHeight + "px",ans.parentElement.style.width = '100%')
+            : (ans.removeAttribute("style"),ans.parentElement.style.width = '50px');
+          }
+        }}>
           <b className="d-flex justify-content-between">
-            What&apos;s Inside <FaAngleDown />
+            <span>What&apos;s Inside</span> <MdOutlineContentPaste />
           </b>
           <ul>
             {data.length > 0 &&

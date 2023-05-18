@@ -14,9 +14,7 @@
 .toc.active b {
   margin-bottom: 10px;
 }
-.toc.toc.active ul {
-  max-height: 500px;
-}
+
 .toc b {
   display: block;
 }
@@ -24,7 +22,10 @@
   padding-left: 10px;
   margin: 0;
   padding: 0;
+  transition: all 0.3s;
   list-style: none;
+  height: 0;
+  overflow: hidden;
 }
 .toc li {
   margin-bottom: 5px !important;
@@ -49,4 +50,18 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width:767px){
+
+.toc:not(.active) b>span{display: none;}
+.toc{
+  margin-top: 0;
+  position: fixed;
+  width: 50px;
+  padding: 10px;
+  transform: translateX(-50%);
+  top: 10px;
+  z-index: 10;
+  right: 20%;
+}.toc.active{left: 50%;}
 }

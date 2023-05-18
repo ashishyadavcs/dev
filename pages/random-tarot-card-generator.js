@@ -113,7 +113,7 @@ background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, F
 
 export default Page;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const data = await fetch(`https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=9`)
       .then((res) => res.json())
       .catch((err) => res.json());
