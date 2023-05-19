@@ -19,7 +19,9 @@ export async function getStaticPaths() {
     .then((res) => res.json())
     .catch((err) => []);
   const paths = posts.map((post) => ({
-    params: { slug: countryslug(post) },
+    params: {
+      slug: `/countrycode/${post.dial_code}-country-code-${post.name}`,
+    },
   }));
 
   return {

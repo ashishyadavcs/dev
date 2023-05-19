@@ -28,7 +28,11 @@ const Page = ({ data }) => {
           <tbody>
             {data.map((c) => (
               <tr
-                onClick={(e) => router.push(countryslug(c))}
+                onClick={(e) =>
+                  router.push(
+                    `/countrycode/${c.dial_code}-country-code-${c.name}`
+                  )
+                }
                 title={`${c.name} country code`}
               >
                 <td>{c.name}</td>
