@@ -22,14 +22,6 @@ const nextConfig = {
       "mediatb.blob.core.windows.net",
       "images.pexels.com",
     ],
-    // amp: {
-    //   validator: "./apm-validator",
-    // },
-    // experimental: {
-    //   amp: {
-    //     skipValidation: true,
-    //   },
-    // },
   },
   async rewrites() {
     return [
