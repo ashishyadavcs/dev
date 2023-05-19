@@ -34,7 +34,7 @@ const Toc = () => {
           if(e.currentTarget!=ans){
           ans.style.height == ""
             ? (ans.style.height = ans.scrollHeight + "px",ans.parentElement.style.width = '100%')
-            : (ans.removeAttribute("style"),ans.parentElement.style.width = '50px');
+            : (ans.removeAttribute("style"));
           }
         }}>
           <b className="d-flex justify-content-between">

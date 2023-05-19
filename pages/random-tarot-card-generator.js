@@ -1,65 +1,97 @@
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { useRouter } from "next/router";
-const Page = ({cards}) => {
-    const router=useRouter()
+const Page = ({ cards }) => {
+  const router = useRouter();
   return (
     <div className="container my-4">
-        <style jsx>{`
+      <style jsx>{`
         .cards {
-  display: grid;
-  margin: 2rem 0;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-.cardd::-webkit-scrollbar{width:3px}
-.cardd {
-  box-shadow: 0 4px 4px rgb(155, 152, 152);
-  overflow: hidden;
-  border-radius: 4px;
-  min-height: 370px;
-                background: #00C9FF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-            }
-            
-            `}</style>
-        <NextSeo title="Random Tarot Card Generator" description="The random tarot card generator emerged as an offshoot of the digital
-        age, where technology met the spiritual realm.generate random tarot card with this online tool"/>
+          display: grid;
+          margin: 2rem 0;
+          grid-gap: 2rem;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        .cardd::-webkit-scrollbar {
+          width: 3px;
+        }
+        .cardd {
+          box-shadow: 0 4px 4px rgb(155, 152, 152);
+          overflow: hidden;
+          border-radius: 4px;
+          min-height: 370px;
+          background: #00c9ff; /* fallback for old browsers */
+          background: -webkit-linear-gradient(
+            to right,
+            #92fe9d,
+            #00c9ff
+          ); /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(
+            to right,
+            #92fe9d,
+            #00c9ff
+          ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+      `}</style>
+      <NextSeo
+        title="Random Tarot Card Generator"
+        description="The random tarot card generator emerged as an offshoot of the digital
+        age, where technology met the spiritual realm.generate random tarot card with this online tool"
+      />
       <h1>Random Tarot Card Generator</h1>
       <p>
-      While traditional tarot readings
-        involve shuffling and drawing cards from a physical deck, the advent of
-        technology has given rise to innovative tools such as the random tarot
-        card generator. 
-        Tarot cards have captivated mystics, seekers, and curious minds for
-        centuries. These ancient cards, often associated with divination and
-        introspection, hold the power to offer insights into our lives, unravel
-        mysteries, and inspire self-reflection. In this article, we delve into the captivating world of
-        the random tarot card generator, exploring its origins, functions,
-        benefits, and how it adds a modern twist to the mystical art of tarot.
+        While traditional tarot readings involve shuffling and drawing cards
+        from a physical deck, the advent of technology has given rise to
+        innovative tools such as the random tarot card generator. Tarot cards
+        have captivated mystics, seekers, and curious minds for centuries. These
+        ancient cards, often associated with divination and introspection, hold
+        the power to offer insights into our lives, unravel mysteries, and
+        inspire self-reflection. In this article, we delve into the captivating
+        world of the random tarot card generator, exploring its origins,
+        functions, benefits, and how it adds a modern twist to the mystical art
+        of tarot.
       </p>
-      <button className="theme-btn d-block mx-auto" onClick={e=>router.push(`/random-tarot-card-generator?card=${Math.random(10)}`)}>generate cards</button>
+      <button
+        className="theme-btn d-block mx-auto"
+        onClick={(e) =>
+          router.push(`/random-tarot-card-generator?card=${Math.random(10)}`)
+        }
+      >
+        generate cards
+      </button>
       <div className="cards">
-        {cards.map((card,i)=><div key={i} className="cardd">
-            <div className="card p-2 m-2" style={{height:"300px",overflow:"auto"}}>
-                <h3>{card.name}</h3>
-                <p>{card.desc}</p>
+        {cards.map((card, i) => (
+          <div key={i} className="cardd">
+            <div
+              className="card p-2 m-2"
+              style={{ height: "300px", overflow: "auto" }}
+            >
+              <h3>{card.name}</h3>
+              <p>{card.desc}</p>
             </div>
-            </div>)}
+          </div>
+        ))}
       </div>
       <h2>The Birth of the Random Tarot Card Generator </h2>
       <p>
-        The random <a href="https://www.tarot.com/tarot/cards" style={{color:"#555"}}>tarot card</a> generator emerged as an offshoot of the digital
-        age, where technology met the spiritual realm. It became a means to make
-        tarot accessible to a wider audience, transcending geographical
-        barriers. Developed by software engineers and tarot enthusiasts, these
-        generators employ algorithms to replicate the process of shuffling and
-        drawing cards virtually, providing users with instant readings and
-        guidance.
+        The random{" "}
+        <a href="https://www.tarot.com/tarot/cards" style={{ color: "#555" }}>
+          tarot card
+        </a>{" "}
+        generator emerged as an offshoot of the digital age, where technology
+        met the spiritual realm. It became a means to make tarot accessible to a
+        wider audience, transcending geographical barriers. Developed by
+        software engineers and tarot enthusiasts, these generators employ
+        algorithms to replicate the process of shuffling and drawing cards
+        virtually, providing users with instant readings and guidance.
       </p>
-      <Image objectFit="contain" src="/dev/random-tarot-card-generator.png" alt="random-tarot-card-generator" height="400" width="600"/>
+      <Image
+        objectFit="contain"
+        src="/dev/random-tarot-card-generator.png"
+        alt="random-tarot-card-generator"
+        height="400"
+        width="600"
+      />
       <h2>How Does It Work?</h2>
       <p>
         At the heart of the random tarot card generator lies intricate
@@ -114,12 +146,14 @@ background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, F
 export default Page;
 
 export async function getStaticProps() {
-    const data = await fetch(`https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=9`)
-      .then((res) => res.json())
-      .catch((err) => res.json());
-    return {
-      props: {
-        cards:data.cards
-      },
-    };
-  }
+  const data = await fetch(
+    `https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=9`
+  )
+    .then((res) => res.json())
+    .catch((err) => "");
+  return {
+    props: {
+      cards: data.cards || [],
+    },
+  };
+}
