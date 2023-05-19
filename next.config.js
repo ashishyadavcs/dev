@@ -1,17 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
   api: {
     bodyParser: false,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-swcMinify: false,
+  swcMinify: false,
   images: {
     domains: [
       "cms.frontendzone.com",
