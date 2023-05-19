@@ -17,7 +17,7 @@ export default Page;
 export async function getStaticPaths() {
   const posts = await fetch(`${process.env.APP_URL}/data/ccode.json`)
     .then((res) => res.json())
-    .catch((err) => "");
+    .catch((err) => []);
   const paths = posts.map((post) => ({
     params: { slug: countryslug(post) },
   }));
