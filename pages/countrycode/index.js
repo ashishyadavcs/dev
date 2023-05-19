@@ -49,7 +49,7 @@ const Page = ({ data }) => {
 };
 
 export default Page;
-export async function getStaticProps(req) {
+export async function getServerSideProps(req) {
   const result = await fetch(`${process.env.APP_URL}/data/ccode.json`)
     .then((res) => res.json())
     .catch((err) => "");
