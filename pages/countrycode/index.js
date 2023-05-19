@@ -26,8 +26,9 @@ const Page = ({ data }) => {
             </tr>
           </thead>
           <tbody>
-            {data.map((c) => (
+            {data.map((c, i) => (
               <tr
+                key={i}
                 onClick={(e) =>
                   router.push(
                     `/countrycode/${c.dial_code}-country-code-${c.name}`
