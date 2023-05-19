@@ -145,7 +145,7 @@ const Page = ({ cards }) => {
 
 export default Page;
 
-export async function getStaticProps() {
+export async function GetServerSideProps() {
   const data = await fetch(
     `https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=9`
   )

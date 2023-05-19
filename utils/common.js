@@ -50,3 +50,6 @@ export const openwhatsapp = () => {
     return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
   }
 };
+export const countryslug = (post) => {
+  return `/countrycode/${post.dial_code}-country-code-${post.name}`;
+};
