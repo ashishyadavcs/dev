@@ -3,16 +3,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
-import { FaAngleDown } from "react-icons/fa";
 import { CiViewList } from "react-icons/ci";
 
 const Toc = () => {
   const router = useRouter();
-  const close = (e) => {
-    e == true
-      ? document.querySelector(`.${styles.toc}`).classList.remove(styles.active)
-      : e.target.parentElement.classList.toggle(styles.active);
-  };
   const [data, setData] = useState([]);
   useEffect(() => {
     const headings = document
@@ -29,7 +23,6 @@ const Toc = () => {
     <>
       {data.length > 0 && (
         <div
-          role="navigation"
           title="table of content"
           className={`${styles.toc}`}
           onClick={(e) => {
@@ -45,7 +38,7 @@ const Toc = () => {
           <b className="d-flex justify-content-between">
             <span>What&apos;s Inside</span> <CiViewList />
           </b>
-          <nav>
+          <nav role="navigation">
             <ul>
               {data.length > 0 &&
                 data.map((h, i) => (
