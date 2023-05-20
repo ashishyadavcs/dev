@@ -49,6 +49,7 @@ const Footer = () => {
                 <a
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="facebook"
                   href={contact.facebook}
                   className="twitter"
                 >
@@ -56,6 +57,7 @@ const Footer = () => {
                 </a>
                 {contact.twitter && (
                   <a
+                    aria-label="twitter"
                     target="_blank"
                     rel="noreferrer"
                     href={contact.twitter}
@@ -65,6 +67,7 @@ const Footer = () => {
                   </a>
                 )}
                 <a
+                  aria-label="instagram"
                   target="_blank"
                   rel="noreferrer"
                   href={contact.instagram}
@@ -81,6 +84,7 @@ const Footer = () => {
                   <FaSkype />
                 </a> */}
                 <a
+                  aria-label="linkedin"
                   target="_blank"
                   rel="noreferrer"
                   href={contact.linkedin}
@@ -94,6 +98,7 @@ const Footer = () => {
                   rel="noreferrer"
                   href={contact.youtube}
                   className="linkedin"
+                  aria-label="youtube"
                 >
                   <FaYoutube />
                 </a>

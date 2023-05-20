@@ -1,12 +1,8 @@
 import Link from "next/link";
-import React, { useRef } from "react";
-import Image from "next/image";
+import { useRef } from "react";
 import { nav } from "../public/data/nav";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/userSlice";
-import Notes from "./ui/note";
 import Dropdown from "./ui/dropdown";
 
 const Header = () => {
@@ -55,7 +51,6 @@ const Header = () => {
           </nav>
           <button
             role="menu"
-            aria-labelledby="menubutton"
             aria-label="button"
             className="menu"
             onClick={(e) => refs.current.header.classList.toggle("active")}

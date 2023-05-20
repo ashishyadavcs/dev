@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Toc from "@/components/tableofcontent";
 import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";

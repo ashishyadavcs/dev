@@ -1,10 +1,7 @@
-import { useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
-import Whatsapp from "./whatsapp";
 import Orderpop from "./orderpop";
 import Settings from "./settings";
-import Notes from "./ui/note";
 import { useRouter } from "next/router";
 import Stickyad from "@/components/ads/stickyad";
 import Breadcrumb from "./breadcrumb";
@@ -15,7 +12,7 @@ const Layout = ({ children }) => {
     <div className="layout">
       {/* {router.pathname.includes("blog") && <Notes />} */}
       <Breadcrumb />
-      <Settings/>
+      <Settings />
       <Header />
       <main> {children}</main>
       <Footer />
