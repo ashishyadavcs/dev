@@ -1,0 +1,180 @@
+h1{
+    text-shadow: 0 -1px 1px #bbb,
+      0 -2px 0 #999, 
+      0 -3px 0 #888, 
+      0 -4px 0 #777, 
+      0 -5px 0 #666, 
+      0 -6px 0 #555, 
+      0 -7px 0 #444, 
+      0 -8px 0 #333, 
+      0 -9px 7px #302314;
+  }
+  
+
+  
+  
+  header{overflow: hidden;}
+
+  footer{
+    margin-top: 30px;
+    color: rgb(190, 206, 207);
+    padding: 17px;
+    background: #000;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.7),-3px -3px 5px rgba(255,255,255,0.3);
+  }
+  footer ol{list-style-type: '👉🏻';}
+  footer ul li a,footer ol li a{color: rgb(190, 206, 207);}
+  .container-fluid input[type="text"] {
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.7),-3px -3px 5px rgba(255,255,255,0.3);
+    padding: 20px;
+    text-align: center;border-radius: 20px;outline: none;border: none;
+   background: #222023;color: hsl(0, 0%, 100%);
+  }
+
+
+  .container-fluid input[type="text"]::-moz-selection{
+    color: rgb(231, 245, 29);
+    background: transparent !important;
+  }
+  .container-fluid input[type="text"]::selection{
+    color: rgb(245, 29, 198);
+    
+    background: rgb(40, 252, 252)
+  }
+
+  .container-fluid .form-control{
+    border: none;
+    outline: none;
+  }
+  .container-fluid textarea{
+    
+position: -webkit-sticky; /* Safari */
+position: sticky;
+top: 0;
+
+
+
+
+    z-index: 7674;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.7),-3px -3px 5px rgba(255,255,255,0.3);
+  }
+  .container-fluid textarea:focus{
+    box-shadow:inset 3px 3px 5px rgba(0,0,0,0.7),inset -3px -3px 5px rgba(255,255,255,0.3);
+    }
+
+
+  body,html{scroll-behavior: smooth;}
+  body{background:blueviolet;overflow-x: hidden;}
+
+.container-fluid .input-group-append, .container-fluid .input-group{
+  display: inline-block;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.container-fluid .input-group{margin:5px}
+.container-fluid .input-group:focus{ box-shadow:inset 3px 3px 5px rgba(0,0,0,0.7),inset -3px -3px 5px rgba(255,255,255,0.3);}
+
+.container-fluid .input-group-append{
+  display: inline-block;
+  box-shadow: -3px -3px 5px rgba(0,0,0,0.7),3px 3px 5px rgba(245, 235, 235, 0.808);
+  margin-top: 18px;
+}
+
+.container-fluid .input-group-append .copybutton{display: inline-block;padding: 10px 40px;}
+
+.container-fluid .input-group-append .copybutton:active{ 
+   box-shadow:inset 3px 3px 5px rgba(255, 255, 255, 0.664),inset -3px -3px 5px rgba(0,0,0,0.7);
+  }
+.container-fluid .input-group-append:active{
+  transition: 1s linear;
+  animation: fade 1s ease-in;
+  box-shadow:inset 3px 3px 5px rgba(255, 255, 255, 0.664),inset -3px -3px 5px rgba(0,0,0,0.7);
+}
+
+@keyframes fade{
+  0%{opacity: 0;}
+  50%{transform: scale(5.0);}
+  100%{opacity: 0;}
+}
+
+
+
+
+
+
+
+
+.container-fluid #loadmore{
+  display: inline-block;
+  margin-top: 20px;
+  border: none;
+  box-shadow: -3px -3px 5px rgba(0,0,0,0.7),3px 3px 5px rgba(245, 235, 235, 0.808);
+  outline: none;
+  border-radius: 20px;
+  
+}
+.container-fluid #loadmore:active{
+  box-shadow:inset -3px -3px 5px rgba(0,0,0,0.7),inset 3px 3px 5px rgba(255, 255, 255, 0.664);
+}
+.copyright{
+  box-shadow: -3px -3px 5px rgba(0,0,0,0.7),inset -2px 3px 5px rgba(255,255,255,0.3);
+  padding: 20px 5px;
+  margin: 0;
+  text-align: center;
+  font-size: 10px;
+  background: #000;
+  color: rgb(134, 127, 127);
+}
+.copyright b{font-size: 13px;}
+#attracter2{
+position: absolute;
+top: 50px;
+right: 20px;
+width: 100px;
+animation: move 2s linear infinite alternate;
+
+
+}
+#attracter1{
+position: absolute;
+top: 50px;
+left: 20px;
+width: 100px;
+transition: 0.7s;
+animation: move 2s linear infinite alternate;
+
+
+}
+
+@keyframes move {
+0%{opacity: 0;}
+50%{transform:scale(2);opacity: 1;}
+100%{opacity: 0;}
+}
+
+@media screen and (max-width:700px) {
+  @keyframes move{
+  0%{opacity: 0;}
+  50%{transform: scale(1.2);opacity: 1;}
+  100%{opacity: 0;}
+}
+}
+
+
+.container-fluid h1,h2,h3{text-transform: capitalize;}
+@media screen and (max-width:600px) {
+  .container-fluid .input-group{
+    display: block;padding: 20px auto;
+  }
+  .container-fluid textarea{border-radius: 0;font-size: 20px;}
+  #attracter1{
+    display: none;
+   }
+   .example{text-align: center;}
+   .example ul li{ margin-left: -20px;}
+   
+}
