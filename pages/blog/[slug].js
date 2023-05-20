@@ -20,9 +20,11 @@ const Blog = ({ post, posts }) => {
   useEffect(() => {
     hljs.highlightAll();
   }, [post]);
-  useLayoutEffect(()=>{
-     document.querySelectorAll('article img').forEach(img=>img.setAttribute('loading','lazy'))
-  })
+  useLayoutEffect(() => {
+    document
+      .querySelectorAll("article img")
+      .forEach((img) => img.setAttribute("loading", "lazy"));
+  });
 
   return (
     <>
@@ -105,31 +107,30 @@ const Blog = ({ post, posts }) => {
           )}
           <Share />
           <article>
-            <div className={styles.postbanner}>
+            {/* <div className={styles.postbanner}>
               <h1 className="container">{post?.title}</h1>
               <datetime>{moment(post.date).format("LLLL")}</datetime>
-            </div>
+            </div> */}
             <div className="container">
               <div className="row">
                 <div className="col-md-8 my-4">
+                  <h1>{post?.title}</h1>
                   <div
                     className={` article ${styles.article}`}
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
-                  <Inpostad/>
-                   <Ashish width="100%"/>
+                  <Inpostad />
+                  <Ashish width="100%" />
                 </div>
                 <div className="col-md-4">
                   <div className="sticky">
                     <Toc />
                     <Sidebar />
                   </div>
-                      <Inpostad />
+                  <Inpostad />
                 </div>
               </div>
-                 
             </div>
-        
           </article>
           <div className="container my-4">
             <Relatedposts posts={posts} />
