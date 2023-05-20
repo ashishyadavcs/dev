@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
 import { FaAngleDown } from "react-icons/fa";
-import { MdOutlineContentPaste } from "react-icons/md";
+import { CiViewList } from "react-icons/ci";
 
 const Toc = () => {
   const router = useRouter();
@@ -28,34 +28,41 @@ const Toc = () => {
   return (
     <>
       {data.length > 0 && (
-        <div className={`${styles.toc}`} onClick={(e) => {
-          e.currentTarget.classList.toggle(`${styles.active}`)
-          const ans = e.currentTarget.lastChild;
-          if(e.currentTarget!=ans){
-          ans.style.height == ""
-            ? (ans.style.height = ans.scrollHeight + "px",ans.parentElement.style.width = '100%')
-            : (ans.removeAttribute("style"));
-          }
-        }}>
+        <div
+          role="navigation"
+          title="table of content"
+          className={`${styles.toc}`}
+          onClick={(e) => {
+            e.currentTarget.classList.toggle(`${styles.active}`);
+            const ans = e.currentTarget.lastChild.lastChild;
+            if (e.currentTarget != ans) {
+              ans.style.height == ""
+                ? (ans.style.height = ans.scrollHeight + "px")
+                : ans.removeAttribute("style");
+            }
+          }}
+        >
           <b className="d-flex justify-content-between">
-            <span>What&apos;s Inside</span> <MdOutlineContentPaste />
+            <span>What&apos;s Inside</span> <CiViewList />
           </b>
-          <ul>
-            {data.length > 0 &&
-              data.map((h, i) => (
-                <li key={i}>
-                  <Link
-                    scroll={false}
-                    href={`#${replacewithdash(h.innerText)}`}
-                  >
-                    <a id={replacewithdash(h.innerText)} className="d-block">
-                      <span>{i + 1}</span>
-                      {h.innerText}
-                    </a>
-                  </Link>
-                </li>
-              ))}
-          </ul>
+          <nav>
+            <ul>
+              {data.length > 0 &&
+                data.map((h, i) => (
+                  <li key={i}>
+                    <Link
+                      scroll={false}
+                      href={`#${replacewithdash(h.innerText)}`}
+                    >
+                      <a id={replacewithdash(h.innerText)} className="d-block">
+                        <span>{i + 1}</span>
+                        {h.innerText}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </nav>
         </div>
       )}
     </>
