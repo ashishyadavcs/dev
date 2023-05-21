@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Fancy Font Generator</title>
+    <meta name="description"
+        content="Fancy text generator unlimited fonts stylefor your facebook , instagram and other social profiles bio. Enter your text to generate fancy text" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +21,21 @@
             width: 100%;
             z-index: 99;
         }
+
+        textarea {
+            border-radius: 0;
+            vertical-align: center;
+            resize: none;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 20px;
+            background: linear-gradient(to right, red, blue);
+            padding: 20px 0;
+            color: #fff
+        }
     </style>
     <script>
         $(window).scroll(function () {
@@ -33,12 +50,11 @@
 <body>
     <h1 style="text-align:center;">stylish Font maker</h1>
 
-
     <textarea type="text" class="form-control fancytext"
         style="width:100%;  background-color:#333333 !important; color:#ffffff" required="required" name="text"
         placeholder="Type or paste text here.." value=""></textarea>
     <br />
-    <div id="result">
+    <div id="result" class="p-3 d-flex flex-column-reverse">
         <div class="input-group mb-3"><input type="text" class="form-control text-1" value="𝔓𝔯𝔢𝔳𝔦𝔢𝔴 𝔗𝔢𝔵𝔱"
                 id="copy_0" readonly="readonly">
             <div class="input-group-append"><span class="input-group-text copybutton" style="cursor:pointer;"
@@ -495,7 +511,9 @@
 
     <hr />
 
-
+    <div class="container-fluid text-center">
+        <h2>fancy text generator</h2>
+    </div>
 
     <script>
         /*!

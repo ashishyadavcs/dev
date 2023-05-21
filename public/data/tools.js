@@ -11,11 +11,17 @@ const tools = [
     text: "online json formatter",
     href: "/tools/online-json-formatter",
   },
-   {
+  {
     text: "iframe generator",
     href: "/html-responsive-iframe-generator",
-  },{
-    text:"tarot card generator",href:"/random-tarot-card-generator"
-  }
+  },
+  {
+    text: "tarot card generator",
+    href: "/random-tarot-card-generator",
+  },
+  {
+    text: "fancy text generator",
+    href: "/fancytextgenerator/index.html",
+  },
 ];
 export default tools;
