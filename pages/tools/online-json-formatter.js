@@ -218,9 +218,9 @@ const Page = () => {
             search, and sorting capabilities.
           </p>
           <p>
-            Using an online JSON viewer can be particularly useful when working
-            with large or complex JSON data, as it can provide a quick and
-            convenient way to view and understand the structure of the data
+            search Using an online JSON viewer can be particularly useful when
+            working with large or complex JSON data, as it can provide a quick
+            and convenient way to view and understand the structure of the data
             without having to write any code. Additionally, because the viewer
             is web-based, it can be accessed from any device with an internet
             connection, making it an accessible and convenient tool for
