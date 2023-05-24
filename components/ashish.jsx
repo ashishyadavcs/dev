@@ -34,9 +34,9 @@ const Ashish = ({width}) => {
         </strong>
       </div>
       <p>
-        Hi, I am a software engineer . I love to learn and work on technologies
-        . I have {new Date().getFullYear() - 2020} years of experience in web
-        development
+      Ashish Yadav is a passionate software engineer and technology enthusiast having {new Date().getFullYear() - 2020} years of experience in web
+        development with a deep interest in the ever-evolving world of technology. With a background in computer science and extensive experience in software development, Ashish brings a unique perspective to his writing in the tech blogosphere & love to learn and work on technologies
+      
       </p>
       <div className="techs">
         {techs.map((t, i) => (
