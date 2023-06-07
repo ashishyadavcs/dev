@@ -27,8 +27,8 @@ const Blog = ({ posts, categories, data }) => {
           <div className={styles.items}>
             {posts?.length > 0 &&
               posts?.map((post,i) => {
-                return <div>
-{i%3==0?<Inpostad/>:<Post key={post.slug} post={post} styles={styles} />}
+                return <div key={post.slug}>
+{i%3==0?<Inpostad />:<Post  post={post} styles={styles} />}
                 </div>
               })}
             <Loadmore pageInfo={data.pageInfo} />

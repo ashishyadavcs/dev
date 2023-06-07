@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import { ismobile } from "../utils/device";
 import tools from "public/data/tools";
+import Image from "next/image";
 const Footer = () => {
   return (
     <>

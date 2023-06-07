@@ -12,12 +12,7 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link
-          rel="preload"
-          as="font"
-          crossOrigin="anonymous"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-        />
+        
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
           rel="stylesheet"

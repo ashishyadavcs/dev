@@ -44,9 +44,9 @@ const Post = ({ remove, edit, post }) => {
             <div className={styles.content}>
               <h3> {post.title}</h3>
               <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-              <datetime className={styles.date}>
+              <span className={styles.date}>
                 <AiOutlineClockCircle size={15} /> {moment(post.date).fromNow()}
-              </datetime>
+              </span>
             </div>
           </a>
         </Link>

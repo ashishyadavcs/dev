@@ -2,10 +2,8 @@ import {
   getCategoryDetails,
   getCategorySlugs,
   getPostList,
-  getSinglePost,
 } from "lib/posts";
 import { NextSeo } from "next-seo";
-import Image from "next/image";
 import styles from "@/styles/blog.module.css";
 import { useRouter } from "next/router";
 import Post from "@/components/post";

@@ -5,6 +5,7 @@ import Settings from "./settings";
 import { useRouter } from "next/router";
 import Stickyad from "@/components/ads/stickyad";
 import Breadcrumb from "./breadcrumb";
+import { useLayoutEffect } from "react";
 
 const Layout = ({ children }) => {
   const router = useRouter();
