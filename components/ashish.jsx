@@ -15,19 +15,19 @@ const Ashish = ({width}) => {
     "mongodb",
   ];
   return (
-    <div className="ashish" style={{maxWidth:width}} itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <div className="ashish" style={{maxWidth:width}} itemProp="author" itemScope itemType="https://schema.org/Person">
       <div
         title="click to see on linkedin"
         className="hero d-flex align-items-center mb-4"
       >
         <Image src="/ashish-lkd.jpg" alt="" height={90} width={90}></Image>
         <strong className="ml-4">
-          <a itemprop="url" 
+          <a itemProp="url" 
             target="_blank"
             rel="noreferrer"
             href="https://linkedin.com/in/ashishfgiet"
           >
-           <span itemprop="name" >Ashish Yadav</span> 
+           <span itemProp="name" >Ashish Yadav</span> 
           </a>
           <br></br>
           <small>Software Engineer</small>
