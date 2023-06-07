@@ -17,7 +17,7 @@ import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
-    document.querySelector('code')!=null && hljs.highlightAll();
+    document.querySelector('code')!==null && hljs.highlightAll();
   }, [post]);
   useLayoutEffect(() => {
     document
