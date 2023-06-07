@@ -28,8 +28,8 @@ const Blog = ({ posts, categories, data }) => {
             {posts?.length > 0 &&
               posts?.map((post,i) => {
                 return <div key={post.slug}>
-{i%3==0?<Inpostad />:<Post  post={post} styles={styles} />}
-                </div>
+                           {i%3==0?<Inpostad />:<Post  post={post} styles={styles} />}
+                           </div>
               })}
             <Loadmore pageInfo={data.pageInfo} />
           </div>
