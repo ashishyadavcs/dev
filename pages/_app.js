@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import "nprogress/nprogress.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import Layout from "../components/layout";
+import Layout from "../components/layout/default";
 import Router, { useRouter } from "next/router";
 import store from "../store/store";
 import { Provider } from "react-redux";

@@ -1,17 +1,16 @@
-import Header from "./header";
-import Footer from "./footer";
-import Orderpop from "./orderpop";
-import Settings from "./settings";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import Orderpop from "@/components/orderpop";
+import Settings from "@/components/settings";
 import { useRouter } from "next/router";
 import Stickyad from "@/components/ads/stickyad";
-import Breadcrumb from "./breadcrumb";
-import { useLayoutEffect } from "react";
+import Breadcrumb from "@/components/breadcrumb";
 
-const Layout = ({ children }) => {
+const Layout = ({ children,type='default'}) => {
   const router = useRouter();
   return (
-    <div className="layout">
-      {/* {router.pathname.includes("blog") && <Notes />} */}
+    <>
+    {type=='default' ? <div className="layout">
       <Breadcrumb />
       <Settings />
       <Header />
@@ -26,7 +25,8 @@ const Layout = ({ children }) => {
       {(router.pathname.includes("blog") ||
         router.pathname.includes("online") ||
         router.pathname.includes("button")) && <Stickyad />}
-    </div>
+    </div>:<main> {children}</main>}
+    </>
   );
 };
 export default Layout;

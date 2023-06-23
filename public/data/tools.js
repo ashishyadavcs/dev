@@ -16,10 +16,6 @@ const tools = [
     href: "/html-responsive-iframe-generator",
   },
   {
-    text: "tarot card generator",
-    href: "/random-tarot-card-generator",
-  },
-  {
     text: "fancy text generator",
     href: "/fancytextgenerator/index.html",
   },

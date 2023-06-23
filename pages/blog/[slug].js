@@ -28,7 +28,7 @@ const Blog = ({ post, posts }) => {
   return (
     <>
       {post && (
-        <main className={`${styles.blog} mainscrollbar mb-4`}>
+        <div className={`${styles.blog} mainscrollbar mb-4`}>
           {post?.title && (
             <>
               <NextSeo
@@ -134,7 +134,7 @@ const Blog = ({ post, posts }) => {
           <div className="container my-4">
             <Relatedposts posts={posts} />
           </div>
-        </main>
+        </div>
       )}
     </>
   );
