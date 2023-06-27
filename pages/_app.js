@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     // <SessionProvider session={session} basePath="/api/auth">
       <Provider store={store}>
+        <div className="loading-lcp"></div>
         {!layout.landing.includes(router.pathname) ? (
           <Layout>
             <Component {...pageProps} />
