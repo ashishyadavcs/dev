@@ -715,6 +715,6 @@ input[type="range"]::-moz-range-thumb {
   overflow: hidden;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 800px;
+  width: 100%
 }
