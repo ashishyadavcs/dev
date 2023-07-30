@@ -22,9 +22,6 @@ const Layout = ({ children,type='default'}) => {
         <a href="https://physicsclass.co">physicsclass</a>
         <a href="https://jsonviewer.guru">json viewer</a>
       </div>
-      {(router.pathname.includes("blog") ||
-        router.pathname.includes("online") ||
-        router.pathname.includes("button")) && <Stickyad />}
     </div>:<main> {children}</main>}
     </>
   );
