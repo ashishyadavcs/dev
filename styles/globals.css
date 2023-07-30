@@ -188,6 +188,7 @@ article h3 {
   color: var(--color);
 }
 
+
 @keyframes blink {
   0% {
     color: aqua;

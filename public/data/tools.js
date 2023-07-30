@@ -15,13 +15,5 @@ const tools = [
     text: "iframe generator",
     href: "/html-responsive-iframe-generator",
   },
-  {
-      text: "Hoichoi mod apk download",
-      href: "https://hoichoimodapk.net",
-  },
-  {
-    text: "fancy text generator",
-    href: "/fancytextgenerator/index.html",
-  },
 ];
 export default tools;

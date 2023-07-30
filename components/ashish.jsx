@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Ashish = ({width}) => {
+const Ashish = ({style}) => {
   const techs = [
     "html",
     "css",
@@ -15,7 +15,7 @@ const Ashish = ({width}) => {
     "mongodb",
   ];
   return (
-    <div className="ashish" style={{maxWidth:width}} itemProp="author" itemScope itemType="https://schema.org/Person">
+    <div className="ashish" style={style} itemProp="author" itemScope itemType="https://schema.org/Person">
       <div
         title="click to see on linkedin"
         className="hero d-flex align-items-center mb-4"

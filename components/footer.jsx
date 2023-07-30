@@ -117,7 +117,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="d-flex align-items-center">
-                  <Link href={"/aboutus"}>
+                  <Link href={"/aboutus"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
                       About us
@@ -131,7 +131,7 @@ const Footer = () => {
                   </Link>
                 </li> */}
                 <li className="d-flex align-items-center">
-                  <Link href={"/services"}>
+                  <Link href={"/services"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
                       Services
@@ -139,7 +139,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="d-flex align-items-center">
-                  <Link className="ml-1" href="/website-design">
+                  <Link prefetch={false} className="ml-1" href="/website-design">
                     <a className="ml-1">
                       {" "}
                       <FaChevronRight className="mr-1" size={15} /> website
@@ -156,29 +156,23 @@ const Footer = () => {
                   </Link>
                 </li> */}
                 <li className="d-flex align-items-center">
-                  <Link href={"/blog"}>
+                  <Link href={"/blog"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
                       Blog
                     </a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/how-to/javascript">
-                    <a className="ml-1">
-                      <FaChevronRight className="mr-1" size={15} />
-                      how to js
-                    </a>
-                  </Link>
-                </li>
                 <li className="d-flex align-items-center">
-                  <Link href="/the-selector-in-css-is-mcq">
+                  <Link href={"/training"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
-                      CSS MCQ
+                      Frontend Training
                     </a>
                   </Link>
                 </li>
+               
+                
               </ul>
             </div>
             <div className="col-md-3">
@@ -186,7 +180,8 @@ const Footer = () => {
               <ul className="list-unstyled">
                 {tools.map((t, i) => (
                   <li key={i}>
-                    <Link href={t.href}>
+                   
+                    <Link href={t.href} prefetch={false}>
                       <a>
                         <FaChevronRight className="mr-1" size={15} />
                         {t.text}

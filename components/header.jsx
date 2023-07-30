@@ -37,7 +37,7 @@ const Header = () => {
                       refs.current.header.classList.remove("active")
                     }
                   >
-                    <Link href={li.url}>
+                    <Link prefetch={false} href={li.url}>
                       <a itemProp="url" title={li?.title}>
                         {" "}
                         {li.text}
