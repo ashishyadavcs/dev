@@ -5,6 +5,8 @@ body {
 }
 .backlink {
   border-top: none;
+  height: 0;
+  overflow: hidden;
 }
 .backlink a {
   color: transparent;

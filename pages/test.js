@@ -1,56 +1,38 @@
-import { NextSeo } from "next-seo";
-import { useState } from "react";
-
-const Page = () => {
-  const [clicklength, setclicklength] = useState([]);
-  const clickaction = (e) => {
-    const position = { x: e.pageX, y: e.pageY };
-    setclicklength((prev) => [
-      ...prev,
-      { name: `click${clicklength.length + 1}`, position },
-    ]);
+// src/components/HomePage.js
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+const HomePage = () => {
+  const [popularMovies, setPopularMovies] = useState([]);
+  const fetchAPi = async () => {
+    return await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=1"
+    ).then((res) => res.json());
   };
+  useEffect(() => {
+   fetchAPi().then(res=>setPopularMovies(res?.results))
+  }, []);
+
   return (
-    <>
-      <NextSeo noindex nofollow/>
-      <style>
-        {`
-        *:active{cursor:pointer}
-      .page{position:relative}
-      .number{
-        font-size:20px;
-        position:fixed;
-        font-weight:bold
-      }
-      `}
-      </style>
-      <div
-        style={{ minHeight: "100vh" }}
-        className="page container py-4"
-        onClick={clickaction}
-      >
-        <button
-          onClick={(e) => {
-           const availarr=clicklength.splice(1,clicklength.length-1)
-           console.log(availarr.length,clicklength.length)
-          setclicklength([...availarr])
-          }}
-        >
-          undo
-        </button>
-        {clicklength.map((el, i) => {
-          return (
-            <span
-              className="number"
-              style={{ top: el.position.y, left: el.position.x }}
-            >
-              {i + 1}
-            </span>
-          );
-        })}
-      </div>
-    </>
+    <div>
+      <h2>Home Page / Popular Movie Page</h2>
+      {/* Display list of popular movies */}
+      <ul>
+        {popularMovies.length>0 && popularMovies.map(movie => (
+          <li key={movie.id}>
+            <Link href={`/movie/${movie.id}`}>
+              <>
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+              <p>{movie.title}</p>
+              </>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default Page;
+export default HomePage;
+
+// Implement similar components for TopRatedPage, UpcomingMoviePage, SingleMovieDetailPage, and SearchedMoviePage using the provided API URLs.
