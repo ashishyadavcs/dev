@@ -3,23 +3,46 @@
   min-height: 90vh;
   padding: 2rem 0;
 }
+
 .contact form {
   box-shadow: 0 1px 2px #ddd;
   background: #fff;
   padding: 1rem;
   border-radius: 8px;
 }
-.contact form > div {
+
+.whatsapp {
+  animation: blink 1s linear infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    margin-left: 10px;
+    font-weight: bold;
+    color: rgb(120, 43, 228);
+  }
+
+  100% {
+    margin-left: 0;
+    color: rgb(3, 54, 37);
+  }
+
+}
+
+.contact form>div {
   width: 100%;
 }
+
 .contact input,
 .contact textarea {
   border: 2px solid #ddd;
   border-radius: 4px;
 }
+
 .contact :where(input, textarea):focus {
   border: 2px solid rgb(4, 4, 22);
 }
+
 .contact .right {
   padding: 20px;
   border-radius: 4px;

@@ -7,6 +7,7 @@ import { contact } from "public/data/contact";
 import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import { ismobile } from "utils/device";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -15,6 +16,13 @@ const Contact = () => {
       nationalMode: true,
     });
   }, []);
+  const openwhatsapp = () => {
+    if (ismobile()) {
+      return `https://api.whatsapp.com/send?phone=${contact.whatsapp}`;
+    } else {
+      return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
+    }
+  };
 
   const sendemail = async (e) => {
     e.preventDefault();
@@ -54,7 +62,10 @@ const Contact = () => {
                 <b className="mr-2">
                   <FaWhatsapp size={20} />
                 </b>
-                <a href={`tel:${contact.mobile}`}> {contact.mobile}</a>
+                <a className={styles.whatsapp} onClick={e => {
+                  e.preventDefault()
+                  window.open(openwhatsapp())
+                }}> {contact.mobile}</a>
               </p>
               <p>
                 <b className="mr-2">

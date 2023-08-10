@@ -12,12 +12,39 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import { ismobile } from "../utils/device";
 import tools from "public/data/tools";
-import Image from "next/image";
+import { useEffect } from "react";
+
 const Footer = () => {
+  const goToTop = () => {
+    window.scrollY>100?window.scroll(0,0):window.scroll(0,document.documentElement.scrollHeight)
+  }
+  useEffect(() => {
+    const icon=document.querySelector(".gototop")
+    const scrollf = () => {
+      window.scrollY>100?icon.classList.add("down"):icon.classList.remove("down")
+    }
+    window.onscroll = () => {
+      console.log(window.scrollY)
+      scrollf()
+    
+    }
+    return () => {
+      removeEventListener("scroll",scrollf)
+    }
+  }, [])
+  
   return (
     <>
+      <style jsx>
+        {`
+        .gototop{transition:all 0.3s}
+          .gototop.down{
+            transform:rotate(180deg)
+          }
+
+        `}
+      </style>
       <footer className="pt-4 position-relative">
         <div className="container">
           <div className="row">
@@ -199,11 +226,13 @@ const Footer = () => {
           copyright&copy;2022-{new Date().getFullYear() + 1}
         </small>
       </div>
-      {!ismobile && (
-        <div className="gototop text-white d-flex justify-content-center align-items-center">
+    
+      <div onClick={e => {
+        goToTop()
+        }} className="gototop text-white d-flex justify-content-center align-items-center">
           <FaArrowDown size={15} />
         </div>
-      )}
+   
     </>
   );
 };

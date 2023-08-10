@@ -430,8 +430,8 @@ footer .smallheading {
 .gototop {
   height: 50px;
   position: fixed;
-  bottom: 70px;
-  left: 15px;
+  bottom: 170px;
+  right: 15px;
   width: 50px;
   z-index: 3;
   cursor: pointer;
