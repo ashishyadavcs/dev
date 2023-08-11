@@ -46,7 +46,8 @@ const Contact = () => {
       name: e.target.name.value,
       phone: e.target.mobile.value,
       email: e.target.email.value,
-      body: e.target.body.value
+      body: e.target.body.value.replace(/\r\n|\r|\n/g,"%0A")
+
     }
 
     const msg = `
