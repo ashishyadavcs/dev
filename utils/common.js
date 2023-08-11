@@ -1,5 +1,6 @@
 import { contact } from "public/data/contact";
 import { ismobile } from "./device";
+import { message } from "./message";
 
 export const openform = () => {
   document.querySelector(".orderpop").classList.add("active");
@@ -43,8 +44,9 @@ export const replacewithdash = (text) => {
   return `${text.toLowerCase().trim().replace(/ /g, "-")}`;
 };
 
-export const openwhatsapp = (message) => {
-    return `https://${ismobile()?'api':'web'}.whatsapp.com/send?phone=${contact.whatsapp}&text=${message}`;
+export const openwhatsapp = (msg=message.sale) => {
+
+    return `https://${ismobile()?'api':'web'}.whatsapp.com/send?phone=${contact.whatsapp}&text=${msg}`;
 };
 export const countryslug = (post) => {
   return `/countrycode/${post.dial_code}-country-code-${post.name}`;

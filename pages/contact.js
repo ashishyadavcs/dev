@@ -7,8 +7,8 @@ import { contact } from "public/data/contact";
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-import { message } from "utils/message";
 import { openwhatsapp } from "utils/common";
+import Whatsapp from "@/components/whatsapp";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -137,7 +137,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Whatsapp/>
     </div>
+    
   );
 };
 export default Contact;
