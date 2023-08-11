@@ -1,17 +1,9 @@
-import React from "react";
+
+import { openwhatsapp } from "utils/common";
 import styles from "../styles/cta.module.css";
 import { BsWhatsapp } from "react-icons/bs";
-import { FaShare } from "react-icons/fa";
-import { contact } from "../public/data/contact";
-import { ismobile } from "../utils/device";
+import { message } from "utils/message";
 const Whatsapp = () => {
-  const openwhatsapp = () => {
-    if (ismobile()) {
-      return `https://api.whatsapp.com/send?phone=${contact.whatsapp}`;
-    } else {
-      return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
-    }
-  };
   const share = async () => {
     try {
       await navigator.share({
@@ -34,7 +26,7 @@ const Whatsapp = () => {
         onClick={(e) => {
           e.currentTarget.previousElementSibling.setAttribute(
             "href",
-            openwhatsapp()
+            openwhatsapp(message.sale)
           );
           e.currentTarget.previousElementSibling.click();
         }}

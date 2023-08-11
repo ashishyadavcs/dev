@@ -4,10 +4,11 @@ import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
 import { toast } from "react-toastify";
 import { contact } from "public/data/contact";
-import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-import { ismobile } from "utils/device";
+import { message } from "utils/message";
+import { openwhatsapp } from "utils/common";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -16,17 +17,10 @@ const Contact = () => {
       nationalMode: true,
     });
   }, []);
-  const openwhatsapp = () => {
-    if (ismobile()) {
-      return `https://api.whatsapp.com/send?phone=${contact.whatsapp}`;
-    } else {
-      return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
-    }
-  };
 
-  const sendemail = async (e) => {
-    e.preventDefault();
-    e.target.querySelector("button").innerText = "Sending....";
+  const mailbutton=refs.current.mail
+  const sendMail = async (e) => {
+    mailbutton.innerText = "Sending....";
     const data = await fetch("/api/email", {
       method: "POST",
       body: JSON.stringify({
@@ -38,13 +32,35 @@ const Contact = () => {
     })
       .then((res) => res.json())
       .catch((err) => "");
-    e.targe.querySelector("button").innerText = "submit";
+       mailbutton.innerText = "submit";
 
     if (data.success) {
       toast.success("Message send successfully!");
     } else {
       toast.error("could not send your message");
     }
+  }
+
+  const sendwhatsapp = (e) => {
+    const message = {
+      name: e.target.name.value,
+      phone: e.target.mobile.value,
+      email: e.target.email.value,
+      body: e.target.body.value
+    }
+
+    const msg = `
+    Name    :${message.name}%0A
+    Phone   :${message.phone}%0A
+    Email   :${message.email}%0A
+    Message :%0A${message.body}
+    `
+    window.open(openwhatsapp(msg))
+    
+  }
+  const sendemail = async (e) => {
+    e.preventDefault();
+    e.nativeEvent.submitter==mailbutton?sendMail(e):sendwhatsapp(e)
   };
 
   return (
@@ -75,7 +91,6 @@ const Contact = () => {
               </p>
             </div>
             <span className="d-none d-md-block">
-              {" "}
               <Image
                 src="/images/contact-us.png"
                 height={300}
@@ -93,6 +108,7 @@ const Contact = () => {
                 placeholder="Name"
                 type="text"
                 name="name"
+              
               ></input>
               <input
                 required
@@ -100,18 +116,23 @@ const Contact = () => {
                 placeholder="whatsapp number"
                 type="tel"
                 maxLength={12}
+           
                 className="w-100 d-flex"
                 name="mobile"
               ></input>
-
               <input name="attachment" type="file"></input>
-              <input placeholder="email" type="email" name="email" />
+              <input  placeholder="email" type="email" name="email" />
               <textarea
+                defaultValue={`Hi Frontendzone 👋\nI am looking for a website
+                `}
                 placeholder="message..."
                 className="textarea"
                 name="body"
               ></textarea>
-              <button className="theme-btn">Submit </button>
+              <div className="d-flex" style={{gap:"10px"}}>
+              <button ref={(el) => (refs.current.mail = el)} type="submit" className="theme-btn">mail </button>
+              <button  className="theme-btn whatsapp">whatsapp </button>
+              </div>
             </form>
           </div>
         </div>

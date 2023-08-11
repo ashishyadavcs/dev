@@ -43,12 +43,8 @@ export const replacewithdash = (text) => {
   return `${text.toLowerCase().trim().replace(/ /g, "-")}`;
 };
 
-export const openwhatsapp = () => {
-  if (ismobile()) {
-    return `https://api.whatsapp.com/send?phone=${contact.whatsapp}`;
-  } else {
-    return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
-  }
+export const openwhatsapp = (message) => {
+    return `https://${ismobile()?'api':'web'}.whatsapp.com/send?phone=${contact.whatsapp}&text=${message}`;
 };
 export const countryslug = (post) => {
   return `/countrycode/${post.dial_code}-country-code-${post.name}`;

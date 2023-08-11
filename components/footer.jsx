@@ -25,9 +25,7 @@ const Footer = () => {
       window.scrollY>100?icon.classList.add("down"):icon.classList.remove("down")
     }
     window.onscroll = () => {
-      console.log(window.scrollY)
-      scrollf()
-    
+      scrollf()  
     }
     return () => {
       removeEventListener("scroll",scrollf)

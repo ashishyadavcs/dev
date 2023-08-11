@@ -11,10 +11,4 @@ export const ismobile = () => {
   }
 };
 
-export const openwhatsapp = () => {
-  if (ismobile()) {
-    return `https://api.whatsapp.com/send?phone=${contact.whatsapp}`;
-  } else {
-    return `https://web.whatsapp.com/send?phone=${contact.whatsapp}`;
-  }
-};
+
