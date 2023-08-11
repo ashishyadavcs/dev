@@ -1,7 +1,8 @@
+import { openwhatsapp } from "utils/common";
 import styles from "../styles/orderform.module.css";
 import { createOrder } from "../utils/order";
 import { useRouter } from "next/router";
-import { openwhatsapp } from "utils/device";
+
 const Orderform = ({ title }) => {
   const router = useRouter();
   return (
