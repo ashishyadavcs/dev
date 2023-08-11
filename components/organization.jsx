@@ -13,7 +13,7 @@ const Seo = () => {
         description={`welcome to Frontendzone, your ultimate destination
             for all things of front-end development. Frontendzone is a
             destination to learn all frontend technologies practically with
-            industry experience.`}
+            industry experience.`.trim()}
         key="webdesign,web developer"
         canonical={process.env.NEXT_PUBLIC_APP_URL}
         openGraph={{
@@ -27,11 +27,11 @@ const Seo = () => {
 
           images: [
             {
-              url: "/dev/favicon.svg",
+              url: `${process.env.NEXT_PUBLIC_APP_URL}/dev/coding.jpg`,
               width: "100",
               height: "100",
               alt: "frontendzone",
-              type: "image/jpeg",
+              type: "image/jpg",
             },
             {
               url: "/dev/favicon.svg",

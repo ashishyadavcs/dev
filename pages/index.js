@@ -1,19 +1,11 @@
 import styles from "../styles/Home.module.css";
-import Orderform from "../components/orderform";
-import Services from "../components/service";
-import Testimonial from "../components/testimonial";
 import { BsCheck2Circle } from "react-icons/bs";
-import { NextSeo, OrganizationJsonLd } from "next-seo";
-import Upload from "@/components/upload";
-import Blog from "@/components/banners/blog";
-import Ashish from "@/components/ashish";
 import Image from "next/image";
-import { openform } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
 import Blogpost from "@/components/blogpost";
 import Link from "next/link";
 import Seo from "@/components/organization";
-import { openwhatsapp } from "utils/device";
+import { openwhatsapp } from "utils/common";
 export default function Home() {
   const steps = [
     "Submit your order",

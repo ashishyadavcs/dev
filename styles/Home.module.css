@@ -13,6 +13,7 @@
   font-weight: 600;
   width: 260px;
   text-decoration: none;
+  transition: all 0.3s;
 }
 .cta:hover {
   text-decoration: none;
