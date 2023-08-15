@@ -15,6 +15,7 @@ import Relatedposts from "@/components/relatedposts";
 import moment from "moment";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
+import Image from "next/image";
 const Blog = ({ post, posts }) => {
   useEffect(() => {
     document.querySelector('code')!==null && hljs.highlightAll();
@@ -24,7 +25,18 @@ const Blog = ({ post, posts }) => {
       .querySelectorAll("article img")
       .forEach((img) => img.setAttribute("loading", "lazy"));
   });
+  const nextHTML=post.content.replace(/<img([\s\S]*?)>/g, (match, attributes) => {
+    const width = attributes.match(/width="(\d+)"/)?.[1];
+    const height = attributes.match(/height="(\d+)"/)?.[1];
+    const alt = attributes.match(/alt="([^"]+)"/)?.[1];
+    
+    if (width && height && alt) {
+        return `<img class="lazy" ${attributes} width="${width}" height="${height}" alt="${alt}" />`;
+    }
 
+    // If attributes are missing, return the original <img> tag
+    return match;
+});
   return (
     <>
       {post && (
@@ -105,6 +117,7 @@ const Blog = ({ post, posts }) => {
             </>
           )}
           <Share />
+       
           <article>
             {/* <div className={styles.postbanner}>
               <h1 className="container">{post?.title}</h1>
@@ -116,8 +129,10 @@ const Blog = ({ post, posts }) => {
                   <h1>{post?.title}</h1>
                   <div
                     className={` article ${styles.article}`}
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
+                   dangerouslySetInnerHTML={{__html:nextHTML}}
+                  >
+                
+                  </div>
                   <Inpostad />
                   <Ashish width="100%" />
                 </div>
@@ -157,7 +172,7 @@ export async function getStaticProps(req) {
   if (post == undefined)
     return {
       notFound: true,
-    };
+    }
   return {
     props: {
       post,
