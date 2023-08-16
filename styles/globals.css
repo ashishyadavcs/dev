@@ -190,7 +190,6 @@ article h3 {
   color: var(--color);
 }
 
-
 @keyframes blink {
   0% {
     color: aqua;
@@ -213,77 +212,10 @@ article h3 {
   animation: blink 2s linear infinite alternate;
   transition: all 0.4s;
 }
-
-@media screen and (max-width: 768px) {
-  .layout header .menu {
-    display: block;
-  }
-
-  .layout header ul {
-    width: 100%;
-    transition: all 0.3s ease-in-out;
-    flex-direction: column;
-    left: 0;
-    height: 0;
-  }
-  .layout .mobilelinks {
-    width: 70%;
-    max-width: 400px;
-    background: #000;
-    position: absolute;
-    transition: all 0.2s ease-in-out;
-    flex-direction: column;
-    top: 100%;
-    left: -100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .layout header::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    transition: all 0.4s;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.7);
-    pointer-events: none;
-  }
-  .layout header.active::after {
-    opacity: 1;
-  }
-  .layout header.active .mobilelinks {
-    left: 0;
-    z-index: 1;
-  }
-  .layout header ul li a {
-    width: 100%;
-    display: block;
-    padding: 14px 10px;
-  }
-  .layout header ul li {
-    width: 100%;
-    position: relative;
-  }
-  .layout header li::before {
-    content: "";
-    width: 100%;
-    background: linear-gradient(to right, #555, transparent);
-    position: absolute;
-    top: 100%;
-    transition: all 0.3s;
-    transition-delay: 1s;
-    height: 0.5px;
-  }
-
-  .layout header a {
-    color: #fff;
-  }
-  footer .smallheading:not(:first-child) {
-    margin-top: 30px;
-  }
+header nav {
+  min-width: 65%;
 }
+
 .cancel-btn {
   padding: 10px 20px;
   outline: none;
@@ -478,6 +410,7 @@ footer .smallheading {
 .orderpop .close {
   display: flex;
 }
+
 .orderpop .close {
   position: absolute;
   line-height: 1;
@@ -490,16 +423,18 @@ footer .smallheading {
   border-radius: 50%;
 }
 
-.dropdown {
-  position: absolute !important;
+.layout .dropdown {
+  position: absolute;
   top: 80%;
-  width: 250px;
+  width: max-content;
+  min-width: 200px;
   border-radius: 0 0 8px 8px;
   right: 0;
   opacity: 0;
   transition: all 0.2s ease-in-out;
   pointer-events: none;
   color: rgb(136, 136, 136);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 .dropdown.active {
   opacity: 1;
@@ -509,13 +444,13 @@ footer .smallheading {
 .pointer {
   cursor: pointer;
 }
+.userselect-none {
+  user-select: none;
+}
 .dropdown li {
   cursor: pointer;
-  padding: 5px 10px;
 }
-.dropdown li:hover {
-  background: #f1f1f17a;
-}
+
 input::-webkit-file-upload-button {
   outline: none;
   border: none;
@@ -525,6 +460,7 @@ input::-webkit-file-upload-button {
   color: #999;
   border-radius: 20px;
 }
+
 /*orders table*/
 .orders table td {
   min-width: max-content;
@@ -654,27 +590,7 @@ input[type="range"]::-moz-range-thumb {
 /*sticky footer ad*/
 
 /*input range css end*/
-@media (min-width: 1024px) {
-  #readmore + label {
-    margin: -40px auto auto;
-  }
 
-  .sticky {
-    position: sticky;
-    z-index: 2;
-    top: 85px;
-  }
-
-  .tool *::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
-    border-left: 1px solid #f1f1f1;
-  }
-  .tool *::-webkit-scrollbar-thumb {
-    background: #415a77;
-    width: 6px;
-  }
-}
 .related {
   position: relative;
   background: #fff;
@@ -703,21 +619,161 @@ input[type="range"]::-moz-range-thumb {
   height: 4px;
   background: #03072d;
 }
-@media (max-width: 576px) {
+
+.loading-lcp {
+  font-size: 25rem;
+    color: transparent;
+    position: absolute;
+    text-align: center;
+    user-select: none;
+    z-index: -1;
+    word-break: break-all;
+    height: 650px;
+    overflow: hidden;
+}
+.user{
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+}
+@media (min-width: 1024px) {
+  #readmore + label {
+    margin: -40px auto auto;
+  }
+
+  .sticky {
+    position: sticky;
+    z-index: 2;
+    top: 85px;
+  }
+
+  .tool *::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+    border-left: 1px solid #f1f1f1;
+  }
+  .tool *::-webkit-scrollbar-thumb {
+    background: #415a77;
+    width: 6px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dropdown li:hover {
+    background: #f1f1f17a;
+  }
+
+  .dropdown li{
+    padding: 5px 10px;
+  }
+  header nav {
+    justify-content: space-between;
+  }
+  .dropdown{background: #fff;}
+
+}
+@media (max-width: 767px) {
+  .layout header .menu {
+    display: block;
+  }
+ .layout .dropdown {
+    background: unset;
+    left: 0;
+    max-height: 0;
+    position: relative;
+    transition: all 0.3s;
+    box-shadow: unset;
+  }
+
+  .dropdown.active {
+    max-height: 500px;
+  }
+  .user {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+  }
+  .user::before{
+    content: "";
+  }
+  header .innermenu {
+    overflow: hidden;
+    background: #19e6ba;
+  }
+.layout .dropdown li::before{
+  background: linear-gradient(to right, #fff, transparent);
+}
+  header nav {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+
+  }
+  .layout header ul {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    flex-direction: column;
+    left: 0;
+  }
+  .layout .mobilelinks {
+    width: 70%;
+    max-width: 400px;
+    background: #000;
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    top: 100%;
+    left: -100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .layout header::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: all 0.4s;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+  }
+  .layout header.active::after {
+    opacity: 1;
+  }
+  .layout header.active .mobilelinks {
+    left: 0;
+    z-index: 1;
+  }
+  .layout header ul li a {
+    width: 100%;
+    display: block;
+    padding: 14px 10px;
+  }
+  .layout header ul li {
+    width: 100%;
+    position: relative;
+  }
+  .layout header li::before {
+    content: "";
+    width: 100%;
+    background: linear-gradient(to right, #555, transparent);
+    position: absolute;
+    top: 100%;
+    transition: all 0.3s;
+    transition-delay: 1s;
+    height: 0.5px;
+  }
+
+  .layout header a {
+    color: #fff;
+  }
+  footer .smallheading:not(:first-child) {
+    margin-top: 30px;
+  }
   .theme-btn.cta {
     width: 100%;
     max-width: unset;
     text-align: center;
     text-decoration: none;
   }
-}
-.loading-lcp{
-  background: transparent;
-  z-index: -1;
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  height: 800px;
-  width: 100%
 }
