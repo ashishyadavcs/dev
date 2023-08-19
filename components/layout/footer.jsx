@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contact } from "../public/data/contact";
+import { contact } from "../../public/data/contact";
 import {
   FaArrowDown,
   FaChevronRight,
@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import tools from "public/data/tools";
 import { useEffect } from "react";
+import { Styled } from "@/styles/footer";
 
 const Footer = () => {
   const goToTop = () => {
@@ -43,7 +44,7 @@ const Footer = () => {
 
         `}
       </style>
-      <footer className="pt-4 position-relative">
+      <Styled.footer className="pt-4 position-relative">
         <div className="container">
           <div className="row">
             <div className="col-md-4">
@@ -163,15 +164,7 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
-                
-                {/* <li className="d-flex align-items-center">
-                  <Link href={"/review"}>
-                    <a className="ml-1">
-                      <FaChevronRight className="mr-1" size={15} />
-                      Reviews
-                    </a>
-                  </Link>
-                </li> */}
+
                 <li className="d-flex align-items-center">
                   <Link href={"/blog"} prefetch={false}>
                     <a className="ml-1">
@@ -196,7 +189,7 @@ const Footer = () => {
               <h3 className="smallheading">tools</h3>
               <ul className="list-unstyled">
                 {tools.map((t, i) => (
-                  <li key={i}>
+                  <li key={i} className="ml-1">
                    
                     <Link href={t.href} prefetch={false}>
                       <a>
@@ -210,13 +203,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
-      <div className="sub-footer d-flex align-items-center">
+        <div className="sub-footer d-flex align-items-center">
         <small className="text-secondary container p-3 text-center d-block">
           copyright&copy;2022-{new Date().getFullYear() + 1}
         </small>
       </div>
-    
+      </Styled.footer>
+     
       <div onClick={e => {
         goToTop()
         }} className="gototop text-white d-flex justify-content-center align-items-center">

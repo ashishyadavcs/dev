@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { useRef } from "react";
-import { nav, userlinks } from "../public/data/nav";
+import { nav, userlinks } from "../../public/data/nav";
 import { useDispatch, useSelector } from "react-redux";
 import { VscAccount } from "react-icons/vsc";
-import Dropdown from "./ui/dropdown";
+import Dropdown from "../ui/dropdown";
+import { Styled } from "@/styles/header";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -11,8 +12,7 @@ const Header = () => {
   const refs = useRef({});
   return (
     <>
-    
-      <header
+      <Styled.header
         ref={(el) => (refs.current.header = el)}
         className="d-flex align-items-center"
       >
@@ -49,7 +49,7 @@ const Header = () => {
               
             </ul>
             {false && <ul className="list-unstyled mb-0 innermenu">
-              {1 ? (
+              {0 ? (
               <li>
                 <Link href="/login">Login</Link>
               </li>
@@ -78,7 +78,7 @@ const Header = () => {
             <span role="button" aria-label="icon"></span>
           </button>
         </div>
-      </header>
+      </Styled.header>
     </>
   );
 };

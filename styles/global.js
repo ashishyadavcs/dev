@@ -1,6 +1,6 @@
+import { media } from "config/device";
 const { createGlobalStyle } = require("styled-components");
-
-export const Globalstyle=createGlobalStyle`
+export const Globalstyle = createGlobalStyle`
 html,
 body {
   padding: 0;
@@ -129,76 +129,12 @@ article h3 {
   pointer-events: none;
 }
 
-.layout header {
-  text-transform: capitalize;
-  background: #fff;
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
 
-.layout header .container {
-  height: 60px;
-}
 
 .layout>.wawe {
   min-height: 80vh;
 }
 
-.layout header .menu {
-  display: none;
-}
-
-.menu span {
-  height: 2.6px;
-  width: 25px;
-  transition: all 0.2s;
-  display: block;
-  margin-bottom: 3px;
-  background: #000;
-}
-
-.layout header.active .menu span:nth-of-type(2) {
-  opacity: 0;
-  width: 0px;
-}
-
-.layout header.active .menu span:first-child {
-  transform: rotate(45deg);
-  transform-origin: left;
-}
-
-.layout header.active .menu span:last-child {
-  transform: translateY(7px) rotate(-45deg);
-  transform-origin: left;
-}
-
-.layout button.menu {
-  outline: none;
-  border: none;
-  width: 25px;
-  background: transparent;
-}
-
-.layout header a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-}
-
-.layout header li a {
-  padding: 0.5rem 1rem;
-}
-
-.layout header li>ul {
-  display: none;
-}
-
-.layout header li:hover>ul {
-  display: block;
-  height: 400px;
-}
 
 .layout>.container {
   padding-bottom: 2rem;
@@ -221,10 +157,7 @@ article h3 {
   -webkit-text-fill-color: transparent;
 }
 
-.layout footer {
-  background: var(--bg);
-  color: var(--color);
-}
+
 
 @keyframes blink {
   0% {
@@ -246,16 +179,6 @@ article h3 {
   100% {
     color: rgb(104, 12, 75);
   }
-}
-
-.layout header b {
-  font-size: 20px;
-  animation: blink 2s linear infinite alternate;
-  transition: all 0.4s;
-}
-
-header nav:has(.innermenu) {
-  min-width: 65%;
 }
 
 .cancel-btn {
@@ -362,67 +285,11 @@ main :where(ul, ol) {
   padding: 10px;
 }
 
-/*footer*/
-footer {
-  background: rgba(0, 0, 0, 0.95);
-  color: rgb(170, 167, 167);
-  background-position: center;
-  background-blend-mode: overlay;
-}
-
-.sub-footer {
-  background: #010921f2;
-  color: #ccc;
-}
-
-.layout footer p {
-  color: #fff;
-}
-
-footer a {
-  color: #ddd;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-
-footer a:hover {
-  text-decoration: none;
-  color: #04ff04;
-}
-
 .layout a {
   text-decoration: none;
   cursor: pointer;
 }
 
-footer li {
-  margin-bottom: 7px;
-}
-
-.fa-chevron-right {
-  color: yellow;
-  margin-right: 5px;
-}
-
-.social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #2a2a2a;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-footer .smallheading {
-  color: #fff;
-  font-size: 20px;
-}
 
 .gototop {
   height: 50px;
@@ -497,25 +364,7 @@ footer .smallheading {
   border-radius: 50%;
 }
 
-.layout .dropdown {
-  position: absolute;
-  top: 80%;
-  width: max-content;
-  min-width: 200px;
-  border-radius: 0 0 8px 8px;
-  right: 0;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  pointer-events: none;
-  color: rgb(136, 136, 136);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
 
-.dropdown.active {
-  opacity: 1;
-  top: 100%;
-  pointer-events: all;
-}
 
 .pointer {
   cursor: pointer;
@@ -525,9 +374,6 @@ footer .smallheading {
   user-select: none;
 }
 
-.dropdown li {
-  cursor: pointer;
-}
 
 input::-webkit-file-upload-button {
   outline: none;
@@ -575,28 +421,6 @@ input::-webkit-file-upload-button {
   min-height: 300px;
 }
 
-.ashish {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  padding: 1rem;
-  border-radius: 8px;
-  z-index: 5;
-  text-align: left;
-  background: #fff;
-}
-
-.ashish img {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.ashish .techs strong {
-  color: #1b263b;
-  margin: 5px;
-  display: inline-block;
-  border-radius: 30px;
-  padding: 2px 10px;
-  background: #f1f1f1;
-}
 
 /*css button generator*/
 
@@ -696,11 +520,6 @@ input[type="range"]::-moz-range-thumb {
   text-align: left !important;
 }
 
-/*sticky footer ad*/
-
-/*sticky footer ad*/
-
-/*input range css end*/
 
 .related {
   position: relative;
@@ -748,6 +567,7 @@ input[type="range"]::-moz-range-thumb {
 .user {
   display: flex;
   gap: 10px;
+  align-items: center;
   font-weight: bold;
 }
 
@@ -774,138 +594,18 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-@media (min-width: 768px) {
-  .dropdown li:hover {
-    background: #f1f1f17a;
-  }
 
-  .dropdown li {
-    padding: 5px 10px;
-  }
 
-  header nav {
-    justify-content: space-between;
-  }
-
-  .dropdown {
-    background: #fff;
-  }
-
-}
-
-@media (max-width: 767px) {
-  .layout header .menu {
-    display: block;
-  }
-
-  .layout .dropdown {
-    background: unset;
-    left: 0;
-    max-height: 0;
-    position: relative;
-    transition: all 0.3s;
-    box-shadow: unset;
-  }
-
-  .dropdown.active {
-    max-height: 500px;
-  }
-
+${media.sm}{
   .user {
-    display: inline-block;
     padding: 10px;
     color: #fff;
+    margin-left: -7px;
   }
-
   .user::before {
     content: "";
   }
 
-  header .innermenu {
-    overflow: hidden;
-    background: #19e6ba;
-  }
-
-  .layout .dropdown li::before {
-    background: linear-gradient(to right, #fff, transparent);
-  }
-
-  header nav {
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-
-  }
-
-  .layout header ul {
-    width: 100%;
-    transition: all 0.3s ease-in-out;
-    flex-direction: column;
-    left: 0;
-  }
-
-  .layout .mobilelinks {
-    width: 70%;
-    max-width: 400px;
-    background: #000;
-    position: absolute;
-    transition: all 0.2s ease-in-out;
-    top: 100%;
-    left: -100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .layout header::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    transition: all 0.4s;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.7);
-    pointer-events: none;
-  }
-
-  .layout header.active::after {
-    opacity: 1;
-  }
-
-  .layout header.active .mobilelinks {
-    left: 0;
-    z-index: 1;
-  }
-
-  .layout header ul li a {
-    width: 100%;
-    display: block;
-    padding: 14px 10px;
-  }
-
-  .layout header ul li {
-    width: 100%;
-    position: relative;
-  }
-
-  .layout header li::before {
-    content: "";
-    width: 100%;
-    background: linear-gradient(to right, #555, transparent);
-    position: absolute;
-    top: 100%;
-    transition: all 0.3s;
-    transition-delay: 1s;
-    height: 0.5px;
-  }
-
-  .layout header a {
-    color: #fff;
-  }
-
-  footer .smallheading:not(:first-child) {
-    margin-top: 30px;
-  }
 
   .theme-btn.cta {
     width: 100%;
@@ -915,4 +615,4 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-`
+`;

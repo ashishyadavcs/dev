@@ -62,7 +62,7 @@
     display: none;
   }
 
-  .toc {
+  .toc{
     margin-top: 0;
     position: fixed;
     width: unset;
