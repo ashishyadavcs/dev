@@ -1,8 +1,9 @@
-import styles from "../styles/services.module.css";
+
 import Image from "next/image";
 import { services } from "../public/data/services";
 import { Servicecount } from "../pages/services";
 import { openform } from "../utils/common";
+import { Styled } from "@/styles/service";
 const Services = () => {
   return (
     <>
@@ -11,10 +12,10 @@ const Services = () => {
           return <h2>{data?.name}</h2>;
         }}
       </Servicecount.Consumer>
-      <div className={styles.cards}>
+      <Styled.cards>
         {services.map((card, i) => {
           return (
-            <div key={i} className={styles.card}>
+            <Styled.card key={i}>
               <div className="position-relative">
                 <Image
                   objectFit="cover"
@@ -23,17 +24,17 @@ const Services = () => {
                   alt="website-design-service"
                 ></Image>
               </div>
-              <div className={styles.card}>
+              <div>
                 <h2>{card.title}</h2>
                 <p>{card.description}</p>
                 <button onClick={openform} className="themebtn">
                   Order Now
                 </button>
               </div>
-            </div>
+            </Styled.card>
           );
         })}
-      </div>
+      </Styled.cards>
     </>
   );
 };

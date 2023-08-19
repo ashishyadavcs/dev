@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRef } from "react";
-import { nav } from "../public/data/nav";
+import { nav, userlinks } from "../public/data/nav";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../store/userSlice";
+import { VscAccount } from "react-icons/vsc";
 import Dropdown from "./ui/dropdown";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
   const refs = useRef({});
   return (
     <>
-      {/* <Notes /> */}
+    
       <header
         ref={(el) => (refs.current.header = el)}
         className="d-flex align-items-center"
@@ -22,7 +22,7 @@ const Header = () => {
               <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
             </a>
           </Link>
-          <nav className="d-flex justify-content-between mobilelinks">
+          <nav className="d-flex  mobilelinks">
             <ul
               itemScope
               itemType="http://www.schema.org/SiteNavigationElement"
@@ -39,16 +39,34 @@ const Header = () => {
                   >
                     <Link prefetch={false} href={li.url}>
                       <a itemProp="url" title={li?.title}>
-                        {" "}
                         {li.text}
                       </a>
                     </Link>
-                    <Dropdown />
+                  
                   </li>
                 );
               })}
+              
             </ul>
+            <ul className="list-unstyled mb-0 innermenu">
+              {0 ? (
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+            ) : (
+              <>
+                  <li className="pointer userselect-none" onClick={e=>{e.currentTarget.lastChild.classList.toggle("active")}}>
+                      <span className="user">
+                      <VscAccount size={25}/> Ashish Yadav
+                    </span>
+                    <Dropdown links={userlinks} />
+                  </li>
+              </>
+            )}
+              </ul>
           </nav>
+         
+
           <button
             role="menu"
             aria-label="button"
@@ -59,23 +77,6 @@ const Header = () => {
             <span role="button" aria-label="icon"></span>
             <span role="button" aria-label="icon"></span>
           </button>
-
-          {user && (
-            <>
-              <div
-                ref={(el) => (refs.current.profile = el)}
-                className="profile dropdown bg-white shadow"
-              >
-                <ul className="list-unstyled mb-0">
-                  <div className="p-2 border-bottom">name:{user?.name}</div>
-                  <li>Profile</li>
-                  <li>Dashboard</li>
-                  <li>orders</li>
-                  <li onClick={(e) => dispatch(logout())}>logout</li>
-                </ul>
-              </div>
-            </>
-          )}
         </div>
       </header>
     </>

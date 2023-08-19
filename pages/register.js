@@ -5,6 +5,7 @@ import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useRouter } from "next/router";
+import Loginwithgoogle from "@/components/auth/google-login";
 export const Register = () => {
   const router = useRouter();
   const [show, setShow] = useState(true);
@@ -14,7 +15,7 @@ export const Register = () => {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    const data = await fetch(`/api/auth/register`, {
+    const data = await fetch(`/api/baseauth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,9 +80,7 @@ export const Register = () => {
           <button className="themebtn w-100 my-3">Sign up</button>
         </form>
         <div className="mt-3 d-flex flex-column justify-content-center align-items-center">
-          <p className="mb-0">
-            Login with <FcGoogle size={25} />
-          </p>
+          <Loginwithgoogle/>
 
           <p>
             Already have an acoount , <Link href="/login">Login</Link>

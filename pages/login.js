@@ -1,14 +1,15 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import Loginwithgoogle from "@/components/auth/google-login";
 export const Page = () => {
   const [show, setShow] = useState(true);
-  const router = useRouter();
+  const router=useRouter()
+
   const dispatch = useDispatch();
   const from = router.query.from;
   const login = async (e) => {
@@ -40,6 +41,7 @@ export const Page = () => {
   };
   return (
     <div className={styles.login}>
+
       <div>
         <h1>Login</h1>
         <form
@@ -83,12 +85,10 @@ export const Page = () => {
           <p>
             forgot <Link href="/resetpassword">password</Link>
           </p>
-          <p className="mb-0">
-            Login with <FcGoogle size={25} />
-          </p>
+          <Loginwithgoogle/>
 
           <p>
-            dont have an acoount , <Link href="/register">register</Link>
+            don&#39;t have an acoount , <Link href="/register">register</Link>
           </p>
         </div>
       </div>

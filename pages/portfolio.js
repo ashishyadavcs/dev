@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 
 const Portfolio = ({ projects }) => {
+  console.log(projects)
   return (
     <div className="container my-4 ">
       <NextSeo noindex nofollow />
@@ -36,9 +37,8 @@ const Portfolio = ({ projects }) => {
 };
 export default Portfolio;
 export async function getServerSideProps() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`)
-    .then((res) => res.json())
-    .catch((err) => res.json({ portfolio: [] }));
+  const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`)
+const data=await result.json()
   return {
     props: {
       projects: data.portfolio || [],

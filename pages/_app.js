@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+
 import "nprogress/nprogress.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import Layout from "../components/layout/default";
@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { layout } from "../public/data/layout";
 import nProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
+import { Globalstyle } from "@/styles/global";
 Router.events.on("routeChangeStart", () => {
   nProgress.start();
   !navigator.onLine ? toast.error("You are offline") : "";
@@ -21,8 +22,9 @@ Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter();
   return (
-    // <SessionProvider session={session} basePath="/api/auth">
+    <SessionProvider session={session} basePath="/api/auth">
       <Provider store={store}>
+        <Globalstyle/>
         <div className="loading-lcp">loading</div>
         {!layout.landing.includes(router.pathname) ? (
           <Layout>
@@ -44,7 +46,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </>
         )}
       </Provider>
-    // </SessionProvider>
+  </SessionProvider>
   );
 }
 export default MyApp;

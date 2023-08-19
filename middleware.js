@@ -4,8 +4,6 @@ import { NextResponse } from "next/server";
 export function middleware(request) {
   if (request.nextUrl.pathname.startsWith("/api")) {
     const response = NextResponse.next();
-    const { country } = request.geo;
-    response.cookies.set("x-country", country);
     return response;
   } else {
     const token = request.cookies.get("x-refresh");

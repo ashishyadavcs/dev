@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import styles from "../styles/contact.module.css";
+
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
 import { toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { openwhatsapp } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
+import { Styled } from "@/styles/contact";
 const Contact = () => {
   const refs = useRef({});
   useEffect(() => {
@@ -65,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <div className={styles.contact}>
+    <Styled.contact>
       <NextSeo
         title="Contact Now for website design HTML-CSS-JS-NextJs-React-js-SEO | Frontendzone"
         description="Get your business website designed & developed by experienced developer in $500 "
@@ -73,13 +74,13 @@ const Contact = () => {
       <div className="container">
         <div className="row flex-md-row-reverse">
           <div className="col-md-6 col-12">
-            <div className={`${styles.right} mt-3 mt-md-0`}>
+            <div className={`right mt-3 mt-md-0`}>
               <h1>Contact Us</h1>
               <p className="my-2">
                 <b className="mr-2">
                   <FaWhatsapp size={20} />
                 </b>
-                <a className={styles.whatsapp} onClick={e => {
+                <a className="whatsapp-text" onClick={e => {
                   e.preventDefault()
                   window.open(openwhatsapp())
                 }}> {contact.mobile}</a>
@@ -139,7 +140,7 @@ const Contact = () => {
         </div>
       </div>
       <Whatsapp/>
-    </div>
+    </Styled.contact>
     
   );
 };

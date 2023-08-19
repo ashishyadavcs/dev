@@ -11,6 +11,7 @@
   position: sticky;
   top: 65px;
 }
+
 .toc.active b {
   margin-bottom: 10px;
 }
@@ -18,6 +19,7 @@
 .toc b {
   display: block;
 }
+
 .toc ul {
   padding-left: 10px;
   margin: 0;
@@ -27,9 +29,11 @@
   height: 0;
   overflow: hidden;
 }
+
 .toc li {
   margin-bottom: 5px !important;
 }
+
 .toc a {
   text-decoration: none;
   display: grid !important;
@@ -39,6 +43,7 @@
   margin-bottom: 6px;
   font-weight: 600;
 }
+
 .toc a span {
   background: teal;
   color: #fff;
@@ -51,10 +56,12 @@
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 767px) {
-  .toc:not(.active) b > span {
+  .toc:not(.active) b>span {
     display: none;
   }
+
   .toc {
     margin-top: 0;
     position: fixed;
@@ -65,26 +72,38 @@
     z-index: 10;
     right: 20%;
     transition: unset;
+    overflow: auto;
+
   }
+
   .toc:not(.active) nav {
     display: none;
   }
+
   .toc.active {
     left: 50%;
     top: 60px;
     width: 100%;
     border-radius: unset;
   }
+
+  .toc.active nav ul {
+    max-height: 60vh;
+    overflow: auto;
+  }
+
   @keyframes blink {
     0% {
       color: red;
       transform: scale(0.8);
     }
+
     100% {
       color: green;
       transform: scale(1);
     }
   }
+
   .toc.active svg {
     animation: blink 1s linear infinite alternate;
   }

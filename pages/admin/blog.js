@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Editor from "@/components/ui/editor";
 
+
 const Post = ({ posts, categories }) => {
   const router = useRouter();
   const [edit, setEdit] = useState(false);
@@ -139,15 +140,24 @@ const Post = ({ posts, categories }) => {
 
 export default Post;
 export async function getServerSideProps() {
-  const [postsdata, categorydata] = await Promise.all([
-    fetch(`${process.env.APP_URL}/api/post`).then((res) => res.json()),
-    fetch(`${process.env.APP_URL}/api/category/`).then((res) => res.json()),
-  ]);
-
-  return {
-    props: {
-      posts: postsdata.posts.reverse() || [],
-      categories: categorydata.categories || [],
-    },
-  };
+  try {
+    const [postsdata, categorydata] = await Promise.all([
+      fetch(`${process.env.APP_URL}/api/post`).then((res) => res.json()),
+      fetch(`${process.env.APP_URL}/api/category/`).then((res) => res.json()),
+    ]);
+  
+    return {
+      props: {
+        posts: postsdata.posts.reverse() || [],
+        categories: categorydata.categories || [],
+      },
+    };
+  }
+  catch {
+    return {
+      props: {
+        
+      }
+    }
+  }
 }

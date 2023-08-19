@@ -1,6 +1,13 @@
 import Script from "next/script";
 
 const Paynow = ({ product }) => {
+  const callbackurl = () => {
+    /*verify payment 
+  node-api:  /api/verifypayment
+    */
+
+    return `/dashboard/order/${product.id}?success=true`
+  }
   const pay = async () => {
     const { key } = await fetch("/api/paymentkey")
       .then((res) => res.json())
@@ -22,7 +29,7 @@ const Paynow = ({ product }) => {
       description: "Test Transaction",
       image: "https://example.com/your_logo",
       order_id: data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: "/api/verifypayment",
+      callback_url: callbackurl(),
       prefill: {
         //loggedin user details
         name: "Gaurav Kumar",

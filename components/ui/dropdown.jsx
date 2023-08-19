@@ -1,14 +1,16 @@
 import Link from "next/link";
 
-const Dropdown = () => {
+const Dropdown = ({ links }) => {
   return (
     <div className="dropdown">
-      <ul>
-        <li>
-          <Link href="">
-            <a>Link1</a>
-          </Link>
-        </li>
+      <ul className="list-unstyled mb-0">
+        {links.map((el) => (
+          <li key={el.text}>
+            <Link href={el.link}>
+              <a>{el.text}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -170,12 +170,19 @@ const Page = ({ portfolios }) => {
 
 export default Page;
 export async function getServerSideProps(req) {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`)
-    .then((res) => res.json())
-    .catch((err) => "");
+  try {
+    const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`).json()
+   
   return {
     props: {
       portfolios: data.portfolio,
     },
   };
+  } catch {
+    return {
+      props: {
+        portfolios:[]
+      }
+    }
+}
 }

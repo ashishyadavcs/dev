@@ -1,14 +1,11 @@
 import Cookies from "cookies";
 export default async function handler(req, res) {
-  return;
-  const token = req.cookies["x-token"] || req.headers.cookies;
   const { slug } = req.query;
   const option = {
     method: req.method,
     headers: {
       "Content-Type": "application/json",
       cookie: req.headers.cookie,
-      Authorization: `Bearer ${token}`,
     },
   };
   if (req.method != "GET") {
@@ -19,7 +16,7 @@ export default async function handler(req, res) {
   }
   try {
     const result = await fetch(
-      `${process.env.BASE_URL}/${slug.join("/")}`,
+      `${process.env.BASE_URL}/${slug}`,
       option
     ).then((res) => res.json());
     if (result.success) {

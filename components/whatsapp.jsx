@@ -1,8 +1,8 @@
 
 import { openwhatsapp } from "utils/common";
-import styles from "../styles/cta.module.css";
 import { BsWhatsapp } from "react-icons/bs";
 import { message } from "utils/message";
+import { styled } from "styled-components";
 const Whatsapp = () => {
   const share = async () => {
     try {
@@ -22,7 +22,7 @@ const Whatsapp = () => {
         className={`${styles.share} pointer`}
       /> */}
       <a href="" target="_blank"></a>
-      <div
+      <Cta
         onClick={(e) => {
           e.currentTarget.previousElementSibling.setAttribute(
             "href",
@@ -30,12 +30,23 @@ const Whatsapp = () => {
           );
           e.currentTarget.previousElementSibling.click();
         }}
-        className={`${styles.whatsapp} d-flex justify-content-center align-items-center`}
+        className={`d-flex justify-content-center align-items-center`}
       >
         <BsWhatsapp size={28} color="#fff" />
-      </div>
+      </Cta>
     </>
   );
 };
 
 export default Whatsapp;
+const Cta=styled.div`
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #0ed914;
+  position: fixed;
+  bottom: 70px;
+  cursor: pointer;
+  right: 10px;
+  z-index: 10;
+`

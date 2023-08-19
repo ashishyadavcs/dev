@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Stickyad from "@/components/ads/stickyad";
 import Breadcrumb from "@/components/breadcrumb";
 
+
 const Layout = ({ children,type='default'}) => {
   const router = useRouter();
   return (

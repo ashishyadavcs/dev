@@ -4,9 +4,8 @@ Allow: /
 
 # *
 User-agent: *
-Disallow: /api/*
-Disallow: /dashboard/*
-Disallow: /admin/*
+Disallow: /dashboard
+Disallow: /admin
 
 # Host
 Host: https://www.frontendzone.com

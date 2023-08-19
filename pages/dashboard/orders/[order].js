@@ -20,6 +20,7 @@ const Page = ({ order }) => {
             <Paynow
               product={{
                 price: "6000",
+                id:order._id
               }}
             />
           </div>
