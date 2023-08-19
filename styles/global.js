@@ -254,7 +254,7 @@ article h3 {
   transition: all 0.4s;
 }
 
-header nav {
+header nav:has(.innermenu) {
   min-width: 65%;
 }
 
