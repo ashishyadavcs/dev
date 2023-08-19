@@ -1,5 +1,5 @@
-import Orderform from "./orderform";
-const Orderpop = (handler) => {
+
+const Orderpop = ({Comp}) => {
   return (
     <div
       onClick={(e) =>
@@ -9,7 +9,7 @@ const Orderpop = (handler) => {
       }
       className={`orderpop`}
     >
-      <Orderform />
+      <Comp/>
     </div>
   );
 };

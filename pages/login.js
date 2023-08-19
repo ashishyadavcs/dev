@@ -1,11 +1,11 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
-import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Loginwithgoogle from "@/components/auth/google-login";
+import { Styled } from "@/styles/auth";
 export const Page = () => {
   const [show, setShow] = useState(true);
   const router=useRouter()
@@ -40,7 +40,7 @@ export const Page = () => {
     }
   };
   return (
-    <div className={styles.login}>
+    <Styled.login>
 
       <div>
         <h1>Login</h1>
@@ -92,7 +92,7 @@ export const Page = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Styled.login>
   );
 };
 

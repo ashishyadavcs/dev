@@ -1,11 +1,11 @@
 import { toast } from "react-toastify";
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
-import styles from "../styles/auth.module.css";
 import Link from "next/link";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useRouter } from "next/router";
 import Loginwithgoogle from "@/components/auth/google-login";
+import { Styled } from "@/styles/auth";
+
 export const Register = () => {
   const router = useRouter();
   const [show, setShow] = useState(true);
@@ -31,8 +31,10 @@ export const Register = () => {
       toast.error(data.message);
     }
   };
+
+
   return (
-    <div className={styles.login}>
+    <Styled.login>
       <div>
         <h1>register</h1>
         <form
@@ -64,7 +66,7 @@ export const Register = () => {
               defaultValue="ashish123"
             />
             <span
-              className="position-absolute bg-white h-100 pointer"
+              className="position-absolute h-100 pointer"
               style={{ right: "20px", top: "25%" }}
             >
               {show ? (
@@ -87,7 +89,7 @@ export const Register = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Styled.login>
   );
 };
 

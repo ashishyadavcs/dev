@@ -58,7 +58,7 @@ input {
 
 #nprogress .bar {
   background: teal !important;
-  height: 7px;
+  height: 3px;
 }
 
 .notes {
@@ -457,13 +457,16 @@ footer .smallheading {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.8);
+  max-height: 0;
+  overflow: hidden;
   transition: all 0.3s;
 }
 
 .orderpop.active {
   opacity: 1;
+  background: rgba(0, 0, 0, 0.8);
   pointer-events: all;
+  max-height: unset;
 }
 
 .orderpop>div {

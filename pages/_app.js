@@ -11,6 +11,10 @@ import { layout } from "../public/data/layout";
 import nProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
 import { Globalstyle } from "@/styles/global";
+import { theme } from "themes";
+import { ThemeProvider } from "styled-components";
+import SetTheme from "@/components/themesetting";
+console.log(theme)
 Router.events.on("routeChangeStart", () => {
   nProgress.start();
   !navigator.onLine ? toast.error("You are offline") : "";
@@ -23,6 +27,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const router = useRouter();
   return (
     <SessionProvider session={session} basePath="/api/auth">
+      <ThemeProvider theme={theme}>
       <Provider store={store}>
         <Globalstyle/>
         <div className="loading-lcp">loading</div>
@@ -46,6 +51,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           </>
         )}
       </Provider>
+      </ThemeProvider>
+  
   </SessionProvider>
   );
 }

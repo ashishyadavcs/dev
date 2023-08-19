@@ -5,6 +5,7 @@ import Settings from "@/components/settings";
 import { useRouter } from "next/router";
 import Stickyad from "@/components/ads/stickyad";
 import Breadcrumb from "@/components/breadcrumb";
+import Orderform from "../orderform";
 
 
 const Layout = ({ children,type='default'}) => {
@@ -17,7 +18,7 @@ const Layout = ({ children,type='default'}) => {
       <Header />
       <main> {children}</main>
       <Footer />
-      <Orderpop />
+      <Orderpop Comp={Orderform}/>
       <div className="backlink sub-footer">
         <a href="https://calculatorr.net">calculator</a>
         <a href="https://physicsclass.co">physicsclass</a>
