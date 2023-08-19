@@ -14,8 +14,16 @@
    margin-right: auto;
    margin-left: auto;
  }
+ .w-100{width: 100%;}
+ .text-center{text-align: center;}
  .list-unstyled{
     list-style: none;
+ }
+ .position-absolute{
+  position: absolute;
+ }
+ .position-relative{
+  position: relative;
  }
  .mr-2{
    margin-right: 0.5rem !important;

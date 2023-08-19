@@ -203,8 +203,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="sub-footer d-flex align-items-center">
-        <small className="text-secondary container p-3 text-center d-block">
+        <div className="sub-footer d-flex justify-content-center align-items-center">
+        <small className="text-secondary text-center container p-3 text-center d-block">
           copyright&copy;2022-{new Date().getFullYear() + 1}
         </small>
       </div>

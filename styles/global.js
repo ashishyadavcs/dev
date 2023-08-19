@@ -30,9 +30,15 @@ a {
 input {
   padding: 10px 15px;
   outline: none;
+  font-size: 16px;
   width: 100%;
   border: 1px solid #ddd;
   margin: 10px 0 !important;
+}
+button{font-size:16px;
+  cursor: pointer;
+outline: none;
+border: none;
 }
 
 :root {
@@ -97,6 +103,8 @@ h3,
 h4,
 h5 {
   scroll-margin-top: 80px;
+  margin-bottom:10px;
+
 }
 
 :where(h1, h2, h3)::first-letter {
@@ -234,7 +242,7 @@ main :where(ul, ol) {
 .themebtn:active {
   transform: scale(1.1);
 }
-
+.layout p{margin-bottom:10px}
 .layout :where(li, p) {
   color: #555;
 }

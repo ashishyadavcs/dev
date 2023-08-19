@@ -8,6 +8,7 @@ export const Styled = {
         background-blend-mode: overlay;
         p {
             color: #fff;
+            line-height: 1.4;
         }
         a {
             color: #ddd;
@@ -48,7 +49,7 @@ export const Styled = {
         }
         .sub-footer {
             background: #010921f2;
-            color: #ccc;
+            color: #888;
         }
     `,
 };

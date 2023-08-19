@@ -15,7 +15,28 @@ export const Styled = {
             #cccccc 60%,
             #cccccc 90%
         );
-
+        button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px;
+            justify-content: center;
+            border-radius: 8px;
+            margin: 10px 0 25px;
+            padding: 10px 8px;
+        }
+        .btn-default {
+            padding: 10px 20px;
+        }
+        .btn-default:hover {
+            background: #ddd;
+        }
+        p {
+            margin-top: 10px;
+        }
+        a {
+            color: #0000ffd9;
+        }
         > div {
             width: 400px;
             background: #fff;

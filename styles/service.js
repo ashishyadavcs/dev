@@ -25,6 +25,9 @@ export const Styled = {
             height: 55%;
             min-height: 150px;
         }
+        button {
+            margin-top: 20px;
+        }
     `,
     hero: styled.div`
         padding: 2rem 0;

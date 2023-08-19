@@ -49,8 +49,15 @@ export const Styled = {
             display: none;
             outline: none;
             border: none;
-            width: 25px;
+            width: 70px;
+            height: 60px;
+            margin-right: -11px;
             background: transparent;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-left: 1px solid #f1f1f1;
+
             span {
                 height: 2.6px;
                 width: 25px;
@@ -60,7 +67,7 @@ export const Styled = {
                 background: #000;
             }
             ${media.sm} {
-                display: block;
+                display: flex;
             }
         }
         &.active {
@@ -97,12 +104,16 @@ export const Styled = {
             padding-bottom: 1px;
             a {
                 padding: 0.7rem 1rem;
+                ${media.sm} {
+                    padding: 1rem;
+                }
             }
             ${media.sm} {
                 width: 100%;
             }
             ${media.minsm} {
                 padding: 18px 0;
+                overflow: hidden;
             }
             &:before {
                 content: "";
