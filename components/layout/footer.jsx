@@ -177,7 +177,7 @@ const Footer = () => {
                   <Link href={"/training"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
-                      Frontend Training
+                       Training
                     </a>
                   </Link>
                 </li>

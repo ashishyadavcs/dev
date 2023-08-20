@@ -242,7 +242,7 @@ main :where(ul, ol) {
 .themebtn:active {
   transform: scale(1.1);
 }
-.layout p{margin-bottom:10px}
+.layout p{margin-bottom:10px;line-height:1.5}
 .layout :where(li, p) {
   color: #555;
 }
