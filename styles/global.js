@@ -542,11 +542,11 @@ input[type="range"]::-moz-range-thumb {
   top: 0;
   left: 0%;
   content: "";
-  width: 250px;
+  width: calc(2vw + 150px);
   height: 101%;
+  border-radius: 0 100px 0 0;
   background: #03072d;
   z-index: -1;
-  clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
 }
 
 .related::before {
