@@ -23,10 +23,10 @@ const Ashish = ({ style }) => {
             itemScope
             itemType="https://schema.org/Person"
         >
-            <div title="click to see on linkedin" className="hero d-flex align-items-center mb-4">
+            <div  className="hero d-flex align-items-center mb-4">
                 <Image src="/ashish-lkd.jpg" alt="" height={90} width={90}></Image>
                 <strong className="ml-4">
-                    <a
+                    <a title="click to see on linkedin"
                         itemProp="url"
                         target="_blank"
                         rel="noreferrer"
