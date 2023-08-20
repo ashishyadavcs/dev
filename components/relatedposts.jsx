@@ -3,7 +3,7 @@ import styles from "@/styles/blog.module.css";
 const Relatedposts = ({ posts }) => {
   return (
     <>
-      <h2 className="related my-4">Related Posts</h2>
+      <h2 className=" my-4">Related Posts</h2>
       <div className={`${styles.relatedposts}`}>
         {posts?.length > 0 &&
           posts?.map((post) => {
