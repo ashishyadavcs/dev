@@ -111,7 +111,9 @@ export const Styled = {
                 padding: 18px 0;
             }
             &:before {
-                content: "";
+                ${media.sm} {
+                    content: "";
+                }
                 width: 100%;
                 position: absolute;
                 background: linear-gradient(to right, #fff, transparent);
