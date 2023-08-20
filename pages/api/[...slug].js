@@ -1,6 +1,6 @@
 import Cookies from "cookies";
-
-const followRequest = async (req, res, token) => {
+import { setTokenCookies } from "utils/cookie";
+const sendRequest = async (req, res, token) => {
     const { slug } = req.query;
     delete req.query.slug;
     const option = {
@@ -26,15 +26,13 @@ const followRequest = async (req, res, token) => {
     res.json(result);
 };
 export default async function handler(req, res) {
-    var cookies = new Cookies(req, res, { keys: ["keras-token"]})
-    let token = cookies.get("x-token")
-    const refresh = cookies.get("x-refresh") || req.cookies["x-refresh"]
-    console.log(req.cookies["x-refresh"])
-    // if (!token && !refresh) {
-    //     res.status(401).json({ success: false, message: "Unauthorized", code: 401 });
-    // } else
-        if (!token && refresh) {
-        const result = await fetch(`${process.env.BASE_URL}/refresh/`, {
+    const cookies = new Cookies(req, res, { keys: ["keras-token"] });
+    let token = cookies.get("x-token");
+    const refresh = cookies.get("x-refresh");
+    console.log({ token, refresh });
+
+    if (!token && refresh) {
+        const result = await fetch(`${process.env.BASE_URL}/refresh`, {
             method: "POST",
             body: JSON.stringify({ refreshToken: refresh }),
             headers: {
@@ -42,28 +40,13 @@ export default async function handler(req, res) {
                 cookie: req.headers.cookie,
             },
         }).then(resp => resp.json());
+
         if (result.success) {
-            const cookies = new Cookies(req, res, { keys: ["keras-token"] });
             if (result.data.tokens) {
                 token = result.data.tokens.access.token;
-                cookies.set("x-token", result.data.tokens.access.token, {
-                    overwrite: true,
-                    signed: true,
-                    expires: new Date(result.data.tokens.access.expiresAt),
-                    ...(process.env.COOKIE_DOMAIN && {
-                        domain: `${process.env.COOKIE_DOMAIN}`
-                    })
-                });
-                cookies.set("x-refresh", result.data.tokens.refresh.token, {
-                    overwrite: true,
-                    signed: true,
-                    expires: new Date(result.data.tokens.refresh.expiresAt),
-                    ...(process.env.COOKIE_DOMAIN && {
-                        domain: `${process.env.COOKIE_DOMAIN}`
-                    })
-                });
+                setTokenCookies(req, res, result);
             }
-            followRequest(req, res, token);
+            sendRequest(req, res, token);
         } else res.status(401).json(result);
-    } else followRequest(req, res, token);
+    } else sendRequest(req, res, token);
 }

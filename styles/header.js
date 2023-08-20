@@ -39,7 +39,6 @@ export const Styled = {
                 left: 0;
             }
             a {
-                width: 100%;
                 display: block;
                 color: #fff;
             }
@@ -108,12 +107,8 @@ export const Styled = {
                     padding: 1rem;
                 }
             }
-            ${media.sm} {
-                width: 100%;
-            }
             ${media.minsm} {
                 padding: 18px 0;
-                overflow: hidden;
             }
             &:before {
                 content: "";
@@ -140,6 +135,9 @@ export const Styled = {
                 justify-content: space-between;
             }
             ${media.sm} {
+                li {
+                    width: 100%;
+                }
                 flex-direction: column-reverse;
                 justify-content: flex-end;
                 &.mobilelinks {

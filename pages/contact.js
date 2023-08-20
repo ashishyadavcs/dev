@@ -141,6 +141,7 @@ const Contact = () => {
                                 >
                                     mail{" "}
                                 </button>
+                                or
                                 <button className="theme-btn whatsapp">whatsapp </button>
                             </div>
                         </form>

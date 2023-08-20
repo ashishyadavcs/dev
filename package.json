@@ -15,6 +15,7 @@
     "@reduxjs/toolkit": "^1.8.3",
     "@stripe/stripe-js": "^1.32.0",
     "bootstrap": "4.6.0",
+    "cookie": "^0.5.0",
     "cookies": "^0.8.0",
     "form-data": "^4.0.0",
     "formidable": "^2.1.1",

@@ -5,179 +5,170 @@ import { ArticleJsonLd, NextSeo } from "next-seo";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
 const Share = dynamic(() => import("@/components/ui/share"), {
-  ssr: false,
+    ssr: false,
 });
 
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
-import moment from "moment";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
-import Image from "next/image";
 const Blog = ({ post, posts }) => {
-  useEffect(() => {
-    document.querySelector('code')!==null && hljs.highlightAll();
-  }, [post]);
-  useLayoutEffect(() => {
-    document
-      .querySelectorAll("article img")
-      .forEach((img) => img.setAttribute("loading", "lazy"));
-  });
-  const nextHTML=post.content.replace(/<img([\s\S]*?)>/g, (match, attributes) => {
-    const width = attributes.match(/width="(\d+)"/)?.[1];
-    const height = attributes.match(/height="(\d+)"/)?.[1];
-    const alt = attributes.match(/alt="([^"]+)"/)?.[1];
-    
-    if (width && height && alt) {
-        return `<img class="lazy" ${attributes} width="${width}" height="${height}" alt="${alt}" />`;
-    }
+    useEffect(() => {
+        document.querySelector("code") !== null && hljs.highlightAll();
+    }, [post]);
+    const nextHTML = post.content.replace(/<img([\s\S]*?)>/g, (match, attributes) => {
+        const width = attributes.match(/width="(\d+)"/)?.[1];
+        const height = attributes.match(/height="(\d+)"/)?.[1];
+        const alt = attributes.match(/alt="([^"]+)"/)?.[1];
 
-    // If attributes are missing, return the original <img> tag
-    return match;
-});
-  return (
-    <>
-      {post && (
-        <div className={`${styles.blog} mainscrollbar mb-4`}>
-          {post?.title && (
-            <>
-              <NextSeo
-                title={post?.title}
-                description={`${post?.excerpt
-                  .replace(/<[^>]+>/g, "")
-                  .slice(0, 125)}`}
-                canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
-                openGraph={{
-                  type: "article",
-                  url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
-                  title: post?.title,
-                  description: ` ${post.excerpt
-                    .replace(/<[^>]+>/g, "")
-                    .slice(0, 145)}`,
+        if (width && height && alt) {
+            return `<img class="lazy" ${attributes} width="${width}" height="${height}" alt="${alt}" />`;
+        }
 
-                  images: [
-                    {
-                      url: post?.featuredImage?.node.mediaDetails.sizes[3]
-                        .sourceUrl,
-                      width:
-                        post?.featuredImage?.node.mediaDetails.sizes[3].width,
-                      height:
-                        post?.featuredImage?.node.mediaDetails.sizes[3].height,
-                      alt: post?.title,
-                      type: "image/jpeg",
-                    },
-                    {
-                      url: post?.featuredImage?.node.mediaDetails.sizes[3]
-                        .sourceUrl,
-                    },
-                  ],
-                  siteName: process.env.NEXT_PUBLIC_APP_NAME,
-                }}
-                additionalMetaTags={[
-                  {
-                    name: "keywords",
-                    content: post?.title,
-                  },
-                ]}
-              />
-              <ArticleJsonLd
-                url={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
-                title={post.title}
-                images={[
-                  {
-                    url: post?.featuredImage?.node.mediaDetails.sizes[3]
-                      .sourceUrl,
-                    width:
-                      post?.featuredImage?.node.mediaDetails.sizes[3].width,
-                    height:
-                      post?.featuredImage?.node.mediaDetails.sizes[3].height,
-                    alt: post?.title,
-                    type: "image/jpeg",
-                  },
-                  {
-                    url: post?.featuredImage?.node.mediaDetails.sizes[3]
-                      .sourceUrl,
-                  },
-                ]}
-                datePublished={post.date}
-                dateModified={post.date}
-                authorName={[
-                  {
-                    name: "Frontendzone",
-                    url: `${process.env.NEXT_PUBLIC_APP_URL}/about`,
-                  },
-                ]}
-                publisherName="Frontendzone"
-                publisherLogo={`${process.env.NEXT_PUBLIC_APP_URL}/dev/logo.svg`}
-                description={post.description}
-                isAccessibleForFree={true}
-              />
-            </>
-          )}
-          <Share />
-       
-          <article>
-            {/* <div className={styles.postbanner}>
+        // If attributes are missing, return the original <img> tag
+        return match;
+    });
+    return (
+        <>
+            {post && (
+                <div className={`${styles.blog} mainscrollbar mb-4`}>
+                    {post?.title && (
+                        <>
+                            <NextSeo
+                                title={post?.title}
+                                description={`${post?.excerpt
+                                    .replace(/<[^>]+>/g, "")
+                                    .slice(0, 125)}`}
+                                canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
+                                openGraph={{
+                                    type: "article",
+                                    url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
+                                    title: post?.title,
+                                    description: ` ${post.excerpt
+                                        .replace(/<[^>]+>/g, "")
+                                        .slice(0, 145)}`,
+
+                                    images: [
+                                        {
+                                            url: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                                .sourceUrl,
+                                            width: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                                .width,
+                                            height: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                                .height,
+                                            alt: post?.title,
+                                            type: "image/jpeg",
+                                        },
+                                        {
+                                            url: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                                .sourceUrl,
+                                        },
+                                    ],
+                                    siteName: process.env.NEXT_PUBLIC_APP_NAME,
+                                }}
+                                additionalMetaTags={[
+                                    {
+                                        name: "keywords",
+                                        content: post?.title,
+                                    },
+                                ]}
+                            />
+                            <ArticleJsonLd
+                                url={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
+                                title={post.title}
+                                images={[
+                                    {
+                                        url: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                            .sourceUrl,
+                                        width: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                            .width,
+                                        height: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                            .height,
+                                        alt: post?.title,
+                                        type: "image/jpeg",
+                                    },
+                                    {
+                                        url: post?.featuredImage?.node.mediaDetails.sizes[3]
+                                            .sourceUrl,
+                                    },
+                                ]}
+                                datePublished={post.date}
+                                dateModified={post.date}
+                                authorName={[
+                                    {
+                                        name: "Frontendzone",
+                                        url: `${process.env.NEXT_PUBLIC_APP_URL}/about`,
+                                    },
+                                ]}
+                                publisherName="Frontendzone"
+                                publisherLogo={`${process.env.NEXT_PUBLIC_APP_URL}/dev/logo.svg`}
+                                description={post.description}
+                                isAccessibleForFree={true}
+                            />
+                        </>
+                    )}
+                    <Share />
+
+                    <article>
+                        {/* <div className={styles.postbanner}>
               <h1 className="container">{post?.title}</h1>
               <datetime>{moment(post.date).format("LLLL")}</datetime>
             </div> */}
-            <div className="container">
-              <div className="row">
-                <div className="col-md-8 my-4">
-                  <h1>{post?.title}</h1>
-                  <div
-                    className={` article ${styles.article}`}
-                   dangerouslySetInnerHTML={{__html:nextHTML}}
-                  >
-                
-                  </div>
-                  <Inpostad />
-                  <Ashish width="100%" />
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-8 my-4">
+                                    <h1>{post?.title}</h1>
+                                    <div
+                                        className={` article ${styles.article}`}
+                                        dangerouslySetInnerHTML={{ __html: nextHTML }}
+                                    ></div>
+                                    <Inpostad />
+                                    <Ashish width="100%" />
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="sticky">
+                                        <Toc />
+                                        <Sidebar />
+                                    </div>
+                                    <Inpostad />
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div className="container my-4">
+                        <Relatedposts posts={posts} />
+                    </div>
                 </div>
-                <div className="col-md-4">
-                  <div className="sticky">
-                    <Toc />
-                    <Sidebar />
-                  </div>
-                  <Inpostad />
-                </div>
-              </div>
-            </div>
-          </article>
-          <div className="container my-4">
-            <Relatedposts posts={posts} />
-          </div>
-        </div>
-      )}
-    </>
-  );
+            )}
+        </>
+    );
 };
 export default Blog;
 
 export async function getStaticPaths() {
-  const posts = await getPostSlugs();
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
-  }));
-  return {
-    paths,
-    fallback: "blocking",
-  };
+    const posts = await getPostSlugs();
+    const paths = posts.map(post => ({
+        params: { slug: post.slug },
+    }));
+    return {
+        paths,
+        fallback: "blocking",
+    };
 }
 export async function getStaticProps(req) {
-  const post = await getSinglePost(req.params.slug);
-  const { nodes: posts } = await getPostList(post);
-  if (post == undefined)
+    const post = await getSinglePost(req.params.slug);
+    const { nodes: posts } = await getPostList(post);
+    if (post == undefined)
+        return {
+            notFound: true,
+        };
     return {
-      notFound: true,
-    }
-  return {
-    props: {
-      post,
-      posts,
-    },
-    revalidate: 10,
-  };
+        props: {
+            post,
+            posts,
+        },
+        revalidate: 10,
+    };
 }

@@ -6,7 +6,7 @@ const Paynow = ({ product }) => {
   node-api:  /api/verifypayment
     */
 
-    return `/dashboard/order/${product.id}?success=true`
+    return `/dashboard/orders/${product.id}?success=true`
   }
   const pay = async () => {
     const { key } = await fetch("/api/paymentkey")
