@@ -140,7 +140,8 @@
   border-radius: 2px;
   font-family: "roboto";
   font-size: 15px;
-  padding: 2px;
+  padding: 10px;
+  margin: 2rem 0;
 }
 .blog h1,
 .blog h2,
