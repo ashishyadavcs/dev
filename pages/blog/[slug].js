@@ -17,21 +17,13 @@ import Ashish from "@/components/ashish";
 const Blog = ({ post, posts }) => {
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
-        document.querySelectorAll('img').forEach(img=>{
-            img.onclick=(e)=>{
-                document.querySelector(".preview-div img").setAttribute("src",e.target.getAttribute("src"))
-                document.querySelector(".preview-div").classList.toggle("active")
-            }
-        })
     }, [post]);
     
     return (
         <>
             {post && (
                 <div className={`${styles.blog} mainscrollbar mb-4`}>
-                    <div className="preview-div" role="presentation">
-                        <img src=""/>
-                    </div>
+                  
                     {post?.title && (
                         <>
                             <NextSeo
