@@ -40,7 +40,30 @@ button{font-size:16px;
 outline: none;
 border: none;
 }
-
+img{transition:all .3s}
+.preview-div{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: none;
+  z-index: 100;
+}
+.preview-div img{
+  margin: 0!important;
+ min-width: 100%;
+ height: auto;
+  object-fit: cover;
+  max-width: unset;
+}
+.preview-div.active{
+  display: block;
+}
+body:has(.preview-div.active){
+ overflow: hidden;
+}
 :root {
   /*required*/
   --bg-light: #1b263b;

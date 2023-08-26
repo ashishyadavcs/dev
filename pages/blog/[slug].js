@@ -17,23 +17,21 @@ import Ashish from "@/components/ashish";
 const Blog = ({ post, posts }) => {
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
+        document.querySelectorAll('img').forEach(img=>{
+            img.onclick=(e)=>{
+                document.querySelector(".preview-div img").setAttribute("src",e.target.getAttribute("src"))
+                document.querySelector(".preview-div").classList.toggle("active")
+            }
+        })
     }, [post]);
-    const nextHTML = post.content.replace(/<img([\s\S]*?)>/g, (match, attributes) => {
-        const width = attributes.match(/width="(\d+)"/)?.[1];
-        const height = attributes.match(/height="(\d+)"/)?.[1];
-        const alt = attributes.match(/alt="([^"]+)"/)?.[1];
-
-        if (width && height && alt) {
-            return `<img class="lazy" ${attributes} width="${width}" height="${height}" alt="${alt}" />`;
-        }
-
-        // If attributes are missing, return the original <img> tag
-        return match;
-    });
+    
     return (
         <>
             {post && (
                 <div className={`${styles.blog} mainscrollbar mb-4`}>
+                    <div className="preview-div" role="presentation">
+                        <img src=""/>
+                    </div>
                     {post?.title && (
                         <>
                             <NextSeo
@@ -122,7 +120,7 @@ const Blog = ({ post, posts }) => {
                                     <h1>{post?.title}</h1>
                                     <div
                                         className={` article ${styles.article}`}
-                                        dangerouslySetInnerHTML={{ __html: nextHTML }}
+                                        dangerouslySetInnerHTML={{ __html: post.content }}
                                     ></div>
                                     <Inpostad />
                                     <Ashish width="100%" />
