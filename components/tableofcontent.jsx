@@ -9,14 +9,16 @@ const Toc = () => {
   const router = useRouter();
   const [data, setData] = useState([]);
   useEffect(() => {
+  try{
     const headings = document
-      .querySelector(".article")
-      ?.querySelectorAll("h2,h3,h4,h5,h6");
-    headings.forEach((el) => {
-      el.id = replacewithdash(el.innerText);
-      el.classList.add("hashlink");
-    });
-    setData([...headings]);
+    .querySelector(".article")
+    ?.querySelectorAll("h2,h3,h4,h5,h6");
+  headings.forEach((el) => {
+    el.id = replacewithdash(el.innerText);
+    el.classList.add("hashlink");
+  });
+  setData([...headings]);
+  }catch{}
   }, [router]);
 
   return (

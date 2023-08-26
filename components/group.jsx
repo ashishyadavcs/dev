@@ -31,6 +31,7 @@ const Group = () => {
 export default Group;
 const WPGroup = styled.div`
     margin: 20px 0;
+    h3{font-size:18px!important}
     a {
         text-transform: capitalize;
         align-items: center;

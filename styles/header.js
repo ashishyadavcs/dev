@@ -56,7 +56,7 @@ export const Styled = {
             justify-content: center;
             flex-direction: column;
             border-left: 1px solid #f1f1f1;
-            &:hover{
+            &:-webkit-tap-highlight-color{
                 background: #f1f1f1;
             }
             span {
