@@ -56,7 +56,9 @@ export const Styled = {
             justify-content: center;
             flex-direction: column;
             border-left: 1px solid #f1f1f1;
-
+            &:hover{
+                background: #f1f1f1;
+            }
             span {
                 height: 2.6px;
                 width: 25px;
@@ -103,12 +105,16 @@ export const Styled = {
             padding-bottom: 1px;
             a {
                 padding: 0.7rem 1rem;
+                transition: all 0.3s;
                 ${media.sm} {
                     padding: 1rem;
                 }
             }
+            &:hover{
+                a{color:teal}
+            }
             ${media.minsm} {
-                padding: 18px 0;
+                padding: 20px 0;
             }
             &:before {
                 ${media.sm} {
