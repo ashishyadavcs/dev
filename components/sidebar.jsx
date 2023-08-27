@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Group from "./group";
 import Toc from "./tableofcontent";
+import Inpostad from "./ads/inpostad";
 const Sidebar = ({ styles, categories }) => {
     return (
         <div className={`my-4 sticky`}>
