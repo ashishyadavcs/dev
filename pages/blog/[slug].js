@@ -1,4 +1,3 @@
-import Toc from "@/components/tableofcontent";
 import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
 import { ArticleJsonLd, NextSeo } from "next-seo";
@@ -14,6 +13,7 @@ import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
+
 const Blog = ({ post, posts }) => {
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
@@ -30,7 +30,7 @@ const Blog = ({ post, posts }) => {
                                 title={post?.title}
                                 description={`${post?.excerpt
                                     .replace(/<[^>]+>/g, "")
-                                    .slice(0, 125)}`}
+                                    .slice(0, 125)}`.toString()}
                                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
                                 openGraph={{
                                     type: "article",
@@ -119,8 +119,7 @@ const Blog = ({ post, posts }) => {
                                 </div>
                                 <div className="col-md-4">
                                     <div className="sticky">
-                                        <Toc />
-                                        <Sidebar />
+                                        <Sidebar/>
                                     </div>
                                     <Inpostad />
                                 </div>
