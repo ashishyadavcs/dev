@@ -121,7 +121,7 @@ const Blog = ({ post, posts }) => {
                                     <div className="sticky">
                                         <Sidebar/>
                                     </div>
-                                    <Inpostad />
+                                   
                                 </div>
                             </div>
                         </div>

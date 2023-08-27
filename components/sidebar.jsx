@@ -22,7 +22,7 @@ const Sidebar = ({ styles, categories }) => {
                 </>
             )}
             <Group />
-            
+            <Inpostad />
         </div>
     );
 };
