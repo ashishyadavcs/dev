@@ -133,13 +133,13 @@ const Contact = () => {
                                 className="textarea"
                                 name="body"
                             ></textarea>
-                            <div className="d-flex" style={{ gap: "10px" }}>
+                            <div className="d-flex mt-2" style={{ gap: "10px",alignItems:"center" }}>
                                 <button
                                     ref={el => (refs.current.mail = el)}
                                     type="submit"
-                                    className="theme-btn"
+                                    className="theme-btn btn-white"
                                 >
-                                    mail{" "}
+                                    mail
                                 </button>
                                 or
                                 <button className="theme-btn whatsapp">whatsapp </button>

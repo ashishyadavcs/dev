@@ -40,27 +40,8 @@ button{font-size:16px;
 outline: none;
 border: none;
 }
-img{transition:all .3s}
-.preview-div{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  display: none;
-  z-index: 100;
-}
-.preview-div img{
-  margin: 0!important;
- min-width: 100%;
- height: auto;
-  object-fit: cover;
-  max-width: unset;
-}
-.preview-div.active{
-  display: block;
-}
+
+
 body:has(.preview-div.active){
  overflow: hidden;
 }
@@ -253,10 +234,15 @@ article h3 {
   border-radius: 10px;
   background: rgb(8, 8, 31);
 }
+.theme-btn.btn-white{
+  background: #ddd;
+  color: #1c1a1a;
+}
 
 .theme-btn:hover {
   color: #fff;
 }
+.btn-white:hover{color:#000}
 
 main :where(ul, ol) {
   list-style-position: inside;
