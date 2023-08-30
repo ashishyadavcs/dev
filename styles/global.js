@@ -6,9 +6,7 @@ body {
   padding: 0;
   margin: 0;
 }
-body.share footer{
-  margin-bottom: 70px;
-}
+
 .backlink {
   border-top: none;
   height: 0;
@@ -57,6 +55,8 @@ body:has(.preview-div.active){
   --whitest: #415a77;
   --bg: #0d1b2a;
   /*required*/
+  --loader-background-color: #EEEEEE;
+    --loader-highlight-color: #DEDEDE;
 }
 
 * {
@@ -616,6 +616,9 @@ input[type="range"]::-moz-range-thumb {
 
 
 ${media.sm}{
+  body.share footer{
+  margin-bottom: 70px;
+}
   .user {
     padding: 10px;
     color: #fff;
@@ -632,13 +635,5 @@ ${media.sm}{
     text-align: center;
     text-decoration: none;
   }
-}
-@keyframes loading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
 }
 `;

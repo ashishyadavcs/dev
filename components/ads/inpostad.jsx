@@ -10,7 +10,7 @@ const Inpostad = () => {
   return (
     <>
       <div className={styles.sidebarAd} style={{  width: "100%",overflow:"hidden"}}>
-        <ins
+        <ins onLoad={e=>e.currentTarget.parentElement.classList.add("loaded")}
           className="adsbygoogle"
           style={{ display: "block", width: "100%", height: "100%" }}
           data-ad-client="ca-pub-3446097307175125"
