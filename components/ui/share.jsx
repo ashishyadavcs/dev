@@ -9,6 +9,7 @@ import styles from "@/styles/share.module.css";
 import { FiLink2 } from "react-icons/fi";
 import { useEffect } from "react";
 import {BsPinterest} from "react-icons/bs";
+import {ismobile} from "utils/device";
 
 const Share = () => {
   useEffect(() => {
@@ -46,7 +47,7 @@ const Share = () => {
   };
 
   const share = async (link) => {
-    if (navigator.share && 0) {
+    if (navigator.share && ismobile) {
       try {
         await navigator.share({
           title: document.title,

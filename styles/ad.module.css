@@ -1,7 +1,12 @@
 .sidebarAd {
   height: 300px;
   margin: 1rem 0;
+  background: linear-gradient(90deg, #ddd 25%, #fff 50%, #ddd 75%);
+  background-size: 200% 100%;
+  animation: loading 2s infinite ease-in-out;
+  animation: 1.5s loading linear infinite;
 }
+
 .footerads {
   position: fixed;
   bottom: 0;

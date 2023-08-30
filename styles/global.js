@@ -6,7 +6,9 @@ body {
   padding: 0;
   margin: 0;
 }
-
+body.share footer{
+  margin-bottom: 70px;
+}
 .backlink {
   border-top: none;
   height: 0;
@@ -631,5 +633,12 @@ ${media.sm}{
     text-decoration: none;
   }
 }
-
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
 `;

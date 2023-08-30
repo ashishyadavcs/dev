@@ -55,9 +55,7 @@
   transform: scale(1.3);
 }
 @media (max-width: 767px) {
-  .share {
-    display: none;
-  }
+
   .share li.copied::before {
     bottom: 0;
     top: unset;
