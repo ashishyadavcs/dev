@@ -45,8 +45,8 @@ const Cta=styled.div`
   border-radius: 50%;
   background: #0ed914;
   position: fixed;
-  bottom: 70px;
+  bottom: 94px;
   cursor: pointer;
-  right: 10px;
+  right: 15px;
   z-index: 10;
 `
