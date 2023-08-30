@@ -3,13 +3,8 @@ import Sidebar from "@/components/sidebar";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
-const Share = dynamic(() => import("@/components/ui/share"), {
-    ssr: false,
-});
-
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
-import dynamic from "next/dynamic";
 import Relatedposts from "@/components/relatedposts";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
@@ -99,7 +94,7 @@ const Blog = ({ post, posts }) => {
                             />
                         </>
                     )}
-                    <Share />
+                   
 
                     <article>
                         {/* <div className={styles.postbanner}>

@@ -8,6 +8,7 @@ import styles from "@/styles/share.module.css";
 
 import { FiLink2 } from "react-icons/fi";
 import { useEffect } from "react";
+import {BsPinterest} from "react-icons/bs";
 
 const Share = () => {
   useEffect(() => {
@@ -45,7 +46,7 @@ const Share = () => {
   };
 
   const share = async (link) => {
-    if (navigator.share) {
+    if (navigator.share && 0) {
       try {
         await navigator.share({
           title: document.title,
@@ -68,18 +69,21 @@ const Share = () => {
   return (
     <div className={styles.share}>
       <ul>
-        <li>share</li>
+        <li> share</li>
         <li onClick={(e) => share(shareto.facebook)}>
-          <FaFacebook size={25} />
+          <FaFacebook size={25} color="blue"/>
         </li>
         <li onClick={(e) => share(shareto.whatsapp)}>
-          <FaWhatsapp size={25} />
+          <FaWhatsapp size={25} color="#47c355"/>
         </li>
         <li onClick={(e) => share(shareto.twitter)}>
-          <FaTwitter size={25} />
+          <FaTwitter size={25} color="#489dee"/>
         </li>
         <li onClick={(e) => share(shareto.linkedin)}>
-          <FaLinkedinIn size={25} />
+          <FaLinkedinIn size={25} color="#0c83c5"/>
+        </li>
+        <li onClick={(e) => share(shareto.pinterest)}>
+        <BsPinterest size={25} color="red"/>
         </li>
         <li title="copy url" onClick={(e) => copyurl(e)}>
           <FiLink2 size={25} />
