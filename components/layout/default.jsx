@@ -3,9 +3,12 @@ import Footer from "@/components/layout/footer";
 import Orderpop from "@/components/orderpop";
 import Settings from "@/components/settings";
 import { useRouter } from "next/router";
-import Stickyad from "@/components/ads/stickyad";
 import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
+import dynamic from "next/dynamic";
+const Share = dynamic(() => import("@/components/ui/share"), {
+  ssr: false,
+});
 
 
 const Layout = ({ children,type='default'}) => {
@@ -15,6 +18,7 @@ const Layout = ({ children,type='default'}) => {
     {type=='default' ? <div className="layout">
       <Breadcrumb />
       <Settings />
+      <Share />
       <Header />
       <main> {children}</main>
       <Footer />
