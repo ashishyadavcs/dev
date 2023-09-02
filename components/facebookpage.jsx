@@ -2,7 +2,7 @@ import Script from "next/script";
 import React from "react";
 
 const Facebookpage = () => {
-    const pageid="frontendzone"
+    const pageid="frontendzonedotcom"
     return (
         <>
             <div id="fb-root"></div>
