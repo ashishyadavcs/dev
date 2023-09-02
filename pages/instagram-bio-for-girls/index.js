@@ -1,3 +1,4 @@
+import {media} from "config/device";
 import {NextSeo} from "next-seo";
 import { useEffect } from "react";
 import { styled } from "styled-components";
@@ -65,6 +66,7 @@ const Biolist = styled.ul`
         border-radius: 8px;
         width: max-content;
         min-width: 300px;
+        max-width: 100%;
         text-align: center;
         border: 3px solid teal;
         margin: 10px auto;
@@ -80,14 +82,19 @@ const Biolist = styled.ul`
                 content: "copied";
                 position: absolute;
                 top: 50%;
+                left: 150%;
+                ${media.sm}{
+            top:110%;
+                left: 0%;   
+                }
                 transition: all 2s;
                 transition-delay: .3s;
-                left: 150%;
                 padding: 10px;
                 border-radius: 8px;
                 display: inline-block;
                 background: #000;
                 color: #fff;
+                z-index: 10;
             }
         }
        
