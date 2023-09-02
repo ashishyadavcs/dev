@@ -41,7 +41,7 @@ const Blog = ({ posts, categories, data }) => {
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <Sidebar categories={categories} styles={styles} />
+                    <Sidebar  categories={categories} styles={styles} />
                 </div>
             </div>
         </div>

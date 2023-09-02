@@ -2,6 +2,7 @@ import Link from "next/link";
 import Group from "./group";
 import Toc from "./tableofcontent";
 import Inpostad from "./ads/inpostad";
+import Facebookpage from "./facebookpage";
 const Sidebar = ({ styles, categories }) => {
     return (
         <div className={`my-4 sticky`}>
@@ -24,6 +25,7 @@ const Sidebar = ({ styles, categories }) => {
             )}
             <Group />
             <Inpostad />
+            <Facebookpage/>
         </div>
     );
 };
