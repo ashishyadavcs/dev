@@ -246,8 +246,11 @@ article h3 {
 }
 .btn-white:hover{color:#000}
 
-main :where(ul, ol) {
+main {
+  max-width: 100%;
+  &:where(ul, ol) {
   list-style-position: inside;
+}
 }
 
 .themebtn:active {
