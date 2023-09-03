@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
+import {ismobile} from "utils/device";
 const Share = dynamic(() => import("@/components/ui/share"), {
   ssr: false,
 });
@@ -29,6 +30,11 @@ const Layout = ({ children,type='default'}) => {
         <a href="https://jsonviewer.guru">json viewer</a>
       </div>
     </div>:<main> {children}</main>}
+    {ismobile() && !router.pathname.includes("blog")  && <div class="fb-page"
+data-href="https://www.facebook.com/imdb" 
+data-width="340"
+data-hide-cover="false"
+data-show-facepile="true"></div>}
     </>
   );
 };

@@ -47,7 +47,7 @@ const Share = () => {
   };
 
   const share = async (link) => {
-    if (navigator.share && ismobile) {
+    if (navigator.share && ismobile()) {
       try {
         await navigator.share({
           title: document.title,
