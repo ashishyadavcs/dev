@@ -12,10 +12,6 @@ const tools = [
         href: "/tools/online-json-formatter",
     },
     {
-        text: "instagram bio for girls",
-        href: "/instagram-bio-for-girls",
-    },
-    {
         text: "iframe generator",
         href: "/html-responsive-iframe-generator",
     },

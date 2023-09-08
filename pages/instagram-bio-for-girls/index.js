@@ -2,7 +2,7 @@ import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import { useEffect } from "react";
 import { styled } from "styled-components";
-import { clickToCopy } from "utils/common";
+import { clickToCopy, replacewithdash } from "utils/common";
 
 const Page = () => {
     useEffect(() => {
@@ -10,6 +10,7 @@ const Page = () => {
     }, []);
     return (
         <div className="container  my-4">
+            {replacewithdash("hi how")}
             <NextSeo
                 title="# Best Instagram Bio For Girls"
                 description="Generate best instagram bio for girls , top 100 best instagram bio for first impression"
