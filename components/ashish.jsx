@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import {FaLinkedin, FaLinkedinIn} from "react-icons/fa";
 import { styled } from "styled-components";
 
 const Ashish = ({ style }) => {
@@ -23,6 +24,9 @@ const Ashish = ({ style }) => {
             itemScope
             itemType="https://schema.org/Person"
         >
+            <a target="_blank" className="follow" href="https://linkedin.com/in/ashishfgiet">
+            <FaLinkedin size={18} color="#0a66c2"/> Follow 
+            </a>
             <div  className="hero d-flex align-items-center mb-4">
                 <Image src="/ashish-lkd.jpg" alt="" height={90} width={90}></Image>
                 <strong className="ml-4">
@@ -57,6 +61,7 @@ const Ashish = ({ style }) => {
 
 export default Ashish;
 const Profile = styled.div`
+position: relative;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     padding: 1rem;
     border-radius: 8px;
@@ -66,6 +71,20 @@ const Profile = styled.div`
     img {
         border-radius: 50%;
         object-fit: cover;
+    }
+    .follow{
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        right: 20px;
+        top: 40px;
+        font-weight: 600;
+        transition: all 0.3s;
+        color:#3873b4;
+        border-radius: 6px;
+        padding: 5px;
+        &:hover{right:25px;
+     }
     }
 
     .techs {
