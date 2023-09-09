@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import Relatedposts from "@/components/relatedposts";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
+import Fbcomment from "@/components/fbcomment";
 
 const Blog = ({ post, posts }) => {
     useEffect(() => {
@@ -121,6 +122,7 @@ const Blog = ({ post, posts }) => {
                             </div>
                         </div>
                     </article>
+                    <Fbcomment/>
                     <div className="container my-4">
                         <Relatedposts posts={posts} />
                     </div>

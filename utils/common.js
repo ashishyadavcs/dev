@@ -43,6 +43,9 @@ export const setThumbnail = (filetype) => {
 export const replacewithdash = (text) => {
   return `${text.toLowerCase().trim().replace(/ /g, "-")}`;
 };
+export const replacewithspace = (text) => {
+  return `${text.toLowerCase().trim().replace(/-/g, " ")}`;
+};
 
 export const openwhatsapp = (msg=message.sale) => {
 

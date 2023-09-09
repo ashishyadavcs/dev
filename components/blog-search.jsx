@@ -2,11 +2,13 @@ import { getPostSlugs } from "lib/posts";
 import Link from "next/link";
 import React, { memo, useState } from "react";
 import styled from "styled-components";
-import { replacewithdash } from "utils/common";
+import { replacewithdash, replacewithspace } from "utils/common";
 
 const Blogsearch = () => {
     const [posts, setposts] = useState([]);
+    let interval;
     const searchnow = e => {
+        clearTimeout(interval)
         const loader = document.querySelector(".search .loader");
         loader.classList.add("active");
         if (e.target.value.trim() == "") {
@@ -14,9 +16,8 @@ const Blogsearch = () => {
             loader.classList.remove("active");
             return;
         }
-        setTimeout(async () => {
+       interval= setTimeout(async () => {
             const data = await getPostSlugs();
-            console.log(data);
             setposts(prev => [
                 ...data.filter(post => post.slug.includes(replacewithdash(e.target.value))),
             ]);
@@ -33,8 +34,8 @@ const Blogsearch = () => {
 
             <ul>
                 {posts.map(post => (
-                    <li>
-                        <Link href={`/blog/${post.slug}`}>{post.slug}</Link>
+                    <li key={post.slug}>
+                        <Link href={`/blog/${post.slug}`}>{replacewithspace(post.slug)}</Link>
                     </li>
                 ))}
             </ul>
@@ -52,6 +53,7 @@ const Searchform = styled.div`
         }
     }
     .loader {
+        pointer-events: none;
         border: 4px solid #f3f3f3; /* Light grey */
         border-top: 4px solid #17c079; /* Blue */
         border-radius: 50%;
@@ -60,13 +62,13 @@ const Searchform = styled.div`
         opacity: 0;
         position: relative;
         left: 50%;
-        margin:0;
+        margin-top:-20px;
         transition: all 0.3s;
-        animation: spin 2s linear infinite;
+        animation: spin 1.5s ease-in-out infinite;
     }
     .loader.active {
         opacity: 1;
-        margin:10px 0;
+        margin:10px 0 20px;
     }
 
     @keyframes spin {
@@ -84,6 +86,7 @@ const Searchform = styled.div`
         max-height: 300px;
         overflow: auto;
         li {
+          text-transform: capitalize;
             background: #d4fbfb;
             padding: 10px;
             color: #3f4cfe;
