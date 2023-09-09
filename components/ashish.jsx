@@ -1,3 +1,4 @@
+import {media} from "config/device";
 import Image from "next/image";
 import React from "react";
 import {FaLinkedin, FaLinkedinIn} from "react-icons/fa";
@@ -24,12 +25,11 @@ const Ashish = ({ style }) => {
             itemScope
             itemType="https://schema.org/Person"
         >
-            <a target="_blank" className="follow" href="https://linkedin.com/in/ashishfgiet">
-            <FaLinkedin size={18} color="#0a66c2"/> Follow 
-            </a>
+           
             <div  className="hero d-flex align-items-center mb-4">
                 <Image src="/ashish-lkd.jpg" alt="" height={90} width={90}></Image>
-                <strong className="ml-4">
+                <strong>
+                    <span>
                     <a title="click to see on linkedin"
                         itemProp="url"
                         target="_blank"
@@ -40,6 +40,10 @@ const Ashish = ({ style }) => {
                     </a>
                     <br></br>
                     <small>Software Engineer</small>
+                    </span>
+                    <a target="_blank" className="follow" href="https://linkedin.com/in/ashishfgiet">
+            <FaLinkedin size={18} color="#0a66c2"/> Follow 
+            </a>
                 </strong>
             </div>
             <p>
@@ -75,16 +79,20 @@ position: relative;
     .follow{
         display: flex;
         gap: 10px;
-        position: absolute;
-        right: 20px;
-        top: 40px;
         font-weight: 600;
         transition: all 0.3s;
         color:#3873b4;
-        border-radius: 6px;
-        padding: 5px;
-        &:hover{right:25px;
-     }
+        margin-top: 7px;
+    }
+    .hero{
+        gap: 20px;
+        strong{
+           ${media.minsm}{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+           }
+        }
     }
 
     .techs {

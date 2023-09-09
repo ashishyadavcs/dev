@@ -27,8 +27,8 @@ const Blogsearch = () => {
     return (
         <Searchform className="search">
             <form>
-                <span className="title">Search Posts</span>
-                <input onChange={searchnow} placeholder="search blog" type="search" />
+               
+                <input  autoCorrect onChange={searchnow} placeholder="Search blog here..." type="search" />
                 <div className="loader"></div>
             </form>
 
@@ -50,6 +50,8 @@ const Searchform = styled.div`
         position: relative;
         input {
             margin-bottom: 0;
+            border: none;
+            border-bottom: 2px solid teal;
         }
     }
     .loader {
