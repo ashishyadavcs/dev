@@ -9,6 +9,7 @@ import Relatedposts from "@/components/relatedposts";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
 import Fbcomment from "@/components/fbcomment";
+import moment from "moment";
 
 const Blog = ({ post, posts }) => {
     useEffect(() => {
@@ -98,14 +99,14 @@ const Blog = ({ post, posts }) => {
                    
 
                     <article>
-                        {/* <div className={styles.postbanner}>
+                        <div className={styles.postbanner}>
               <h1 className="container">{post?.title}</h1>
               <datetime>{moment(post.date).format("LLLL")}</datetime>
-            </div> */}
+            </div>
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8 my-4">
-                                    <h1>{post?.title}</h1>
+                                    {/* <h1>{post?.title}</h1> */}
                                     <div
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
