@@ -3,9 +3,11 @@ import Group from "./group";
 import Toc from "./tableofcontent";
 import Inpostad from "./ads/inpostad";
 import Facebookpage from "./facebookpage";
+import Blogsearch from "./blog-search";
 const Sidebar = ({ styles, categories }) => {
     return (
         <div className={`my-4 sticky`}>
+            <Blogsearch/>
            <Toc/>
             {categories?.length > 0 && (
                 <>

@@ -21,7 +21,7 @@ export const createOrder = async (e, router) => {
 
   if (data.success) {
     toast.success("Order created successfully");
-    router.push(`/dashboard/order/${data.order._id}`);
+    router.push(`/dashboard/orders/${data.order._id}`);
     document.querySelector(".orderpop")?.classList.remove("active");
   } else {
     toast.error(data.message);

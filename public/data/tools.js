@@ -8,6 +8,10 @@ const tools = [
         href: "/css/button-generator",
     },
     {
+        text: "instagram bio for girls",
+        href: "/instagram-bio-for-girls",
+    },
+    {
         text: "online json formatter",
         href: "/tools/online-json-formatter",
     },

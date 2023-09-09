@@ -10,7 +10,7 @@ const Page = () => {
     }, []);
     return (
         <div className="container  my-4">
-            {replacewithdash("hi how")}
+            {replacewithdash("hi how are you darling")}
             <NextSeo
                 title="# Best Instagram Bio For Girls"
                 description="Generate best instagram bio for girls , top 100 best instagram bio for first impression"

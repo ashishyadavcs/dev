@@ -273,6 +273,7 @@ main {
   font-family: "Roboto", sans-serif;
   padding: 10px;
   outline: none;
+  font-size: inherit;
   border: 1px solid #ddd;
   min-height: 120px;
 }
