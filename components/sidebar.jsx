@@ -7,7 +7,7 @@ import Blogsearch from "./blog-search";
 const Sidebar = ({ styles, categories }) => {
     return (
         <div className={`my-4 sticky`}>
-            <Blogsearch/>
+            
            <Toc/>
             {categories?.length > 0 && (
                 <>
@@ -26,6 +26,7 @@ const Sidebar = ({ styles, categories }) => {
                 </>
             )}
             <Group />
+            <Blogsearch/>
             <Inpostad />
             <Facebookpage/>
         </div>
