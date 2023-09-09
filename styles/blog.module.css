@@ -156,6 +156,8 @@
 
 .blog pre code {
   font-size: 16px;
+  max-width: 100%;
+  overflow: auto;
 }
 .blog ul {
   list-style-position: inside;
