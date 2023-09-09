@@ -110,6 +110,7 @@ const Blog = ({ post, posts }) => {
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
                                     ></div>
+                                      <Fbcomment/>
                                     <Inpostad />
                                     <Ashish width="100%" />
                                 </div>
@@ -122,7 +123,7 @@ const Blog = ({ post, posts }) => {
                             </div>
                         </div>
                     </article>
-                    <Fbcomment/>
+                  
                     <div className="container my-4">
                         <Relatedposts posts={posts} />
                     </div>
