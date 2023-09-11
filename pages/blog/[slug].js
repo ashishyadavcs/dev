@@ -10,17 +10,17 @@ import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
 import Fbcomment from "@/components/fbcomment";
 import moment from "moment";
+import Image from "next/image";
 
 const Blog = ({ post, posts }) => {
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
     }, [post]);
-    
+
     return (
         <>
             {post && (
                 <div className={`${styles.blog} mainscrollbar mb-4`}>
-                  
                     {post?.title && (
                         <>
                             <NextSeo
@@ -96,13 +96,14 @@ const Blog = ({ post, posts }) => {
                             />
                         </>
                     )}
-                   
 
                     <article>
                         <div className={styles.postbanner}>
-              <h1 className="container">{post?.title}</h1>
-              <datetime>{moment(post.date).format("LLLL")}</datetime>
-            </div>
+                            <Image priority layout="fill" objectFit="cover" src={post?.featuredImage?.node.mediaDetails.sizes[5]
+                                            .sourceUrl}/>
+                            <h1 className="container">{post?.title}</h1>
+                            <datetime>{moment(post.date).format("LLLL")}</datetime>
+                        </div>
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8 my-4">
@@ -111,20 +112,19 @@ const Blog = ({ post, posts }) => {
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
                                     ></div>
-                                      <Fbcomment/>
+                                    <Fbcomment />
                                     <Inpostad />
                                     <Ashish width="100%" />
                                 </div>
                                 <div className="col-md-4">
                                     <div className="sticky">
-                                        <Sidebar/>
+                                        <Sidebar />
                                     </div>
-                                   
                                 </div>
                             </div>
                         </div>
                     </article>
-                  
+
                     <div className="container my-4">
                         <Relatedposts posts={posts} />
                     </div>
