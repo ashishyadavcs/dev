@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{transition: all 0.3s;}
+        form.myform{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            margin: auto;
+            max-width: 90%;
+            background: #f2eaea;
+            padding:100px 30px
+        }
+       .myform input{
+            padding: 10px 20px;
+            outline: none;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+        }
+       .myform input:invalid{color: red;}
+       .myform input:valid{color: rgb(12, 203, 123);}
+       .myform input:focus{
+            border-color: blue;
+        }
+        .myform button{
+            padding: 10px 20px;
+            background: teal;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+      
+    </style>
+</head>
+<body>
+    <form class="myform">
+        <input required type="text" placeholder="First Name"/>
+        <input required type="text" placeholder="Last Name"/>
+        <input required minlength="10" maxlength="12" type="tel" placeholder="Mobile"/>
+        <input required type="email" placeholder="Email"/>
+        <input required type="password" placeholder="Password"/>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
