@@ -311,6 +311,10 @@ main {
 .layout a {
   text-decoration: none;
   cursor: pointer;
+  scroll-margin-top:100px;
+  &.download-btn{
+   margin:40px 0;
+  }
 }
 
 
