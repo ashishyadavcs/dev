@@ -313,7 +313,10 @@ main {
   cursor: pointer;
   scroll-margin-top:100px;
   &.download-btn{
-   margin:40px 0;
+   margin-top: 20px;
+   display: inline-block;
+  min-width: max-content;
+  max-width: 100%;
   }
 }
 
