@@ -87,6 +87,7 @@ position: relative;
     .hero{
         gap: 20px;
         strong{
+            small{color:#666}
            ${media.minsm}{
             display: flex;
             width: 100%;

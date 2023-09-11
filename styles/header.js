@@ -48,9 +48,9 @@ export const Styled = {
             display: none;
             outline: none;
             border: none;
-            width: 70px;
+            width: 60px;
             height: 60px;
-            margin-right: -11px;
+            margin-right: -21px;
             background: transparent;
             align-items: center;
             justify-content: center;

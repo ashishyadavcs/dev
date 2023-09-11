@@ -73,9 +73,9 @@ const Header = () => {
             className="menu"
             onClick={(e) => refs.current.header.classList.toggle("active")}
           >
-            <span role="button" aria-label="icon"></span>
-            <span role="button" aria-label="icon"></span>
-            <span role="button" aria-label="icon"></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </Styled.header>
