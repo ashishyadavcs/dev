@@ -233,7 +233,7 @@ article h3 {
   text-transform: capitalize;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   color: #fff;
-  border-radius: 10px;
+  border-radius: 25px;
   background: rgb(8, 8, 31);
 }
 .theme-btn.btn-white{
@@ -313,7 +313,7 @@ main {
   cursor: pointer;
   scroll-margin-top:100px;
   &.download-btn{
-   margin-top: 20px;
+   margin: 20px 0;
    display: inline-block;
   min-width: max-content;
   max-width: 100%;

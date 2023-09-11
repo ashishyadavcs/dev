@@ -18,6 +18,7 @@ const Blogsearch = () => {
         }
        interval= setTimeout(async () => {
             const data = await getPostSlugs();
+            console.log(data)
             setposts(prev => [
                 ...data.filter(post => post.slug.includes(replacewithdash(e.target.value))),
             ]);
@@ -32,13 +33,15 @@ const Blogsearch = () => {
                 <div className="loader"></div>
             </form>
 
-            <ul>
+           {posts.length>0 && <div className="result">
+           <ul>
                 {posts.map(post => (
                     <li key={post.slug}>
                         <Link href={`/blog/${post.slug}`}>{replacewithspace(post.slug)}</Link>
                     </li>
                 ))}
             </ul>
+           </div>}
         </Searchform>
     );
 };
@@ -50,8 +53,8 @@ const Searchform = styled.div`
         position: relative;
         input {
             margin-bottom: 0;
-            border: none;
-            border-bottom: 2px solid teal;
+            border-radius: 25px;
+            border: 2px solid teal;
         }
     }
     .loader {
@@ -81,19 +84,49 @@ const Searchform = styled.div`
             transform: rotate(360deg);
         }
     }
-    ul {
+    .result{
+        border: 2px solid teal;
+        padding: 10px;
+        border-radius:10px;
+        ::-webkit-scrollbar{
+            width: 3px;
+            background: #e9eeeb;
+        }
+        ::-webkit-scrollbar-thumb{
+            background: #17c079;
+            height: 10px;
+        }
+       
+        ul {
         display: flex;
         list-style: none;
         flex-direction: column;
         max-height: 300px;
         overflow: auto;
+       
         li {
           text-transform: capitalize;
-            background: #d4fbfb;
-            padding: 10px;
-            color: #3f4cfe;
-            border-radius: 8px;
             margin-bottom: 7px;
+            border-bottom:2px solid transparent;
+            position:relative;
+            width: 100%;
+    
+            &:before{
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0;
+                display: inline-block;
+                height: 2px;
+                background: #bcf8f8;
+                transition: all 0.2s;
+            }
+            &:hover{
+                &:before{color:teal;width:100%}
+            }
         }
     }
+    }
+    
 `;
