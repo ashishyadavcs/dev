@@ -99,8 +99,8 @@ const Blog = ({ post, posts }) => {
 
                     <article>
                         <div className={styles.postbanner}>
-                            <Image priority layout="fill" objectFit="cover" src={post?.featuredImage?.node.mediaDetails.sizes[5]
-                                            .sourceUrl}/>
+                            {/* <Image alt={post?.title} priority layout="fill" objectFit="cover" src={post?.featuredImage?.node.mediaDetails.sizes[5]
+                                            .sourceUrl}/> */}
                             <h1 className="container">{post?.title}</h1>
                             <datetime>{moment(post.date).format("LLLL")}</datetime>
                         </div>

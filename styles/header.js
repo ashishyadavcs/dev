@@ -50,7 +50,7 @@ export const Styled = {
             border: none;
             width: 60px;
             height: 60px;
-            margin-right: -21px;
+            margin-right: -17px;
             background: transparent;
             align-items: center;
             justify-content: center;
