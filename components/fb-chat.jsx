@@ -4,15 +4,19 @@ function Fbchat() {
   return (
    <>
    <div id="fb-root"></div>
-          <script
-          dangerouslySetInnerHTML={{
-            __html: `
+   <Script strategy="lazyOnload">
+        {`
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "frontendzonedotcom");
+            chatbox.setAttribute("attribution", "biz_inbox");
+      
             window.fbAsyncInit = function() {
               FB.init({
                 xfbml            : true,
-                version          : 'v10.0'
+                version          : 'v12.0'
               });
             };
+      
             (function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
               if (d.getElementById(id)) return;
@@ -20,10 +24,9 @@ function Fbchat() {
               js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-            `,
-          }}
-        />
-        <div className="fb-customerchat"
+        `}
+      </Script>
+        <div id='fb-customer-chat' className="fb-customerchat"
           attribution="biz_inbox"
           page_id="frontendzonedotcom">
         </div>
