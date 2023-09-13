@@ -1,3 +1,7 @@
+.blog{
+  max-width: 100%;
+  overflow: hidden;
+}
 .blog .tag a {
   padding: 5px 20px;
   display: inline-block;
