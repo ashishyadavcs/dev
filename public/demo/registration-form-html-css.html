@@ -24,7 +24,12 @@
                 font-size: 16px;
                 width: 100%;
             }
-            .form input:focus{border-color: blue;}
+           .form input:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+            }
+            .form input:focus {
+                border-color: blue;
+            }
             .form img {
                 width: 50%;
                 height: 100%;
@@ -41,18 +46,22 @@
             }
             .form label {
                 position: relative;
-                margin-bottom:17px;
+                margin-bottom: 17px;
             }
-            .form label:has(input:focus,input:not(:placeholder-shown)):before{
-               top: -22%;
-               background: #fff;
-               z-index: 1;
-               padding: 0 5px;
-               transform: none;
-               color: #888;
+            .form label:has(input:focus, input:not(:placeholder-shown)):before {
+                top: -22%;
+                background: #fff;
+                z-index: 1;
+                padding: 0 5px;
+                transform: none;
+                color: #888;
             }
-            .form label:has(input:focus)::before{color: blue;}
-            .form input::placeholder{opacity: 0;}
+            .form label:has(input:focus)::before {
+                color: blue;
+            }
+            .form input::placeholder {
+                opacity: 0;
+            }
             .form label::before {
                 color: #ccc;
                 content: attr(for);
@@ -63,7 +72,9 @@
                 pointer-events: none;
                 transition: all 0.3s;
             }
-            .form h2{margin-top: 0;}
+            .form h2 {
+                margin-top: 0;
+            }
             .form form {
                 padding: 2rem;
                 display: flex;
@@ -76,7 +87,7 @@
                 }
                 .form {
                     justify-content: center;
-                    width:unset;
+                    width: unset;
                     align-items: center;
                 }
             }

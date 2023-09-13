@@ -139,7 +139,7 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
-.article figure img {
+.article figure img:not(img[width]) {
   object-fit: contain;
   height: auto;
   margin: 1rem 0;

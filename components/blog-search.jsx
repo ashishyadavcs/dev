@@ -29,7 +29,7 @@ const Blogsearch = () => {
         <Searchform className="search">
             <form>
                
-                <input  autoCorrect onChange={searchnow} placeholder="Search blog here..." type="search" />
+                <input  spellCheck={false} onChange={searchnow} placeholder="Search blog here..." type="search" />
                 <div className="loader"></div>
             </form>
 
@@ -55,6 +55,11 @@ const Searchform = styled.div`
             margin-bottom: 0;
             border-radius: 25px;
             border: 2px solid teal;
+            padding: 10px 15px;
+            outline: none;
+            font-size: 16px;
+            width: 100%;
+  margin: 10px 0 !important;
         }
     }
     .loader {
