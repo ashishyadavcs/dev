@@ -27,7 +27,7 @@ a {
   opacity: 0.5;
 }
 
-input {
+input:not(article input) {
   padding: 10px 15px;
   outline: none;
   font-size: 16px;
