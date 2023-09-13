@@ -16,8 +16,7 @@ const Fbcomment = () => {
       ></div>
       <div id="fb-root"></div>
       <Script
-        async
-        defer
+        strategy="lazyOnload"
         crossOrigin="anonymous"
         src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v6.0&appId=589042788608871&autoLogAppEvents=1"
       ></Script>
