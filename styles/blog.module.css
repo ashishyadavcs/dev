@@ -177,8 +177,17 @@
 .blog article :not(.sticky):where(ol, ul) li {
   margin-bottom: 10px;
 }
-
+.blog [class="download-btn-group"]{
+display: flex;
+justify-content: center;
+}
 @media (max-width: 767px) {
+  .blog [class="download-btn-group"]{
+    flex-direction: column;
+  }
+  .blog [class="download-btn-group"] .theme-btn:last-child{
+    margin-top: 0;
+  }
   .postbanner {
     min-height: 175px;
   }
