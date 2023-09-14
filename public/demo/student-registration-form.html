@@ -6,10 +6,9 @@
         <title>Document</title>
         <style>
             /* body{display: flex;align-items: center;min-height: 96vh;} */
-            .form *{box-sizing: border-box;}
             .form {
                 display: flex;
-                height: 400px;
+                min-height: 400px;
                 width: 700px;
                 border-radius: 8px;
                 box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
@@ -17,7 +16,7 @@
                 overflow: hidden;
                 margin: 10px auto;
             }
-            .form input {
+            .form input,.form select {
                 padding: 10px;
                 color: #555;
                 border: 2px solid #ddd;
@@ -33,9 +32,10 @@
             }
             .form img {
                 width: 50%;
-                height: 100%;
+                min-height: 100%;
                 object-fit: cover;
             }
+            .form select{margin-bottom: 17px;width: 100%;}
             .form button {
                 padding: 10px 20px;
                 font-size: 16px;
@@ -81,18 +81,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: 50%;
             }
-            .form form:invalid button{
-                pointer-events: none;
-                opacity: 0.5;
-            }
-            .form .error{color: red;margin: 10px 0;display: inline-block;}
+           
             @media (max-width: 767px) {
                 .form img {
                     display: none;
                 }
-                .form form{width: 100%;}
                 .form {
                     justify-content: center;
                     width: unset;
@@ -105,33 +99,36 @@
         <div class="form">
             <img
                 alt="register"
-                src="https://www.frontendzone.com/_next/image?url=%2Fimages%2Fcard.jpg&w=1920&q=75"
+                src="https://www.frontendzone.com/_next/image?url=%2Fdev%2Fabout-frontend.png&w=1080&q=75"
             />
-            <form class="validate">
+            <form>
                 <h2>Register Now</h2>
-                <label for="email">
-                    <input name="email"  required autofocus placeholder="Email" id="email" type="email" />
+                <label for="name">
+                    <input autofocus placeholder="Name" id="name" type="text" />
                 </label>
+                <select>
+                    <option selected hidden>choose course</option>
+                    <option>BCA</option>
+                    <option>MCA</option>
+                    <option>BTech</option>
+                    <option>BSc</option>
+                </select>
+                <label for="email">
+                    <input autofocus placeholder="Email" id="email" type="text" />
+                </label>
+
                 <label for="password">
-                    <input name="password" required placeholder="Password" id="password" type="password" />
+                    <input placeholder="Password" id="password" type="password" />
                 </label>
                 <label for="confirm password">
-                    <input name="confirm-password" required placeholder="confirm password" id="confirm password" type="password" />
+                    <input placeholder="confirm password" id="password" type="password" />
                 </label>
+                
+                   
+                
+
                 <button>Sign Up</button>
-                <span class="error"></span>
             </form>
         </div>
-        <script>
-            document.querySelector("form.validate").onsubmit=(e)=>{
-                console.log(e.target.password.value,e.target["confirm-password"])
-             if(e.target.password.value!==e.target["confirm-password"].value){
-                e.target.querySelector(".error").innerText="password & confirm password not matched"
-                return false
-             }else{
-                e.target.querySelector(".error").innerText=""
-             }
-            }
-        </script>
     </body>
 </html>

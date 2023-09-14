@@ -21,6 +21,7 @@ const Page = () => {
   return (
     <>
       <style jsx>{`
+        .text-white{color:#fff}
         .result {
           max-height: 0;
           overflow: hidden;
@@ -48,9 +49,12 @@ const Page = () => {
           padding: 10px;
           margin: 10px 0;
           border-radius: 8px;
+          max-width:100%;
         }
         .others ul {
+          margin-top:10px;
           display: flex;
+          flex-wrap:wrap;
           gap: 10px;
         }
         .content ol li {
