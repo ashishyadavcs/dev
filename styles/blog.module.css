@@ -169,11 +169,19 @@
 .blog h2 {
   margin-top: 2rem;
 }
-
+.blog pre{
+  max-width: 100%;
+  max-height:350px;
+  overflow: auto;
+}
 .blog pre code {
   font-size: 16px;
-  max-width: 100%;
-  overflow: auto;
+}
+.blog pre pre::-webkit-scrollbar{
+  width: 5px;
+}
+.blog pre pre::-webkit-scrollbar-thumb{
+  background: #03072d;
 }
 .blog ul {
   list-style-position: inside;
