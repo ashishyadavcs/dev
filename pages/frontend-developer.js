@@ -8,14 +8,40 @@ import { TiPointOfInterest } from "react-icons/ti";
 import { GiProgression } from "react-icons/gi";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
-const Page = () => {
+import Relatedposts from "@/components/relatedposts";
+import { getPostList } from "lib/posts";
+const Page = ({ posts }) => {
     return (
-        <Article  className="article container my-4">
+        <Article className="article container my-4">
             <NextSeo
                 title="# Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer "
-                description="They are the creative minds behind the intuitive sleek and stunning
+                description="Frontend developers are the creative minds behind the intuitive sleek and stunning
                 websites and applications you run daily on your phones and laptops."
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/frontend-developer`}
+                openGraph={{
+                    type: "website",
+                    url: `${process.env.NEXT_PUBLIC_APP_URL}`,
+                    title: `# Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer `,
+                    description: `Frontend developers are the creative minds behind the intuitive sleek and stunning
+                    websites and applications you run daily on your phones and laptops. `,
+
+                    images: [
+                        {
+                            url: `${process.env.NEXT_PUBLIC_APP_URL}/dev/frontend-developer.png`,
+                            width: "400",
+                            height: "400",
+                            alt: "Frontend Developer roadmap",
+                            type: "image/png",
+                        },
+                    ],
+                    siteName: process.env.NEXT_PUBLIC_APP_NAME,
+                }}
+                additionalMetaTags={[
+                    {
+                        name: "keywords",
+                        content: "Frontend developer , frontend development",
+                    },
+                ]}
             />
 
             <div className="row">
@@ -29,9 +55,8 @@ const Page = () => {
                     </h1>
 
                     <p>
-                        Hi let's know about frontend developers today In the ever-evolving world of
-                        web development, frontend developers are unsung heroes who breathe life into
-                        the virtual world we live in.<br></br>
+                        Frontend developers In the ever-evolving world of web development, are the
+                        unsung heroes who breathe life into the virtual world we live in.<br></br>
                         <br></br> They are the creative minds behind the intuitive sleek and
                         stunning websites and applications you run daily on your phones and laptops.
                     </p>
@@ -150,23 +175,49 @@ const Page = () => {
                     <h2>What are the technologies frontend developers work on ?</h2>
                     <p>basic</p>
                     <ul className="techs">
-                        <li><a href="https://www.frontendzone.com/blog/category/html">HTML</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Javascript</a></li>
+                        <li>
+                            <a href="https://www.frontendzone.com/blog/category/html">HTML</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                                Javascript
+                            </a>
+                        </li>
                     </ul>
                     <p>advanced</p>
 
                     <ul className="techs">
-                        <li><a href="https://angularjs.org/">Angular js</a></li>
-                        <li><a href="https://vuejs.org/">Vue js</a></li>
-                        <li><a href="https://react.dev/">React js</a></li>
-                        <li><a href="https://nextjs.org/">Next js</a></li>
+                        <li>
+                            <a href="https://angularjs.org/">Angular js</a>
+                        </li>
+                        <li>
+                            <a href="https://vuejs.org/">Vue js</a>
+                        </li>
+                        <li>
+                            <a href="https://react.dev/">React js</a>
+                        </li>
+                        <li>
+                            <a href="https://nextjs.org/">Next js</a>
+                        </li>
                     </ul>
                     <p>Experts</p>
                     <ul className="techs">
-                        <li><a href="https://www.geeksforgeeks.org/what-is-system-design-learn-system-design/">system design</a></li>
-                        <li><a href="https://medium.com/@inverita/frontend-optimization-8-tips-to-improve-web-performance-29af4b00efe7">Optimization</a></li>
-                        <li><a href="https://gtmetrix.com/">Performance</a></li>
+                        <li>
+                            <a href="https://www.geeksforgeeks.org/what-is-system-design-learn-system-design/">
+                                system design
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://medium.com/@inverita/frontend-optimization-8-tips-to-improve-web-performance-29af4b00efe7">
+                                Optimization
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://gtmetrix.com/">Performance</a>
+                        </li>
                     </ul>
                     <section className="how-to">
                         <h2>How to be a frontend developer</h2>
@@ -177,7 +228,10 @@ const Page = () => {
                             can start learning frontend development?
                         </p>
 
-                        <h3>#1👉Take &nbsp;<Link  href="/training"> mentorship </Link>&nbsp; from an experienced frontend developer</h3>
+                        <h3>
+                            #1👉Take &nbsp;<Link href="/training"> mentorship </Link>&nbsp; from an
+                            experienced frontend developer
+                        </h3>
                         <p>
                             This is the most effective way to be a frontend developer to learn
                             frontend development from basic to advanced labels with the best way to
@@ -261,7 +315,15 @@ const Page = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/nFQ22Wb6Qe8?si=Vrmb8YRJ1dcu2a0h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe
+                        width="100%"
+                        height="315"
+                        src="https://www.youtube.com/embed/nFQ22Wb6Qe8?si=Vrmb8YRJ1dcu2a0h"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
 
                     <h2>The Evolving Landscape</h2>
                     <p>
@@ -305,7 +367,7 @@ const Page = () => {
                                 que: "Can Python be used for frontend development?",
                                 ans: `Python is not traditionally used for frontend development, as JavaScript is the standard language for building interactive web interfaces. However, tools like Brython and transpilers allow Python code to run in the browser, enabling limited frontend functionality. Python's primary strength remains in backend development and data analysis.`,
                             },
-                    
+
                             {
                                 que: "how do frontend and backend developers work together ?",
                                 ans: `Frontend and backend developers collaborate to build a complete web application. Frontend developers create the user interface (UI) and user experience (UX) that users interact with, while backend developers build the server, databases, and application logic that power the site. Effective communication and coordination are essential to ensure seamless data flow and functionality between the frontend and backend components.`,
@@ -321,8 +383,14 @@ const Page = () => {
                             Frontend developer salaries vary widely based on location, experience, and other factors. In the United States, for example, the average salary for a frontend developer typically ranges from $70,000 to $140,000 per year, but it can be higher in tech hubs like Silicon Valley. Salaries may be lower in other countries and regions.
                             `,
                             },
-                            { que: "is backend development harder than frontend ?", ans: `The difficulty of backend vs. frontend development is subjective and depends on individual preferences and skills. Backend development involves complex server-side logic, databases, and security, which can be challenging.` },
-                            { que: "is frontend development dying ?", ans: `Frontend development is not dying; it's evolving. The demand for frontend developers remains strong as user interfaces continue to be a crucial aspect of web and app development. The role is adapting to new technologies and frameworks, ensuring frontend development remains relevant in the ever-changing tech industry.` },
+                            {
+                                que: "is backend development harder than frontend ?",
+                                ans: `The difficulty of backend vs. frontend development is subjective and depends on individual preferences and skills. Backend development involves complex server-side logic, databases, and security, which can be challenging.`,
+                            },
+                            {
+                                que: "is frontend development dying ?",
+                                ans: `Frontend development is not dying; it's evolving. The demand for frontend developers remains strong as user interfaces continue to be a crucial aspect of web and app development. The role is adapting to new technologies and frameworks, ensuring frontend development remains relevant in the ever-changing tech industry.`,
+                            },
                         ]}
                     />
                 </div>
@@ -330,6 +398,10 @@ const Page = () => {
                     <Inpostad />
                 </div>
             </div>
+            <Relatedposts posts={posts} />
+            <Link href="/blog">
+                        <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
+                    </Link>
         </Article>
     );
 };
@@ -337,9 +409,11 @@ const Page = () => {
 export default Page;
 const Article = styled.div`
     h1 {
-        text-align: center;
-        width: 80%;
-        margin: 20px auto;
+        ${media.minsm} {
+            margin: 20px auto;
+            width: 80%;
+            text-align: center;
+        }
     }
     h3 {
         display: flex;
@@ -392,7 +466,7 @@ const Article = styled.div`
     h2 {
         margin-top: 30px;
     }
-    ul {
+    ul:not(.faqs ul) {
         margin-top: 17px;
         margin-left: 20px;
         li {
@@ -407,14 +481,15 @@ const Article = styled.div`
             }
         }
     }
-    .techs{
+    .techs {
         display: flex;
-        gap:5px;
-        list-style:none;
+        gap: 5px;
+        list-style: none;
         margin-left: 0;
         padding-left: 0;
         flex-wrap: wrap;
-        li{border-radius:20px;
+        li {
+            border-radius: 20px;
             padding: 5px 10px;
             background: teal;
             color: #fff;
@@ -427,13 +502,24 @@ const Article = styled.div`
     }
     .sticky {
         height: max-content;
-        ${media.sm}{
-            &:first-child{display:none}
+
+        ${media.sm} {
+            &:first-child {
+                display: none;
+            }
         }
-        ${media.minsm}{
-            >div{
-                min-height: 90vh;
+        ${media.minsm} {
+            > div {
+                min-height: 530px;
             }
         }
     }
 `;
+export async function getStaticProps() {
+    const { nodes: posts } = await getPostList();
+    return {
+        props: {
+            posts,
+        },
+    };
+}

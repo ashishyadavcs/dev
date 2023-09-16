@@ -1,15 +1,25 @@
 import Ashish from "@/components/ashish";
 import Whatsapp from "@/components/whatsapp";
 import { NextSeo } from "next-seo";
+import Image from "next/image";
 const Page = () => {
     return (
-        <div className="bg">
-            <style jsx>{`
+        <>
+        <style jsx>{`
                 .bg {
                     padding: 6vw 0;
                     background: radial-gradient(circle, aqua, lime);
                 }
+                .banner{
+                    position: relative;
+                    height: 500px;
+                    width: 100%;
+                }
             `}</style>
+        <div className="banner">
+        <Image objectFit="contain" src="/dev/training.png" layout="fill"/>
+        </div>
+        <div className="bg">
             <div className="container py-4">
                 <NextSeo
                     title="Frontend Training | website design and development"
@@ -20,6 +30,7 @@ const Page = () => {
                 <Whatsapp />
             </div>
         </div>
+        </>
     );
 };
 
