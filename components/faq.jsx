@@ -20,14 +20,17 @@ const Faq = ({ title, data, cssClass }) => {
           cursor: pointer;
           overflow: hidden;
           margin: 0 0 20px;
+          gap:10px;
+          display: flex;
+    flex-direction: row-reverse;
         }
+        .faq .que{line-height:1.4;}
 
         .faq .icon {
           float: right;
         }
-        ul li:has(.ans[style]) {
-          color: green;
-        }
+        .faq svg{min-width:max-content}
+       
         .faq .ans {
           height: 0;
           overflow: hidden;
@@ -54,7 +57,7 @@ const Faq = ({ title, data, cssClass }) => {
             <FiChevronDown className="icon" size={18} />
             <div>
               <h3 itemProp="name" className="que">
-                {i + 1}. {faq.que}?
+                {i + 1}. {faq.que}
               </h3>
               <div
                 className="ans"

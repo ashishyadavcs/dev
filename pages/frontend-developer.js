@@ -7,9 +7,10 @@ import styled from "styled-components";
 import { TiPointOfInterest } from "react-icons/ti";
 import { GiProgression } from "react-icons/gi";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
 const Page = () => {
     return (
-        <Article contentEditable className="article container my-4">
+        <Article  className="article container my-4">
             <NextSeo
                 title="# Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer "
                 description="They are the creative minds behind the intuitive sleek and stunning
@@ -149,7 +150,7 @@ const Page = () => {
                     <h2>What are the technologies frontend developers work on ?</h2>
                     <p>basic</p>
                     <ul className="techs">
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+                        <li><a href="https://www.frontendzone.com/blog/category/html">HTML</a></li>
                         <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
                         <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Javascript</a></li>
                     </ul>
@@ -176,7 +177,7 @@ const Page = () => {
                             can start learning frontend development?
                         </p>
 
-                        <h3>#1👉Take mentorship from an experienced frontend developer</h3>
+                        <h3>#1👉Take &nbsp;<Link  href="/training"> mentorship </Link>&nbsp; from an experienced frontend developer</h3>
                         <p>
                             This is the most effective way to be a frontend developer to learn
                             frontend development from basic to advanced labels with the best way to
@@ -260,14 +261,7 @@ const Page = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <iframe
-                        height="315"
-                        src="https://youtube.com/shorts/cSiWWNs85_w?si=D8SCoahInKkH2MPv"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                    ></iframe>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/nFQ22Wb6Qe8?si=Vrmb8YRJ1dcu2a0h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
                     <h2>The Evolving Landscape</h2>
                     <p>
@@ -390,9 +384,9 @@ const Article = styled.div`
             display: none;
         }
         iframe {
-            width: 550px;
+            width: 100%;
             display: block;
-            margin: 20px auto;
+            margin: 40px auto;
         }
     }
     h2 {
@@ -433,5 +427,13 @@ const Article = styled.div`
     }
     .sticky {
         height: max-content;
+        ${media.sm}{
+            &:first-child{display:none}
+        }
+        ${media.minsm}{
+            >div{
+                min-height: 90vh;
+            }
+        }
     }
 `;
