@@ -7,10 +7,10 @@ import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import { ismobile } from "utils/device";
-import Fbchat from "../fb-chat";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
+
 
 const Layout = ({ children, type = "default" }) => {
     const router = useRouter();
@@ -20,7 +20,7 @@ const Layout = ({ children, type = "default" }) => {
                 <div className="layout">
                     <Breadcrumb />
                     <Settings />
-                   {router.pathname!="/online-html-css-editor" &&  <Share />}
+                   {!["/online-html-css-editor","/html-responsive-iframe-generator"].includes(router.pathname) &&  <Share />}
                     <Header />
                     <main> {children}</main>
                     <Footer />
@@ -43,7 +43,7 @@ const Layout = ({ children, type = "default" }) => {
                     data-show-facepile="true"
                 ></div>
             )}
-            <Fbchat/>
+           
         </>
     );
 };

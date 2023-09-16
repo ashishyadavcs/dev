@@ -5,7 +5,7 @@ import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
 import { CiViewList } from "react-icons/ci";
 
-const Toc = () => {
+const Toc = ({title="what's inside"}) => {
   const router = useRouter();
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -38,7 +38,7 @@ const Toc = () => {
           }}
         >
           <b className="d-flex justify-content-between">
-            <span>What&apos;s Inside</span> <CiViewList />
+            <span>{title}</span> <CiViewList />
           </b>
           <nav role="navigation">
             <ul>

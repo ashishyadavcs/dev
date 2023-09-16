@@ -4,7 +4,6 @@ import { FiLoader } from "react-icons/fi";
 const Blogpost = ({posts}) => {
   return (
     <>
-    {console.log(posts)}
       {posts.length > 0 ? (
         posts.map((post, i) => <Post key={i} styles={""} post={post} />)
       ) : (

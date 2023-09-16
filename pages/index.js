@@ -27,7 +27,7 @@ export default function Home({posts}) {
                                 Looking for Help<br></br> For Your website<br></br> development
                                 <br></br>
                             </h1>
-
+                          
                             <ul className="list-unstyled mt-3">
                                 {steps.map((li, i) => {
                                     return (
@@ -38,6 +38,7 @@ export default function Home({posts}) {
                                     );
                                 })}
                             </ul>
+                            
 
                             <Styled.Cta
                                 onClick={e => {
@@ -74,7 +75,7 @@ export default function Home({posts}) {
                         </div>
                         <div className="col-md-7 d-flex flex-column justify-content-center">
                             <h2 className="mt-3 mt-md-0">
-                                Are you looking for a website for your business?
+                                Business website development
                             </h2>
                             <p>
                                 Are you looking to establish a strong online presence for your
@@ -93,7 +94,7 @@ export default function Home({posts}) {
                     </div>
                     <div className="row my-4 d-flex align-items-center">
                         <div className="col-md-7">
-                            <h2 className="mt-5 mt-md-0">Redesign your old website</h2>
+                            <h2 className="mt-5 mt-md-0">Website redesign</h2>
                             <p>
                                 Is your website outdated and in need of a fresh look? Our website
                                 redesign services are here to help<br></br>
@@ -128,7 +129,7 @@ export default function Home({posts}) {
                             />
                         </div>
                         <div className="col-md-7">
-                            <h2>Optimized website for maximum performance</h2>
+                            <h2>Website Speed Optimization</h2>
                             <p>
                                 Maximize your online potential with our website optimization
                                 services we understand that having a great website is just the first

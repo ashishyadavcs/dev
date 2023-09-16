@@ -18,7 +18,7 @@ const Blogsearch = () => {
         }
        interval= setTimeout(async () => {
             const data = await getPostSlugs();
-            console.log(data)
+         
             setposts(prev => [
                 ...data.filter(post => post.slug.includes(replacewithdash(e.target.value))),
             ]);
