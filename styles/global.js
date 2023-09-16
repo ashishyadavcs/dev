@@ -149,7 +149,23 @@ article h3 {
   min-height: 80vh;
 }
 
-
+.layout{
+  ${media.minsm}{
+            &::before{
+                content: "";
+                position: fixed;
+                top: -80px;
+                left: 50%;
+                z-index: 2;
+                transform: translateX(-50%);
+                display: inline-block;
+                width: 44%;
+                height: 100px;
+                border-radius: 0 0 60% 60%;
+                box-shadow:0 30px 75px 36px #40ff582b;
+            }
+          }
+}
 .layout>.container {
   padding-bottom: 2rem;
 }
@@ -256,9 +272,10 @@ main {
 .themebtn:active {
   transform: scale(1.1);
 }
-.layout p{margin-bottom:10px;line-height:1.5}
+.layout p{margin-bottom:10px;}
 .layout :where(li, p) {
-  color: #555;
+  color: #333;
+  line-height: 1.4;
 }
 
 .heading {
