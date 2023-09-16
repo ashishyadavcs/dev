@@ -2,7 +2,7 @@ import { getCategorySlugs, getPostSlugs } from "lib/posts";
 import { getServerSideSitemap } from "next-sitemap";
 
 export const getServerSideProps = async (ctx) => {
-  const posts = await getPostSlugs();
+  const posts = await getPostSlugs(0,0,2000);
   const categories = await getCategorySlugs();
   const path1 = posts.map((post) => ({
     loc: `${process.env.APP_URL}/blog/${post.slug}`,
