@@ -39,7 +39,7 @@ class MyDocument extends Document {
                         rel="stylesheet"
                     ></link>
 
-                    <Script
+                    {/* <Script
                         strategy="lazyOnload"
                         src="https://www.googletagmanager.com/gtag/js?id=G-N62SPDRSH0"
                     ></Script>
@@ -53,16 +53,16 @@ class MyDocument extends Document {
 
   gtag('config', 'G-N62SPDRSH0'); `,
                         }}
-                    />
+                    /> */}
                     <meta name="theme-color" content="#fff" />
-                    {process.env.NODE_ENV == "production" && (
+                    {/* {process.env.NODE_ENV == "production" && (
                         <Script
                             strategy="lazyOnload"
                             async
                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3446097307175125"
                             crossOrigin="anonymous"
                         ></Script>
-                    )}
+                    )} */}
                 </Head>
                 <body className="body">
                     <main role="main">

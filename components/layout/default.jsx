@@ -1,7 +1,6 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Orderpop from "@/components/orderpop";
-import Settings from "@/components/settings";
 import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
@@ -19,8 +18,7 @@ const Layout = ({ children, type = "default" }) => {
             {type == "default" ? (
                 <div className="layout">
                     <Breadcrumb />
-                    <Settings />
-                   {!["/online-html-css-editor","/html-responsive-iframe-generator"].includes(router.pathname) &&  <Share />}
+                   {!["/online-html-css-editor","/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
                     <Header />
                     <main> {children}</main>
                     <Footer />
@@ -34,16 +32,6 @@ const Layout = ({ children, type = "default" }) => {
             ) : (
                 <main> {children}</main>
             )}
-            {ismobile() && !router.pathname.includes("blog") && (
-                <div
-                    class="fb-page"
-                    data-href="https://www.facebook.com/imdb"
-                    data-width="340"
-                    data-hide-cover="false"
-                    data-show-facepile="true"
-                ></div>
-            )}
-           
         </>
     );
 };
