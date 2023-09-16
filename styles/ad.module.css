@@ -1,9 +1,11 @@
 .sidebarAd {
   height: 300px;
   margin: 1rem 0;
-  background: linear-gradient(90deg, var(--loader-background-color) 25%, var(--loader-highlight-color) 50%, var(--loader-background-color) 75%);
   background-size: 200% 100%;
+}
+.sidebarAd:has(ins:empty()){
   animation: loading 2s infinite ease-in-out;
+  background: linear-gradient(90deg, var(--loader-background-color) 25%, var(--loader-highlight-color) 50%, var(--loader-background-color) 75%);
 }
 @keyframes loading {
   0% {
