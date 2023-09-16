@@ -61,6 +61,7 @@ const Page = ({ posts }) => {
                         stunning websites and applications you run daily on your phones and laptops.
                     </p>
                     <Image
+                    priority
                         objectFit="contain"
                         src="/dev/frontend-developer.png"
                         alt="frontend developer , frontend development"
