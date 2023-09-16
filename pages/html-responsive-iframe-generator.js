@@ -227,8 +227,7 @@ const Page = () => {
                             >
                                 <input
                                     placeholder=""
-
-                                    value={iframe.height}
+                                    value={iframe.height>1000?1000:iframe.height}
                                     onChange={e =>
                                         setiframe(prev => ({ ...prev, height: e.target.value }))
                                     }

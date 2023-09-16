@@ -34,6 +34,12 @@
 
  }
 a{color: blue;}
+.btn{
+  outline: none;
+  border:none;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
  .btn-default{
   outline: none;
   border: none;

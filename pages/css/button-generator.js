@@ -412,7 +412,7 @@ transition:all 0.3s;
                     </div>
                 </div>
                 <div className={`${styles.preview} demo`}>
-                    <button>{data.text || "button"}</button>
+                    {data.link.isLink?<a target="_blank" href={data.link.url}><button>{data.text || "button"}</button></a>:<button>{data.text || "button"}</button>}
                 </div>
                 <div className={styles.code}>
                     <pre>
