@@ -10,7 +10,6 @@ import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
 import Fbcomment from "@/components/fbcomment";
 import moment from "moment";
-import Image from "next/image";
 
 const Blog = ({ post, posts }) => {
     useEffect(() => {

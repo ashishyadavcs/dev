@@ -68,7 +68,7 @@ export async function getStaticProps({ params }) {
   const posts = await getPostList(null, {
     key: "categoryName",
     value: params.slug,
-  });
+  },20);
   const data = await getCategoryDetails(params.slug);
   if (data == undefined)
     return {

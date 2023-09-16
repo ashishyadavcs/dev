@@ -49,7 +49,7 @@ const Blog = ({ posts, categories, data }) => {
 };
 export default Blog;
 export async function getStaticProps() {
-    const data = await getPostList();
+    const data = await getPostList(0,0,15);
     const categories = await getCategorySlugs();
 
     return {
