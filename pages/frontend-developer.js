@@ -73,6 +73,7 @@ const Page = ({ posts }) => {
                         the user experience and make it user-friendly and engaging for users of
                         websites and applications.
                     </p>
+                    <Inpostad/>
                     <h2>Nature of frontend development</h2>
                     <p>
                         <a
@@ -172,6 +173,7 @@ const Page = ({ posts }) => {
                             and version history tracking.
                         </li>
                     </ul>
+                    <Inpostad/>
                     <h2>What are the technologies frontend developers work on ?</h2>
                     <p>basic</p>
                     <ul className="techs">
@@ -337,6 +339,7 @@ const Page = ({ posts }) => {
                         (VUI) has opened up new avenues for front-end developers to explore and
                         master.
                     </p>
+                    <Inpostad/>
                     <h2>conclusion</h2>
                     <p>
                         Frontend development is the marriage of creativity and technology, where

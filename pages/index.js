@@ -166,7 +166,7 @@ export default function Home({posts}) {
         </>
     );
 }
-export async function getServerSideProps(){
+export async function getStaticProps(){
 const posts=await getPostList(0,0,3)
 return {
     props:{
