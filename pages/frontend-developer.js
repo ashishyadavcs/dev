@@ -475,7 +475,7 @@ const Article = styled.div`
     h2 {
         margin-top: 30px;
     }
-    ul:not(.faqs ul) {
+    ul:not(.faqs ul,.techs){
         margin-top: 17px;
         margin-left: 20px;
         li {
@@ -493,13 +493,15 @@ const Article = styled.div`
     .techs {
         display: flex;
         gap: 5px;
+        margin-bottom: 10px;
         list-style: none;
         margin-left: 0;
         padding-left: 0;
         flex-wrap: wrap;
         li {
+            font-size: 14px;
             border-radius: 20px;
-            padding: 5px 10px;
+            padding: 3px 6px;
             background: teal;
             color: #fff;
         }

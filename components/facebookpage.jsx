@@ -9,7 +9,6 @@ const Facebookpage = () => {
             <Script
                 strategy="lazyOnload"
                 async
-                defer
                 crossOrigin="anonymous"
                 src="https://connect.facebook.net/hi_IN/sdk.js#xfbml=1&version=v17.0"
                 nonce="sQBDsVNh"
