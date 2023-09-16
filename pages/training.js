@@ -12,7 +12,7 @@ const Page = () => {
                 }
                 .banner{
                     position: relative;
-                    height: 500px;
+                    height: 54vw;
                     width: 100%;
                 }
             `}</style>

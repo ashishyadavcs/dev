@@ -25,7 +25,7 @@ const Toc = ({title="what's inside"}) => {
     <>
       {data.length > 0 && (
         <div
-          title="table of content"
+          title={title}
           className={`${styles.toc}`}
           onClick={(e) => {
             e.currentTarget.classList.toggle(`${styles.active}`);
