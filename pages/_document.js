@@ -40,7 +40,7 @@ class MyDocument extends Document {
                     ></link>
 
                     <Script
-                        strategy="beforeInteractive"
+                        strategy="lazyOnload"
                         src="https://www.googletagmanager.com/gtag/js?id=G-N62SPDRSH0"
                     ></Script>
                     <Script
@@ -55,6 +55,14 @@ class MyDocument extends Document {
                         }}
                     />
                     <meta name="theme-color" content="#fff" />
+                    {process.env.NODE_ENV == "production" && (
+                        <Script
+                            strategy="lazyOnload"
+                            async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3446097307175125"
+                            crossOrigin="anonymous"
+                        ></Script>
+                    )}
                 </Head>
                 <body className="body">
                     <main role="main">
