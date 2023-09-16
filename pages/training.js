@@ -17,7 +17,7 @@ const Page = () => {
                 }
             `}</style>
         <div className="banner">
-        <Image objectFit="contain" src="/dev/training.png" layout="fill"/>
+        <Image priority objectFit="contain" src="/dev/training.png" layout="fill"/>
         </div>
         <div className="bg">
             <div className="container py-4">
