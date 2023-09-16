@@ -54,3 +54,6 @@ export const openwhatsapp = (msg=message.sale) => {
 export const countryslug = (post) => {
   return `/countrycode/${post.dial_code}-country-code-${post.name}`;
 };
+export const clickToCopy=()=>{
+  
+}

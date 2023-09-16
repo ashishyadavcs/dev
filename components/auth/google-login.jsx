@@ -4,8 +4,7 @@ import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 const Loginwithgoogle = () => {
   const router=useRouter()
-  const { data: session } = useSession();
-  console.log(session)
+  // const { data: session } = useSession();
   const getcallbackurl = () => {
     console.log(router.query?.from)
     return "/"
