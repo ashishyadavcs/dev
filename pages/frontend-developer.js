@@ -343,12 +343,17 @@ const Page = ({ posts }) => {
                     <h2>conclusion</h2>
                     <p>
                         Frontend development is the marriage of creativity and technology, where
-                        developers turn ideas into digital reality. They are the architects of our
+                        developers turn ideas into digital reality.</p>
+                        <p>They are the architects of our
                         online experiences, responsible for the visual appeal and functionality of
-                        websites and applications. The world of front-end development is dynamic,
+                        websites and applications.</p>
+                        <p>
+                         The world of front-end development is dynamic,
                         with a constant stream of innovations and challenges, making it an engaging
                         and rewarding career choice for those who are passionate about creating the
-                        digital world we live in. So, whether you're an aspiring developer or simply
+                        digital world we live in.
+                        </p><p>
+                         So, whether you're an aspiring developer or simply
                         curious about the magic behind your favorite websites, remember that
                         front-end development is where art meets science, and the possibilities are
                         endless.
