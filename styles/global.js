@@ -336,6 +336,9 @@ main {
   max-width: 100%;
   }
 }
+.layout div:has(.download-btn){
+  scroll-margin-top:100px;
+}
 
 
 .gototop {
