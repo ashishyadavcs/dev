@@ -4,6 +4,15 @@
   position: relative;
   height: 92%;
 }
+.left{position: relative;overflow: hidden;}
+.run{
+  position: absolute;
+  bottom:0;
+  right: 0;
+  padding: 10px 20px;
+  background: rgb(17, 235, 184);
+  min-width: 100px;
+}
 .editor iframe {
   border: 1px solid #ddd;
   width: 100%;

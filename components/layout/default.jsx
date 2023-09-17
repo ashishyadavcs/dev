@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
-import { ismobile } from "utils/device";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
