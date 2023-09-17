@@ -197,10 +197,12 @@ justify-content: center;
 @media (max-width: 767px) {
   .blog [class="download-btn-group"]{
     flex-direction: column;
-    gap: 10px;
+    gap: 0px;
+    margin: 10px 0;
   }
   .blog [class="download-btn-group"] a{
 text-align: center;
+margin: 5px 0;
   }
   .blog [class="download-btn-group"] .theme-btn:last-child{
     margin-top: 0;
