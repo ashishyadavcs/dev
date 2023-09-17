@@ -171,6 +171,8 @@ const posts=await getPostList(0,0,3)
 return {
     props:{
         posts:posts.nodes
-    }
+    },
+    revalidate: 10,
+    
 }
 }
