@@ -191,11 +191,16 @@
 }
 .blog [class="download-btn-group"]{
 display: flex;
+gap:18px;
 justify-content: center;
 }
 @media (max-width: 767px) {
   .blog [class="download-btn-group"]{
     flex-direction: column;
+    gap: 10px;
+  }
+  .blog [class="download-btn-group"] a{
+text-align: center;
   }
   .blog [class="download-btn-group"] .theme-btn:last-child{
     margin-top: 0;
