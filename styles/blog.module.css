@@ -184,7 +184,7 @@
   background: #03072d;
 }
 .blog ul {
-  list-style-position: inside;
+  padding-left: 18px;
 }
 .blog article :not(.sticky):where(ol, ul) li {
   margin-bottom: 10px;
