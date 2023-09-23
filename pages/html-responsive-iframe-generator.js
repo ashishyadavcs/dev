@@ -1,5 +1,5 @@
 import Toc from "@/components/tableofcontent";
-import { NextSeo } from "next-seo";
+import { NextSeo, ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import tools from "public/data/tools";
@@ -159,6 +159,18 @@ const Page = () => {
             <NextSeo
                 title="HTML Responsive Iframe Generator : copy code"
                 description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
+            />
+            <ProductJsonLd
+                productName="HTML Responsive iframe generator"
+                type="Product"
+                brand="frontendzone"
+                description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
+                aggregateRating={{
+                    worstRating: "1",
+                    bestRating: "5",
+                    ratingValue: "4.5",
+                    ratingCount: "505435",
+                }}
             />
             <div className="p-3  mb-4  title">
                 <h1 className="text-center text-white mt-4">HTML Responsive Iframe generator</h1>

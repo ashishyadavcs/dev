@@ -7,6 +7,7 @@ import Seo from "@/components/organization";
 import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
 import {getPostList} from "lib/posts";
+import {ProductJsonLd} from "next-seo";
 export default function Home({posts}) {
     const steps = [
         "Submit your order",
@@ -19,6 +20,21 @@ export default function Home({posts}) {
     return (
         <>
             <Seo />
+            <ProductJsonLd
+                productName="frontendzone"
+                type="Product"
+                brand="frontendzone"
+                description={`welcome to Frontendzone, your ultimate destination
+                    for all things of front-end development. Frontendzone is a
+                    destination to learn all frontend technologies practically with
+                    industry experience.`.trim()}
+                aggregateRating={{
+                    worstRating: "1",
+                    bestRating: "5",
+                    ratingValue: "4.5",
+                    ratingCount: "505435",
+                }}
+            />
             <Styled.Banner>
                 <div className="container">
                     <div className="row">

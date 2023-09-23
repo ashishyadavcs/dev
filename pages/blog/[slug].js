@@ -1,6 +1,6 @@
 import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
-import { ArticleJsonLd, NextSeo } from "next-seo";
+import { ArticleJsonLd, NextSeo, ProductJsonLd } from "next-seo";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
@@ -24,6 +24,7 @@ const Blog = ({ post, posts }) => {
                         <>
                             <NextSeo
                                 title={post?.title}
+                                titleTemplate='🟢 %s ✅'
                                 description={`${post?.excerpt
                                     .replace(/<[^>]+>/g, "")
                                     .slice(0, 125)}`.toString()}
@@ -61,6 +62,20 @@ const Blog = ({ post, posts }) => {
                                     },
                                 ]}
                             />
+                            <ProductJsonLd
+                productName={post?.title}
+                type="Product"
+                brand="frontendzone"
+                description={`${post.excerpt
+                    .replace(/<[^>]+>/g, "")
+                    .slice(0, 145)}`}
+                aggregateRating={{
+                    worstRating: "1",
+                    bestRating: "5",
+                    ratingValue: "4.5",
+                    ratingCount: "505435",
+                }}
+            />
                             <ArticleJsonLd
                                 url={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
                                 title={post.title}

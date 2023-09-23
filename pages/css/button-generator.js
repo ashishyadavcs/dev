@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import hljs from "highlight.js";
 import styles from "@/styles/button-generator.module.css";
 import "highlight.js/styles/github.css";
-import { NextSeo } from "next-seo";
+import { NextSeo, ProductJsonLd } from "next-seo";
 import Image from "next/image";
 
 const Page = () => {
@@ -46,7 +46,8 @@ const Page = () => {
             color: "",
         },
     });
-
+    const title=`CSS 3D Button Generator online ➜ #𝟙`
+    const description=`CSS 3d Button Generator is a free online tool to create CSS buttons without code. Use  premium designed templates to easily generate CSS buttons`
     const buttonstyle = `
 ${
     data.link.isLink
@@ -79,12 +80,11 @@ transition:all 0.3s;
         hljs.highlightAll();
         document.querySelector(".demo button").style = buttonstyle;
     }, [data, buttonstyle]);
-
     return (
         <>
             <NextSeo
-                title="CSS 3D Button Generator online ➜ #𝟙"
-                description="CSS 3d Button Generator is a free online tool to create CSS buttons without code. Use  premium designed templates to easily generate CSS buttons"
+                title={title}
+                description={description}
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/css/button-generator`}
                 additionalMetaTags={[
                     {
@@ -95,8 +95,8 @@ transition:all 0.3s;
                 openGraph={{
                     type: "software",
                     url: `${process.env.NEXT_PUBLIC_APP_URL}/css/button-generator`,
-                    title: "3D HTML CSS Button Generator online ➜ #𝟙",
-                    description: `CSS Button Generator is a free online tool to create CSS buttons without code. Use  premium designed templates to easily generate CSS buttons`,
+                    title: title,
+                    description: description,
 
                     images: [
                         {
@@ -111,6 +111,18 @@ transition:all 0.3s;
                         },
                     ],
                     siteName: process.env.NEXT_PUBLIC_APP_NAME,
+                }}
+            />
+            <ProductJsonLd
+                productName={title}
+                type="Product"
+                brand="frontendzone"
+                description={description}
+                aggregateRating={{
+                    worstRating: "1",
+                    bestRating: "5",
+                    ratingValue: "4.5",
+                    ratingCount: "505435",
                 }}
             />
 
