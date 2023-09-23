@@ -157,7 +157,7 @@ const Page = () => {
                 }
             `}</style>
             <NextSeo
-                title="HTML Responsive Iframe Generator : copy code"
+                title="🟢 HTML Responsive Iframe Generator : copy code ✅"
                 description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
             />
             <ProductJsonLd

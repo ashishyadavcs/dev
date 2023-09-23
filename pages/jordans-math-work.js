@@ -20,7 +20,7 @@ const Page = () => {
     return (
         <Jordan className="container my-4">
             <NextSeo
-                title="Jordan's Math Work, Games for Children class 1-8"
+                title="✅Jordan's Math Work, Games for Children class 1-8"
                 description="Discover a wide range of free PDF learning materials for children. Jordan's math work games Download textbooks, worksheets, and more. Enhance their education today! Get access now."
             />
             <div className="row">
