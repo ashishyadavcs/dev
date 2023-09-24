@@ -184,7 +184,7 @@
 .blog pre pre::-webkit-scrollbar-thumb{
   background: #03072d;
 }
-.blog ul {
+.blog article ul:not(nav ul) {
   padding-left: 18px;
 }
 .blog article :not(.sticky):where(ol, ul) li {

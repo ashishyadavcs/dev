@@ -52,7 +52,8 @@ const Page = () => {
                 </div>
             </div>
             <div className="gen">
-                <table>
+               <div className="table">
+               <table>
                     <thead></thead>
                     <tbody>
                         {maths.map(p => (
@@ -76,6 +77,7 @@ const Page = () => {
                         ))}
                     </tbody>
                 </table>
+               </div>
                 <div className="d-flex">
                     <button onClick={mathgen}  className="theme-btn mx-auto my-4">
                         create worksheet {maths.length > 0 && "+"}
@@ -206,7 +208,6 @@ const Jordan = styled.div`
     }
     .gen {
         margin: 30px 0;
-        padding: 20px;
     }
     .theme-btn {
         display: block;
