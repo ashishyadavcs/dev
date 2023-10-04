@@ -13,6 +13,14 @@ const Page = () => {
         frameBorder: 1,
         src: "https://frontendzone.com",
     });
+    const checkytb=(url)=>{
+        if(url.includes('www.youtube.com/watch?v=')){
+         const v=url.split('v=')[1]
+           return `https://www.youtube.com/embed/${v}`
+        }else{
+            return url
+        }
+    }
     useEffect(() => {
         const iframe = document.querySelector(".preview iframe");
         iframe.removeAttribute("class");
@@ -198,7 +206,7 @@ const Page = () => {
                                 <input
                                     value={iframe.src}
                                     onChange={e =>
-                                        setiframe(prev => ({ ...prev, src: e.target.value }))
+                                        setiframe(prev => ({ ...prev, src:checkytb(e.target.value)}))
                                     }
                                     type="url"
                                     placeholder="https://frontendzone.com"
