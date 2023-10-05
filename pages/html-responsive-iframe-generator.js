@@ -11,7 +11,7 @@ const Page = () => {
         height: "510",
         width: "100%",
         frameBorder: 1,
-        src: "https://www.youtube.com/watch?v=jzCUfzvH9AM",
+        src: "https://www.youtube.com/embed/jzCUfzvH9AM",
     });
     const checkytb=(url)=>{
         if(url.includes('www.youtube.com/watch?v=')){
@@ -204,7 +204,7 @@ const Page = () => {
                                 className="d-flex flex-column justify-content-center"
                             >
                                 <input
-                                    value={checkytb(iframe.src)}
+                                    value={iframe.src}
                                     onChange={e =>
                                         setiframe(prev => ({ ...prev, src:checkytb(e.target.value)}))
                                     }
