@@ -10,6 +10,7 @@ const nextConfig = {
   swcMinify: false,
   images: {
     domains: [
+      "media.licdn.com",
       "cms.frontendzone.com",
       "static.tutorbin.com",
       "via.placeholder.com",
