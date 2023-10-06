@@ -1,6 +1,5 @@
 import { media } from "config/device";
 import Image from "next/image";
-import Script from "next/script";
 import { contact } from "public/data/contact";
 import React, { useState } from "react";
 import {BsGithub} from "react-icons/bs";
@@ -9,6 +8,7 @@ import {MdEmail} from "react-icons/md";
 import {IoCall} from "react-icons/io5"
 import {BiWorld} from "react-icons/bi"
 import styled from "styled-components";
+import Printbtn from "@/components/web/printbtnt";
 
 const Resume = () => {
     const [data, setdata] = useState({
@@ -84,12 +84,10 @@ const Resume = () => {
             y: 12,
         });
     }
-   
+   const iconsize=18
     return (
         <>
         <Resumeui className="container" id="divID">
-            <Script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></Script>
-            <Script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></Script>
             <div className="top">
                 <div className="info">
                     <Image
@@ -111,11 +109,11 @@ const Resume = () => {
                 <p>{data.summary}</p>
                 <h2>Contact</h2>
                 <ul>
-                        <li><IoCall/>{data.info.mobile}</li>
-                        <li><MdEmail/>{data.info.email}</li>
-                        <li><BsGithub size={15}/>{data.social.github}</li>
-                        <li><a href={data.social.linkedin}><FaLinkedin size={15}/>{data.social.linkedin}</a></li>
-                        <li><BiWorld size={15}/>{data.social.website}</li>
+                        <li><IoCall size={iconsize}/>{data.info.mobile}</li>
+                        <li><MdEmail size={iconsize}/>{data.info.email}</li>
+                        <li><BsGithub size={iconsize}/>{data.social.github}</li>
+                        <li><FaLinkedin size={iconsize}/><a href={data.social.linkedin}>{data.social.linkedin}</a></li>
+                        <li><BiWorld size={iconsize}/>{data.social.website}</li>
                       
                    
                 </ul>
@@ -155,8 +153,14 @@ const Resume = () => {
                     </ul>
                 </div>
             </div>
+            
         </Resumeui>
-        <BTN className="download" onClick={convertHTMLtoPDF}>download</BTN>
+        <div className="container">
+        <Printbtn style={{
+            color:'black',
+            padding:'10px'
+        }} filename="myresume" title="download" classname="download" />
+        </div>
         </>
     );
 };
@@ -188,10 +192,10 @@ const Resumeui = styled.div`
         gap: 20px;
         align-items: center;
         h1 {
-            font-size: clamp(30px,4vw,60px) !important;
+            font-size: clamp(24px,4vw,60px) !important;
             span {
                 display: block;
-                font-size: 20px;
+                font-size:clamp(16px,2vw,30px);
                 opacity: 0.7;
             }
         }
@@ -235,7 +239,7 @@ const Resumeui = styled.div`
     ${media.sm} {
         display: block;
         > div {
-            padding: 0;
+            padding:1rem;
         }
     }
 `;

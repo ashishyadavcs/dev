@@ -1,3 +1,4 @@
+import Banner from "@/components/web/banner";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { useState } from "react";
@@ -18,6 +19,8 @@ const Page = () => {
         setmaths(prev => [...prev, ...arr]);
     };
     return (
+        <>
+        <Banner image title="ordan’s Math Work<br>Free Games and Worksheets" description={``}/>
         <Jordan className="container my-4">
             <NextSeo
                 title="✅Jordan's Math Work, Games for Children class 1-8"
@@ -25,7 +28,7 @@ const Page = () => {
             />
             <div className="row">
                 <div className="col-md-6">
-                    <h1>Jordan's Math Work, Games for Children</h1>
+                    
                     <p>
                         <b>Introduction :</b> &nbsp;
                         Mathematics often proves both captivating and daunting for students
@@ -197,6 +200,7 @@ const Page = () => {
                 transformations on both personal and global scales.
             </p>
         </Jordan>
+        </>
     );
 };
 

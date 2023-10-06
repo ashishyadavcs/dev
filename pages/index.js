@@ -171,7 +171,7 @@ export default function Home({posts}) {
                     </div>
                 </div>
                 <div className="container">
-                    <h2 className="text-center my-4">Latest blog posts</h2>
+                    <h2 className="text-center latestblog my-4">Latest blog posts</h2>
                     <Blogpost posts={posts}/>
                     <Link href="/blog">
                         <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
@@ -188,7 +188,7 @@ return {
     props:{
         posts:posts.nodes
     },
-    revalidate: 10,
+    revalidate: 1,
     
 }
 }

@@ -51,13 +51,13 @@ const Page = ({ posts }) => {
                 <div className="col-md-8">
                     <h1>
                         # Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend
-                        Developer{" "}
+                        Developer 
                     </h1>
 
                     <p>
                         Frontend developers In the ever-evolving world of web development, are the
                         unsung heroes who breathe life into the virtual world we live in.<br></br>
-                        <br></br> They are the creative minds behind the intuitive sleek and
+                        <br></br> 💕 They are the creative minds behind the intuitive sleek and
                         stunning websites and applications you run daily on your phones and laptops.
                     </p>
                     <Image
@@ -69,7 +69,7 @@ const Page = ({ posts }) => {
                         width="800"
                     />
                     <p>
-                        Frontend developers are not just developers who write the code for websites
+                    Frontend developers are not just developers who write the code for websites
                         and applications. They are artists and architects who give beauty and sculpt
                         the user experience and make it user-friendly and engaging for users of
                         websites and applications.
@@ -205,6 +205,8 @@ const Page = ({ posts }) => {
                         <li>
                             <a href="https://nextjs.org/">Next js</a>
                         </li>
+                        <li>Accessibility</li>
+                        <li>Animation</li>
                     </ul>
                     <p>Experts</p>
                     <ul className="techs">
@@ -492,7 +494,7 @@ const Article = styled.div`
     }
     .techs {
         display: flex;
-        gap: 5px;
+        gap: 10px;
         margin-bottom: 10px;
         list-style: none;
         margin-left: 0;
@@ -500,8 +502,9 @@ const Article = styled.div`
         flex-wrap: wrap;
         li {
             font-size: 14px;
+            display: inline-block;
             border-radius: 20px;
-            padding: 3px 6px;
+            padding: 5px 15px;
             background: teal;
             color: #fff;
         }

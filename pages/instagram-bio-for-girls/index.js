@@ -12,7 +12,7 @@ const Page = () => {
         <div className="container  my-4">
            
             <NextSeo
-                title="# Best Instagram Bio For Girls"
+                title="# Best Instagram Bio formatter For Girls"
                 description="Generate best instagram bio for girls , top 100 best instagram bio for first impression"
             />
             <h1 className="text-center">

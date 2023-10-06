@@ -43,9 +43,10 @@ const Styled = {
             }
         }
         h2 {
-            font-size: clamp(40px, 3vw, 50px) !important;
+            font-size: clamp(26px, 3vw, 50px) !important;
             text-transform: capitalize;
         }
+       
     `,
     Cta: styled.a`
         display: inline-block;

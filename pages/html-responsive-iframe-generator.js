@@ -1,4 +1,5 @@
 import Toc from "@/components/tableofcontent";
+import Banner from "@/components/web/banner";
 import { NextSeo, ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,7 @@ const Page = () => {
         title: "frontendzone",
         height: "510",
         width: "100%",
+        allow:'fullscreen',
         frameBorder: 1,
         src: "https://www.youtube.com/embed/jzCUfzvH9AM",
     });
@@ -27,16 +29,21 @@ const Page = () => {
         document.querySelector("textarea").value = iframe.parentElement.innerHTML;
     }, [iframe]);
     const showresult = () => {
-        document.querySelector(".result").classList.add("active");
+        const result=document.querySelector(".result")
+        result.classList.toggle("active");
+        result.scrollIntoView({block:'center'})
+
     };
     return (
         <>
             <style jsx>{`
+              
               .toc{
                 width: 600px;
                 max-width:100%;
                 margin: 10px auto;
               }
+              h2{scroll-margin-top:100px}
              
                 .form input {
                     padding: 10px;
@@ -102,7 +109,9 @@ const Page = () => {
                     overflow: hidden;
                     opacity: 0;
                     transition: all 0.3s;
+                    
                 }
+                .result button{margin-top:10px}
                 .form label:has(input[type="checkbox"]) {
                     align-items: center;
                     justify-content: space-between;
@@ -118,7 +127,7 @@ const Page = () => {
                     overflow: unset;
                     max-height: 400px;
                     opacity: 1;
-                    background: #ddd;
+                    background: teal;
                     padding: 10px 20px;
                     margin: 20px 0 0;
                 }
@@ -163,16 +172,17 @@ const Page = () => {
                 .content * {
                     color: #555;
                 }
+               label:has(input[type='checkbox']){cursor:pointer}
             `}</style>
             <NextSeo
                 title="🟢 HTML Responsive Iframe Generator : copy code ✅"
                 description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
             />
             <ProductJsonLd
-                productName="HTML Responsive iframe generator"
+                productName="HTML5 Responsive iframe generator"
                 type="Product"
                 brand="frontendzone"
-                description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
+                description="HTML5 responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
                 aggregateRating={{
                     worstRating: "1",
                     bestRating: "5",
@@ -180,11 +190,8 @@ const Page = () => {
                     ratingCount: "505435",
                 }}
             />
-            <div className="p-3  mb-4  title">
-                <h1 className="text-center text-white mt-4">HTML Responsive Iframe generator</h1>
-                <p className="text-center text-white">Generate responsive iframe online</p>
-              
-            </div>
+          
+            <Banner description={'Generate responsive iframe online'} title={'HTML Responsive youtube Iframe generator'}/>
             <div className="toc">
             <Toc title="table of content"/>
             </div>
@@ -268,6 +275,23 @@ const Page = () => {
                                     type="text"
                                 />
                             </label>
+                            <label
+                                
+                                className="d-flex"
+                            >
+                                allow fullscreen
+                                <input 
+                                    placeholder=""
+                                    value={iframe.allow}
+                                    onChange={e =>
+                                        setiframe(prev => ({
+                                            ...prev,
+                                            allow: e.target.checked === true ? 'fullscreen' : 0,
+                                        }))
+                                    }
+                                    type="checkbox"
+                                />
+                            </label>
                             <label className="d-flex">
                                 frameborder
                                 <input
@@ -310,7 +334,9 @@ const Page = () => {
                     </div>
                 </div>
             </div>
+
             <div className="content article py-4">
+                
                 <div className=" container">
                     <div className="row">
                         <p>

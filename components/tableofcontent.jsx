@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { replacewithdash } from "utils/common";
 import styles from "@/styles/toc.module.css";
@@ -64,4 +64,4 @@ const Toc = ({title="what's inside"}) => {
   );
 };
 
-export default Toc;
+export default memo(Toc);
