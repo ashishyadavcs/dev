@@ -45,19 +45,18 @@ class MyDocument extends Document {
                     ></Script>
                     <Script
                         id="google-analytics"
-                        strategy="beforeInteractive"
+                        strategy="afterInteractive"
                         dangerouslySetInnerHTML={{
                             __html: `  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N62SPDRSH0'); `,
+                                function gtag(){dataLayer.push(arguments);}
+                                gtag('js', new Date());
+                                gtag('config', 'G-N62SPDRSH0'); `,
                         }}
                     />
                     <meta name="theme-color" content="#fff" />
                     {process.env.NODE_ENV == "production" && (
                         <Script
-                            strategy="lazyOnload"
+                            strategy="beforeInteractive"
                             async
                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3446097307175125"
                             crossOrigin="anonymous"

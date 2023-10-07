@@ -610,7 +610,7 @@ input[type="range"]::-moz-range-thumb {
   user-select: none;
   z-index: -1;
   word-break: break-all;
-  height:1000px;
+  height:400px;
   overflow: hidden;
 }
 
