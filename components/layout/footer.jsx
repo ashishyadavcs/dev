@@ -46,7 +46,7 @@ const Footer = () => {
       </style>
       <Styled.footer className="pt-4 position-relative">
         <div className="container">
-          <div className="row">
+          <div className="row" role="navigation">
             <div className="col-md-4">
               <div className="mb-3">
                 <h3 className="smallheading ">

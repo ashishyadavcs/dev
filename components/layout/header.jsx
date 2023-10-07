@@ -22,7 +22,7 @@ const Header = () => {
               <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
             </a>
           </Link>
-          <nav className="d-flex  mobilelinks">
+          <nav className="d-flex  mobilelinks" role="navigation">
             <ul
               itemScope
               itemType="http://www.schema.org/SiteNavigationElement"
