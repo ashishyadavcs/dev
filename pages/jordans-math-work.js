@@ -20,7 +20,7 @@ const Page = () => {
     };
     return (
         <>
-        <Banner image title="ordan’s Math Work<br>Free Games and Worksheets" description={``}/>
+        <Banner image title="jordan’s Math Work<br>Free Games and Worksheets" description={``}/>
         <Jordan className="container my-4">
             <NextSeo
                 title="✅Jordan's Math Work, Games for Children class 1-8"
