@@ -39,12 +39,15 @@ export default function Home({posts}) {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-7 col-12">
+                            
                             <h1 className="gradient-text heading text-capitalize">
-                                Looking for Help<br></br> For Your website<br></br> development
-                                <br></br>
+                                {/* Looking for Help<br></br> For Your website<br></br> development
+                                <br></br> */}
+                                HTML / CSS / JavaScript /<br></br> Reactjs / Next js 
+                            / SEO <br></br>Advanced UI
                             </h1>
                           
-                            <ul className="list-unstyled mt-3">
+                            {/* <ul className="list-unstyled mt-3">
                                 {steps.map((li, i) => {
                                     return (
                                         <li key={i} className="mb-2 d-flex align-items-center">
@@ -53,7 +56,7 @@ export default function Home({posts}) {
                                         </li>
                                     );
                                 })}
-                            </ul>
+                            </ul> */}
                             
 
                             <Styled.Cta
