@@ -28,7 +28,7 @@ const Layout = ({ children, type = "default" }) => {
        
     
       return () => {
-        
+        window.OneSignal = undefined;
       }
     }, [])
     
