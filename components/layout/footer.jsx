@@ -151,11 +151,7 @@ const Footer = () => {
                   </Link>
                 </li>
 
-                {/* <li className="d-flex align-items-center">
-                  <Link href="/privacy-policy">
-                    <a className="ml-1">Privacy policy</a>
-                  </Link>
-                </li> */}
+                
                 <li className="d-flex align-items-center">
                   <Link href={"/services"} prefetch={false}>
                     <a className="ml-1">
@@ -182,7 +178,11 @@ const Footer = () => {
                   </Link>
                 </li>
                
-                
+                <li className="d-flex align-items-center">
+                  <Link href="/privacy-policy">
+                    <a className="ml-1"> <FaChevronRight className="mr-1" size={15} />Privacy policy</a>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="col-md-3">
