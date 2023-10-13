@@ -43,7 +43,7 @@ const Page = () => {
                 max-width:100%;
                 margin: 10px auto;
               }
-              h2{scroll-margin-top:100px}
+              h2{scroll-margin-top:200px}
              
                 .form input {
                     padding: 10px;
@@ -109,9 +109,10 @@ const Page = () => {
                     overflow: hidden;
                     opacity: 0;
                     transition: all 0.3s;
+                    position: relative;
                     
                 }
-                .result button{margin-top:10px}
+                .result button{margin-top:10px;position:relative}
                 .form label:has(input[type="checkbox"]) {
                     align-items: center;
                     justify-content: space-between;
@@ -127,9 +128,16 @@ const Page = () => {
                     overflow: unset;
                     max-height: 400px;
                     opacity: 1;
-                    background: teal;
                     padding: 10px 20px;
                     margin: 20px 0 0;
+                }
+                .result.active button:active:before{
+                    content: "code copied";
+                    position: absolute;
+                    top: 25%;
+                    left: 110%;
+                    min-width:max-content;
+                    color: green;
                 }
                 textarea {
                     min-height: 100px;

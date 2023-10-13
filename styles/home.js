@@ -26,6 +26,7 @@ const Styled = {
             display: block;
             height: unset;
             max-height: unset;
+            h1 br{display:none}
         }
         ${media.xs} {
             padding: 2rem 0;

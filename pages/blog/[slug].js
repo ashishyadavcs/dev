@@ -10,8 +10,11 @@ import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
 import Fbcomment from "@/components/fbcomment";
 import moment from "moment";
+import Link from "next/link";
+import {BsArrowRight} from "react-icons/bs";
 
 const Blog = ({ post, posts }) => {
+    
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
     }, [post]);
@@ -126,6 +129,19 @@ const Blog = ({ post, posts }) => {
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
                                     ></div>
+                                    
+                                    <div className={styles.category}>
+                                    <b>categories</b>
+                                       <ul>
+                                       {post.categories.nodes.map(cat=>
+                                        <li>
+                                            <Link href={`/blog/category/${cat.name}`}>
+                                                <a className="theme-btn"><BsArrowRight size={18}/>{cat.name}</a>
+                                            </Link>
+                                        </li>
+                                        )}
+                                       </ul>
+                                    </div>
                                     <Fbcomment />
                                     <Inpostad />
                                     <Ashish width="100%" />
@@ -151,9 +167,9 @@ export default Blog;
 
 export async function getStaticPaths() {
     const posts = await getPostSlugs();
-    const paths = posts.map(post => ({
+    const paths =  posts.map(post => ({
         params: { slug: post.slug },
-    }));
+    }))
     return {
         paths,
         fallback: "blocking",
@@ -161,7 +177,9 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(req) {
     const post = await getSinglePost(req.params.slug);
-    const { nodes: posts } = await getPostList(post);
+    const data = await getPostList(post);
+    console.log(data)
+    const { nodes: posts }=data
     if (post == undefined)
         return {
             notFound: true,
