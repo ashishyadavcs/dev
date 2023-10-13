@@ -17,6 +17,7 @@ export default function Home({posts}) {
         "confirm order completed",
         "Make remaining Payment.",
         "Rate us",
+        "Congrats! Your task delivered "
     ];
     useEffect(() => {
         document.querySelector('.hiw li').classList.add('active')

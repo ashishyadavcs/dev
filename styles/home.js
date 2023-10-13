@@ -38,28 +38,37 @@ const Styled = {
         }
 
         .hiw {
+            --color: blue;
             li {
-               transition: all 0.3s;
+                transition: all 0.3s;
                 position: relative;
                 overflow: hidden;
                 width: max-content;
                 padding-bottom: 10px;
-                &.active{
+                &:last-child{
+                    visibility:hidden;
+                    &.active{visibility:visible}
+                
+                }
+                &.active {
+                    svg {
+                        fill: var(--color);
+                    }
                     padding-left: 10px;
                     font-weight: bold;
-                    color: #183D3D;
+                    color: var(--color);
                     &:before {
-                    content: "";
-                    height: 4px;
-                    width: 0%;
-                    position: absolute;
-                    top: 95%;
-                    left:2%;
-                    background: #183D3D;
-                    display: inline-block;
-                    transition: all 1s;
-                    animation: hiw 2s linear;
-                }
+                        content: "";
+                        height: 4px;
+                        width: 0%;
+                        position: absolute;
+                        top: 95%;
+                        left: 6%;
+                        background: var(--color);
+                        display: inline-block;
+                        transition: all 1s;
+                        animation: hiw 2s linear;
+                    }
                 }
             }
         }

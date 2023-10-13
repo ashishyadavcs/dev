@@ -60,9 +60,7 @@ body:has(.preview-div.active){
 }
 @keyframes hiw{
             97%{width:100%;}
-100%{
-  left: 100%;
-}
+
         }
 * {
   box-sizing: border-box;
