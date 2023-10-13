@@ -21,18 +21,47 @@ const Styled = {
                 background: linear-gradient(to left, red, #ffecb300);
             }
         }
-        ${media.sm}{
+        ${media.sm} {
             padding: 2rem 0;
             display: block;
             height: unset;
             max-height: unset;
-            h1 br{display:none}
+            h1 br {
+                display: none;
+            }
         }
         ${media.xs} {
             padding: 2rem 0;
             display: block;
             height: unset;
             max-height: unset;
+        }
+
+        .hiw {
+            li {
+               transition: all 0.3s;
+                position: relative;
+                overflow: hidden;
+                width: max-content;
+                padding-bottom: 10px;
+                &.active{
+                    padding-left: 10px;
+                    font-weight: bold;
+                    color: #183D3D;
+                    &:before {
+                    content: "";
+                    height: 4px;
+                    width: 0%;
+                    position: absolute;
+                    top: 95%;
+                    left:2%;
+                    background: #183D3D;
+                    display: inline-block;
+                    transition: all 1s;
+                    animation: hiw 2s linear;
+                }
+                }
+            }
         }
     `,
     Landing: styled.div`
@@ -47,7 +76,6 @@ const Styled = {
             font-size: clamp(26px, 3vw, 50px) !important;
             text-transform: capitalize;
         }
-       
     `,
     Cta: styled.a`
         display: inline-block;
@@ -66,10 +94,10 @@ const Styled = {
             text-decoration: none;
             color: #fff;
             ${media.md} {
-            transform: translateY(-6px) scale(1.1);
+                transform: translateY(-6px) scale(1.1);
+            }
         }
-        }
-       
+
         ${media.xs} {
             width: 100%;
         }

@@ -8,6 +8,7 @@ import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
 import {getPostList} from "lib/posts";
 import {ProductJsonLd} from "next-seo";
+import {useEffect} from "react";
 export default function Home({posts}) {
     const steps = [
         "Submit your order",
@@ -17,6 +18,24 @@ export default function Home({posts}) {
         "Make remaining Payment.",
         "Rate us",
     ];
+    useEffect(() => {
+        document.querySelector('.hiw li').classList.add('active')
+        const slides=document.querySelectorAll('.hiw li')
+       
+        slides.forEach((li) => {
+            li.addEventListener("animationend", () => {
+                console.log('anm')
+              li.classList.remove("active");
+              if (li.nextElementSibling) {
+                li.nextElementSibling.classList.add("active");
+              } else {
+                slides[0].classList.add("active");
+              }
+            });
+          });
+    }, [])
+    
+    
     return (
         <>
             <Seo />
@@ -41,13 +60,12 @@ export default function Home({posts}) {
                         <div className="col-md-7 col-12">
                             
                             <h1 className="gradient-text heading text-capitalize">
-                                {/* Looking for Help<br></br> For Your website<br></br> development
-                                <br></br> */}
-                                HTML / CSS / JavaScript /<br></br> Reactjs / Next js 
-                            / SEO <br></br>Advanced UI
+                                Looking for Help<br></br> For Your website<br></br> development
+                                <br></br>
+                              
                             </h1>
                           
-                            {/* <ul className="list-unstyled mt-3">
+                            <ul className="list-unstyled mt-3 hiw">
                                 {steps.map((li, i) => {
                                     return (
                                         <li key={i} className="mb-2 d-flex align-items-center">
@@ -56,7 +74,7 @@ export default function Home({posts}) {
                                         </li>
                                     );
                                 })}
-                            </ul> */}
+                            </ul>
                             
 
                             <Styled.Cta

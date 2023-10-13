@@ -58,7 +58,12 @@ body:has(.preview-div.active){
   --loader-background-color: #EEEEEE;
     --loader-highlight-color: #DEDEDE;
 }
-
+@keyframes hiw{
+            97%{width:100%;}
+100%{
+  left: 100%;
+}
+        }
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
