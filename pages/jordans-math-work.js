@@ -71,9 +71,10 @@ const Page = () => {
                     <div className="col-md-6">
                         <Image
                             className="img"
+                            layout="responsive"
                             objectFit="contain"
-                            height={400}
-                            width={600}
+                            height={800}
+                            width={1000}
                             alt="Jordan's Math Work"
                             src="/images/jordans-math-work-1.png"
                         />
@@ -240,9 +241,10 @@ const Page = () => {
 export default Page;
 const Jordan = styled.div`
     @keyframes cvprogress {
-        100% {
+        99% {
             width: 100%;
         }
+        
     }
     .adw {
         list-style: none;
