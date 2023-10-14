@@ -36,7 +36,15 @@ const Styled = {
             height: unset;
             max-height: unset;
         }
+        @keyframes hiw {
+            97% {
+                width: 100%;
+            }
+        }
 
+        .img {
+            animation: imgleft 4s linear infinite forwards;
+        }
         .hiw {
             --color: blue;
             li {
@@ -45,12 +53,15 @@ const Styled = {
                 overflow: hidden;
                 width: max-content;
                 padding-bottom: 10px;
-                &:last-child{
-                    visibility:hidden;
-                    &.active{visibility:visible}
-                
+                &:last-child {
+                    visibility: hidden;
+                    &.active {
+                        visibility: visible;
+                    }
                 }
+                display: none;
                 &.active {
+                    display: block;
                     svg {
                         fill: var(--color);
                     }

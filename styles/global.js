@@ -58,10 +58,7 @@ body:has(.preview-div.active){
   --loader-background-color: #EEEEEE;
     --loader-highlight-color: #DEDEDE;
 }
-@keyframes hiw{
-            97%{width:100%;}
 
-        }
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -635,14 +632,15 @@ input[type="range"]::-moz-range-thumb {
     top: 85px;
   }
 
-  .tool *::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 6px;
     background: transparent;
     border-left: 1px solid #f1f1f1;
   }
 
-  .tool *::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #415a77;
+    border-radius: 10px;
     width: 6px;
   }
 }

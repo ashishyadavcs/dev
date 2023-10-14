@@ -9,6 +9,7 @@ import Styled from "@/styles/home";
 import {getPostList} from "lib/posts";
 import {ProductJsonLd} from "next-seo";
 import {useEffect} from "react";
+import {animateList} from "utils/animation";
 export default function Home({posts}) {
     const steps = [
         "Submit your order",
@@ -20,20 +21,7 @@ export default function Home({posts}) {
         "Congrats! Your task delivered "
     ];
     useEffect(() => {
-        document.querySelector('.hiw li').classList.add('active')
-        const slides=document.querySelectorAll('.hiw li')
-       
-        slides.forEach((li) => {
-            li.addEventListener("animationend", () => {
-                console.log('anm')
-              li.classList.remove("active");
-              if (li.nextElementSibling) {
-                li.nextElementSibling.classList.add("active");
-              } else {
-                slides[0].classList.add("active");
-              }
-            });
-          });
+       animateList('.hiw li')
     }, [])
     
     
@@ -87,7 +75,7 @@ export default function Home({posts}) {
                             </Styled.Cta>
                         </div>
                         <div className="col-md-5 col-12 d-flex justify-content-end">
-                            <Image
+                            <Image className="img"
                                 alt="website design services in india"
                                 objectFit="contain"
                                 priority
@@ -99,6 +87,7 @@ export default function Home({posts}) {
                     </div>
                 </div>
             </Styled.Banner>
+            
             <Styled.Landing>
                 <div className="container">
                     <div className="row my-4 pt-4">
