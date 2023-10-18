@@ -134,7 +134,6 @@ small {
         },
     ];
 
-
     const settab = tab => {
         document
             .querySelectorAll(`.${styles.tab} li`)
@@ -298,21 +297,12 @@ small {
                     and choose the editor that best suits your needs.
                 </p>
 
-                <div className={styles.faq} itemScope itemType="https://schema.org/FAQPage">
+                <div className={styles.faq}>
                     <h2 className="mb-4">FAQ on online html editor</h2>
                     {faqs.map((faq, i) => (
-                        <div
-                            key={i}
-                            itemScope
-                            itemProp="mainEntity"
-                            itemType="https://schema.org/Question"
-                        >
+                        <div key={i}>
                             <h3 itemProp="name">{faq.questionName}</h3>
-                            <div
-                                itemScope
-                                itemProp="acceptedAnswer"
-                                itemType="https://schema.org/Answer"
-                            >
+                            <div>
                                 <p itemProp="text">{faq.acceptedAnswerText}</p>
                             </div>
                         </div>
