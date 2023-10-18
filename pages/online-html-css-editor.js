@@ -4,7 +4,7 @@ import styles from "@/styles/editor.module.css";
 import Image from "next/image";
 import { FaCss3, FaHtml5, FaJava } from "react-icons/fa";
 import { DiJavascript } from "react-icons/di";
-import { NextSeo, ProductJsonLd } from "next-seo";
+import { FAQPageJsonLd, NextSeo, ProductJsonLd } from "next-seo";
 import dynamic from "next/dynamic";
 const Editor = dynamic(() => import("../components/aceditor"), {
     loading: () => "loading...",
@@ -96,43 +96,44 @@ small {
     };
     const faqs = [
         {
-            que: `What is an online HTML editor?`,
-            ans: `An online HTML editor is a web-based tool that allows users to
+            questionName: `What is an online HTML editor?`,
+            acceptedAnswerText: `An online HTML editor is a web-based tool that allows users to
               create, edit and publish HTML code directly from their web
               browser.`,
         },
 
         {
-            que: `What are the benefits of using an online HTML editor?`,
-            ans: `   The benefits of using an online HTML editor include convenience,
+            questionName: `What are the benefits of using an online HTML editor?`,
+            acceptedAnswerText: `   The benefits of using an online HTML editor include convenience,
             accessibility, and ease of use. It can be accessed from anywhere
             with an internet connection, requires no software to be installed,
             and typically has a user-friendly interface.`,
         },
         {
-            que: `Can I create a website with an online HTML editor?`,
-            ans: ` Yes, you can create a website using an online HTML editor. You can
+            questionName: `Can I create a website with an online HTML editor?`,
+            acceptedAnswerText: ` Yes, you can create a website using an online HTML editor. You can
             write HTML code, add CSS and JavaScript, preview the website and
             publish it online.`,
         },
         {
-            que: `Is an online HTML editor free to use?`,
-            ans: `   Some online HTML editors are free to use, while others may offer a
+            questionName: `Is an online HTML editor free to use?`,
+            acceptedAnswerText: `   Some online HTML editors are free to use, while others may offer a
             free trial or limited functionality and require payment for full
             access.`,
         },
         {
-            que: `Do I need to know HTML to use an online HTML editor?`,
-            ans: `  It is helpful to have some knowledge of HTML, but some online HTML
+            questionName: `Do I need to know HTML to use an online HTML editor?`,
+            acceptedAnswerText: `  It is helpful to have some knowledge of HTML, but some online HTML
             editors have a visual interface and can be used without writing
             code.`,
         },
         {
-            que: `What are some popular online HTML editors?`,
-            ans: `   Some popular online HTML editors are CodePen, JS Bin, JSFiddle, and
+            questionName: `What are some popular online HTML editors?`,
+            acceptedAnswerText: `   Some popular online HTML editors are CodePen, JS Bin, JSFiddle, and
             Thimble by Mozilla.`,
         },
     ];
+
 
     const settab = tab => {
         document
@@ -179,6 +180,7 @@ small {
                     siteName: process.env.NEXT_PUBLIC_APP_NAME,
                 }}
             />
+            <FAQPageJsonLd mainEntity={faqs} />
             <ProductJsonLd
                 productName="free Online html editor"
                 type="Product"
@@ -191,6 +193,7 @@ small {
                     ratingCount: "505435",
                 }}
             />
+
             <div className={` my-3 ${styles.editor}`}>
                 <div className="text-center container">
                     <h1>
@@ -304,13 +307,13 @@ small {
                             itemProp="mainEntity"
                             itemType="https://schema.org/Question"
                         >
-                            <h3 itemProp="name">{faq.que}</h3>
+                            <h3 itemProp="name">{faq.questionName}</h3>
                             <div
                                 itemScope
                                 itemProp="acceptedAnswer"
                                 itemType="https://schema.org/Answer"
                             >
-                                <p itemProp="text">{faq.ans}</p>
+                                <p itemProp="text">{faq.acceptedAnswerText}</p>
                             </div>
                         </div>
                     ))}
