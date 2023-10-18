@@ -9,7 +9,7 @@ const Seo = () => {
   return (
     <>
       <NextSeo
-        title={process.env.NEXT_PUBLIC_APP_NAME}
+        title={`${process.env.NEXT_PUBLIC_APP_NAME} | A modern approach to learn frontend`}
         description={`welcome to Frontendzone, your ultimate destination
             for all things of front-end development. Frontendzone is a
             destination to learn all frontend technologies practically with

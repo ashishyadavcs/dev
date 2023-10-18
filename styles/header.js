@@ -110,9 +110,7 @@ export const Styled = {
                     padding: 1rem;
                 }
             }
-            &:hover{
-                a{color:teal}
-            }
+          
             ${media.minsm} {
                 padding: 20px 0;
             }
