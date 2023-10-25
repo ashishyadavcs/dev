@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Styled = {
     Banner: styled.div`
         background: linear-gradient(rgb(247 239 239), rgb(217 240 237));
-        height: 92vh;
+        min-height: 100vh;
         max-height: 700px;
         position: relative;
         display: flex;
