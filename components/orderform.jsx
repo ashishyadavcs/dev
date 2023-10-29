@@ -15,6 +15,7 @@ const Orderform = ({ title }) => {
       >
         x
       </span>
+      {0 ?
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -47,16 +48,16 @@ const Orderform = ({ title }) => {
           placeholder="whatsapp number"
         ></input>
         <button className="my-1 theme-btn d-block w-100">submit</button>
-      </form>
+      </form>:
       <h3>
         Please contact on whatsapp{" "}
         <button
-          className="linkbtn theme-btn my-4"
+          className="linkbtn theme-btn my-4 ml-2"
           onClick={(e) => window.open(openwhatsapp())}
         >
           click here
         </button>
-      </h3>
+      </h3>}
     </div>
   );
 };
