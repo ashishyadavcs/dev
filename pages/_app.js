@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
                     <Globalstyle />
-                    <div className="loading-lcp">loading</div>
+                    {/* <div className="loading-lcp">loading</div> */}
                     {!layout.landing.includes(router.pathname) ? (
                         <Layout>
                             <Component {...pageProps} />
