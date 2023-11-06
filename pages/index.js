@@ -11,6 +11,11 @@ import {ProductJsonLd} from "next-seo";
 import {useEffect} from "react";
 import {animateList} from "utils/animation";
 export default function Home({posts}) {
+    const postss=[{
+        title:"Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer",
+        excerpt:`<p>Frontend developers In the ever-evolving world of web development, are the unsung heroes who breathe life into the virtual world we live in. 💕 </p>`,
+        url:'/frontend-developer'
+    },...posts]
     const steps = [
         "Submit your order",
         "Make half payment to confirm your order",
@@ -183,7 +188,7 @@ export default function Home({posts}) {
                 </div>
                 <div className="container">
                     <h2 className="text-center latestblog my-4">Latest blog posts</h2>
-                    <Blogpost posts={posts}/>
+                    <Blogpost posts={postss}/>
                     <Link href="/blog">
                         <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
                     </Link>

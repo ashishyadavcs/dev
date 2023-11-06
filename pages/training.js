@@ -16,16 +16,14 @@ const Page = () => {
                     width: 100%;
                 }
             `}</style>
-        <div className="banner">
-        <Image priority objectFit="contain" src="/dev/training.png" layout="fill"/>
-        </div>
+       
         <div className="bg">
             <div className="container py-4">
                 <NextSeo
                     title="Frontend Training | website design and development"
                     description="GET frontend and website design training with Experienced software engineer "
                 />
-                <h1 className="text-center text-white mb-4">Frontend Mentorship</h1>
+                <h1 className="text-center text-white mb-4">Connect for Frontend Mentorship</h1>
                 <Ashish style={{ maxWidth: "500px", margin: "auto" }} />
                 <Whatsapp />
             </div>

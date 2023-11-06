@@ -2,8 +2,10 @@ import { memo } from "react";
 import Post from "./post";
 import { FiLoader } from "react-icons/fi";
 const Blogpost = ({posts}) => {
+  
   return (
     <>
+   
       {posts.length > 0 ? (
         posts.map((post, i) => <Post key={i} styles={""} post={post} />)
       ) : (
