@@ -14,7 +14,9 @@ export default function Home({posts}) {
     const postss=[{
         title:"Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer",
         excerpt:`<p>Frontend developers In the ever-evolving world of web development, are the unsung heroes who breathe life into the virtual world we live in. 💕 </p>`,
-        url:'/frontend-developer'
+        url:'/frontend-developer',
+        date:'Tue Oct 03 2023'
+      
     },...posts]
     const steps = [
         "Submit your order",
