@@ -54,7 +54,7 @@ export default function Home({posts}) {
                         <div className="col-md-7 col-12">
                             
                             <h1 className="gradient-text heading text-capitalize">
-                                Looking for a developer
+                                Looking for a developer?
                                 <br></br>
                               
                             </h1>
