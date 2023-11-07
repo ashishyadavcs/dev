@@ -12,7 +12,7 @@ export const nav = [
         text: "contact",
     },
     {
-        url: "/services",
+        url: "/contact",
         text: "services",
     },
 
