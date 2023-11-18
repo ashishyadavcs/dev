@@ -153,7 +153,7 @@ const Footer = () => {
 
                 
                 <li className="d-flex align-items-center">
-                  <Link href={"/contact"} prefetch={false}>
+                  <Link href={"/services"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
                       Services
