@@ -1,0 +1,16 @@
+{
+    "interoduction":{
+      "short":"I am Ashish Yadav, a seasoned frontend developer with a dynamic and enriching journey spanning three years in the ever-evolving landscape of web development. I am passionate about crafting visually stunning and seamlessly functional user interfaces that not only meet but exceed the expectations of modern digital experiences."
+      
+    },
+    "hobby":[
+        "Travelling",
+        "Reading Book",
+        "Coding"
+    ],
+    "education":{
+      "degree":"Btech(CSE)",
+      "college":"Feroze Gandhi Institute of Engineering and Technology"
+    },
+    "skills":["HTML","css","javascript","React js","Next js","Bootstrap","Node js","Express Js","Mongodb","SEO","Vue js","wordpress","Jquery"]
+}
