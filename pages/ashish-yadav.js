@@ -1,8 +1,11 @@
 import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import {contact} from "public/data/contact";
 import React from "react";
+import {FaPhone} from "react-icons/fa";
 import styled from "styled-components";
+
 const Page = ({ data }) => {
     return (
         <>
@@ -41,6 +44,7 @@ const Page = ({ data }) => {
 
                     </div>
                 </div>
+                <a className="theme-btn connect" href={`tel:${contact.mobile}`}>connect with ashish <FaPhone/></a>
             </Pagestyle>
         </>
     );
@@ -57,6 +61,16 @@ export async function getServerSideProps({ req }) {
 }
 export default Page;
 const Pagestyle = styled.div`
+.connect{
+    position: sticky;
+    bottom: 100px;
+    left:25%;
+    margin-top: 30px;
+    display: inline-flex;
+    align-items:center;
+    gap:10px;
+    min-width: max-content;
+}
 h2{font-size:20px!important;}
     --degree: 120deg;
     @keyframes rotateBorder {
