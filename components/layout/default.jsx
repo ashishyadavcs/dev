@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
+import Chat from "../chat";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
@@ -16,10 +17,10 @@ const Layout = ({ children, type = "default" }) => {
     
     return (
         <>
-            {type == "default" ? (
+            {(type == "default"|| !['/vrc'].includes(router.pathname)) ? (
                 <div className="layout">
                     <Breadcrumb />
-                   {!["/online-html-css-editor","/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
+                   {!["/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
                     <Header />
                     <main> {children}</main>
                     <Footer />
@@ -33,6 +34,7 @@ const Layout = ({ children, type = "default" }) => {
             ) : (
                 <main> {children}</main>
             )}
+            <Chat/>
         </>
     );
 };
