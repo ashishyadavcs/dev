@@ -72,20 +72,21 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
-    z-index:20;
+    z-index:2;
     height: 550px;
     width: 320px;
-
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     background: #ddd;
     border-radius: 16px 16px 0 0;
     overflow: hidden;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     right: 100px;
     ${media.xs} {
         width: 100%;
         right: 0;
+        bottom: 70px;
+        z-index: 20;
     }
     transition: all 0.6s;
     &:has(.head.active) {
