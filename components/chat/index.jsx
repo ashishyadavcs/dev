@@ -9,7 +9,6 @@ import {useState} from "react";
 import {IoMdSend} from "react-icons/io";
 
 const Chat = () => {
-  
     const [msgList, setmsgList] = useState([{
         msg: "hi how are you",
         time: "12:00pm",
@@ -28,7 +27,7 @@ const Chat = () => {
                     <MdArrowBack size={20} />
                     <Image
                         className="dp"
-                        objectFit="contain"
+                        objectFit="cover"
                         height={40}
                         width={40}
                         alt=""
@@ -47,7 +46,7 @@ const Chat = () => {
                 </div>
                 <div className="action">
                     <form className="inputs">
-                        <div value={msg.text} spellCheck="false" onInput={e=>{
+                        <div autoFocus value={msg.text} spellCheck="false" onInput={e=>{
                             setmsg(prev=>({...prev,text:e.target.innerText}))
                         }} className="msg" contentEditable></div>
                         <div className="tools">
@@ -56,7 +55,7 @@ const Chat = () => {
                         </div>
                     </form>
                     <div className="sender" onClick={e=>{
-                        setmsgList(prev=>[...prev,{msg:msg.text,time: "12:00pm",
+                        setmsgList( prev=> [...prev,{msg:msg.text,time: "12:00pm",
                         sender: "ashish",
                         senderimg: "/ashish.jpg"}])
                         document.querySelector('.inputs .msg').innerText=''
@@ -73,7 +72,7 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
-    z-index: 10;
+    z-index:2;
     height: 550px;
     width: 320px;
 
@@ -91,12 +90,13 @@ const Chatlayout = styled.div`
     transition: all 0.6s;
     &:has(.head.active) {
         height: 60px;
-        .action {
+        .action,.body {
             display: none;
         }
     }
     .head {
         cursor: pointer;
+        z-index: 3;
         height: 60px;
         padding: 10px;
         display: flex;
@@ -116,11 +116,16 @@ const Chatlayout = styled.div`
         background: teal;
     }
     .body {
+        display: flex;
+        flex-direction: column;
         height: calc(500px - 70px);
         padding: 40px 10px;
         overflow: auto;
-        .message:nth-of-type(3n) {
-            float: right;
+        .message-container:nth-of-type(3n) {
+            justify-content: flex-end;
+        }
+        &:-webkit-scrollbar-thumb{
+            background: #ddd!important;
         }
     }
     .action {
@@ -132,7 +137,7 @@ const Chatlayout = styled.div`
         width:95%;
         bottom:10px;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         .inputs {
             position: relative;
             background: #fff;
@@ -156,6 +161,10 @@ const Chatlayout = styled.div`
             .tools {
                 display: flex;
                 gap: 10px;
+                background: #fff;
+                /* border-radius: 16px;
+                padding: 8px 16px;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
                 height: max-content;
                 position: absolute;
                 right: 20px;
@@ -167,6 +176,7 @@ const Chatlayout = styled.div`
         }
     }
     .sender {
+        cursor: pointer;
         height: 40px;
         width: 40px;
         border-radius: 50%;
