@@ -5,26 +5,55 @@ import { MdArrowBack, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/m
 import { draghtml } from "utils/graghtml";
 import { media } from "config/device";
 import { FaCamera } from "react-icons/fa";
-import {useState} from "react";
-import {IoMdSend} from "react-icons/io";
+import { useState } from "react";
+import { IoMdSend } from "react-icons/io";
+import {useRouter} from "next/router";
 
 const Chat = () => {
-    const [msgList, setmsgList] = useState([{
-        msg: "hi how are you",
-        time: "12:00pm",
-        sender: "ashish",
-        senderimg: "/ashish.jpg"
-    }])
+    const router=useRouter()
+    const isbhoj=router.asPath.includes('bhojpuri')
+    const [msgList, setmsgList] = useState([
+        {
+            msg: "hi how are you",
+            time: "12:00pm",
+            sender: "ashish",
+            senderimg: "/ashish.jpg",
+        },
+    ]);
     const [msg, setmsg] = useState({
-        text:'',
-        file:'',
-        voice:''
-    })
+        text: "",
+        file: "",
+        voice: "",
+    });
+    const playSound = src => {
+        const ss = new Audio(src);
+        ss.play();
+        setTimeout(() => {
+            ss.pause();
+        }, 5000);
+    };
+
+    const sendMSG=()=>{
+        setmsgList(prev => [
+            ...prev,
+            {
+                msg: msg.text,
+                time: "12:00pm",
+                sender: "ashish",
+                senderimg: "/ashish.jpg",
+            },
+        ]);
+        playSound(`/dev/sound/${isbhoj?'bhj':'msg'}.mp3`)
+        document.querySelector(".inputs .msg").innerText = "";
+    }
     return (
         <>
             <Chatlayout onDrag={e => draghtml("chat")} id="chat" className="chat-container">
-                <div className="head active" onClick={e => e.currentTarget.classList.toggle("active")}>
-                    <MdArrowBack size={20} />
+                <div
+                    className="head active"
+                    onClick={e => e.currentTarget.classList.toggle("active")}
+                >
+                    <MdArrowBack className="back" size={25} />
                     <Image
                         className="dp"
                         objectFit="cover"
@@ -37,6 +66,11 @@ const Chat = () => {
                         <span className="title">Ashish Yadav</span>
                         <span className="lastseen">last seen today at 9:23 pm</span>
                     </div>
+                    <span className="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
                 </div>
 
                 <div className="body">
@@ -46,24 +80,32 @@ const Chat = () => {
                 </div>
                 <div className="action">
                     <form className="inputs">
-                        <div autoFocus value={msg.text} spellCheck="false" onInput={e=>{
-                            setmsg(prev=>({...prev,text:e.target.innerText}))
-                        }} className="msg" contentEditable></div>
+                        <div
+                            autoFocus
+                            value={msg.text}
+                            spellCheck="false"
+                            onInput={e => {
+                                setmsg(prev => ({ ...prev, text: e.target.innerText }));
+                            }}
+                            className="msg"
+                            contentEditable
+                        ></div>
                         <div className="tools">
                             <MdOutlineAttachFile className="attach" color="#888" size={18} />
                             <FaCamera size={18} color="#888" />
                         </div>
                     </form>
-                    <div className="sender" onClick={e=>{
-                        setmsgList( prev=> [...prev,{msg:msg.text,time: "12:00pm",
-                        sender: "ashish",
-                        senderimg: "/ashish.jpg"}])
-                        document.querySelector('.inputs .msg').innerText=''
-                    }}>
-                        {msg.text?.length>0?
-                         <IoMdSend color="#fff" size={22} />:
-                        <MdKeyboardVoice color="#fff" size={22} />
-                       }
+                    <div
+                        className="sender"
+                        onClick={e => {
+                            sendMSG()
+                        }}
+                    >
+                        {msg.text?.length > 0 ? (
+                            <IoMdSend color="#fff" size={22} />
+                        ) : (
+                            <MdKeyboardVoice color="#fff" size={22} />
+                        )}
                     </div>
                 </div>
             </Chatlayout>
@@ -72,11 +114,11 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
-    z-index:2;
+    z-index: 2;
     height: 550px;
     width: 320px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    background: #ddd;
+    background:linear-gradient(teal -60%, #f2f2ff 30% 67%,teal 155%);
     border-radius: 16px 16px 0 0;
     overflow: hidden;
     position: fixed;
@@ -91,7 +133,8 @@ const Chatlayout = styled.div`
     transition: all 0.6s;
     &:has(.head.active) {
         height: 60px;
-        .action,.body {
+        .action,
+        .body {
             display: none;
         }
     }
@@ -103,16 +146,34 @@ const Chatlayout = styled.div`
         display: flex;
         align-items: center;
         color: #fff;
+        .back {
+            margin-right: 10px;
+        }
         .dp {
             border-radius: 50%;
         }
         .name {
             display: flex;
             margin-left: 10px;
+            margin-right: 60px;
             flex-direction: column;
             .lastseen {
                 font-size: 10px;
             }
+        }
+        .menu-icon{
+            --size:5px;
+            display: flex;
+            flex-direction: column;
+            span{
+                height:var(--size);
+                width:var(--size);
+                border-radius: 50%;
+                background: #fff;
+                display: inline-block;
+                margin-bottom: 2px;
+            }
+
         }
         background: teal;
     }
@@ -125,9 +186,11 @@ const Chatlayout = styled.div`
         .message-container:nth-of-type(3n) {
             justify-content: flex-end;
         }
-        &:-webkit-scrollbar-thumb{
-            background: #ddd!important;
+        &:-webkit-scrollbar-thumb {
+            background: #ddd !important;
         }
+        
+        background-size:5px;
     }
     .action {
         position: absolute;
@@ -135,19 +198,19 @@ const Chatlayout = styled.div`
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        width:95%;
-        bottom:10px;
+        width: 95%;
+        bottom: 10px;
         align-items: center;
         justify-content: space-around;
         .inputs {
             position: relative;
             background: #fff;
             border-radius: 20px;
-            width:80%;
+            width: 80%;
             .msg {
                 padding: 10px 15px;
                 outline: none;
-                width:78%;
+                width: 78%;
                 &::before {
                     content: "";
                     pointer-events: none;
