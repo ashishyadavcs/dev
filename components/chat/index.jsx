@@ -72,7 +72,7 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
-    z-index:2;
+    z-index:20;
     height: 550px;
     width: 320px;
 
