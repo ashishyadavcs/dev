@@ -1,0 +1,54 @@
+import Image from "next/image";
+import React from "react";
+import styled from "styled-components";
+
+const Members = () => {
+    return (
+        <Styledcontacts className="home">
+            {[...Array(15)].map(user => (
+                <li>
+                    <Image
+                        objectFit="cover"
+                        className="dp"
+                        src={"/ashish.jpg"}
+                        height={40}
+                        width={40}
+                        alt=""
+                    />
+                    <div className="info">
+                        <span className="name">Name</span>
+                        <span className="msg">Latest msg</span>
+                    </div>
+                </li>
+            ))}
+        </Styledcontacts>
+    );
+};
+
+export default Members;
+const Styledcontacts = styled.ul`
+    display: flex;
+    flex-direction: column;
+
+    li {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 20px;
+        overflow: auto;
+        max-height: 100%;
+        padding: 10px;
+        .dp {
+            border-radius: 50%;
+        }
+        .info {
+            .name {
+                font-weight: 600;
+            }
+            .msg {
+                font-size: 14px;
+            }
+            display: flex;
+            flex-direction: column;
+        }
+    }
+`;

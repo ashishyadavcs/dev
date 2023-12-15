@@ -16,7 +16,11 @@ const Message = ({ data }) => {
                 />
                 <div className="content">
                     <span>{data.sender}</span>
-                    <p>{data.msg}</p>
+                    {data.audio.includes("blob") ? (
+                        <audio controls src={data.audio}></audio>
+                    ) : (
+                        <p>{data.msg}</p>
+                    )}
                     <span className="time">{data.time}</span>
                 </div>
             </div>
@@ -26,26 +30,40 @@ const Message = ({ data }) => {
 
 export default Message;
 const Styledmsg = styled.div`
-display: flex;
+    display: flex;
     .message {
         position: relative;
         margin: 0 0 20px 10px;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
         width: 100%;
         max-width: 70%;
-        &:before {
+        &:has(audio) {
+            max-width: 90%;
+        }
+        &:before,
+        &:after {
             border-radius: 5px;
             content: "";
             display: inline-block;
             position: absolute;
-            top: 0;
-            border: 7px solid #fff;
+            border: 10px solid #fff;
             border-bottom-color: transparent;
             border-left-color: transparent;
+            filter: drop-shadow(0 6px 2px #ccc);
             right: 97%;
+            z-index: -1;
+            top: 0;
         }
+        &:after{
+            right: 97%;
+            z-index: 3;
+            filter: none;
+        }
+        
+      
         background: #fff;
-        border-radius: 0px 8px 8px 8px;
+        border-radius: 16px;
+        border-top-left-radius: 0;
         padding: 10px;
         display: flex;
         gap: 10px;
@@ -55,6 +73,12 @@ display: flex;
         .content {
             width: calc(100% - 50px);
             font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            audio {
+                margin: 5px 0;
+                transform: scale(0.6) translateX(-40%);
+            }
             p {
                 word-wrap: break-word;
             }

@@ -7,14 +7,17 @@ import { media } from "config/device";
 import { FaCamera } from "react-icons/fa";
 import { useState } from "react";
 import { IoMdSend } from "react-icons/io";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
+import { record } from "utils/chat";
+import Members from "./contacts";
 
 const Chat = () => {
-    const router=useRouter()
-    const isbhoj=router.asPath.includes('bhojpuri')
+    const router = useRouter();
+    const isbhoj = router.asPath.includes("bhojpuri");
     const [msgList, setmsgList] = useState([
         {
             msg: "hi how are you",
+            audio: "",
             time: "12:00pm",
             sender: "ashish",
             senderimg: "/ashish.jpg",
@@ -33,81 +36,102 @@ const Chat = () => {
         }, 5000);
     };
 
-    const sendMSG=()=>{
+    const sendMSG = () => {
         setmsgList(prev => [
             ...prev,
             {
                 msg: msg.text,
+                audio: "",
                 time: "12:00pm",
                 sender: "ashish",
                 senderimg: "/ashish.jpg",
             },
         ]);
-        playSound(`/dev/sound/${isbhoj?'bhj':'msg'}.mp3`)
+        setmsg(prev=>({...prev,text:''}))
         document.querySelector(".inputs .msg").innerText = "";
-    }
+    };
     return (
         <>
             <Chatlayout onDrag={e => draghtml("chat")} id="chat" className="chat-container">
-                <div
-                    className="head active"
-                    onClick={e => e.currentTarget.classList.toggle("active")}
-                >
-                    <MdArrowBack className="back" size={25} />
-                    <Image
-                        className="dp"
-                        objectFit="cover"
-                        height={40}
-                        width={40}
-                        alt=""
-                        src={"/ashish.jpg"}
-                    />
-                    <div className="name">
-                        <span className="title">Ashish Yadav</span>
-                        <span className="lastseen">last seen today at 9:23 pm</span>
-                    </div>
-                    <span className="menu-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </div>
-
-                <div className="body">
-                    {msgList.map(msg => (
-                        <Message data={msg} />
-                    ))}
-                </div>
-                <div className="action">
-                    <form className="inputs">
+                {0 ? (
+                    <Members />
+                ) : (
+                    <>
                         <div
-                            autoFocus
-                            value={msg.text}
-                            spellCheck="false"
-                            onInput={e => {
-                                setmsg(prev => ({ ...prev, text: e.target.innerText }));
-                            }}
-                            className="msg"
-                            contentEditable
-                        ></div>
-                        <div className="tools">
-                            <MdOutlineAttachFile className="attach" color="#888" size={18} />
-                            <FaCamera size={18} color="#888" />
+                            className="head active"
+                            onClick={e => e.currentTarget.classList.toggle("active")}
+                        >
+                            <MdArrowBack
+                                onClick={e => {
+                                    e.stopPropagation();
+                                    e.currentTarget.parentElement.nextElementSibling.classList.toggle(
+                                        "home"
+                                    );
+                                }}
+                                className="back"
+                                size={25}
+                            />
+                            <Image
+                                className="dp"
+                                objectFit="cover"
+                                height={35}
+                                width={35}
+                                alt=""
+                                src={"/ashish.jpg"}
+                            />
+                            <div className="name">
+                                <span className="title">Ashish Yadav</span>
+                                <span className="lastseen">last seen today at 9:23 pm</span>
+                            </div>
+                            <span className="menu-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
                         </div>
-                    </form>
-                    <div
-                        className="sender"
-                        onClick={e => {
-                            sendMSG()
-                        }}
-                    >
-                        {msg.text?.length > 0 ? (
-                            <IoMdSend color="#fff" size={22} />
-                        ) : (
-                            <MdKeyboardVoice color="#fff" size={22} />
-                        )}
-                    </div>
-                </div>
+
+                        <div className="body">
+                            {msgList.map(msg => (
+                                <Message data={msg} />
+                            ))}
+                        </div>
+                        <div className="action">
+                            <form className="inputs">
+                                <div
+                                    autoFocus
+                                    value={msg.text}
+                                    spellCheck="false"
+                                    onInput={e => {
+                                        setmsg(prev => ({ ...prev, text: e.target.innerText }));
+                                    }}
+                                    className="msg"
+                                    contentEditable
+                                ></div>
+                                <div className="tools">
+                                    <MdOutlineAttachFile
+                                        className="attach"
+                                        color="#888"
+                                        size={20}
+                                    />
+                                    <FaCamera size={18} color="#888" />
+                                </div>
+                            </form>
+                            <div
+                                className="sender"
+                                onClick={async e => {
+                                    msg.text.length > 0 ? sendMSG() : record(setmsgList);
+                                    playSound(`/dev/sound/${isbhoj ? "bhj" : "msg"}.mp3`);
+                                }}
+                            >
+                                {msg.text?.length > 0 ? (
+                                    <IoMdSend color="#fff" size={22} />
+                                ) : (
+                                    <MdKeyboardVoice color="#fff" size={22} />
+                                )}
+                            </div>
+                        </div>
+                    </>
+                )}
             </Chatlayout>
         </>
     );
@@ -118,7 +142,7 @@ const Chatlayout = styled.div`
     height: 550px;
     width: 320px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    background:linear-gradient(teal -60%, #f2f2ff 30% 67%,teal 155%);
+    background: linear-gradient(teal -60%, #f2f2ff 30% 67%, teal 155%);
     border-radius: 16px 16px 0 0;
     overflow: hidden;
     position: fixed;
@@ -129,6 +153,7 @@ const Chatlayout = styled.div`
         right: 0;
         bottom: 70px;
         z-index: 20;
+        border-radius: 0px;
     }
     transition: all 0.6s;
     &:has(.head.active) {
@@ -141,7 +166,7 @@ const Chatlayout = styled.div`
     .head {
         cursor: pointer;
         z-index: 3;
-        height: 60px;
+        height:55px;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -157,27 +182,28 @@ const Chatlayout = styled.div`
             margin-left: 10px;
             margin-right: 60px;
             flex-direction: column;
+            width: 43%;
             .lastseen {
                 font-size: 10px;
             }
         }
-        .menu-icon{
-            --size:5px;
+        .menu-icon {
+            --size: 4px;
             display: flex;
             flex-direction: column;
-            span{
-                height:var(--size);
-                width:var(--size);
+            span {
+                height: var(--size);
+                width: var(--size);
                 border-radius: 50%;
                 background: #fff;
                 display: inline-block;
                 margin-bottom: 2px;
             }
-
         }
         background: teal;
     }
     .body {
+        position: relative;
         display: flex;
         flex-direction: column;
         height: calc(500px - 70px);
@@ -189,8 +215,6 @@ const Chatlayout = styled.div`
         &:-webkit-scrollbar-thumb {
             background: #ddd !important;
         }
-        
-        background-size:5px;
     }
     .action {
         position: absolute;
