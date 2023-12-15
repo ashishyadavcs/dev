@@ -34,7 +34,7 @@ const Layout = ({ children, type = "default" }) => {
             ) : (
                 <main> {children}</main>
             )}
-            <Chat/>
+            {process.env.NODE_ENV=='development' && <Chat/>}
         </>
     );
 };
