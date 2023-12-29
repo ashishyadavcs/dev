@@ -8,8 +8,13 @@
         "Reading Book",
         "Coding"
     ],
+    "social":{
+      "instagram":"https://instagram.com/ashishyadav.dev",
+      "linkedin":"https://linkedin.com/in/ashishfgiet",
+      "github":"https://github.com/ashish221306"
+    },
     "education":{
-      "degree":"Btech(CSE)",
+      "degree":"BTech(CSE)",
       "college":"Feroze Gandhi Institute of Engineering and Technology"
     },
     "skills":["HTML","css","javascript","React js","Next js","Bootstrap","Node js","Express Js","Mongodb","SEO","Vue js","wordpress","Jquery"]
