@@ -177,6 +177,14 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
+                <li className="d-flex align-items-center">
+                  <Link href={"/ashish-yadav"} prefetch={false}>
+                    <a className="ml-1">
+                      <FaChevronRight className="mr-1" size={15} />
+                       Ashish Yadav (Founder)
+                    </a>
+                  </Link>
+                </li>
                
                 <li className="d-flex align-items-center">
                   <Link href="/privacy-policy">
@@ -190,7 +198,6 @@ const Footer = () => {
               <ul className="list-unstyled">
                 {tools.map((t, i) => (
                   <li key={i} className="ml-1">
-                   
                     <Link href={t.href} prefetch={false}>
                       <a>
                         <FaChevronRight className="mr-1" size={15} />
