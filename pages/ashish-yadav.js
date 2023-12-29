@@ -102,7 +102,7 @@ const Page = ({ data }) => {
         </>
     );
 };
-export async function getServerSideProps({ req }) {
+export async function getStaticProps({ req }) {
     const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/data/ashish.json`).then(res =>
         res.json()
     );
@@ -159,6 +159,9 @@ const Pagestyle = styled.div`
         }
         .description {
             font-weight: 600;
+            ${media.sm}{
+                font-size: 14px;
+            }
         }
         .college {
             margin-top: 40px;
@@ -178,12 +181,12 @@ const Pagestyle = styled.div`
             flex-wrap: wrap;
             gap: 10px;
             li {
-                padding: 10px 20px;
-                background: blue;
-                color: #fff;
+                padding: 6px 12px;
+                border: 1px solid blue;
+                font-weight: bold;
                 font-size: 14px;
                 min-width: max-content;
-                border-radius: 8px;
+                border-radius:50px;
             }
         }
     }
