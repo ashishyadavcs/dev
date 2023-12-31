@@ -6,7 +6,8 @@ import { useRouter } from "next/router";
 import Loginwithgoogle from "@/components/auth/google-login";
 import { Styled } from "@/styles/auth";
 
-export const Register = () => {
+export const Register = ({roles}) => {
+  delete roles['admin']
   const router = useRouter();
   const [show, setShow] = useState(true);
   const signup = async (e) => {
@@ -14,6 +15,7 @@ export const Register = () => {
       name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value,
+      role:e.target.role.value
     };
     const data = await fetch(`/api/baseauth/register`, {
       method: "POST",
@@ -23,7 +25,7 @@ export const Register = () => {
       body: JSON.stringify(formdata),
     })
       .then((res) => res.json())
-      .catch((err) => "");
+      .catch((err) =>toast.error(err.message));
     if (data.success) {
       toast.success("Registered successfully ");
       router.push("/dashboard");
@@ -79,6 +81,18 @@ export const Register = () => {
               )}
             </span>
           </div>
+          <div className="position-relative">
+            <select name="role" className="register-as">
+              <option hidden selected>register as</option>
+              {Object.keys(roles).map(op=><option value={roles[op]}>{op}</option>)}
+            </select>
+            <span
+              className="position-absolute h-100 pointer"
+              style={{ right: "20px", top: "25%" }}
+            >
+             
+            </span>
+          </div>
           <button className="themebtn w-100 my-3">Sign up</button>
         </form>
         <div className="mt-3 d-flex flex-column justify-content-center align-items-center">
@@ -94,3 +108,20 @@ export const Register = () => {
 };
 
 export default Register;
+export async function getServerSideProps({ req }) {
+  const roles=await fetch(`${process.env.APP_URL}/api/roles`).then(res=>res.json())
+  if (req.cookies["x-refresh"] || req.cookies["x-token"]) {
+      return {
+          redirect: {
+              permanent: false,
+              destination: req.headers.referer
+                  ? req.headers.referer.split(process.env.APP_URL)[1]
+                  : "/dashboard",
+          },
+      };
+  } else {
+      return {
+          props: {roles},
+      };
+  }
+}

@@ -2,13 +2,15 @@ import styles from "@/styles/portfolio.module.css";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { useEffect } from "react";
+import {fetchData} from "utils/serversidefetch";
 
 const Portfolio = ({ projects }) => {
     return (
         <div className="container my-4 ">
+            
             <NextSeo noindex nofollow />
             <div className={styles.portfolios}>
-                {projects?.map(project => {
+                {projects.reverse()?.map(project => {
                     return (
                         <div key={project.id} className={styles.item}>
                             <div className={styles.thumbnail}>
@@ -37,12 +39,7 @@ const Portfolio = ({ projects }) => {
 };
 export default Portfolio;
 export async function getServerSideProps({ req }) {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`, {
-        headers: {
-            cookie: req.headers.cookie, //dont remove
-        },
-    });
-    const data = result.ok ? await result.json() : [];
+    const data=await fetchData(`${process.env.APP_URL}/api/portfolio`,req)
     return {
         props: {
             projects: data.portfolio || [],

@@ -1,7 +1,5 @@
 import dynamic from "next/dynamic";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { inputfiledata } from "utils/input";
 const Contenteditor = dynamic(() => import("@/components/ui/ckeditor"), {
@@ -81,10 +79,10 @@ const Editor = ({ styles, addPost, updatePost, edit, data }) => {
               />
             </label>
             {thumbnail && (
-              <Image
-                objectFit="cover"
-                height={400}
-                width="100%"
+              <img
+               
+                height={'auto'}
+                width="100%"lo
                 src={thumbnail}
                 alt=""
               />
@@ -151,7 +149,8 @@ const Editor = ({ styles, addPost, updatePost, edit, data }) => {
                 )}
               </div>
             ))}
-            <div className="category">
+            <div className={styles.category}>
+              <span>category</span>
               <ul>
                 {data.categories.length > 0 &&
                   data.categories.map((category) => (
@@ -175,15 +174,11 @@ const Editor = ({ styles, addPost, updatePost, edit, data }) => {
                           }
                           type="checkbox"
                         />
-                        {category.name || "category"}
+                        {category.name}
                       </label>
                     </li>
                   ))}
-                <li>
-                  <Link href="/admin/category">
-                    <a>add category</a>
-                  </Link>
-                </li>
+                
               </ul>
             </div>
           </div>

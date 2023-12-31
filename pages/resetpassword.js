@@ -10,6 +10,25 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 const Page = () => {
   const [show, setShow] = useState(true);
   const [otpverified, setverified] = useState(1);
+  const router=useRouter()
+ const resetPassword=async (e)=>{
+  const data= await fetch('/api/reset-password',{
+    method:"PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body:JSON.stringify({
+      email:e.target.email.value,
+      password:e.target.password.value,
+      newpassword:e.target.newpassword.value,
+    })
+   }).then(res=>res.json())
+   if(data){
+    router.push('/login')
+   }
+ }
+  
+ 
 
   return (
     <div className={styles.login}>
@@ -18,6 +37,7 @@ const Page = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            resetPassword(e)
           }}
         >
           <input
@@ -25,7 +45,7 @@ const Page = () => {
             placeholder="email id"
             type="text"
             name="email"
-            disabled
+          
             defaultValue="ashish56@gmail.com"
           />
           {otpverified && (
@@ -57,7 +77,7 @@ const Page = () => {
                   placeholder="Confirm Password"
                   className="mt-2"
                   type={show ? "password" : "text"}
-                  name="password"
+                  name="newpassword"
                   defaultValue="ashish123"
                 />
                 <span
@@ -86,7 +106,7 @@ const Page = () => {
           </p>
 
           <p>
-            dont have an acoount , <Link href="/register">register</Link>
+            dont have an account , <Link href="/register">register</Link>
           </p>
         </div>
       </div>

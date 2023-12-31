@@ -4,13 +4,13 @@ const Page = ({ orders }) => {
   return (
     <div className="container py-3">
       <ul>
-        {orders.map((order, i) => (
+        {orders.length>0 ? orders.map((order, i) => (
           <li key={order._id}>
             <Link href={`/dashboard/order/${order._id}`}>
               {order.description}
             </Link>
           </li>
-        ))}
+        )):''}
       </ul>
     </div>
   );

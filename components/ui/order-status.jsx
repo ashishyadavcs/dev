@@ -4,12 +4,12 @@ const Status = ({ status }) => {
     <div className={styles.status}>
       <b>Your order status</b>
       <ul>
-        <li>Order created</li>
-        <li>Pay 50%</li>
+        <li >Order created</li>
+        <li >Pay 50%</li>
         <li>Development started</li>
         <li>Review</li>
         <li>Pay remaining 50%</li>
-        <li>Submitted successfully</li>
+        <li className={styles.active}>Submitted successfully</li>
       </ul>
     </div>
   );

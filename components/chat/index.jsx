@@ -5,11 +5,12 @@ import { MdArrowBack, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/m
 import { draghtml } from "utils/graghtml";
 import { media } from "config/device";
 import { FaCamera } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import { useRouter } from "next/router";
 import { record } from "utils/chat";
 import Members from "./contacts";
+import { io } from "socket.io-client";
 
 const Chat = () => {
     const router = useRouter();
@@ -35,21 +36,31 @@ const Chat = () => {
             ss.pause();
         }, 5000);
     };
-
-    const sendMSG = () => {
+    const savemessage = msg => {
         setmsgList(prev => [
             ...prev,
             {
-                msg: msg.text,
+                msg: msg,
                 audio: "",
                 time: "12:00pm",
                 sender: "ashish",
                 senderimg: "/ashish.jpg",
             },
         ]);
-        setmsg(prev=>({...prev,text:''}))
-        document.querySelector(".inputs .msg").innerText = "";
     };
+    /*chat */
+
+    const socket = io("http://localhost:4000");
+    /*chat */
+    const sendMSG = () => {
+        document.querySelector(".inputs .msg").innerHTML = "";
+        socket.emit("message", msg.text);
+        setmsg(prev => ({ ...prev, text: "" }));
+        playSound(`/dev/sound/${isbhoj ? "bhj" : "msg"}.mp3`);
+    };
+    useEffect(() => {
+        document.querySelector(".inputs .msg").innerHTML = "";
+    }, [msgList]);
     return (
         <>
             <Chatlayout onDrag={e => draghtml("chat")} id="chat" className="chat-container">
@@ -99,8 +110,13 @@ const Chat = () => {
                             <form className="inputs">
                                 <div
                                     autoFocus
-                                    value={msg.text}
                                     spellCheck="false"
+                                    onKeyDown={e => {
+                                        if (e.key == "Enter") {
+                                            sendMSG();
+                                            e.preventDefault();
+                                        }
+                                    }}
                                     onInput={e => {
                                         setmsg(prev => ({ ...prev, text: e.target.innerText }));
                                     }}
@@ -118,9 +134,8 @@ const Chat = () => {
                             </form>
                             <div
                                 className="sender"
-                                onClick={async e => {
-                                    msg.text.length > 0 ? sendMSG() : record(setmsgList);
-                                    playSound(`/dev/sound/${isbhoj ? "bhj" : "msg"}.mp3`);
+                                onClick={e => {
+                                    msg.text.length > 0 ? sendMSG() : record(e, setmsgList);
                                 }}
                             >
                                 {msg.text?.length > 0 ? (
@@ -138,6 +153,7 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
+    --headheight: 55px;
     z-index: 2;
     height: 550px;
     width: 320px;
@@ -151,13 +167,13 @@ const Chatlayout = styled.div`
     ${media.xs} {
         width: 100%;
         right: 0;
-        bottom: 70px;
+        bottom: var(--headheight);
         z-index: 20;
         border-radius: 0px;
     }
     transition: all 0.6s;
     &:has(.head.active) {
-        height: 60px;
+        height: var(--headheight);
         .action,
         .body {
             display: none;
@@ -166,7 +182,7 @@ const Chatlayout = styled.div`
     .head {
         cursor: pointer;
         z-index: 3;
-        height:55px;
+        height: 60px;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -200,7 +216,7 @@ const Chatlayout = styled.div`
                 margin-bottom: 2px;
             }
         }
-        background: teal;
+        background: blue;
     }
     .body {
         position: relative;
@@ -264,6 +280,9 @@ const Chatlayout = styled.div`
         }
     }
     .sender {
+        svg {
+            pointer-events: none;
+        }
         cursor: pointer;
         height: 40px;
         width: 40px;

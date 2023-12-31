@@ -1,13 +1,19 @@
-export const record=(setmsg)=>{
+export const record=(e,setmsg)=>{
+    
     let chunks=[]
     navigator.mediaDevices.getUserMedia({
         audio:true,video:false
     }).then(stream=>{
-        const recorder=new MediaRecorder(stream)
-        recorder.start()
-        setTimeout(() => {
+        var recorder=new MediaRecorder(stream)
+        if(!e.target.classList.contains('recording')){
+            e.target?.classList.add('recording')
+            recorder.start()
+        }else{
             recorder.stop()
-        }, 4000);
+            e.target?.classList.remove('recording')
+        }
+        
+
         recorder.ondataavailable=({data})=>{
             chunks.push(data)
         }

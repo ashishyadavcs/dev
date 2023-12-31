@@ -31,9 +31,14 @@ const Page = ({ order }) => {
 };
 
 export default Page;
-export async function getServerSideProps(req) {
-    const request = await fetch(`${process.env.APP_URL}/api/order/${req.params.order}`);
+export async function getServerSideProps(context) {
+    const request = await fetch(`${process.env.APP_URL}/api/order/${context.query.order}`,{
+        headers:{
+            cookie: context.req.headers.cookie
+        }
+    });
     const data = await request.json();
+    
     return {
         props: {
             order: data.order || [],

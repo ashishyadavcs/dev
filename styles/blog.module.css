@@ -200,16 +200,23 @@ justify-content: center;
 .category{
   margin-top: 60px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
-  align-items: center;
+}
+.category label{
+  border: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
 }
 .category b{
   font-size: 20px;
   display: inline-block;
 }
+
 .category ul{
   display: flex;
+  flex-direction: column;
   list-style: none;
   padding-left: 0!important;
   gap: 10px;
@@ -221,6 +228,7 @@ justify-content: center;
   gap:10px;
 }
 .category a{color: #d0f8f0;}
+
 @media (max-width: 767px) {
   .blog [class="download-btn-group"]{
     flex-direction: column;

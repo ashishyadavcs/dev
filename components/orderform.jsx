@@ -15,7 +15,7 @@ const Orderform = ({ title }) => {
       >
         x
       </span>
-      {0 ?
+      {1 ?
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -39,7 +39,11 @@ const Orderform = ({ title }) => {
           name="file"
           placeholder="reference website"
           type="file"
+          onChange={e=>{
+            e.currentTarget.nextElementSibling.setAttribute('src',URL.createObjectURL(e.target.files[0]))
+          }}
         ></input>
+        <iframe frameBorder="none" src=""></iframe>
         <input
           name="mobile"
           className="w-100"

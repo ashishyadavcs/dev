@@ -1,6 +1,7 @@
 import Cookies from "cookies";
+
 export const setTokenCookies = (req, res, result) => {
-    const cookies = new Cookies(req, res, { keys: ["keras-token"] });
+    const cookies = new Cookies(req, res, { keys: ["frontend"] });
     if (result.data.user) {
         cookies.set("_user", result.data.user._id, {
             overwrite: true,
@@ -12,6 +13,7 @@ export const setTokenCookies = (req, res, result) => {
             }),
         });
     }
+
     cookies.set("x-token", result.data.tokens.access.token, {
         overwrite: true,
         signed: true,

@@ -49,7 +49,7 @@ const Styledmsg = styled.div`
             border: 10px solid #fff;
             border-bottom-color: transparent;
             border-left-color: transparent;
-            filter: drop-shadow(0 6px 2px #ccc);
+            filter: drop-shadow(0 1px 2px #ccc);
             right: 97%;
             z-index: -1;
             top: 0;

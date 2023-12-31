@@ -19,11 +19,18 @@
   border: 1px solid #ddd;
   border-radius: 10px;
 }
+.status li.active{
+  background: rgb(15, 211, 123);
+  color: #fff;
+}
+.status li:has(~ .active){
+  border: 2px solid blue;
+}
 .status li:not(:last-child)::before {
   content: "";
   width: 100px;
   z-index: -1;
-  border: 1px solid red;
+  border: 1px solid teal;
   position: absolute;
   top: 50%;
   left: 100%;

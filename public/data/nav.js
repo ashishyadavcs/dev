@@ -12,6 +12,10 @@ export const nav = [
         text: "contact",
     },
     {
+        url: "/portfolio",
+        text: "Portfolio",
+    },
+    {
         url: "/services",
         text: "services",
     },

@@ -8,6 +8,8 @@ const sendRequest = async (req, res, token) => {
         headers: {
             "Content-Type": req.headers["Content-Type"] || "application/json",
             Authorization: `Bearer ${token}`,
+            ...req.headers,
+            cookie:req.headers.cookie
         },
     };
 
@@ -23,13 +25,12 @@ const sendRequest = async (req, res, token) => {
             success: false,
             message: err.message,
         }));
-    res.json(result);
+    return res.json(result);
 };
 export default async function handler(req, res) {
-    const cookies = new Cookies(req, res, { keys: ["keras-token"] });
+    const cookies = new Cookies(req, res, { keys: ["frontend"] });
     let token = cookies.get("x-token");
     const refresh = cookies.get("x-refresh");
-    console.log({ token, refresh });
 
     if (!token && refresh) {
         const result = await fetch(`${process.env.BASE_URL}/refresh`, {

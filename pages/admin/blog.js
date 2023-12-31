@@ -10,6 +10,7 @@ import Editor from "@/components/ui/editor";
 
 
 const Post = ({ posts, categories }) => {
+  console.log(categories)
   const router = useRouter();
   const [edit, setEdit] = useState(false);
   const addPost = async (e, faq, categories) => {
@@ -30,6 +31,9 @@ const Post = ({ posts, categories }) => {
           const data = await fetch("/api/post", {
             method: "Post",
             body: JSON.stringify(Object.fromEntries(formdata)),
+            headers:{
+              'user-role':"1871"
+            }
           })
             .then((res) => res.json())
             .catch((err) => "");
@@ -88,9 +92,7 @@ const Post = ({ posts, categories }) => {
         updatePost={updatePost}
         edit={edit}
       />
-      <form>
-        <input type="search" name="search" placeholder="search blog" />
-      </form>
+     
       <div className="my-4">
         {posts?.length > 0 &&
           posts?.map((post) => {
@@ -118,6 +120,7 @@ const Post = ({ posts, categories }) => {
                     </button>
                   </span>
                   <span className={styles.thumbnail}>
+                    
                     <Image
                       objectFit="cover"
                       layout="fill"

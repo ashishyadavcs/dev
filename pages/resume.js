@@ -18,7 +18,7 @@ const Resume = () => {
             mobile: contact.mobile,
             address: "Noida",
             email: contact.email,
-            image:"https://media.licdn.com/dms/image/C4D03AQE8P03rJR104A/profile-displayphoto-shrink_100_100/0/1653316011870?e=1701907200&v=beta&t=gs79eayDLzk_2GdyzJvkuLMmaRL5y6QJlyR7fZl-j6o"
+            image:"/github-profile.jpg"
         },
         social: {
             linkedin: "https://linkedin.com/in/ashishfgiet",
@@ -94,8 +94,8 @@ const Resume = () => {
                         className="img"
                         src={data.info.image}
                         alt="Ashish frontend developer cv  resume"
-                        height={120}
-                        width={120}
+                        height={100}
+                        width={100}
                     />
 
                     <h1>

@@ -63,3 +63,5 @@ export const clickToCopy=(e)=>{
   document.execCommand("copy");
   document.body.removeChild(input)
 }
+
+

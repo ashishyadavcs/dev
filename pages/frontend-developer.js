@@ -10,6 +10,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Relatedposts from "@/components/relatedposts";
 import { getPostList } from "lib/posts";
+import Ashish from "@/components/ashish";
 const Page = ({ posts }) => {
     return (
         <Article className="article container my-4">
@@ -409,6 +410,7 @@ const Page = ({ posts }) => {
                     <Inpostad />
                 </div>
             </div>
+            <Ashish maxwidth={'500px'}/>
             <Relatedposts posts={posts} />
             <Link href="/blog">
                         <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>

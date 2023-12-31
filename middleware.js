@@ -12,13 +12,13 @@ export function middleware(request) {
             if (token) {
                 return NextResponse.next();
             } else {
-                const loginUrl = new URL("/login", request.url);
-                loginUrl.searchParams.set("from", request.nextUrl.pathname);
+                const loginUrl = new URL("/login",request.url);
+                loginUrl.searchParams.set("from",request.nextUrl.pathname);
                 return NextResponse.redirect(loginUrl);
             }
         } catch (e) {
             const loginUrl = new URL("/login", request.url);
-            loginUrl.searchParams.set("from", request.nextUrl.pathname);
+            loginUrl.searchParams.set("from",request.nextUrl.pathname);
             return NextResponse.redirect(loginUrl);
         }
     }

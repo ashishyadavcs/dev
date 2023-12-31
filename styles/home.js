@@ -93,7 +93,7 @@ const Styled = {
             }
         }
         h2 {
-            font-size: clamp(26px, 3vw, 50px) !important;
+            font-size: clamp(19px, 2vw, 30px) !important;
             text-transform: capitalize;
         }
     `,
