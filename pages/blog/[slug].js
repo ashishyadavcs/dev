@@ -27,7 +27,7 @@ const Blog = ({ post, posts }) => {
                         <>
                             <NextSeo
                                 title={post?.title}
-                                titleTemplate='🟢 %s ✅'
+                                titleTemplate='%s ✅'
                                 description={`${post?.excerpt
                                     .replace(/<[^>]+>/g, "")
                                     .slice(0, 125)}`.toString()}
