@@ -56,7 +56,7 @@ class MyDocument extends Document {
                     <meta name="theme-color" content="#fff" />
                     {process.env.NODE_ENV == "production" && (
                         <Script
-                            strategy="beforeInteractive"
+                            strategy="lazyOnload"
                             async
                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3446097307175125"
                             crossOrigin="anonymous"
