@@ -25,7 +25,7 @@ const Stickyad = () => {
         >
           &times;
         </span> */}
-        <ins
+        <ins title="ads"
           className="adsbygoogle"
           style={{ display: "block", width: "100%", height: "100%" }}
           data-ad-client="ca-pub-3446097307175125"
