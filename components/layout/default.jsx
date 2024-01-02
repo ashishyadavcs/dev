@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import Chat from "../chat";
+import {useLayoutEffect} from "react";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
