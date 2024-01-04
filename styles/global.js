@@ -604,6 +604,7 @@ input[type="range"]::-moz-range-thumb {
 
 .loading-lcp {
   font-size: 25rem;
+  font-weight: 700;
   color: transparent;
   position: absolute;
   text-align: center;
