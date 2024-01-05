@@ -61,7 +61,6 @@ body:has(.preview-div.active){
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
