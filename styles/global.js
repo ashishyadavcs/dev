@@ -600,10 +600,12 @@ input[type="range"]::-moz-range-thumb {
   width: 100%;
   height: 4px;
   background: #03072d;
+  
 }
 
 .loading-lcp {
   font-size: 25rem;
+  font-weight: 700;
   color: transparent;
   position: absolute;
   text-align: center;
