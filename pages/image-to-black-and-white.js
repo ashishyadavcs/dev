@@ -4,6 +4,7 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import {toast} from "react-toastify";
 import styled from "styled-components";
 
 const Page = () => {
@@ -12,6 +13,11 @@ const Page = () => {
         converted: "",
     });
     function convertToBlackAndWhite() {
+        if(!image.original) {
+            toast.error('Upload image to convert')
+            return
+        }
+        try{
         const input = document.getElementById("imageInput");
         const canvas = document.getElementById("canvas");
         const downloadBtn = document.getElementById("downloadBtn");
@@ -21,34 +27,40 @@ const Page = () => {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            img.src = e.target.result;
+            console.log(e)
+                img.src = e.target.result;
 
-            img.onload = function () {
-                canvas.width = img.width;
-                canvas.height = img.height;
-
-                ctx.drawImage(img, 0, 0);
-
-                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imageData.data;
-
-                for (let i = 0; i < data.length; i += 4) {
-                    const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
-                    data[i] = brightness;
-                    data[i + 1] = brightness;
-                    data[i + 2] = brightness;
-                }
-
-                ctx.putImageData(imageData, 0, 0);
-                setimage(p => ({ ...p, converted: canvas.toDataURL("image/png") }));
-                document.querySelector('.converted').scrollIntoView({block:'center'})
-                downloadBtn.href = canvas.toDataURL("image/png");
-            };
+                img.onload = function () {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+    
+                    ctx.drawImage(img, 0, 0);
+    
+                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const data = imageData.data;
+    
+                    for (let i = 0; i < data.length; i += 4) {
+                        const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                        data[i] = brightness;
+                        data[i + 1] = brightness;
+                        data[i + 2] = brightness;
+                    }
+    
+                    ctx.putImageData(imageData, 0, 0);
+                    setimage(p => ({ ...p, converted: canvas.toDataURL("image/png") }));
+                    document.querySelector('.converted').scrollIntoView({block:'center'})
+                    downloadBtn.href = canvas.toDataURL("image/png");
+                    toast.success("converted")
+                };
+            
         };
 
         if (input.files[0]) {
             reader.readAsDataURL(input.files[0]);
         }
+    }catch(err){
+      toast.error(err.message)
+    }
     }
     return (
         <PageStyle className="container py-4">
@@ -103,7 +115,7 @@ const Page = () => {
             <Inpostad />
             <div className="d-flex action justify-content-center gap-10">
                 <button
-                    className={`theme-btn a ${image.original && "active"}`}
+                    className={`theme-btn ${image.original && "active"}`}
                     onClick={e => convertToBlackAndWhite()}
                 >
                     {image.converted ? "converted" : "convert"}
@@ -150,7 +162,7 @@ const PageStyle = styled.div`
         background: #fff;
         border-radius: 50px;
         ${media.sm} {
-            bottom: 80px;
+            bottom: 72px;
             border-radius: 0;
             width: 100%;
         }

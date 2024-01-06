@@ -15,7 +15,9 @@ const Share = dynamic(() => import("@/components/ui/share"), {
 const Layout = ({ children, type = "default" }) => {
     const router = useRouter();
 useLayoutEffect(() => {
-  document.querySelectorAll('img').forEach(img=>img.setAttribute('loading','lazy'))
+  try{
+    document.querySelectorAll('img').forEach(img=>img.setAttribute('loading','lazy'))
+  }catch{}
 }, [])
     
     return (
@@ -37,7 +39,7 @@ useLayoutEffect(() => {
             ) : (
                 <main> {children}</main>
             )}
-            {process.env.NODE_ENV=='development' && <Chat/>}
+            {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
         </>
     );
 };
