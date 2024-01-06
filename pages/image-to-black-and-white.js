@@ -45,7 +45,7 @@ const Page = () => {
 
                 ctx.putImageData(imageData, 0, 0);
                 setimage(p => ({ ...p, converted: canvas.toDataURL(image.type) }));
-                document.querySelector('.converted').scrollIntoView({block:'center'})
+                document.querySelector('.converted').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
                 downloadBtn.href = canvas.toDataURL(image.type);
                 toast.success("converted")
             };
@@ -88,6 +88,7 @@ const Page = () => {
            />
             <input
                 onChange={e => {
+                    if(!e.target.files[0]) return
                     try {
                         setimage(p => ({ converted:'',type:e.target.files[0].type, original: URL.createObjectURL(e.target.files[0]) }));
                     } catch {}
