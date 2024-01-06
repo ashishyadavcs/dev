@@ -69,7 +69,7 @@ const Page = () => {
 
                     images: [
                         {
-                            url: '/images/image-black-and-white-converter.webp',
+                            url: `${process.env.NEXT_PUBLIC_APP_URL}/images/image-black-and-white-converter.webp`,
                             width: 1280,
                             height: 860,
                             alt: 'black and white image converter',
