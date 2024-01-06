@@ -10,6 +10,7 @@ const Page = () => {
     const [image, setimage] = useState({
         original: "",
         converted: "",
+        type:''
     });
     function convertToBlackAndWhite() {
 
@@ -23,6 +24,7 @@ const Page = () => {
         const reader = new FileReader();
 
         reader.onload = function (e) {
+            console.log(e)
             img.src = e.target.result;
 
             img.onload = function () {
@@ -42,9 +44,9 @@ const Page = () => {
                 }
 
                 ctx.putImageData(imageData, 0, 0);
-                setimage(p => ({ ...p, converted: canvas.toDataURL("image/png") }));
+                setimage(p => ({ ...p, converted: canvas.toDataURL(image.type) }));
                 document.querySelector('.converted').scrollIntoView({block:'center'})
-                downloadBtn.href = canvas.toDataURL("image/png");
+                downloadBtn.href = canvas.toDataURL(image.type);
                 toast.success("converted")
             };
         };
@@ -87,7 +89,7 @@ const Page = () => {
             <input
                 onChange={e => {
                     try {
-                        setimage(p => ({ converted:'', original: URL.createObjectURL(e.target.files[0]) }));
+                        setimage(p => ({ converted:'',type:e.target.files[0].type, original: URL.createObjectURL(e.target.files[0]) }));
                     } catch {}
                 }}
                 type="file"
@@ -144,6 +146,7 @@ export default Page;
 const PageStyle = styled.div`
     img {
         max-width: 100%;
+        height: auto;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     .action {
