@@ -4,6 +4,10 @@ const tools = [
         href: "/online-html-css-editor",
     },
     {
+        text:'image to black & white',
+        href:'/image-to-black-and-white'
+    },
+    {
         text: "css button generator",
         href: "/css/button-generator",
     },
