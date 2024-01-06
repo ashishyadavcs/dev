@@ -1,7 +1,6 @@
 import Inpostad from "@/components/ads/inpostad";
 import { media } from "config/device";
 import { NextSeo } from "next-seo";
-import Image from "next/image";
 import React, { useState } from "react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import {toast} from "react-toastify";
@@ -13,11 +12,8 @@ const Page = () => {
         converted: "",
     });
     function convertToBlackAndWhite() {
-        if(!image.original) {
-            toast.error('Upload image to convert')
-            return
-        }
-        try{
+
+
         const input = document.getElementById("imageInput");
         const canvas = document.getElementById("canvas");
         const downloadBtn = document.getElementById("downloadBtn");
@@ -27,40 +23,35 @@ const Page = () => {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            console.log(e)
-                img.src = e.target.result;
+            img.src = e.target.result;
 
-                img.onload = function () {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-    
-                    ctx.drawImage(img, 0, 0);
-    
-                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                    const data = imageData.data;
-    
-                    for (let i = 0; i < data.length; i += 4) {
-                        const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
-                        data[i] = brightness;
-                        data[i + 1] = brightness;
-                        data[i + 2] = brightness;
-                    }
-    
-                    ctx.putImageData(imageData, 0, 0);
-                    setimage(p => ({ ...p, converted: canvas.toDataURL("image/png") }));
-                    document.querySelector('.converted').scrollIntoView({block:'center'})
-                    downloadBtn.href = canvas.toDataURL("image/png");
-                    toast.success("converted")
-                };
-            
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                ctx.drawImage(img, 0, 0);
+
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const data = imageData.data;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                    data[i] = brightness;
+                    data[i + 1] = brightness;
+                    data[i + 2] = brightness;
+                }
+
+                ctx.putImageData(imageData, 0, 0);
+                setimage(p => ({ ...p, converted: canvas.toDataURL("image/png") }));
+                document.querySelector('.converted').scrollIntoView({block:'center'})
+                downloadBtn.href = canvas.toDataURL("image/png");
+                toast.success("converted")
+            };
         };
 
         if (input.files[0]) {
             reader.readAsDataURL(input.files[0]);
         }
-    }catch(err){
-      toast.error(err.message)
-    }
     }
     return (
         <PageStyle className="container py-4">
@@ -92,11 +83,11 @@ const Page = () => {
                         content: 'image to black and white, black and white image converter',
                     },
                 ]}
-            />
+           />
             <input
                 onChange={e => {
                     try {
-                        setimage(p => ({ ...p, original: URL.createObjectURL(e.target.files[0]) }));
+                        setimage(p => ({ converted:'', original: URL.createObjectURL(e.target.files[0]) }));
                     } catch {}
                 }}
                 type="file"
@@ -115,7 +106,7 @@ const Page = () => {
             <Inpostad />
             <div className="d-flex action justify-content-center gap-10">
                 <button
-                    className={`theme-btn ${image.original && "active"}`}
+                    className={`theme-btn a ${image.original && "active"}`}
                     onClick={e => convertToBlackAndWhite()}
                 >
                     {image.converted ? "converted" : "convert"}
@@ -143,7 +134,8 @@ const Page = () => {
                 color image will be converted into black and white image. Now you can download your
                 image.
             </p>
-            <Image layout="responsive" width={1280} height={860}  src="/images/image-black-and-white-converter.webp" alt="image to black and white converter"/>
+            <img layout="responsive" width={1280} height={860}  src="/images/image-black-and-white-converter.webp" alt="image to black and white converter"/>
+
         </PageStyle>
     );
 };
@@ -151,6 +143,7 @@ const Page = () => {
 export default Page;
 const PageStyle = styled.div`
     img {
+        max-width: 100%;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     .action {
@@ -162,7 +155,7 @@ const PageStyle = styled.div`
         background: #fff;
         border-radius: 50px;
         ${media.sm} {
-            bottom: 72px;
+            bottom:72px;
             border-radius: 0;
             width: 100%;
         }
