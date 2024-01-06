@@ -1,6 +1,7 @@
 import Inpostad from "@/components/ads/inpostad";
 import { media } from "config/device";
 import { NextSeo } from "next-seo";
+import Image from "next/image";
 import React, { useState } from "react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import styled from "styled-components";
@@ -55,6 +56,30 @@ const Page = () => {
                 title="Convert color image / photo to black and white"
                 description="Frontendzone black and white image converter is ther tool to convert image to black & white"
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/image-to-black-and-white`}
+                openGraph={{
+                    type: "software",
+                    url: process.env.NEXT_PUBLIC_APP_URL+'/image-to-black-and-white',
+                    title: `Convert color image / photo to black and white`,
+                    description:`Frontendzone black and white image converter is ther tool to convert image to black & white`,
+
+                    images: [
+                        {
+                            url: '/images/image-black-and-white-converter.webp" alt="image to black and white converter',
+                            width: 1280,
+                            height: 860,
+                            alt: 'black and white image converter',
+                            type: "image/webp",
+                        }
+                        
+                    ],
+                    siteName: 'black and white image converter',
+                }}
+                additionalMetaTags={[
+                    {
+                        name: "keywords",
+                        content: 'image to black and white, black and white image converter',
+                    },
+                ]}
             />
             <input
                 onChange={e => {
@@ -106,6 +131,7 @@ const Page = () => {
                 color image will be converted into black and white image. Now you can download your
                 image.
             </p>
+            <Image layout="responsive" width={1280} height={860}  src="/images/image-black-and-white-converter.webp" alt="image to black and white converter"/>
         </PageStyle>
     );
 };
