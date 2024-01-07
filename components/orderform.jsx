@@ -58,7 +58,7 @@ const Orderform = ({ title }) => {
         Help :
         <button
           className="linkbtn ml-2"
-          onClick={(e) => window.open(openwhatsapp())}
+          onClick={(e) => window.open(openwhatsapp('Hi, I need help'))}
         >
           click here
         </button>
