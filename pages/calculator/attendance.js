@@ -13,7 +13,10 @@ const Page = () => {
         present: "190",
         total: "280",
     });
-    useEffect(() => {}, [inputs]);
+    useEffect(() => {
+
+        document.querySelector('.result').classList.add('active')
+    }, [inputs]);
     const faq = [
         {
             que: `how to calculate attendance percentage`,
@@ -31,12 +34,13 @@ const Page = () => {
                 description="Attendance percentage calculator for college student to calculate required classes to attend to maintain their minimum attendance percentage"
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/calculator/attendance`}
             />
-            <h1 className="text-center">Attendance Calculator</h1>
+            
             <div className="row">
                 <div className="col-md-4 sticky">
                     <Inpostad />
                 </div>
                 <div className="col-md-4">
+                <h1 className="text-center">Attendance Calculator</h1>
                     <form onSubmit={e => e.preventDefault()}>
                         <label>
                             <span>Percentage Required</span>
@@ -105,6 +109,11 @@ const Page = () => {
 
 export default Page;
 const Calculator = styled.div`
+.sticky{
+    position: sticky;
+    top: 70px;
+    height: 100%;
+}
     ${media.sm} {
         [class*="col-md"]:first-child {
             order: 3;
@@ -117,11 +126,16 @@ const Calculator = styled.div`
         }
     }
     .result {
+        opacity: 0.2;
+        transition: all 0.3s;
         width: 300px;
         margin: 30px auto;
         color: #047840;
         font-size: 18px;
         line-height: 2;
+    }
+    .result.active{
+        opacity: 1;
     }
     form {
         margin: auto;
