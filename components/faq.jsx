@@ -15,6 +15,8 @@ const Faq = ({ title, data, cssClass }) => {
         }
         .faq {
           padding: 10px;
+          width:max-content;
+          max-width:100%;
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
           border-radius: 8px;
           cursor: pointer;
@@ -29,7 +31,7 @@ const Faq = ({ title, data, cssClass }) => {
         .faq .icon {
           float: right;
         }
-        .faq svg{min-width:max-content}
+        .faq svg{min-width:max-content;margin-top:7px;}
        
         .faq .ans {
           height: 0;
