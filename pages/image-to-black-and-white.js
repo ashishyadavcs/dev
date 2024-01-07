@@ -99,10 +99,10 @@ const Page = () => {
             />
             <div className="row">
                 <div className="col-md-6">
-                    <img alt="original" width="100%" src={image.original} />
+                    {image.original && <img alt="original" width="100%" src={image.original} />}
                 </div>
                 <div className="col-md-6">
-                    <img alt="converted" className="converted" width="100%" src={image.converted} />
+                    {image.converted && <img alt="converted" className="converted" width="100%" src={image.converted} />}
                 </div>
             </div>
             <canvas id="canvas"></canvas>
