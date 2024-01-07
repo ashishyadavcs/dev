@@ -1,3 +1,4 @@
+import {media} from "config/device";
 import styled from "styled-components";
 export const Styled = {
     footer: styled.footer`
@@ -50,6 +51,11 @@ export const Styled = {
         .sub-footer {
             background: #010921f2;
             color: #888;
+        }
+        ${media.sm}{
+            ~  .gototop{
+                display: none !important;;
+            }
         }
     `,
 };

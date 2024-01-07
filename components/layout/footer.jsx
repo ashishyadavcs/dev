@@ -41,6 +41,7 @@ const Footer = () => {
           .gototop.down{
             transform:rotate(180deg)
           }
+        
 
         `}
       </style>
