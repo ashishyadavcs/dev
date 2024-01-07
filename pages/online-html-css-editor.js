@@ -147,8 +147,8 @@ small {
     return (
         <>
             <NextSeo
-                title="Online html css editor ➜ #𝟙"
-                description="online HTML CSS editor is a convenient solution for
+                title="online html compiler  ➜ #𝟙"
+                description="online html compiler  is a convenient solution for
           coding websites, especially for beginners. With their user-friendly
           interfaces and real-time previews"
                 additionalMetaTags={[
@@ -181,10 +181,10 @@ small {
             />
             <FAQPageJsonLd mainEntity={faqs} />
             <ProductJsonLd
-                productName="free Online html editor"
+                productName="free online html compiler "
                 type="Product"
                 brand="frontendzone"
-                description="Edit your html and css online with frontendzone online html editor"
+                description="Edit your html and css online with frontendzone online html compiler "
                 aggregateRating={{
                     worstRating: "1",
                     bestRating: "5",
@@ -196,9 +196,9 @@ small {
             <div className={` my-3 ${styles.editor}`}>
                 <div className="text-center container">
                     <h1>
-                        <strong> Realtime Free Online Html Editor 👋</strong>
+                        <strong> Realtime Free online html compiler 👋</strong>
                     </h1>
-                    <p>Online HTML Editor : The Convenient Solution for HTML Coding</p>
+                    <p>online html compiler  : The Convenient Solution for HTML Coding</p>
                 </div>
                 <div className={styles.main} style={{ background: "#ddd" }}>
                     <div className={styles.left}>
@@ -246,7 +246,7 @@ small {
                             HTML editors make it easier and more convenient to code.
                         </p>
                         <p>
-                            An online HTML editor is a web-based tool that allows users to create
+                            An <strong>online html compiler</strong>  is a web-based tool that allows users to create
                             and edit HTML code from their web browser. These tools offer a variety
                             of device, whether it be a laptop, desktop, tablet, or smartphone. It
                             also eliminates the need for users to install software on their
@@ -264,7 +264,7 @@ small {
                         />
                     </div>
                 </div>
-                <h2>advantage of online html editor</h2>
+                <h2>advantage of online html compiler</h2>
                 <p>
                     Another advantage of online HTML editors is that they offer an intuitive and
                     user-friendly interface, making it easier for beginners to start coding. They
