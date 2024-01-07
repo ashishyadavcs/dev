@@ -48,7 +48,7 @@ const Page = () => {
                 document.querySelector('.converted')?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
                 downloadBtn.href = canvas.toDataURL(image.type);
                 toast.success("converted")
-     document.querySelector('.convertbtn').innerHTML='converted'
+              document.querySelector('.convertbtn').innerHTML='converted'
 
             };
         };
@@ -104,7 +104,7 @@ const Page = () => {
                     {image.original && <img alt="original" width="100%" src={image.original} />}
                 </div>
                 <div className="col-md-6">
-                    {image.converted && <img alt="converted" className="converted" width="100%" src={image.converted} />}
+                    <img className="converted" width="100%" src={image.converted} />
                 </div>
             </div>
             <canvas id="canvas"></canvas>
