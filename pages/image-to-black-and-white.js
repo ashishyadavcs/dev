@@ -13,7 +13,7 @@ const Page = () => {
         type:''
     });
     function convertToBlackAndWhite() {
-
+     document.querySelector('.convertbtn').innerHTML='converting...'
 
         const input = document.getElementById("imageInput");
         const canvas = document.getElementById("canvas");
@@ -45,9 +45,11 @@ const Page = () => {
 
                 ctx.putImageData(imageData, 0, 0);
                 setimage(p => ({ ...p, converted: canvas.toDataURL(image.type) }));
-                document.querySelector('.converted').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+                document.querySelector('.converted')?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
                 downloadBtn.href = canvas.toDataURL(image.type);
                 toast.success("converted")
+     document.querySelector('.convertbtn').innerHTML='converted'
+
             };
         };
 
@@ -109,7 +111,7 @@ const Page = () => {
             <Inpostad />
             <div className="d-flex action justify-content-center gap-10">
                 <button
-                    className={`theme-btn a ${image.original && "active"}`}
+                    className={`theme-btn convertbtn a ${image.original && "active"}`}
                     onClick={e => convertToBlackAndWhite()}
                 >
                     {image.converted ? "converted" : "convert"}
@@ -167,10 +169,21 @@ const PageStyle = styled.div`
 
         margin: 30px auto;
     }
+    @keyframes ging {
+        0%{transform:translateY(2px)}
+        100%{transform:translateY(-2px)}
+        
+    }
     .action .a {
         display: flex;
         align-items: center;
         gap: 7px;
+        
+    }
+    .action a.active{
+        svg{
+            animation: ging 1s linear infinite alternate;
+        }
     }
     .action .a:not(.active) {
         opacity: 0.5;
