@@ -7,6 +7,7 @@ import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import Chat from "../chat";
 import {useLayoutEffect} from "react";
+
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
@@ -27,6 +28,7 @@ useLayoutEffect(() => {
                     <Breadcrumb />
                    {!["/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
                     <Header />
+                   
                     <main> {children}</main>
                     <Footer />
                     <Orderpop Comp={Orderform} />

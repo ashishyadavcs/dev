@@ -10,6 +10,10 @@ import {getPostList} from "lib/posts";
 import {ProductJsonLd} from "next-seo";
 import {useEffect} from "react";
 import {animateList} from "utils/animation";
+import dynamic from "next/dynamic";
+const Entry = dynamic(() => import("@/components/entry"), {
+    ssr: false,
+});
 export default function Home({posts}) {
     const postss=[{
         title:"Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer",
@@ -50,6 +54,7 @@ export default function Home({posts}) {
                     ratingCount: "505435",
                 }}
             />
+             <Entry/>
             <Styled.Banner>
                 <div className="container">
                     <div className="row">
