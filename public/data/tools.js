@@ -23,5 +23,9 @@ const tools = [
         text: "iframe generator",
         href: "/html-responsive-iframe-generator",
     },
+    {
+        text: "Attendance calculator",
+        href: "/calculator/attendance",
+    },
 ];
 export default tools;
