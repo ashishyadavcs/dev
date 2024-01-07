@@ -41,9 +41,10 @@ const Orderform = ({ title }) => {
           type="file"
           onChange={e=>{
             e.currentTarget.nextElementSibling.setAttribute('src',URL.createObjectURL(e.target.files[0]))
+            e.target.nextElementSibling.setAttribute('height','auto')
           }}
         ></input>
-        <iframe frameBorder="none" src=""></iframe>
+        <iframe height={0} frameBorder="none" src=""></iframe>
         <input
           name="mobile"
           className="w-100"
@@ -52,16 +53,18 @@ const Orderform = ({ title }) => {
           placeholder="whatsapp number"
         ></input>
         <button className="my-1 theme-btn d-block w-100">submit</button>
-      </form>:
-      <h3>
-        Please contact on whatsapp{" "}
+      
+        <h3 className="mt-4">
+        Help :
         <button
-          className="linkbtn theme-btn my-4 ml-2"
+          className="linkbtn ml-2"
           onClick={(e) => window.open(openwhatsapp())}
         >
           click here
         </button>
-      </h3>}
+      </h3>
+      </form>:''
+      }
     </div>
   );
 };
