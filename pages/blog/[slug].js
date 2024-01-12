@@ -14,7 +14,6 @@ import Link from "next/link";
 import {BsArrowRight} from "react-icons/bs";
 
 const Blog = ({ post, posts }) => {
-    
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
     }, [post]);

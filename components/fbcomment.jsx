@@ -1,10 +1,12 @@
 import Script from "next/script";
 import { memo } from "react";
 import { useRouter } from "next/router";
-const Fbcomment = () => {
+import styled from "styled-components";
+const Fbcomment = ({title}) => {
   const router = useRouter();
   return (
-    <>
+    <StyledFB>
+    <h2 className="mt-4">{title}</h2>
       <div
         className="fb-like mt-2"
         data-href="https://developers.facebook.com/docs/plugins/"
@@ -26,8 +28,12 @@ const Fbcomment = () => {
         data-width="100%"
         data-numposts="15"
       ></div>
-    </>
+    </StyledFB>
   );
 };
 
 export default memo(Fbcomment);
+const StyledFB=styled.div`
+h2{line-height:1.5}
+:not(:has(iframe)) h2{display:none}
+`

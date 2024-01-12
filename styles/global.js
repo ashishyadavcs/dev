@@ -242,6 +242,10 @@ article h3 {
 
 .theme-btn {
   padding: 10px 20px;
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+ ${media.minsm}{ min-width: max-content;}
   outline: none;
   border: none;
   max-width: 200px;

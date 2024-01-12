@@ -1,11 +1,14 @@
+import Fbcomment from "@/components/fbcomment";
 import Banner from "@/components/web/banner";
+import Whatsapp from "@/components/whatsapp";
+import {media} from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
 import { animateList } from "utils/animation";
 
-const Page = () => {
+const Page = () => {    
     const [maths, setmaths] = useState([]);
     const mathgen = e => {
         e.preventDefault();
@@ -32,6 +35,9 @@ const Page = () => {
             title: `Competition and Motivation`,
             desc: `Many math games incorporate elements of competition, which can motivate students to improve their math skills. They may strive to earn higher scores, beat their previous records, or compete with their peers.`,
         },
+        {
+            title:`Boost flexible thinking and creativity.`
+        }
     ];
     return (
         <>
@@ -45,12 +51,12 @@ const Page = () => {
                     title="✅Jordan's Math Work, Games for Children class 1-8"
                     description="Discover a wide range of free PDF learning materials for children. Jordan's math work games Download textbooks, worksheets, and more. Enhance their education today! Get access now."
                 />
-                <div className="row">
+                <div className="row pt-4">
                     <div className="col-md-6">
                         <p>
-                            <b>Introduction :</b> &nbsp; Mathematics often proves both captivating
-                            and daunting for students worldwide. Through the lens of "Jordan's Math
-                            Work," we embark on a 3000-word journey, unraveling the experiences,
+                            <b>👋Introduction :</b> &nbsp; Mathematics often proves both captivating
+                            and daunting for students worldwide. Through the lens of <strong>"Jordan's Math
+                            Work,"</strong> we embark on a 3000-word journey, unraveling the experiences,
                             trials, and tribulations faced by students in the realm of mathematics.
                         </p>
                         <ul className="adw">
@@ -69,17 +75,10 @@ const Page = () => {
                         </p>
                     </div>
                     <div className="col-md-6">
-                        <Image
-                            className="img"
-                            layout="responsive"
-                            objectFit="contain"
-                            height={800}
-                            width={1000}
-                            alt="Jordan's Math Work"
-                            src="/images/jordans-math-work-1.png"
-                        />
+                        <iframe title="jordan's math work games pdf" width={'100%'} height={500} src="/images/jordans-math-work-games.pdf"></iframe>
                     </div>
                 </div>
+                
                 <div className="gen">
                     <div className="table">
                         <table>
@@ -134,6 +133,13 @@ const Page = () => {
                         )}
                     </div>
                 </div>
+
+                
+                <div className="gallery my-4">
+                {[...Array(25)].map((img,i)=><Image  src={`/images/jordan/${i+2}.png`} objectFit="contain" height={500} width={500} layout="responsive" alt="jordan math work games"/>)}
+                </div>
+                <a className="theme-btn download" href="/images/counting-jordan-math-work.pdf">download counting-jordan-math-work.pdf</a>
+                <iframe title="build skills for child" className="my-4" width={'100%'} height={500} src="/images/skills-building.pdf"></iframe>
                 <h2>Chapter 1: Jordan's Math Work</h2> - A Strong Foundation
                 <p>
                     We commence our exploration of Jordan's mathematical odyssey from elementary
@@ -233,6 +239,8 @@ const Page = () => {
                     learning, and effect positive transformations on both personal and global
                     scales.
                 </p>
+                <Whatsapp/>
+                <Fbcomment title={'ask your questions or give us feedback about this page to improve more 👇'}/>
             </Jordan>
         </>
     );
@@ -347,5 +355,19 @@ const Jordan = styled.div`
         border-collapse: collapse;
         margin: 30px auto;
         width: 100%;
+    }
+    .gallery{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4,1fr);
+        ${media.sm}{
+            grid-template-columns: auto;
+        }
+    }
+    .download{
+        ${media.sm}{
+            min-width: 90%;
+        }
+        text-align: center;
     }
 `;

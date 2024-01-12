@@ -12,13 +12,13 @@ const Page = () => {
         <div className="container  my-4">
            
             <NextSeo
-                title="# Best Instagram Bio formatter For Girls"
-                description="Generate best instagram bio for girls , top 100 best instagram bio for first impression"
+                title="# Best Instagram VIP Bio formatter For Girls"
+                description="Generate best instagram VIP bio for girls , top 100 best instagram bio for first impression"
             />
             <h1 className="text-center">
                 Craft the perfect<br></br> Instagram Bio For Girls
             </h1>
-            <strong className="my-2">Top 100 instagram bio for girls</strong>
+           
             <span className="notice d-block text-center">click to copy</span>
             <Biolist className="biolist">
                 <li>"Sassy but classy 💁‍♀️"</li>
