@@ -239,7 +239,8 @@ const Page = () => {
                     learning, and effect positive transformations on both personal and global
                     scales.
                 </p>
-                <Whatsapp/>
+                <Whatsapp title={`Hi 👋 ,
+can I get more math works sheets`}/>
                 <Fbcomment title={'ask your questions or give us feedback about this page to improve more 👇'}/>
             </Jordan>
         </>

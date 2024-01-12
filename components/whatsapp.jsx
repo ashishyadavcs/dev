@@ -3,7 +3,7 @@ import { openwhatsapp } from "utils/common";
 import { BsWhatsapp } from "react-icons/bs";
 import { message } from "utils/message";
 import { styled } from "styled-components";
-const Whatsapp = () => {
+const Whatsapp = ({title}) => {
   const share = async () => {
     try {
       await navigator.share({
@@ -26,7 +26,7 @@ const Whatsapp = () => {
         onClick={(e) => {
           e.currentTarget.previousElementSibling.setAttribute(
             "href",
-            openwhatsapp(message.sale)
+            openwhatsapp(title||message.sale)
           );
           e.currentTarget.previousElementSibling.click();
         }}
