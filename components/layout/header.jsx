@@ -13,7 +13,8 @@ const Header = () => {
   return (
     <>
       <Styled.header
-        
+         ref={(el) => (refs.current.header = el)}
+         className="d-flex align-items-center"
         
       >
         <div className="d-flex container justify-content-between align-items-center">
