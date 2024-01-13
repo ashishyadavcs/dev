@@ -63,6 +63,9 @@ const Blog = ({ post, posts }) => {
                                         content: post?.title,
                                     },
                                 ]}
+                                robotsProps={{
+                                    maxImagePreview: 'standard',
+                                }}
                             />
                             <ProductJsonLd
                 productName={post?.title}

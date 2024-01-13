@@ -212,6 +212,26 @@ const Seo = () => {
           "https://www.linkedin.com/company/frontendzone",
         ]}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:`
+        {
+          "@context" : "https://schema.org",
+          "@type" : "WebSite",
+          "name" : "Frontendzone",
+          "alternateName" : "FZone",
+          "url" : "https://frontendzone.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://frontendzone.com/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+
+      `}}>
+
+      </script>
     </>
   );
 };
