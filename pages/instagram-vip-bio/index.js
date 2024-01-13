@@ -161,6 +161,9 @@ const Vipbio = styled.div`
         }
     }
     .generator{
+        ${media.xs}{
+            min-height: 650px;
+        }
         position: relative;
         width: 100%;
         margin: auto;
