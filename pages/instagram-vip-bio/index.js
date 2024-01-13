@@ -191,7 +191,8 @@ const Vipbio = styled.div`
                 min-height: 500px;
             }
             width:70%;
-            ${media.sm}{width:100%}
+            ${media.sm}{width:100%;
+            min-height:250px}
             resize: none;
             outline: none;
             padding: 20px;
