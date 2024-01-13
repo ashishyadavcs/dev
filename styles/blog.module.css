@@ -33,7 +33,7 @@
 .sticky {
   position: sticky;
   z-index: 2;
-  top: 85px;
+  top: 20px;
 }
 
 .post {
@@ -168,8 +168,12 @@
 .blog h5 {
   scroll-margin-top: 80px;
 }
+.blog h1{font-size: 50px!important;margin-bottom: 30px;}
 .blog h2 {
   margin-top: 2rem;
+  border-bottom: 4px solid teal;
+  margin-bottom: 10px;
+  width: max-content;
 }
 .blog pre{
   max-width: 100%;

@@ -114,16 +114,11 @@ const Blog = ({ post, posts }) => {
                     )}
 
                     <article>
-                        <div className={styles.postbanner}>
-                            {/* <Image alt={post?.title} priority layout="fill" objectFit="cover" src={post?.featuredImage?.node.mediaDetails.sizes[5]
-                                            .sourceUrl}/> */}
-                            <h1 className="container">{post?.title}</h1>
-                            <datetime>{moment(post.date).format("LLLL")}</datetime>
-                        </div>
+                       
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8 my-4">
-                                    {/* <h1>{post?.title}</h1> */}
+                                    <h1>{post?.title}</h1>
                                     <div
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}

@@ -54,14 +54,19 @@ export const openwhatsapp = (msg=message.sale) => {
 export const countryslug = (post) => {
   return `/countrycode/${post.dial_code}-country-code-${post.name}`;
 };
-export const clickToCopy=(e)=>{
+export const clickToCopy=(e,value)=>{
+  const el=e.currentTarget
   const input = document.createElement("textarea");
-  input.value = window.location.href;
   document.body.appendChild(input);
-  input.value=e.currentTarget.innerText
+  input.value=value
   input.select();
   document.execCommand("copy");
   document.body.removeChild(input)
+  el.innerText='copied'
+  setTimeout(() => {
+  el.innerText='copy'
+    
+  }, 2000);
 }
 
 
