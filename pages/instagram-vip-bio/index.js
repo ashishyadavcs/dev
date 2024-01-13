@@ -48,7 +48,7 @@ const Page = () => {
             <div className="generator">
                 <span className="label">your insta bio</span>
                 <textarea placeholder="Write your instagram bio..." className="bio-input" value={bio} onChange={e=>setbio(e.target.value)}></textarea>
-                <EmojiPicker emojiStyle="facebook" onEmojiClick={e=>setEmoji(e)} className="picker" />
+                <EmojiPicker lazyLoadEmojis emojiStyle="facebook" onEmojiClick={e=>setEmoji(e)} className="picker" />
 
             </div>
             <p className="sub-heading">
