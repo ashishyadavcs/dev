@@ -15,7 +15,14 @@ const EmojiPicker = dynamic(
   { ssr: false }
 );
 const Page = () => {
-    const [bio, setbio] = useState("")
+    const [bio, setbio] = useState(`🌟 VIP Lifestyle Influencer 🌟
+✨ Curator of Exclusivity | Luxury Enthusiast ✨
+📍 [Your Location]
+🔗 Founder, [Your Company/Brand]
+📸 Creating Moments, Making Memories
+🚀 Elevate Your Lifestyle with My Journey
+💌 DM for Exclusive Collaborations
+    `)
     useEffect(() => {
       document.querySelector('.bio-input').focus()
     }, [bio])
