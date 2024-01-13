@@ -140,7 +140,7 @@ const Vipbio = styled.div`
         }
     }
     .bio {
-        height: 300px;
+        min-height: 300px;
         width: minmax(330px, calc(100% / var(--column)));
         max-width: minmax(330px, calc(100% / var(--column)));
         overflow: hidden;
