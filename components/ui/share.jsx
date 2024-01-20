@@ -69,7 +69,7 @@ const Share = () => {
     }
   };
   return (
-    <div className={`${styles.share} share`}>
+    <div title="share" className={`${styles.share} share`}>
       <ul>
         <li onClick={e=>{
           e.currentTarget.parentElement.classList.toggle(`${styles.open}`)
