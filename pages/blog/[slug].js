@@ -173,9 +173,9 @@ export async function getStaticPaths() {
     };
 }
 export async function getStaticProps(req) {
+    console.log(req)
     const post = await getSinglePost(req.params.slug);
     const data = await getPostList(post);
-    console.log(data)
     const { nodes: posts }=data
     if (post == undefined)
         return {

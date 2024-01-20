@@ -82,7 +82,6 @@
 @media (min-width:768px) {
   .share li:first-child svg{transition: all 0.3s;
     transform: rotate(270deg) ;
-  
   }
 
   .share:has(.open) li:first-child svg{

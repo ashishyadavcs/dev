@@ -11,6 +11,7 @@ import {ProductJsonLd} from "next-seo";
 import {useEffect} from "react";
 import {animateList} from "utils/animation";
 import dynamic from "next/dynamic";
+import Ashish from "@/components/ashish";
 
 export default function Home({posts}) {
     const postss=[{
@@ -51,6 +52,7 @@ export default function Home({posts}) {
                     ratingValue: "4.5",
                     ratingCount: "505435",
                 }}
+            
             />
              
             <Styled.Banner>
@@ -200,6 +202,17 @@ export default function Home({posts}) {
                 </div>
             </Styled.Landing>
             <Whatsapp />
+            <FAQPageJsonLd
+      mainEntity={[
+        {
+          questionName: 'who is founder of frontendzone',
+          acceptedAnswerText: 'Ashish Yadav is the founder of frontendzone working as software engineer.',
+        },
+        {
+          questionName: 'CEO of frontendzone',
+          acceptedAnswerText: `Ashish Kumar ${<Ashish/>}`,
+        },
+      ]}></FAQPageJsonLd>
         </>
     );
 }
