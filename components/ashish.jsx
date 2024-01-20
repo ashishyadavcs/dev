@@ -10,6 +10,7 @@ const Ashish = ({ style }) => {
         "CSS3",
         "javascript",
         "react js",
+        'Redux.js',
         "wordpress",
         "Next js",
         "SEO",
@@ -48,7 +49,7 @@ const Ashish = ({ style }) => {
             </div>
             <p>
                 Ashish Yadav is a passionate <strong>Software Engineer</strong> and technology enthusiast having{" "}
-                <b>{new Date().getFullYear() - 2020} years</b> of experience in web development with a deep
+                <b>{new Date().getFullYear() - 2021} years</b> of experience in web development with a deep
                 interest in the ever-evolving world of technology.<br></br><br></br> With a background in computer
                 science and extensive experience in <strong>software development</strong>, Ashish brings a unique
                 perspective to his writing in the tech blogosphere & love to learn and work on
@@ -65,6 +66,7 @@ const Ashish = ({ style }) => {
 
 export default Ashish;
 const Profile = styled.div`
+max-width: 100%;
 position: relative;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     padding: 1rem;

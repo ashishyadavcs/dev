@@ -410,7 +410,7 @@ const Page = ({ posts }) => {
                     <Inpostad />
                 </div>
             </div>
-            <Ashish maxwidth={'500px'}/>
+            <Ashish style={{'width':'500px'}}/>
             <Relatedposts posts={posts} />
             <Link href="/blog">
                         <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
@@ -421,6 +421,7 @@ const Page = ({ posts }) => {
 
 export default Page;
 const Article = styled.div`
+
     h1 {
         ${media.minsm} {
             margin: 20px auto;
@@ -465,6 +466,7 @@ const Article = styled.div`
         margin: 20px auto !important;
         display: block !important;
         height: auto;
+        object-fit: contain;
     }
     ${media.minsm} {
         br {
