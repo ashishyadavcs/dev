@@ -7,7 +7,7 @@ import Seo from "@/components/organization";
 import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
 import {getPostList} from "lib/posts";
-import {ProductJsonLd} from "next-seo";
+import {FAQPageJsonLd, ProductJsonLd} from "next-seo";
 import {useEffect} from "react";
 import {animateList} from "utils/animation";
 import dynamic from "next/dynamic";
