@@ -18,7 +18,7 @@ const Page = () => {
             width: "1",
             type: "solid",
             color: "red",
-            radius: "20",
+            radius: "10",
         },
         boxShadow: {
             x: "0",
@@ -40,9 +40,9 @@ const Page = () => {
             gradient: { bg1: "red", bg2: "blue", angle: "120" },
         },
         textShadow: {
-            x: "1",
-            y: "-1",
-            blur: "1",
+            x: "0",
+            y: "0",
+            blur: "0",
             color: "",
         },
     });
@@ -128,7 +128,7 @@ transition:all 0.3s;
 
             <div className={`${styles.tool} buttongenerator`}>
                 <div className={styles.left}>
-                    <h1 className="text-center">css button generator</h1>
+                    <h1 className="text-center">CSS 3D Button Generator</h1>
                     <div className={styles.inputs}>
                         <div className="tab">
                             <label className={styles.link}>

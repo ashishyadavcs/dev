@@ -7,6 +7,7 @@ import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import Chat from "../chat";
 import {useLayoutEffect} from "react";
+import Entry from "../entry";
 
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
@@ -25,6 +26,7 @@ useLayoutEffect(() => {
         <>
             {(type == "default"|| !['/vrc'].includes(router.pathname)) ? (
                 <div className="layout">
+                    <Entry/>
                     <Breadcrumb />
                    {!["/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
                     <Header />

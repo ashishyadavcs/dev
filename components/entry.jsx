@@ -1,22 +1,29 @@
 import Link from 'next/link'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 
 const Entry = () => {
-    if(typeof window!='undefined'){
-        if(localStorage.getItem('entry')) return
+const [seen, setseen] = useState(0)
+  useEffect(() => {
+    if(localStorage.getItem('seen')===0){
+        setseen(1)
+        localStorage.setItem('seen',1)
+    }else{
+        localStorage.setItem('seen',0)
+        setseen(0)
+        
     }
-    const setClicked=()=>{
-        localStorage.setItem('entry',1)
-    }
-  return (
-    <Styledentry>
+  }, [seen])
+  
+  return <>
+  {seen ? <Styledentry>
         <div className='action'>
         <Link onClick={e=>setClicked()} href="/ashish-yadav">I'm Recruiter</Link>
-        <Link onClick={e=>setClicked()}>I'm User</Link>
+        <Link href={'/'} onClick={e=>setClicked()}>I'm User</Link>
         </div>
-    </Styledentry>
-  )
+    </Styledentry>:''}
+  </>
+  
 }
 
 export default Entry
