@@ -24,7 +24,7 @@ export const nav = [
         url: "/blog",
         text: "blog",
     },
-    {url:"https://g.page/r/Cer-BQVe18EZEAI/review",text:"reviews"}
+    {url:"https://g.page/r/Cer-BQVe18EZEAI/review",text:"rate us"}
 ];
 
 export const userlinks = [

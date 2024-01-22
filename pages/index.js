@@ -83,7 +83,7 @@ export default function Home({posts}) {
                                     e.currentTarget.href = openwhatsapp();
                                 }}
                             >
-                                Contact Now
+                            Get your website now
                             </Styled.Cta>
                         </div>
                         <div className="col-md-5 col-12 d-flex justify-content-end">

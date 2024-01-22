@@ -135,6 +135,14 @@ const Footer = () => {
             <div className="col-md-4">
               <h3 className="smallheading">Useful Links</h3>
               <ul className="list-unstyled">
+              <li className="d-flex align-items-center">
+                  <Link href={"/frontend-developer"} prefetch={false}>
+                    <a className="ml-1">
+                      <FaChevronRight className="mr-1" size={15} />
+                       Frontend developer roadmap
+                    </a>
+                  </Link>
+                </li>
                 <li className="d-flex align-items-center">
                   <Link href={"/"}>
                     <a className="ml-1">
@@ -178,6 +186,7 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
+                
                 <li className="d-flex align-items-center">
                   <Link href={"/ashish-yadav"} prefetch={false}>
                     <a className="ml-1">

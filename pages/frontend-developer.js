@@ -11,6 +11,7 @@ import Link from "next/link";
 import Relatedposts from "@/components/relatedposts";
 import { getPostList } from "lib/posts";
 import Ashish from "@/components/ashish";
+import Fbcomment from "@/components/fbcomment";
 const Page = ({ posts }) => {
     return (
         <Article className="article container my-4">
@@ -405,16 +406,20 @@ const Page = ({ posts }) => {
                             },
                         ]}
                     />
+                    <Ashish style={{'max-width':'400px;margin:auto;'}}/>
                 </div>
                 <div className="col-md-2 sticky">
                     <Inpostad />
                 </div>
+
             </div>
-            <Ashish style={{'width':'500px'}}/>
+            <Fbcomment/>
+            
+
             <Relatedposts posts={posts} />
             <Link href="/blog">
                         <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
-                    </Link>
+            </Link>
         </Article>
     );
 };

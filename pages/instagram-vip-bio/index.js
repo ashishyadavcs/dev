@@ -4,15 +4,15 @@ import { shadow } from "config/shadow";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { clickToCopy } from "utils/common";
-import dynamic from 'next/dynamic';
-import {useEffect, useState} from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const EmojiPicker = dynamic(
-  () => {
-    return import('emoji-picker-react');
-  },
-  { ssr: false }
+    () => {
+        return import("emoji-picker-react");
+    },
+    { ssr: false }
 );
 const Page = () => {
     const [bio, setbio] = useState(`🌟 VIP Lifestyle Influencer 🌟
@@ -22,19 +22,19 @@ const Page = () => {
 📸 Creating Moments, Making Memories
 🚀 Elevate Your Lifestyle with My Journey
 💌 DM for Exclusive Collaborations
-    `)
+    `);
     useEffect(() => {
-      document.querySelector('.bio-input').focus()
-    }, [bio])
-    
-    const setEmoji=(e)=>{
-        setbio(v=>v+e.emoji)
-    }
+        document.querySelector(".bio-input").focus();
+    }, [bio]);
+
+    const setEmoji = e => {
+        setbio(v => v + e.emoji);
+    };
 
     return (
         <Vipbio className="container py-4">
             <NextSeo
-                title="103+ Instagram VIP Bio for Your Profile"
+                title="Best 540+ Instagram Bio For Boys (2024) | Attitude & Stylish Bio"
                 description=" A VIP bio on Instagram is a personal or professional description in the bio section
                 of an Instagram profile that conveys a sense of exclusivity, importance, or
                 uniqueness."
@@ -42,14 +42,22 @@ const Page = () => {
             <h1 className="text-center d-flex align-items-center">
                 <img src="/images/insta.svg" />
                 Instagram VIP Bio generator
-               
             </h1>
-            
+
             <div className="generator">
                 <span className="label">your insta bio</span>
-                <textarea placeholder="Write your instagram bio..." className="bio-input" value={bio} onChange={e=>setbio(e.target.value)}></textarea>
-                <EmojiPicker lazyLoadEmojis emojiStyle="facebook" onEmojiClick={e=>setEmoji(e)} className="picker" />
-
+                <textarea
+                    placeholder="Write your instagram bio..."
+                    className="bio-input"
+                    value={bio}
+                    onChange={e => setbio(e.target.value)}
+                ></textarea>
+                <EmojiPicker
+                    lazyLoadEmojis
+                    emojiStyle="facebook"
+                    onEmojiClick={e => setEmoji(e)}
+                    className="picker"
+                />
             </div>
             <p className="sub-heading">
                 If you are looking for an Instagram vip bio to edit your bio. Then friends you are
@@ -75,7 +83,14 @@ const Page = () => {
                     </div>
                 ))}
             </div>
-            <Image  layout="responsive" objectFit="contain" height={500} width={300} alt="instagram vip bio generator"  src="/images/instagram-vip-bio.jpg"/>
+            <Image
+                layout="responsive"
+                objectFit="contain"
+                height={500}
+                width={300}
+                alt="instagram vip bio generator"
+                src="/images/instagram-vip-bio.jpg"
+            />
         </Vipbio>
     );
 };
@@ -89,7 +104,9 @@ const Vipbio = styled.div`
         width: max-content;
         max-width: 100%;
         margin: 0 auto 40px;
-        img{width:30px}
+        img {
+            width: 30px;
+        }
     }
     --column: 3;
     .gradient-box {
@@ -160,8 +177,8 @@ const Vipbio = styled.div`
             color: #fff;
         }
     }
-    .generator{
-        ${media.xs}{
+    .generator {
+        ${media.xs} {
             min-height: 650px;
         }
         position: relative;
@@ -169,45 +186,47 @@ const Vipbio = styled.div`
         margin: auto;
         box-shadow: ${shadow.card};
         display: flex;
-        ${media.sm}{
+        ${media.sm} {
             flex-direction: column;
         }
         margin: 50px 0;
-        .img{
+        .img {
             position: absolute;
             top: 10px;
             left: 10px;
         }
-        .label{
+        .label {
             position: absolute;
             bottom: 100%;
             left: 0;
             color: #fff;
-            background: linear-gradient(to left,#fa5313,#fd00ff);
-            padding:5px;
+            background: linear-gradient(to left, #fa5313, #fd00ff);
+            padding: 5px;
             font-size: 10px;
             border-radius: 10px 10px 0 0;
-
         }
-        textarea{
-            ${media.minsm}{
+        textarea {
+            ${media.minsm} {
                 min-height: 500px;
             }
-            width:70%;
-            ${media.sm}{width:100%;
-            min-height:250px}
+            width: 70%;
+            ${media.sm} {
+                width: 100%;
+                min-height: 250px;
+            }
             resize: none;
             outline: none;
             padding: 20px;
             border: 2px solid #ddd;
             font-size: 18px;
-            &::placeholder{font-style:italic}
+            &::placeholder {
+                font-style: italic;
+            }
         }
-        aside{
+        aside {
             border-radius: 0;
             max-width: 100%;
             z-index: 1;
         }
-        
     }
 `;
