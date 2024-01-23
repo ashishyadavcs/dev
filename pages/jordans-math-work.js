@@ -42,13 +42,13 @@ const Page = () => {
     return (
         <>
             <Banner
-                image
+            
                 title="jordan’s Math Work<br>Free Games and Worksheets"
                 description={``}
             />
             <Jordan className="container my-4">
                 <NextSeo
-                    title="✅Jordan's Math Work, Games for Children class 1-8"
+                    title="Jordan's Math Work, Games for Children 🔥"
                     description="Discover a wide range of free PDF learning materials for children. Jordan's math work games Download textbooks, worksheets, and more. Enhance their education today! Get access now."
                 />
                 <div className="row pt-4">

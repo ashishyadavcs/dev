@@ -16,6 +16,8 @@ import {BsArrowRight} from "react-icons/bs";
 const Blog = ({ post, posts }) => {
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
+   
+ 
     }, [post]);
 
     return (
@@ -26,7 +28,7 @@ const Blog = ({ post, posts }) => {
                         <>
                             <NextSeo
                                 title={post?.title}
-                                titleTemplate='%s ✅'
+                                titleTemplate='%s 🔥'
                                 description={`${post?.excerpt
                                     .replace(/<[^>]+>/g, "")
                                     .slice(0, 125)}`.toString()}

@@ -15,7 +15,7 @@ const Servicespage = () => {
   return (
     <>
       <NextSeo
-        title="web development services | Frontendzone"
+        title="web development services | Frontendzone 🔥"
         description="Get your business website designed & developed by experienced developer in $500 "
       />
       <Styled.hero>
