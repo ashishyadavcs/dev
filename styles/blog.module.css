@@ -179,7 +179,6 @@
 .blog h1{font-size: clamp(20px,4vw,60px)!important;margin-bottom: 30px;}
 .blog h2 {
   margin-top: 2rem;
-  width: max-content;
 }
 .blog pre{
   max-width: 100%;
