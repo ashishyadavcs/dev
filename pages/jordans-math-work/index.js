@@ -1,14 +1,18 @@
+import Inpostad from "@/components/ads/inpostad";
+import Stickyad from "@/components/ads/stickyad";
 import Fbcomment from "@/components/fbcomment";
 import Banner from "@/components/web/banner";
 import Whatsapp from "@/components/whatsapp";
-import {media} from "config/device";
+import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 import styled from "styled-components";
 import { animateList } from "utils/animation";
 
-const Page = () => {    
+const Page = () => {
     const [maths, setmaths] = useState([]);
     const mathgen = e => {
         e.preventDefault();
@@ -36,13 +40,63 @@ const Page = () => {
             desc: `Many math games incorporate elements of competition, which can motivate students to improve their math skills. They may strive to earn higher scores, beat their previous records, or compete with their peers.`,
         },
         {
-            title:`Boost flexible thinking and creativity.`
+            title: `Boost flexible thinking and creativity.`,
+        },
+    ];
+
+    let slide;
+    useEffect(() => {
+        slide = document.querySelector(".slides");
+    }, []);
+    const swipe = left => {
+        if (slide === undefined) return;
+        if (left == "left") {
+            slide.scrollLeft = -300;
+        } else {
+            slide.scrollLeft = +300;
         }
+    };
+
+    const mathworks = [
+        {
+            length: 6,
+            grade: 1,
+            folder: "/grade-1",
+        },
+        {
+            length: 5,
+            grade: 2,
+            folder: "/grade-2",
+        },
+        {
+            length: 5,
+            grade: 3,
+            folder: "/grade-3",
+        },
+        {
+            length: 5,
+            grade: 4,
+            folder: "/grade-4",
+        },
+        {
+            length: 3,
+            grade: 5,
+            folder: "/grade-5",
+        },
+        {
+            length: 26,
+            grade: 'common',
+            folder:'/common',
+        },
     ];
     return (
         <>
             <Banner
-            
+                image={{
+                    src: "/images/jordan/jordan-hero.png",
+                    objectFit: "cover",
+                }}
+                height="50vh"
                 title="jordan’s Math Work<br>Free Games and Worksheets"
                 description={``}
             />
@@ -51,13 +105,29 @@ const Page = () => {
                     title="Jordan's Math Work, Games for Children 🔥"
                     description="Discover a wide range of free PDF learning materials for children. Jordan's math work games Download textbooks, worksheets, and more. Enhance their education today! Get access now."
                 />
+                <div className="grades">
+                    {[...Array(mathworks.length-1)].map((g, i) => (
+                        <Link passHref href={`#grade-${i + 1}`}>
+                            <a className="grade">
+                                <Image
+                                    alt="jordan's math work games online"
+                                    layout="fill"
+                                    src="/images/jordan/jordan-math-work-grade.webp"
+                                />
+                                <span className="number">{Number(i) + 1}</span>
+                            </a>
+                        </Link>
+                    ))}
+                </div>
+                
                 <div className="row pt-4">
-                    <div className="col-md-6">
+                    <h2 className="text-center">Why Jordan Math work</h2>
+                    <div className="col-md-8 mx-auto">
                         <p>
-                            <b>👋Introduction :</b> &nbsp; Mathematics often proves both captivating
-                            and daunting for students worldwide. Through the lens of <strong>"Jordan's Math
-                            Work,"</strong> we embark on a 3000-word journey, unraveling the experiences,
-                            trials, and tribulations faced by students in the realm of mathematics.
+                            Mathematics often proves both captivating and daunting for students
+                            worldwide. Through the lens of <strong>"Jordan's Math Work,"</strong> we
+                            embark on a 3000-word journey, unraveling the experiences, trials, and
+                            tribulations faced by students in the realm of mathematics.
                         </p>
                         <ul className="adw">
                             {adw.map((li, i) => (
@@ -74,11 +144,8 @@ const Page = () => {
                             enthusiasm for math.
                         </p>
                     </div>
-                    <div className="col-md-6">
-                        <iframe title="jordan's math work games pdf" width={'100%'} height={500} src="/images/jordans-math-work-games.pdf"></iframe>
-                    </div>
                 </div>
-                
+                <Inpostad />
                 <div className="gen">
                     <div className="table">
                         <table>
@@ -113,15 +180,6 @@ const Page = () => {
                     <div className="d-flex">
                         <button onClick={mathgen} className="theme-btn mx-auto my-4">
                             create worksheet {maths.length > 0 && "+"}
-                            {/* <form onSubmit={mathgen}>
-                            <select>
-                                <option selected>+</option>
-                                <option>-</option>
-                                <option>x</option>
-                                <option>/</option>
-                            </select>
-                            <input placeholder="number of problem" type="number"/>
-                        </form> */}
                         </button>
                         {maths.length > 0 && (
                             <button
@@ -133,13 +191,49 @@ const Page = () => {
                         )}
                     </div>
                 </div>
-
+                {[...mathworks].map(work=><div className="gallery my-4">
+                    <h2 id={`grade-${work.grade}`} className="text-center"> grade {work.grade}.</h2>
+                    <button onClick={e => swipe("left")} className="left">
+                        <FaArrowLeft size={18} />
+                    </button>
+                    <div className="slides">
+                        {[...Array(work.length)].map((img, i) => (
+                            <>
+                                <div className="wrap">
+                                    <img
+                                        className="img"
+                                        src={`/images/jordan/${work.folder}/${i + 1}.png`}
+                                        objectFit="contain"
+                                        width={400}
+                                        layout="fixed"
+                                        alt={`jordan math work games for grade ${work.grade}`}
+                                    />
+                                    <a
+                                        className="theme-btn"
+                                        href={`/images/jordan${work.folder}/${i + 1}.png`}
+                                        download="jordan-math-work"
+                                    >
+                                        download
+                                    </a>
+                                </div>
+                            </>
+                        ))}
+                    </div>
+                    <button onClick={e => swipe()} className="right">
+                        <FaArrowLeft size={18} />
+                    </button>
+                </div>)}
                 
-                <div className="gallery my-4">
-                {[...Array(25)].map((img,i)=><Image  src={`/images/jordan/${i+2}.png`} objectFit="contain" height={500} width={500} layout="responsive" alt="jordan math work games"/>)}
-                </div>
-                <a className="theme-btn download" href="/images/counting-jordan-math-work.pdf">download counting-jordan-math-work.pdf</a>
-                <iframe title="build skills for child" className="my-4" width={'100%'} height={500} src="/images/skills-building.pdf"></iframe>
+                <a className="theme-btn download" href="/images/counting-jordan-math-work.pdf">
+                    download counting-jordan-math-work.pdf
+                </a>
+                {/* <iframe
+                    title="build skills for child"
+                    className="my-4"
+                    width={"100%"}
+                    height={500}
+                    src="/images/skills-building.pdf"
+                ></iframe> */}
                 <h2>Chapter 1: Jordan's Math Work</h2> - A Strong Foundation
                 <p>
                     We commence our exploration of Jordan's mathematical odyssey from elementary
@@ -239,9 +333,16 @@ const Page = () => {
                     learning, and effect positive transformations on both personal and global
                     scales.
                 </p>
-                <Whatsapp title={`Hi 👋 ,
-can I get more math works sheets`}/>
-                <Fbcomment title={'ask your questions or give us feedback about this page to improve more 👇'}/>
+                <Whatsapp
+                    title={`Hi 👋 ,
+can I get more math works sheets`}
+                />
+                <Fbcomment
+                    title={
+                        "ask your questions or give us feedback about this page to improve more 👇"
+                    }
+                />
+                <Stickyad />
             </Jordan>
         </>
     );
@@ -249,17 +350,17 @@ can I get more math works sheets`}/>
 
 export default Page;
 const Jordan = styled.div`
+scroll-behavior: smooth;
     @keyframes cvprogress {
         99% {
             width: 100%;
         }
-        
     }
     .adw {
         list-style: none;
         margin: 20px 0;
         li {
-            background:#e5fbf5;
+            background: #e5fbf5;
             position: relative;
             padding: 15px;
             max-height: 100px;
@@ -296,11 +397,11 @@ const Jordan = styled.div`
                 &:before {
                     content: attr(index);
                     display: inline-block;
-                    
-                    --size:30px;
-                    height:var(--size);
-                    width:var(--size);
-                    background:teal;
+
+                    --size: 30px;
+                    height: var(--size);
+                    width: var(--size);
+                    background: teal;
                     color: #fff;
                     display: flex;
                     justify-content: center;
@@ -357,18 +458,118 @@ const Jordan = styled.div`
         margin: 30px auto;
         width: 100%;
     }
-    .gallery{
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(4,1fr);
-        ${media.sm}{
-            grid-template-columns: auto;
+    .gallery {
+        position: relative;
+        .slides {
+            scroll-behavior: smooth;
+            display: flex;
+
+            gap: 50px;
+            flex-wrap: nowrap;
+            overflow: auto;
+        }
+        .wrap {
+            position: relative;
+            a {
+                ${media.minsm} {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                transition: all 0.3s;
+                position: absolute;
+                left: 50%;
+                top: 70%;
+                transform: translateX(-50%);
+            }
+            &:hover {
+                a {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+        }
+        .img {
+            height: auto;
+            ${media.sm} {
+                width: 300px;
+            }
+        }
+        button {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50px;
+            min-width: 50px;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.left {
+                left: 20px;
+                ${media.sm} {
+                    left: -20px;
+                }
+            }
+            &.right {
+                right: 20px;
+                ${media.sm} {
+                    right: -20px;
+                }
+            }
+            &.right svg {
+                transform: rotate(180deg);
+            }
         }
     }
-    .download{
-        ${media.sm}{
+    .download {
+        ${media.sm} {
             min-width: 90%;
         }
         text-align: center;
+    }
+    .grades {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 50px;
+        ${media.sm}{
+            gap: 20px;
+        }
+        .grade {
+            &::before {
+                content: "";
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                z-index: 1;
+                background: rgba(0, 0, 0, 0.4);
+            }
+            overflow: hidden;
+            display: inline-flex;
+            position: relative;
+            height: 150px;
+            min-width: 150px;
+            ${media.sm} {
+                height: 80px;
+                min-width: 80px;
+            }
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .number {
+                z-index: 2;
+                font-size: 60px;
+                font-weight: bold;
+                color: #fff;
+                z-index: 2;
+                text-shadow: 0 -1px 1px #000;
+                filter: drop-shadow(0 1px 2px #000);
+            }
+        }
     }
 `;

@@ -1,17 +1,12 @@
 .share {
   position: fixed;
-  top: 20%;
+  top: 50%;
   left: 0px;
-  max-width: 100%;
+  transform: translateY(-50%);
+  background: #fff;
   z-index: 4;
   padding: 1rem 0.5rem;
   border-radius: 0 20px 20px 0;
-
-
-}
-
-.share:has(.open) {
-  background: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -21,26 +16,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 41px;
-  background: #fff;
-  transition: all 0.3s;
 }
-
 .share ul li:first-child {
   transform: rotate(-90deg);
   font-weight: 600;
-  display: flex;
-  gap: 10px;
-  z-index: 10;
+  margin: 1rem 0;
 }
-
 .share li {
   margin: 0.4rem 0;
   cursor: pointer;
   transition: all 0.3s;
   position: relative;
 }
-
 .share li.copied::before {
   position: absolute;
   top: 100%;
@@ -56,52 +43,19 @@
   color: aquamarine;
   pointer-events: none;
 }
-
 @keyframes zoomout {
   0% {
     opacity: 1;
     left: 0;
   }
-
   100% {
     left: 200%;
   }
 }
-
 .share li:hover {
   transform: scale(1.3);
 }
-
-.share li:not(:first-child) {
-  display: none;
-}
-
-.share:has(.open) li {
-  display: block;
-}
-@media (min-width:768px) {
-  .share li:first-child svg{transition: all 0.3s;
-    transform: rotate(270deg) ;
-  }
-
-  .share:has(.open) li:first-child svg{
-    transform: rotate(180deg);
-  }
-}
-
 @media (max-width: 767px) {
-  .share ul {
-    width: unset;
-    height: var(--height);
-  }
-
-  .share ul:not(.open) {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  }
 
   .share li.copied::before {
     bottom: 0;
@@ -109,43 +63,30 @@
     left: unset;
     right: 0;
   }
-
   @keyframes zoomout {
     0% {
       opacity: 1;
       right: 0;
     }
-
     100% {
       bottom: 200%;
     }
   }
-
   .share {
-    right: 5px;
-    left: unset;
-    bottom: 25px;
+    left: 0;
+    bottom: 0;
     top: unset;
     transform: unset;
-    width: max-content;
+    width: 100%;
     border-radius: unset;
     padding: 0.5rem;
-    transition: all 0.3s;
   }
-
-  .share:has(ul.open) {
-    width: 100%;
-    right: 0;
-    bottom: 0;
-  }
-
   .share ul {
     margin: 0;
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
   }
-
   .share ul li:first-child {
     transform: unset;
   }

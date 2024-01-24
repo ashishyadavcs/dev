@@ -654,13 +654,9 @@ input[type="range"]::-moz-range-thumb {
 
 
 ${media.sm}{
-:root{
-  --height:41px;
+  body.share footer{
+  margin-bottom: 70px;
 }
-
-body.share:has(ul.open)  footer{
-    margin-bottom: calc(var(--height) + 20px)
-  }
   .user {
     padding: 10px;
     color: #fff;

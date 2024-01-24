@@ -29,8 +29,17 @@ const nextConfig = {
       {
         source: "/tools/online-json-formatter",
         destination: "/online-json-formatter",
-      },
+      }
     ];
+  },
+  async redirects() {
+    return [
+      {
+        source:"/calculator/attendance",
+        destination:"/calculator/attendance-percentage-calculator",
+        permanent: true,
+      },
+    ]
   },
 };
 

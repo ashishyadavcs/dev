@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-const Banner = ({title,image,description}) => {
+const Banner = ({title,image,description,height='30vh'}) => {
     return (
-        <Mybanner>
+        <Mybanner style={{height:height}}>
             <div className="container">
-              {image && <Image {...image} layout="fill"/>}
+              {image && <Image priority {...image} layout="fill"/>}
               {title && <h1 dangerouslySetInnerHTML={{__html:title}}></h1>}
               {description && <p>{description}</p>}
             </div>
@@ -18,6 +18,7 @@ const Mybanner = styled.div`
     position: relative;
     padding: 1rem;
     min-height: 30vh;
+   
     display: flex;
     align-items: center;
     flex-direction: column;

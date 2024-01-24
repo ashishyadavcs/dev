@@ -10,7 +10,7 @@ import { FiLink2 } from "react-icons/fi";
 import { useEffect } from "react";
 import {BsPinterest} from "react-icons/bs";
 import {ismobile} from "utils/device";
-import {IoMdShareAlt} from "react-icons/io";
+
 
 const Share = () => {
   useEffect(() => {
@@ -69,12 +69,9 @@ const Share = () => {
     }
   };
   return (
-    <div title="share" className={`${styles.share} share`}>
+    <div title="share" className={`${styles.share}`}>
       <ul>
-        <li onClick={e=>{
-          e.currentTarget.parentElement.classList.toggle(`${styles.open}`)
-          e.currentTarget.parentElement.classList.toggle('open')
-        }}> <IoMdShareAlt size={30}/></li>
+        <li>share</li>
         <li onClick={(e) => share(shareto.facebook)}>
           <FaFacebook size={25} color="blue"/>
         </li>

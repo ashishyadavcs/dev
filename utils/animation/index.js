@@ -1,7 +1,7 @@
 export const animateList=(selector)=>{
     if(typeof document=='undefined') return
 const slides = document.querySelectorAll(selector);
-slides[0].classList.add("active")
+slides[0]?.classList.add("active")
 slides.forEach((li, index) => {
     li.onclick = e => {
         slides.forEach(li => li.classList.remove("active"));
@@ -12,7 +12,7 @@ slides.forEach((li, index) => {
         if (li.nextElementSibling) {
             li.nextElementSibling.classList.add("active");
         } else {
-            slides[0].classList.add("active");
+            slides[0]?.classList.add("active");
         }
     });
 });
