@@ -184,7 +184,7 @@ const Pagestyle = styled.div`
 
             overflow: hidden;
             width: 400px;
-            height: 84vh;
+            height: 77vh;
             max-width: 100%;
             background: linear-gradient(var(--degree), red, violet);
             padding: 5px;

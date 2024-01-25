@@ -20,10 +20,12 @@ const Codeblock = ({ value, mode = "javascript" }) => {
       value={JSON.parse(JSON.stringify(new String(value)), null, 4)}
       fontSize={16}
       style={{
-        height: "100px",
+        Height:'100px',
         width: "100%",
         margin: "1rem 0",
+        padding:'20px 0'
       }}
+     
       name="editor"
       editorProps={{ $blockScrolling: true }}
     />
