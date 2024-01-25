@@ -3,7 +3,15 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { contact } from "public/data/contact";
 import React from "react";
-import { FaExternalLinkAlt, FaGithub, FaInstagram, FaLinkedinIn, FaPhone, FaYoutube } from "react-icons/fa";
+import {
+    FaExternalLinkAlt,
+    FaFacebook,
+    FaGithub,
+    FaInstagram,
+    FaLinkedinIn,
+    FaPhone,
+    FaYoutube,
+} from "react-icons/fa";
 import styled from "styled-components";
 
 const Page = ({ data }) => {
@@ -27,7 +35,15 @@ const Page = ({ data }) => {
                         />
                     </span>
                     <div className="info">
-                        <h1 onClick={e=>window.open(`${data.social.linkedin}`)} className="title">Ashish Yadav <FaExternalLinkAlt size={18} color="blue"/></h1>
+                        <h1 className="title">
+                            Ashish Yadav{" "}
+                            <FaExternalLinkAlt
+                                className="pointer"
+                                onClick={e => window.open(`${data.social.linkedin}`)}
+                                size={18}
+                                color="blue"
+                            />
+                        </h1>
                         <span className="description">
                             Software Engineer | Blogger | Content Creator
                         </span>
@@ -45,16 +61,28 @@ const Page = ({ data }) => {
                             <p>{data.education.college}</p>
                         </div>
                         <ul className="social">
-                            <strong>social</strong>
+                            <strong>social profiles</strong>
+                            <li>
+                                <a
+                                    href="https://www.facebook.com/ashish.15101997"
+                                    aria-label="instagram"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="instagram"
+                                >
+                                    <FaFacebook color="blue" size={20} />
+                                </a>
+                            </li>
                             <li>
                                 <a
                                     aria-label="instagram"
                                     target="_blank"
                                     rel="noreferrer"
                                     href={data.social.instagram}
-                                    className="instagram" color="pink"
+                                    className="instagram"
+                                    color="pink"
                                 >
-                                    <FaInstagram color="#f402bf" size={20}/>
+                                    <FaInstagram color="#f402bf" size={20} />
                                 </a>
                             </li>
 
@@ -89,12 +117,19 @@ const Page = ({ data }) => {
                                     className="linkedin"
                                     aria-label="youtube"
                                 >
-                                    <FaYoutube color="red" size={20} />
+                                    <FaYoutube color="red" size={25} />
                                 </a>
                             </li>
                         </ul>
+                        <h2 className="mt-3">services</h2>
+                        <ul className="services">
+                            <li>SEO Optimization</li>
+                            <li>Website performance <strong style={{color:"green"}}>90+</strong></li>
+                            <li>Website design and development</li>
+                            <li>Wordpress website</li>
+                        </ul>
                         <a className="theme-btn connect" href={`tel:${contact.mobile}`}>
-                            connect with ashish <FaPhone />
+                            contact for your project / website <FaPhone />
                         </a>
                     </div>
                 </div>
@@ -114,16 +149,18 @@ export async function getStaticProps({ req }) {
 }
 export default Page;
 const Pagestyle = styled.div`
+    padding: 0 0 50px;
     .connect {
-      
+        background: linear-gradient(to left, teal, #126e9a);
         margin-top: 30px;
         display: inline-flex;
+        max-width: 90%;
         align-items: center;
         gap: 10px;
-        min-width: max-content;
     }
     h2 {
         font-size: 20px !important;
+        width: max-content;
     }
     --degree: 120deg;
     @keyframes rotateBorder {
@@ -136,13 +173,19 @@ const Pagestyle = styled.div`
     }
     .banner {
         display: flex;
-        gap: 60px;
+        gap: 40px;
         max-width: 100%;
         .dp {
             position: relative;
+            ${media.minsm} {
+                position: sticky;
+                top: 80px;
+            }
+
             overflow: hidden;
             width: 400px;
-            height: 400px;
+            height: 84vh;
+            max-width: 100%;
             background: linear-gradient(var(--degree), red, violet);
             padding: 5px;
             border-radius: 16px;
@@ -157,9 +200,12 @@ const Pagestyle = styled.div`
         ${media.minsm} {
             width: calc(100% - 400px);
         }
+        .services {
+            padding-left: 15px;
+        }
         .description {
             font-weight: 600;
-            ${media.sm}{
+            ${media.sm} {
                 font-size: 14px;
             }
         }
@@ -182,11 +228,11 @@ const Pagestyle = styled.div`
             gap: 10px;
             li {
                 padding: 6px 12px;
-                border: 1px solid blue;
+                border: 2px solid teal;
                 font-weight: bold;
                 font-size: 14px;
                 min-width: max-content;
-                border-radius:50px;
+                border-radius: 50px;
             }
         }
     }
