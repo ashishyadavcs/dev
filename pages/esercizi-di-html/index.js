@@ -2,8 +2,10 @@ const Codeblock = dynamic(() => import("@/components/codeblock"), {
     ssr: false,
 });
 import Banner from "@/components/web/banner";
+import {media} from "config/device";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import styled from "styled-components";
 
@@ -22,7 +24,8 @@ const Page = () => {
                 description="Esercizi di base HTML per principianti per imparare l'HTML e fare pratica"
             />
             
-            
+            <Link  href="/online-html-css-editor">
+                <a className="theme-btn editor">editor-html-css-online</a></Link>
             <h2>come esercitare HTML nell'editor</h2>
             <p>
                 creare una pagina web di base con alcuni elementi. Apri un editor di testo e segui
@@ -126,4 +129,15 @@ const Pagestyle = styled.div`
         padding-left: 20px;
     }
     p{margin-top:10px}
+    .editor{
+        position: sticky;
+        margin-bottom: 50px;
+        top: 90px;
+        left: 80%;
+        ${media.sm}{
+            left: 0;
+        max-width: unset;
+        }
+        z-index: 5;
+    }
 `;
