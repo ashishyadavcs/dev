@@ -149,7 +149,7 @@ export async function getStaticProps({ req }) {
 }
 export default Page;
 const Pagestyle = styled.div`
-    padding: 0 0 50px;
+    
     .connect {
         background: linear-gradient(to left, teal, #126e9a);
         margin-top: 30px;
