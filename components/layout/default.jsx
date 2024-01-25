@@ -46,7 +46,7 @@ useLayoutEffect(() => {
             )}
             {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
        
-            <Translate/>
+           
         </>
     );
 };
