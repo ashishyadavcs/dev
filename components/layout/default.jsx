@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import Chat from "../chat";
 import {useLayoutEffect} from "react";
 import Entry from "../entry";
+import Translate from "../translate";
 
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
@@ -45,7 +46,7 @@ useLayoutEffect(() => {
             )}
             {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
        
-            
+            <Translate/>
         </>
     );
 };
