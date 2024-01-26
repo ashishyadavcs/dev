@@ -18,7 +18,7 @@ const Page = ({ data }) => {
     return (
         <>
             <NextSeo
-                title="Ashish Yadav | Software Engineer at Bold Technology"
+                title="Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology"
                 description="I am Ashish Yadav, a seasoned software engineer with a dynamic and enriching journey spanning three years in the ever-evolving landscape of web development."
             />
             <Pagestyle className="container my-4">

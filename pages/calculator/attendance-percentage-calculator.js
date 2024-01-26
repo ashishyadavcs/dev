@@ -30,8 +30,8 @@ const Page = () => {
     return (
         <Calculator className="container my-4">
             <NextSeo
-                title="# <strong>Attendance Percentage Calculator- to calculate student presence</strong> | calculate the required classes to attend"
-                description="<strong>Attendance Percentage Calculator- to calculate student presence</strong> for college student to calculate required classes to attend to maintain their minimum attendance percentage"
+                title="Attendance Percentage Calculator- to calculate student presence | calculate the required classes to attend"
+                description="Attendance Percentage Calculator- to calculate student presence for college student to calculate required classes to attend to maintain their minimum attendance percentage"
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/calculator/attendance`}
             />
             
@@ -40,7 +40,7 @@ const Page = () => {
                     <Inpostad />
                 </div>
                 <div className="col-md-4 content">
-                <h1 className="text-center"><strong>Attendance Percentage Calculator- to calculate student presence</strong></h1>
+                <h1 className="text-center">Attendance Percentage Calculator</h1>
                     <form onSubmit={e => e.preventDefault()}>
                         <label>
                             <span>Percentage Required</span>
