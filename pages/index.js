@@ -109,37 +109,25 @@ export default function Home({posts}) {
                                 objectFit="contain"
                                 height={300}
                                 width={400}
-                                src="/dev/website-design-services.png"
+                                src="/images/company/website-design.png"
                             />
                         </div>
                         <div className="col-md-7 d-flex flex-column justify-content-center">
                             <h2 className="mt-3 mt-md-0">
-                                Business website development
+                                Website development
                             </h2>
-                            <p>
-                                Are you looking to establish a strong online presence for your
-                                business? Look no further than our website development services
-                            </p>
-
-                            <p>
-                                will work closely with you to understand your unique needs and
-                                goals, and create a custom website design that accurately represents
-                                your brand and effectively communicates your message to your target
-                                audience. We use the latest design trends and technology to create
-                                visually appealing and user-friendly websites that are optimized for
-                                all devices
-                            </p>
+               <ul>
+                <li>Get your business website</li>
+                <li>WIth SEO Optimization</li>
+                <li>performing website</li>
+                <li>24x7 support</li>
+               </ul>
                         </div>
                     </div>
                     <div className="row my-4 d-flex align-items-center">
                         <div className="col-md-7">
                             <h2 className="mt-5 mt-md-0">Website redesign</h2>
-                            <p>
-                                Is your website outdated and in need of a fresh look? Our website
-                                redesign services are here to help<br></br>
-                                <br></br> Invest in a website redesign and take your online presence
-                                to the next level. Contact us today to schedule a consultation
-                            </p>
+                            
                             <p>
                                 Whether you are starting a new business, rebranding, or simply need
                                 to update your existing website, our website development services
@@ -154,14 +142,14 @@ export default function Home({posts}) {
                                 objectFit="contain"
                                 height={400}
                                 width={500}
-                                src="/dev/webdesign-service.png"
+                                src="/images/company/website-redesign.png"
                             />
                         </div>
                     </div>
                     <div className="row d-flex align-items-center">
                         <div className="col-md-5">
                             <Image
-                                src="/dev/optimized-website.png"
+                                src="/images/company/speed.png"
                                 height={400}
                                 width={400}
                                 alt="website design services near me"

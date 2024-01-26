@@ -85,6 +85,9 @@ const Styled = {
         }
     `,
     Landing: styled.div`
+    ul{
+        padding-left: 15px;
+    }
         padding: 2rem 0;
         background: rgb(245 252 255);
         ${media.xs} {
