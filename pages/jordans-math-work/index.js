@@ -93,8 +93,9 @@ const Page = () => {
         <>
             <Banner
                 image={{
-                    src: "/images/jordan/jordan-hero.png",
+                    src: "/images/jordan/jordan-hero.webp",
                     objectFit: "cover",
+                    
                 }}
                 height="50vh"
                 title="jordan’s Math Work<br>Free Games and Worksheets"
@@ -112,6 +113,7 @@ const Page = () => {
                                 <Image
                                     alt="jordan's math work games online"
                                     layout="fill"
+                                    priority
                                     src="/images/jordan/jordan-math-work-grade.webp"
                                 />
                                 <span className="number">{Number(i) + 1}</span>
@@ -200,12 +202,11 @@ const Page = () => {
                         {[...Array(work.length)].map((img, i) => (
                             <>
                                 <div className="wrap">
-                                    <img
+                                    <img loading="lazy"
                                         className="img"
                                         src={`/images/jordan/${work.folder}/${i + 1}.png`}
                                         objectFit="contain"
-                                        width={400}
-                                        layout="fixed"
+                                        layout="fill"
                                         alt={`jordan math work games for grade ${work.grade}`}
                                     />
                                     <a
@@ -469,6 +470,7 @@ scroll-behavior: smooth;
             overflow: auto;
         }
         .wrap {
+          
             position: relative;
             a {
                 ${media.minsm} {
