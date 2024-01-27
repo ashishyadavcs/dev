@@ -8,7 +8,9 @@ import { MdCloudDownload, MdContentCopy } from "react-icons/md";
 import { romantic,shayaries,friend ,mohabbat} from "public/data/shayari";
 
 import DownloadPopup from "@/components/download-popup";
-const Page = ({ data=[] }) => {
+import {getShayaries} from "lib/shayari";
+import Banner from "@/components/web/banner";
+const Page = ({ data }) => {
 
 
   const copy = (text) => {
@@ -37,6 +39,13 @@ const Page = ({ data=[] }) => {
       .catch(function (error) {});
   };
   return (
+    <>
+    <Banner image={{
+      src:"/shayari/roman-english-shayari.png",
+      objectFit:'cover',
+      objectPosition:'bottom'
+    }} height="40vh" title="Shayari in roman english"/>
+  
     <div className={`container article my-2 ${styles.shayaries}`}>
       <span className={styles.copied}>copied</span>
       <NextSeo
@@ -44,8 +53,8 @@ const Page = ({ data=[] }) => {
         description="Top shayari in roman english with english & roman meaning, read collection of roman english shayari copy & download"
       />
       <article className="col">
-        <h1 className="heading my-2 text-center">Shayari in roman english</h1>
-        <p className="text-center">
+
+        <p className="text-center sub">
           Top shayari in roman english with english & roman meaning, read
           collection of roman english shayari copy & download
         </p>
@@ -195,13 +204,15 @@ const Page = ({ data=[] }) => {
         />
       )}
     </div>
+    </>
   );
 };
 
 export default Page;
-// export async function getStaticProps() {
-//   const data = await getShayaries();
-//   return {
-//     props: { data },
-//   };
-// }
+export async function getStaticProps() {
+  const data = await getShayaries();
+  return {
+    props: { data },
+    revalidate: 10,
+  };
+}
