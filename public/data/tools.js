@@ -12,8 +12,8 @@ const tools = [
         href: "/css/button-generator",
     },
     {
-        text: "instagram bio for girls",
-        href: "/instagram-bio-for-girls",
+        text: "instagram vip bio",
+        href: "/instagram-vip-bio",
     },
     {
         text: "online json formatter",

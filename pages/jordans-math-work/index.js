@@ -204,6 +204,7 @@ const Page = () => {
                                 <div className="wrap">
                                     <img loading="lazy"
                                         className="img"
+                                        width="300px"
                                         src={`/images/jordan/${work.folder}/${i + 1}.png`}
                                         objectFit="contain"
                                         layout="fill"
@@ -320,6 +321,7 @@ const Page = () => {
                     education equips them with problem-solving skills that transcend specific
                     mathematical topics, preparing them to navigate future uncertainties.
                 </p>
+                <Inpostad/>
                 <h2>Conclusion: Jordan's Math Work Unveiled</h2>
                 <p>
                     Jordan's mathematical journey serves as a testament to the latent potential
@@ -343,7 +345,7 @@ can I get more math works sheets`}
                         "ask your questions or give us feedback about this page to improve more 👇"
                     }
                 />
-                <Stickyad />
+               
             </Jordan>
         </>
     );
@@ -470,7 +472,7 @@ scroll-behavior: smooth;
             overflow: auto;
         }
         .wrap {
-          
+            
             position: relative;
             a {
                 ${media.minsm} {
@@ -491,6 +493,8 @@ scroll-behavior: smooth;
             }
         }
         .img {
+          
+            width: 300px;
             height: auto;
             ${media.sm} {
                 width: 300px;
