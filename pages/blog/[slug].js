@@ -142,7 +142,7 @@ const Blog = ({ post, posts }) => {
                                        </ul>
                                     </div>
                                     <Fbcomment />
-                                    <Inpostad />
+                                    
                                     <Ashish width="100%" />
                                 </div>
                                 <div className="col-md-4">

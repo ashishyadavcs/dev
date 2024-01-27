@@ -14,17 +14,28 @@ const Page = () => {
         total: "280",
     });
     useEffect(() => {
-
-        document.querySelector('.result').classList.add('active')
+        document.querySelector(".result").classList.add("active");
     }, [inputs]);
     const faq = [
         {
-            que: `how to calculate attendance percentage`,
+            que: `How to calculate attendance percentage`,
             ans: `To calculate attendance percentage, divide present days with total days`,
         },
         {
-            que: "how to use this calculator",
+            que: "How to use this calculator",
             ans: `Just input the values, it is automatic calculator as you input values percentage will be calculated automaticaly.`,
+        },
+        {
+            que: "How to calculate 75 percent attendance?",
+            ans: "To calculate 75 percent attendance , you just input required value of percentage in percentage input in above calculator.",
+        },
+        {
+            que: "How to calculate percentage of attendance?",
+            ans: "To calculate percentage of attendance just input total presence  and attended class value.",
+        },
+        {
+            que: "How to calculate attendance percentage of a student?",
+            ans: "You can calculate attendance percentage of student by just filling input total attendance and total class value, and attendance percentage will be automatically calculated.",
         },
     ];
     return (
@@ -34,13 +45,13 @@ const Page = () => {
                 description="Attendance Percentage Calculator- to calculate student presence for college student to calculate required classes to attend to maintain their minimum attendance percentage"
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/calculator/attendance`}
             />
-            
+
             <div className="row">
                 <div className="col-md-4 sticky">
                     <Inpostad />
                 </div>
                 <div className="col-md-4 content">
-                <h1 className="text-center">Attendance Percentage Calculator</h1>
+                    <h1 className="text-center">Attendance Percentage Calculator</h1>
                     <form onSubmit={e => e.preventDefault()}>
                         <label>
                             <span>Percentage Required</span>
@@ -77,7 +88,7 @@ const Page = () => {
                         </label>
                         <button>automatic calculated</button>
                     </form>
-                   
+
                     <div className="result">
                         You need to attend{" "}
                         <strong style={{ color: "red" }}>
@@ -96,33 +107,75 @@ const Page = () => {
                         &rarr;<strong>{((inputs.present * 100) / inputs.total).toFixed(2)}%</strong>
                         {/* {(inputs.present * 100) / inputs.total}% Attendance Required: 3/4 &rarr; 75.00% */}
                     </div>
-                    <h2>What is <strong>Attendance Percentage Calculator- to calculate student presence</strong>?</h2>
-                <p>The <strong>Attendance Percentage Calculator- to calculate student presence</strong> is the tool to calculate the attendance of required percentage for example colleges have strict attendance criteria to be available for semester examinations.</p>
-                <h2>Importance of <strong>Attendance Percentage Calculator- to calculate student presence</strong></h2>
-                <p>The <strong>Attendance Percentage Calculator- to calculate student presence</strong> has the following importance-</p>
-                <ul style={{paddingLeft:'20px'}}>
-                    <li>Calculate the required days to attend college to maintain the required percentage.</li>
-                    <li>Check eligibility for the semester examination in the exam.</li>
-                    <li>To keep an efficient attendance record.</li>
-                    <li>Accountability and performance monitoring of students.</li>
-                </ul>
-                <h2>Application of <strong>Attendance Percentage Calculator- to calculate student presence</strong></h2>
-                <p>The <strong>Attendance Percentage Calculator- to calculate student presence</strong> may have the following applications in different domains-</p>
-                <ul>
-                    <li>Attendance Percentage Calculator- to calculate student presence</li>
-                    <li>Patient Appointments - to calculate Patient absence and presence.</li>
-                    <li>Court Hearings</li>
-                </ul>
-                    <Image src="/images/attendance-percentage-calculator.webp" layout="responsive" width={1280} height={860} alt="<strong>Attendance Percentage Calculator- to calculate student presence</strong>"/>
+                    <h2>
+                        What is{" "}
+                        <strong>
+                            Attendance Percentage Calculator- to calculate student presence
+                        </strong>
+                        ?
+                    </h2>
+                    <p>
+                        The{" "}
+                        <strong>
+                            Attendance Percentage Calculator- to calculate student presence
+                        </strong>{" "}
+                        is the tool to calculate the attendance of required percentage for example
+                        colleges have strict attendance criteria to be available for semester
+                        examinations.
+                    </p>
+                    <h2>
+                        Importance of{" "}
+                        <strong>
+                            Attendance Percentage Calculator- to calculate student presence
+                        </strong>
+                    </h2>
+                    <p>
+                        The{" "}
+                        <strong>
+                            Attendance Percentage Calculator- to calculate student presence
+                        </strong>{" "}
+                        has the following importance-
+                    </p>
+                    <ul style={{ paddingLeft: "20px" }}>
+                        <li>
+                            Calculate the required days to attend college to maintain the required
+                            percentage.
+                        </li>
+                        <li>Check eligibility for the semester examination in the exam.</li>
+                        <li>To keep an efficient attendance record.</li>
+                        <li>Accountability and performance monitoring of students.</li>
+                    </ul>
+                    <h2>
+                        Application of{" "}
+                        <strong>
+                            Attendance Percentage Calculator- to calculate student presence
+                        </strong>
+                    </h2>
+                    <p>
+                        The{" "}
+                        <strong>
+                            Attendance Percentage Calculator- to calculate student presence
+                        </strong>{" "}
+                        may have the following applications in different domains-
+                    </p>
+                    <ul>
+                        <li>Attendance Percentage Calculator- to calculate student presence</li>
+                        <li>Patient Appointments - to calculate Patient absence and presence.</li>
+                        <li>Court Hearings</li>
+                    </ul>
+
+                    <Image
+                        src="/images/attendance-percentage-calculator.webp"
+                        layout="responsive"
+                        width={1280}
+                        height={860}
+                        alt="<strong>Attendance Percentage Calculator- to calculate student presence</strong>"
+                    />
                     <Faq title={"frequently asked questions"} data={faq} />
-                
-                
                 </div>
                 <div className="col-md-4 sticky">
                     <Inpostad />
                 </div>
-
-
             </div>
         </Calculator>
     );
@@ -130,11 +183,11 @@ const Page = () => {
 
 export default Page;
 const Calculator = styled.div`
-.sticky{
-    position: sticky;
-    top: 70px;
-    height: 100%;
-}
+    .sticky {
+        position: sticky;
+        top: 70px;
+        height: 100%;
+    }
     ${media.sm} {
         [class*="col-md"]:first-child {
             order: 3;
@@ -155,7 +208,7 @@ const Calculator = styled.div`
         font-size: 18px;
         line-height: 2;
     }
-    .result.active{
+    .result.active {
         opacity: 1;
     }
     form {
@@ -168,7 +221,7 @@ const Calculator = styled.div`
         width: 100%;
         padding: 10px;
         text-align: center;
-        background: linear-gradient(to left,#96E9C6,teal);
+        background: linear-gradient(to left, #96e9c6, teal);
         color: #fff;
     }
     label {
@@ -199,13 +252,16 @@ const Calculator = styled.div`
             cursor: pointer;
         }
     }
-    .content{
-        h1{font-size:20px!important;margin-bottom:30px}
-        h2{
-            margin-top: 20px;
-            font-size:19px!important
+    .content {
+        h1 {
+            font-size: 20px !important;
+            margin-bottom: 30px;
         }
-        ul{
+        h2 {
+            margin-top: 20px;
+            font-size: 19px !important;
+        }
+        ul {
             margin-bottom: 20px;
         }
     }
