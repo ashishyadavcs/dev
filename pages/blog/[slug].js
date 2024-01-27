@@ -131,7 +131,7 @@ const Blog = ({ post, posts }) => {
                                     
                                     <div className={styles.category}>
                                     <b>categories</b>
-                                       <ul>
+                                       <ul className={styles.catlist}>
                                        {post.categories.nodes.map(cat=>
                                         <li>
                                             <Link href={`/blog/category/${cat.name}`}>
