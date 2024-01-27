@@ -1,0 +1,117 @@
+.shayaries h2 {
+    margin: 40px auto;
+    text-align: center;
+  }
+  .shayari {
+    padding: 20px;
+    font-family: sans-serif;
+    background: linear-gradient(to top, #000, transparent);
+    color: #fff;
+    width: max-content;
+    max-width: 100%;
+    position: relative;
+    height: 300px;
+    min-width: 350px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .copied {
+    position: fixed;
+    top: 70px;
+    opacity: 0;
+    z-index: 5;
+    right: -100%;
+    padding: 1rem 4rem;
+    background: #000;
+    border: 2px solid red;
+    color: #fff;
+    border-radius: 3px;
+  }
+  .copied.active {
+    opacity: 1;
+    right: 20px;
+  }
+  .action {
+    position: absolute;
+    padding: 10px 20px;
+    opacity: 1;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    gap: 10px;
+  }
+  .action svg {
+    cursor: pointer;
+    color: #fff;
+  }
+  .action svg:active {
+    transform: scale(0.8);
+  }
+  .shayari:hover .action {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .shayari code {
+    font-family: sans-serif;
+  }
+  .shayari .img {
+    z-index: -1;
+    filter: brightness(0.6);
+    pointer-events: none;
+  }
+  
+  .items {
+    display: grid;
+    margin: 1rem 0;
+    justify-items: center;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .download {
+    width: 500px;
+    background: #fff;
+    padding: 2rem;
+    max-width: 90%;
+    height: 300px;
+    position: fixed;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+  }
+  .download .bar {
+    transition: all 0.3s;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+    background: rgb(20, 244, 173);
+    text-shadow: 0 1px 2px #000;
+    color: #fff;
+    border-radius: 20px;
+    width: 10%;
+  }
+  .download a {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 20px;
+    background: teal;
+    color: #fff;
+    margin: 10px auto;
+    width: max-content;
+    border-radius: 20px;
+  }
+  .download a.cancel {
+    background: #fff;
+    color: #000;
+  }
+  
