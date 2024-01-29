@@ -9,7 +9,6 @@ import Relatedposts from "@/components/relatedposts";
 import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
 import Fbcomment from "@/components/fbcomment";
-import moment from "moment";
 import Link from "next/link";
 import {BsArrowRight} from "react-icons/bs";
 
@@ -175,7 +174,6 @@ export async function getStaticPaths() {
     };
 }
 export async function getStaticProps(req) {
-    console.log(req)
     const post = await getSinglePost(req.params.slug);
     const data = await getPostList(post);
     const { nodes: posts }=data

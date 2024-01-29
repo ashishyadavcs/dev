@@ -26,7 +26,38 @@ export const nav = [
     },
     // {url:"https://g.page/r/Cer-BQVe18EZEAI/review",text:"rate us"}
 ];
-
+export const blognav = [
+    {
+        url: "/",
+        text: "html",
+        dropdown: [
+            {
+                url: "/tags",
+                text: "Tags",
+            },
+        ],
+    },
+    {
+        url: "/",
+        text: "css",
+    },
+    {
+        url: "/",
+        text: "javascript",
+    },
+    {
+        url: "/",
+        text: "React js",
+    },
+    {
+        url: "/",
+        text: "Projects",
+    },
+    {
+        url: "/blog",
+        text: "blogs",
+    },
+];
 export const userlinks = [
     {
         link: "/dashboard/profile",

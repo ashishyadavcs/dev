@@ -11,6 +11,7 @@ export const Styled = {
 
         a {
             text-decoration: none;
+            text-transform: lowercase;
             color: #333;
             font-weight: 600;
         }

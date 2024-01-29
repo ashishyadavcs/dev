@@ -4,6 +4,7 @@ import styles from "@/styles/button-generator.module.css";
 import "highlight.js/styles/github.css";
 import { NextSeo, ProductJsonLd } from "next-seo";
 import Image from "next/image";
+import {clickToCopy} from "utils/common";
 
 const Page = () => {
     const [data, setdata] = useState({
@@ -56,8 +57,7 @@ display:inline-block;`
         : ""
 }
 font-size: ${data.font.size}px;
-${data.font.bold ? "font-weight:bold;" : ""}
-outline:none;
+${data.font.bold ? "font-weight:bold;" : ""}outline:none;
 color: ${data.font.color};
 width: ${data.width}px;
 padding:${data.padding}px ${data.padding * 2}px;
@@ -74,7 +74,7 @@ box-shadow: ${data.boxShadow.x}px ${data.boxShadow.y}px ${data.boxShadow.blur}px
     }px ${data.boxShadow.color};
 text-shadow: ${data.textShadow.x}px ${data.textShadow.y}px ${data.textShadow.blur}px;
 transition:all 0.3s;
-}`;
+}</style>`;
 
     useEffect(() => {
         hljs.highlightAll();
@@ -132,7 +132,7 @@ transition:all 0.3s;
                     <div className={styles.inputs}>
                         <div className="tab">
                             <label className={styles.link}>
-                                Link
+                                <span>Link</span>
                                 <input
                                     onChange={e =>
                                         setdata(prev => ({
@@ -434,14 +434,14 @@ transition:all 0.3s;
           ? `<a href="${data.link.url}" class="btn">
        ${data.text.trim()}
        </a>`
-          : `<button class="btn">
-      ${data.text.trim()}
-      </button>`.trim()
+          : `<button class="btn">${data.text.trim()}</button>`.trim()
   }
-
+  <style>
 .btn{${buttonstyle.trim()}
       `}</code>
+      
                     </pre>
+                    <button onClick={e=>clickToCopy(e,e.currentTarget.previousElementSibling.innerText)} className="theme-btn d-block my-4 mx-auto">copy code</button>
                 </div>
             </div>
             <input id="readmore" type="checkbox" />

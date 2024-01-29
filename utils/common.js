@@ -55,6 +55,7 @@ export const countryslug = (post) => {
   return `/countrycode/${post.dial_code}-country-code-${post.name}`;
 };
 export const clickToCopy=(e,value)=>{
+  const text=e.currentTarget.innerText
   const el=e.currentTarget
   const input = document.createElement("textarea");
   document.body.appendChild(input);
@@ -64,7 +65,7 @@ export const clickToCopy=(e,value)=>{
   document.body.removeChild(input)
   el.innerText='copied'
   setTimeout(() => {
-  el.innerText='copy'
+  el.innerText=text
     
   }, 2000);
 }

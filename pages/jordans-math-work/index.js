@@ -7,13 +7,14 @@ import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import styled from "styled-components";
 import { animateList } from "utils/animation";
 
 const Page = () => {
     const [maths, setmaths] = useState([]);
+    const slide = useRef();
     const mathgen = e => {
         e.preventDefault();
         const arr = [];
@@ -44,16 +45,11 @@ const Page = () => {
         },
     ];
 
-    let slide;
-    useEffect(() => {
-        slide = document.querySelector(".slides");
-    }, []);
     const swipe = left => {
-        if (slide === undefined) return;
         if (left == "left") {
-            slide.scrollLeft = -300;
+            slide.current.scrollLeft -= 300;
         } else {
-            slide.scrollLeft = +300;
+            slide.current.scrollLeft += 300;
         }
     };
 
@@ -85,8 +81,8 @@ const Page = () => {
         },
         {
             length: 26,
-            grade: 'common',
-            folder:'/common',
+            grade: "common",
+            folder: "/common",
         },
     ];
     return (
@@ -95,7 +91,6 @@ const Page = () => {
                 image={{
                     src: "/images/jordan/jordan-hero.webp",
                     objectFit: "cover",
-                    
                 }}
                 height="50vh"
                 title="jordan’s Math Work<br>Free Games and Worksheets"
@@ -107,8 +102,8 @@ const Page = () => {
                     description="Discover a wide range of free PDF learning materials for children. Jordan's math work games Download textbooks, worksheets, and more. Enhance their education today! Get access now."
                 />
                 <div className="grades">
-                    {[...Array(mathworks.length-1)].map((g, i) => (
-                        <Link passHref href={`#grade-${i + 1}`}>
+                    {[...Array(mathworks.length - 1)].map((g, i) => (
+                        <Link key={i * Math.random()} passHref href={`#grade-${i + 1}`}>
                             <a className="grade">
                                 <Image
                                     alt="jordan's math work games online"
@@ -121,7 +116,6 @@ const Page = () => {
                         </Link>
                     ))}
                 </div>
-                
                 <div className="row pt-4">
                     <h2 className="text-center">Why Jordan Math work</h2>
                     <div className="col-md-8 mx-auto">
@@ -193,39 +187,39 @@ const Page = () => {
                         )}
                     </div>
                 </div>
-                {[...mathworks].map(work=><div className="gallery my-4">
-                    <h2 id={`grade-${work.grade}`} className="text-center"> grade {work.grade}.</h2>
-                    <button onClick={e => swipe("left")} className="left">
-                        <FaArrowLeft size={18} />
-                    </button>
-                    <div className="slides">
-                        {[...Array(work.length)].map((img, i) => (
-                            <>
-                                <div className="wrap">
-                                    <img loading="lazy"
-                                        className="img"
-                                        width="300px"
-                                        src={`/images/jordan/${work.folder}/${i + 1}.png`}
-                                        objectFit="contain"
-                                        layout="fill"
-                                        alt={`jordan math work games for grade ${work.grade}`}
-                                    />
-                                    <a
-                                        className="theme-btn"
-                                        href={`/images/jordan${work.folder}/${i + 1}.png`}
-                                        download="jordan-math-work"
-                                    >
-                                        download
-                                    </a>
-                                </div>
-                            </>
-                        ))}
+                {[...mathworks].map(work => (
+                    <div className="gallery my-4">
+                        <h2 id={`grade-${work.grade}`} className="text-center">
+                            {" "}
+                            grade {work.grade}.
+                        </h2>
+
+                        <div ref={slide} className="slides">
+                            {[...Array(work.length)].map((img, i) => (
+                                <>
+                                    <div className="wrap">
+                                        <img
+                                            loading="lazy"
+                                            className="img"
+                                            width="300px"
+                                            src={`/images/jordan/${work.folder}/${i + 1}.png`}
+                                            objectFit="contain"
+                                            layout="fill"
+                                            alt={`jordan math work games for grade ${work.grade}`}
+                                        />
+                                        <a
+                                            className="theme-btn"
+                                            href={`/images/jordan${work.folder}/${i + 1}.png`}
+                                            download="jordan-math-work"
+                                        >
+                                            download
+                                        </a>
+                                    </div>
+                                </>
+                            ))}
+                        </div>
                     </div>
-                    <button onClick={e => swipe()} className="right">
-                        <FaArrowLeft size={18} />
-                    </button>
-                </div>)}
-                
+                ))}
                 <a className="theme-btn download" href="/images/counting-jordan-math-work.pdf">
                     download counting-jordan-math-work.pdf
                 </a>
@@ -236,7 +230,105 @@ const Page = () => {
                     height={500}
                     src="/images/skills-building.pdf"
                 ></iframe> */}
-                <h2>Chapter 1: Jordan's Math Work</h2> - A Strong Foundation
+                <h2>Jordan's math work online free</h2>
+                <p>
+                    Jordan math work is available for free here as we are here to provide three
+                    resources for students and children to learn math easily. Finding free online
+                    math resources specifically tailored specially jordan math work. Here is the
+                    list of some other free math resources for grade 2 , grade 3 etc.
+                </p>
+                <ul>
+                    <li>
+                        <a
+                            referrerPolicy="no-referrer"
+                            target="_blank"
+                            href="https://khanacademy.org"
+                        >
+                            Khan Academy
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            referrerPolicy="no-referrer"
+                            target="_blank"
+                            href="https://coolmathgames.com"
+                        >
+                            Cool Math Games
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            referrerPolicy="no-referrer"
+                            target="_blank"
+                            href="https://splashlearn.com"
+                        >
+                            SplashLearn{" "}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            referrerPolicy="no-referrer"
+                            target="_blank"
+                            href="https://mathplayground.com"
+                        >
+                            Math Playground{" "}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            referrerPolicy="no-referrer"
+                            target="_blank"
+                            href="https://bbc.co.uk/bitesize"
+                        >
+                            BBC Bitesize{" "}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            referrerPolicy="no-referrer"
+                            target="_blank"
+                            href="https://education.com"
+                        >
+                            Education.com
+                        </a>
+                    </li>
+                </ul>
+                <h2>Jordan's math work online download</h2>
+                <p>
+                    Download jordan math work online freely from here to make your children learn
+                    math easily.
+                    Here us the list of types of math work problem you can find here
+Jordans math work typically focus on fundamental concepts that are critical for understanding most compex problems
+<ul>
+    <li>Number Sense and Place Value</li>
+    <li>Basic Arithmetic Operations
+        <ul>
+            <li>Addition and Subtraction</li>
+            <li>Introduction to Multiplication and Division</li>
+        </ul>
+    </li>
+    <li>Fractions</li>
+    <li>Measurement and Data</li>
+    <li>Geometry</li>
+    <li>Problem Solving and Reasoning</li>
+    <li>Patterns and Algebraic Thinking</li>
+   
+</ul>
+                </p>
+                <h2>Jordan's math work online 2nd grade</h2>
+                <p>
+                    If you are looking for online jordan math resources for grade 2 students. You
+                    can find multiple types of maths problem for example -{" "}
+                </p>
+                <ul>
+                    <li>animal dot to dot,</li>
+                    <li>Addition</li>
+                    <li>Subtraction</li>
+                    <li>Multiplication</li>
+                    <li>Word problems like addition substraction word problem</li>
+                </ul>
+
+                <h2>Chapter 1: Jordan's Math Work</h2>
                 <p>
                     We commence our exploration of Jordan's mathematical odyssey from elementary
                     school. This is where the bedrock of mathematical comprehension is laid.
@@ -321,7 +413,7 @@ const Page = () => {
                     education equips them with problem-solving skills that transcend specific
                     mathematical topics, preparing them to navigate future uncertainties.
                 </p>
-                <Inpostad/>
+                <Inpostad />
                 <h2>Conclusion: Jordan's Math Work Unveiled</h2>
                 <p>
                     Jordan's mathematical journey serves as a testament to the latent potential
@@ -345,7 +437,6 @@ can I get more math works sheets`}
                         "ask your questions or give us feedback about this page to improve more 👇"
                     }
                 />
-               
             </Jordan>
         </>
     );
@@ -353,7 +444,7 @@ can I get more math works sheets`}
 
 export default Page;
 const Jordan = styled.div`
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
     @keyframes cvprogress {
         99% {
             width: 100%;
@@ -419,7 +510,7 @@ scroll-behavior: smooth;
     }
     .img {
         height: auto;
-        margin: 1rem auto;
+        width: 100%;
     }
     .gen {
         margin: 30px 0;
@@ -463,17 +554,24 @@ scroll-behavior: smooth;
     }
     .gallery {
         position: relative;
+        h2 {
+            position: sticky;
+            top: 60px;
+            background: #fff;
+            z-index: 2;
+            padding: 10px 0;
+        }
         .slides {
-            scroll-behavior: smooth;
             display: flex;
-
-            gap: 50px;
-            flex-wrap: nowrap;
-            overflow: auto;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
         }
         .wrap {
-            
             position: relative;
+            height: auto;
+            border: 2px solid;
+          
             a {
                 ${media.minsm} {
                     opacity: 0;
@@ -488,12 +586,12 @@ scroll-behavior: smooth;
             &:hover {
                 a {
                     opacity: 1;
+                    transform: translate(-50%, 20px);
                     pointer-events: all;
                 }
             }
         }
         .img {
-          
             width: 300px;
             height: auto;
             ${media.sm} {
@@ -504,6 +602,7 @@ scroll-behavior: smooth;
             z-index: 2;
             position: absolute;
             top: 50%;
+            border-radius: 8px;
             transform: translateY(-50%);
             height: 50px;
             min-width: 50px;
@@ -542,7 +641,7 @@ scroll-behavior: smooth;
         justify-content: center;
         flex-wrap: wrap;
         gap: 50px;
-        ${media.sm}{
+        ${media.sm} {
             gap: 20px;
         }
         .grade {
@@ -577,5 +676,16 @@ scroll-behavior: smooth;
                 filter: drop-shadow(0 1px 2px #000);
             }
         }
+    }
+    .gallery ~ {
+        color: #555;
+        h2 {
+            margin-top: 30px;
+        }
+    }
+    ul {
+        padding-left: 20px;
+        margin-bottom: 20px;
+        ul{margin:10px 0}
     }
 `;

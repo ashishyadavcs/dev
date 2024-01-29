@@ -29,7 +29,7 @@ useLayoutEffect(() => {
                 <div className="layout">
                     <Entry/>
                     <Breadcrumb />
-                   {!["/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
+                   {!["/","/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
                     <Header />
                    
                     <main> {children}</main>

@@ -265,4 +265,5 @@ const Calculator = styled.div`
             margin-bottom: 20px;
         }
     }
+    ul{padding-left:20px}
 `;
