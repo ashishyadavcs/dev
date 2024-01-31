@@ -43,7 +43,7 @@ const Page = () => {
             <NextSeo
                 title="Attendance Percentage Calculator- to calculate student presence | calculate the required classes to attend"
                 description="Attendance Percentage Calculator- to calculate student presence for college student to calculate required classes to attend to maintain their minimum attendance percentage"
-                canonical={`${process.env.NEXT_PUBLIC_APP_URL}/calculator/attendance`}
+                canonical={`${process.env.NEXT_PUBLIC_APP_URL}/calculator/attendance-percentage-calculator`}
             />
 
             <div className="row">

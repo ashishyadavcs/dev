@@ -7,7 +7,7 @@ import Seo from "@/components/organization";
 import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
 import {getPostList} from "lib/posts";
-import {FAQPageJsonLd, ProductJsonLd} from "next-seo";
+import {FAQPageJsonLd, NextSeo, ProductJsonLd} from "next-seo";
 import {useEffect} from "react";
 import {animateList} from "utils/animation";
 import dynamic from "next/dynamic";
@@ -37,7 +37,10 @@ export default function Home({posts}) {
     
     return (
         <>
-            <Seo />
+           <NextSeo
+                canonical={`${process.env.NEXT_PUBLIC_APP_URL}/web-development-services`}
+           
+           title="Standard Website Design and Development Services" description="Get your website deisgned within 5 days by expert inhouse web developer"/>
             <ProductJsonLd
                 productName="frontendzone"
                 type="Product"
