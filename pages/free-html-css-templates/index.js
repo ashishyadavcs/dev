@@ -37,7 +37,7 @@ flex-wrap: wrap;
 export async function getStaticProps({ req }) {
     const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/templates`).then(res =>
         res.json()
-    );
+    ).catch(err=>console.log(err))
     return {
         props: {
             data:data.templates
