@@ -41,7 +41,7 @@ export default function Home({ posts }) {
                             <li><Link href={"/ui-sourcecodes"}>UI sourcecodes</Link></li>
                             <li><Link href="/">github repository of projects</Link></li>
                             <li><Link href="/blog">Regular frontend blogs</Link></li>
-                            <li><Link href="/html-css-templates">Free Website templates</Link></li>
+                            <li><Link href="/free-html-css-templates">Free Website templates</Link></li>
                         </ul>
                         
                     </div>
