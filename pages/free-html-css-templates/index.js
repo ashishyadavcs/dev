@@ -2,11 +2,12 @@ import {NextSeo} from 'next-seo'
 import React from 'react'
 import styled from 'styled-components'
 
-const Page = ({data}) => {
+const Page = () => {
   return (
     <Pages className='container my-4'>
+        <h1 className='text-center'>Grab Exclusive Free HTML & CSS Website Templates Now! 🔥</h1>
         <NextSeo title='Grab Exclusive Free HTML & CSS Website Templates Now! 🔥' description='Dive into our vast collection of stunning, free website templates designed with HTML and CSS.'/>
-         {[...data].map(el=><div className='card'>
+         {["hospital","registration-form","wedding"].map(el=><div className='card'>
          <iframe height={400} width={400} src={`/demo/website-templates/${el}/index.html`}></iframe>
          <a target='_blank' href={`/demo/website-templates/${el}/index.html`}>live url</a>
          </div>)}
@@ -34,13 +35,3 @@ flex-wrap: wrap;
     }
 }
 `
-export async function getStaticProps({ req }) {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/templates`).then(res =>
-        res.json()
-    ).catch(err=>console.log(err))
-    return {
-        props: {
-            data:data.templates ||[]
-        },
-    };
-}
