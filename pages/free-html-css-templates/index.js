@@ -40,7 +40,7 @@ export async function getStaticProps({ req }) {
     ).catch(err=>console.log(err))
     return {
         props: {
-            data:data.templates
+            data:data.templates ||[]
         },
     };
 }
