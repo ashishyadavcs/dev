@@ -1,0 +1,503 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #000;
+    --font-family: 'Source Sans 3', sans-serif;
+    ;
+    --newsletter-bg: #007FF4;
+    --bodybg: #F8FDFF;
+    --footerbg: #ECF4FF;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--bodybg);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+}
+header{position: relative;}
+header .shape{
+    left: -3%;
+    top:-90%;
+}
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 54px;
+}
+
+header a {
+    display: inline-block;
+    padding: 40px 0;
+}
+
+.btn {
+    background: var(--newsletter-bg);
+    color: #fff;
+    border-radius: 25px;
+    padding: 14px 57px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family);
+    line-height: normal;
+    color: #003B79;
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 54px;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.container {
+    max-width: 90%;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 78px;
+    color: #003B79;
+    margin: 29px 0 23px;
+}
+.hero .left{
+    padding-top: 30px;
+}
+.hero span{
+    font-weight: 600;
+    font-size: 24px;
+}
+.hero .btn-group {
+    margin-top: 44px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.hero img {
+    border-radius: 32px;
+}
+
+.btn-group .btn-default {
+    border-radius: 30px;
+    background: #FFF;
+    padding: 14px 57px;
+    box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newsletter .container {
+    background: var(--newsletter-bg);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 44px 0 105px;
+    border-radius: 20px;
+}
+
+.footer {
+    padding: 50px 0;
+}
+
+.newsletter {
+    position: relative;
+    margin-top: 230px;
+}
+
+.newsletter form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 846px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    position: relative;
+}
+
+.newsletter input {
+    outline: none;
+    border: none;
+    width: 80%;
+    height: 100%;
+}
+
+.newsletter button {
+    padding: 20px;
+    background: var(--newsletter-bg);
+    border-radius: 37px;
+    color: #fff;
+}
+
+.newsletter h2 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.shape {
+    border-radius: 301px;
+    display: inline-block;
+    height: 250px;
+    width: 250px;
+    border: 50px solid #FFF;
+    box-shadow: 0px 10px 50px 12.5px rgba(0, 59, 121, 0.07),inset 0px 10px 50px 12.5px rgba(0, 59, 121, 0.07);
+    position: absolute;
+    right: 0;
+    background: transparent;
+    top: -125px;
+    z-index: -1;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer ul {
+    list-style: none;
+    display: flex;
+    gap: 54px;
+}
+
+.review-section h2 {
+    font-size: 54px;
+    color: #003B79;
+    margin-bottom: 68px;
+}
+
+.reviews {
+    display: flex;
+    gap: 47px;
+}
+
+.review {
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
+    width: 577px;
+    position: relative;
+    padding: 48px 68px;
+}
+
+.review .quote {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    line-height: 1;
+    --size: 60px;
+    height: var(--size);
+    width: var(--size);
+    background: var(--newsletter-bg);
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    right: calc(var(--size)*-1/2);
+    top: calc(var(--size)*-1/2);
+}
+
+.review .user {
+    margin-top: 30px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.services h2 {
+    font-size: 54px;
+    color: #003B79;
+    margin-bottom: 34px;
+    margin-top: 180px;
+}
+
+.services .cards {
+    display: flex;
+    gap: 36px;
+    margin-top: 69px;
+}
+
+.services .card {
+    width: 273px;
+    border-radius: 20px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 44px 70px;
+    box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
+}
+
+.services .info {
+    text-align: center;
+}
+
+.services .heart {
+    background: var(--newsletter-bg);
+    color: #fff;
+}
+
+.clinic {
+    background: #fff;
+    padding: 166px 0;
+}
+
+.clinic .container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.clinic .feature:nth-of-type(2) {
+    transform: translateX(110%);
+    margin: -60px 0;
+}
+
+.clinic p {
+    margin: 34px 0 44px;
+}
+
+.clinic .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 282px;
+    padding: 26px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
+}
+
+.heart img {
+    margin-bottom: 62px;
+}
+
+.user .info {
+    display: flex;
+    flex-direction: column;
+}
+
+/*spcialist section*/
+.specialist .heading {
+    text-align: center;
+    margin-bottom: 68px;
+}
+
+.specialist h2 {
+    margin-bottom: 34px;
+}
+
+.specialist .doctors {
+    display: flex;
+    gap: 35px;
+    padding-bottom: 85px;
+}
+
+.specialist .dr {
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
+    overflow: hidden;
+    width: 25%;
+    min-width: 250px;
+}
+
+.dr .info {
+    padding: 34px;
+}
+
+/*sepcialist ends*/
+a {
+    text-decoration: none;
+}
+
+footer {
+    height: 241px;
+    background: var(--footerbg);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+footer .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.menu {
+    display: none;
+}
+@media (min-width:768px) {
+    header{margin-bottom: 50px;}
+}
+@media (max-width:768px) {
+    header .shape{display: none;}
+    h2 ,.review-section h2{
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        line-height: 1.3;
+    
+    }
+    .btn-group{
+        margin-bottom: 30px;
+    }
+    .btn-group a{width: 100%;text-align: center;}
+     .services h2{
+        margin-top: 60px;
+     }
+     .clinic .left{text-align: center;}
+    .newsletter form {
+      
+        padding: 10px;
+    }
+
+    .newsletter .container {
+        padding: 20px;
+    }
+
+    .footer ul {
+        margin-top: 30px;
+        gap: 35px;
+    }
+
+    .newsletter button {
+        padding: 10px;
+        min-width: max-content;
+    }
+
+    .specialist .dr {
+        width: 100%;
+    }
+
+    .specialist img {
+        width: 100%;
+    }
+
+    .review .quote {
+        right: unset;
+        left: 10%;
+        z-index: -1;
+    }
+
+    div {
+        max-width: 100%;
+    }
+
+    .container,
+    .cards,
+    .doctors,
+    .reviews {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .clinic .feature:nth-of-type(2) {
+        transform: none;
+        margin: 30px 0;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 2;
+        padding: 20px 0;
+        box-shadow: 0 1px 2px rgba(0, 59, 121, 0.07);
+    }
+
+    header .container {
+        justify-content: unset;
+        flex-wrap: wrap;
+        flex-direction: unset;
+        justify-content: space-between;
+    }
+
+    header ul {
+        flex-direction: column;
+        gap: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.6s linear;
+        align-items: baseline;
+        position: absolute;
+        left: 0;
+        padding-left: 20px;
+        top: 100%;
+        height: 50vh;
+        width: 100%;
+        background: #fff;
+    }
+
+    header a {
+        padding: 10px 0;
+    }
+
+    header.active ul {
+        max-height: 100vh;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 30px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: #000;
+    }
+
+}
