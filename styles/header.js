@@ -107,6 +107,7 @@ export const Styled = {
             a {
                 padding: 0.7rem 1rem;
                 transition: all 0.3s;
+                text-transform: capitalize;
                 ${media.sm} {
                     padding: 1rem;
                 }

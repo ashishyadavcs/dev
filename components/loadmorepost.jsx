@@ -7,7 +7,7 @@ const Loadmore = ({ pageInfo }) => {
   const loadmore = async (e) => {
     const button = e.target;
     if (button) button.innerText = "loading...";
-    const posts = await getPostList(more.pageInfo.endCursor);
+    const posts = await getPostList(more?.pageInfo?.endCursor);
     await setmore((prev) => ({
       posts: [...prev.posts, ...posts.nodes],
       pageInfo: posts.pageInfo,
@@ -23,7 +23,7 @@ const Loadmore = ({ pageInfo }) => {
           {i%3==0?<Inpostad/>:<Post key={post.slug} post={post}  />}
           </>
         })}
-      {more.pageInfo.hasNextPage && (
+      {more?.pageInfo?.hasNextPage && (
         <button
           onClick={(e) => loadmore(e)}
           className="theme-btn mx-auto d-block"

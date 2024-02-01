@@ -43,7 +43,7 @@ const Blog = ({ posts, categories, data }) => {
                                     </div>
                                 );
                             })}
-                        <Loadmore pageInfo={data.pageInfo} />
+                        <Loadmore pageInfo={data?.pageInfo} />
                     </div>
                 </div>
                 <div className="col-md-4">
@@ -55,7 +55,8 @@ const Blog = ({ posts, categories, data }) => {
 };
 export default Blog;
 export async function getStaticProps() {
-    const data = await getPostList(0,0,15);
+   try{
+    const data = await getPostList(0,0,15)
     const categories = await getCategorySlugs();
 
     return {
@@ -65,4 +66,12 @@ export async function getStaticProps() {
             categories,
         },
     };
+   }catch{
+    return{
+        props:{
+            data:[],
+            posts:[],categories:[]
+        }
+    }
+   }
 }

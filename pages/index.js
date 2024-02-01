@@ -8,7 +8,7 @@ import { Bannerstyle } from "@/styles/banner";
 import Banner from "@/components/web/banner";
 import Link from "next/link";
 
-export default function Home({ posts }) {
+export default function Home() {
     return (
         <>
             <Seo />
