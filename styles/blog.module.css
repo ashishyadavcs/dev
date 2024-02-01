@@ -211,6 +211,7 @@
 .blog h1 {
   font-size: clamp(20px, 8vw, 40px) !important;
   margin-bottom: 30px;
+  color: darkblue;
 }
 
 .blog h2 {
