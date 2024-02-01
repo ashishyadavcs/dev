@@ -130,19 +130,18 @@ const Blog = ({ post, posts }) => {
                                     ></div>
                                     
                                     <div className={styles.category}>
-                                    <b>categories</b>
                                        <ul className={styles.catlist}>
                                        {post.categories.nodes.map(cat=>
                                         <li>
                                             <Link href={`/blog/category/${cat.name}`}>
-                                                <a className="theme-btn"><BsArrowRight size={18}/>{cat.name}</a>
+                                                <a><BsArrowRight size={18}/>{cat.name}</a>
                                             </Link>
                                         </li>
                                         )}
                                        </ul>
                                     </div>
                                     <Fbcomment />
-                                    
+                                    <h2 className="my-3">About Author</h2>
                                     <Ashish width="100%" />
                                 </div>
                                 <div className="col-md-4">
