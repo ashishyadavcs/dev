@@ -53,7 +53,7 @@ const Searchform = styled.div`
         position: relative;
         input {
             margin-bottom: 0;
-            border-radius: 25px;
+            border-radius: 10px;
             border: 2px solid teal;
             padding: 10px 15px;
             outline: none;

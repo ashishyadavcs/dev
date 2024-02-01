@@ -1,7 +1,7 @@
 import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
 import { ArticleJsonLd, NextSeo, ProductJsonLd } from "next-seo";
-import "highlight.js/styles/github.css";
+import "highlight.js/styles/github-dark.css";
 import hljs from "highlight.js";
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
@@ -123,6 +123,7 @@ const Blog = ({ post, posts }) => {
                             <div className="row">
                                 <div className="col-md-8 my-4">
                                     <h1>{post?.title}</h1>
+                                    
                                     <div
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
