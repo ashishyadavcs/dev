@@ -11,11 +11,12 @@ ul{
     list-style: none;
     margin-top: 20px;
     li{
-        padding: 10px;
+    
         margin: 10px;
         background: #4a6ee014;
         color: blue;
         border-radius: 8px;
+        a{display:block;width:100%;padding: 10px;}
     }
 }
 ${media.sm}{

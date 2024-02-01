@@ -64,12 +64,4 @@ export default function Home({ posts }) {
         </>
     );
 }
-export async function getStaticProps() {
-    const posts = await getPostList(0, 0, 3);
-    return {
-        props: {
-            posts: posts.nodes,
-        },
-        revalidate: 1,
-    };
-}
+
