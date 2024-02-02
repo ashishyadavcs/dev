@@ -634,7 +634,7 @@ input[type="range"]::-moz-range-thumb {
   .sticky {
     position: sticky;
     z-index: 2;
-    top: 21px;
+    top:80px;
   }
 
 ::-webkit-scrollbar {

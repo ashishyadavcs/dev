@@ -6,7 +6,7 @@ import Facebookpage from "./facebookpage";
 import Blogsearch from "./blog-search";
 const Sidebar = ({ styles, categories }) => {
     return (
-        <div className={`my-4 sticky`}>
+        <div className={`mb-2 sticky`}>
           <Blogsearch/>
            <Toc/>
             {categories?.length > 0 && (
