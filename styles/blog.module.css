@@ -210,7 +210,7 @@
 .blog [class='theme-btn']{
   margin: 40px auto;
 }
-.blog h1 {
+.blog h1:not(.postbanner h1) {
   font-size: clamp(20px, 8vw, 40px) !important;
   margin-bottom: 30px;
   color: darkblue;
@@ -246,22 +246,24 @@
 
 .blog pre code {
   font-size: 16px;
+  padding: 20px;
 }
 
 .blog pre::-webkit-scrollbar {
   width: 8px;
   height: 3px;
+  background: #ccc;
 }
 
 .blog pre::-webkit-scrollbar-thumb {
   background: #636577;
-  border-radius: 20px;
 }
 
 .blog article ul:not(nav ul) {
   padding-top: 10px;
   padding-left: 18px;
 }
+
 
 .blog article :not(.sticky):where(ol, ul) li {
   margin-bottom: 10px;
