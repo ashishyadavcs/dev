@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const Bannerstyle=styled.div`
 position: relative;
 text-align: center;
+background: rgb(254 254 254 / 30%);
+padding: 40px 0;
 .emoji{
     font-size: 40px;
 }
