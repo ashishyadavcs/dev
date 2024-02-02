@@ -7,8 +7,9 @@ import Image from "next/image";
 import { Bannerstyle } from "@/styles/banner";
 import Banner from "@/components/web/banner";
 import Link from "next/link";
+import Blogpost from "@/components/blogpost";
 
-export default function Home() {
+export default function Home({posts}) {
     return (
         <>
             <Seo />
@@ -40,13 +41,20 @@ export default function Home() {
                         <ul>
                             <li><Link href={"/ui-sourcecodes"}>UI sourcecodes</Link></li>
                             <li><Link href="/">github repository of projects</Link></li>
-                            <li><Link href="/blog">Regular frontend blogs</Link></li>
+                            <li><Link href="/blog">blogs</Link></li>
                             <li><Link href="/free-html-css-templates">Free Website templates</Link></li>
                         </ul>
                         
                     </div>
                 </div>
             </Bannerstyle>
+            <div className="container">
+                    <h2 className="text-center latestblog my-4">Latest blog posts</h2>
+                    <Blogpost posts={posts}/>
+                    <Link href="/blog">
+                        <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
+                    </Link>
+                </div>
             <Whatsapp />
             <FAQPageJsonLd
                 mainEntity={[
@@ -64,4 +72,13 @@ export default function Home() {
         </>
     );
 }
-
+export async function getStaticProps(){
+    const posts=await getPostList(0,0,3)
+    return {
+        props:{
+            posts:posts.nodes
+        },
+        revalidate: 1,
+        
+    }
+    }
