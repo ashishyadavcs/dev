@@ -249,7 +249,6 @@ article h3 {
  ${media.minsm}{ min-width: max-content;}
   outline: none;
   border: none;
-  max-width: 200px;
   text-transform: capitalize;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   color: #fff;
