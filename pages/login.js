@@ -9,8 +9,6 @@ import { Styled } from "@/styles/auth";
 export const Page = () => {
     const [show, setShow] = useState(true);
     const router = useRouter();
-
-    const dispatch = useDispatch();
     const from = router.query.from;
     const login = async e => {
         const formdata = {
@@ -81,7 +79,7 @@ export const Page = () => {
                     <p>
                         forgot <Link href="/resetpassword">password</Link>
                     </p>
-                    <Loginwithgoogle />
+                    <Loginwithgoogle title="Login with" />
 
                     <p>
                         don&#39;t have an acoount , <Link href="/register">register</Link>

@@ -33,8 +33,11 @@ input:not(article input) {
   outline: none;
   font-size: 16px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   margin: 10px 0 !important;
+}
+input:not(article input):focus{
+  border-color: blue;
 }
 button{font-size:16px;
   cursor: pointer;

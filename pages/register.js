@@ -96,7 +96,7 @@ export const Register = ({roles}) => {
           <button className="themebtn w-100 my-3">Sign up</button>
         </form>
         <div className="mt-3 d-flex flex-column justify-content-center align-items-center">
-          <Loginwithgoogle/>
+          <Loginwithgoogle title="signup with"/>
 
           <p>
             Already have an acoount , <Link href="/login">Login</Link>

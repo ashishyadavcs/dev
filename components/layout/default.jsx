@@ -17,12 +17,6 @@ const Share = dynamic(() => import("@/components/ui/share"), {
 
 const Layout = ({ children, type = "default" }) => {
     const router = useRouter();
-useLayoutEffect(() => {
-  try{
-    document.querySelectorAll('img').forEach(img=>img.setAttribute('loading','lazy'))
-  }catch{}
-}, [])
-    
     return (
         <>
             {(type == "default"|| !['/vrc'].includes(router.pathname)) ? (

@@ -24,7 +24,7 @@ Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
     return (
-        // <SessionProvider session={session} basePath="/api/auth">
+         <SessionProvider session={session} basePath="/api/auth">
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
                     <Globalstyle />
@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                     )}
                 </Provider>
             </ThemeProvider>
-        /* </SessionProvider> */
+         </SessionProvider> 
     );
 }
 export default MyApp;
