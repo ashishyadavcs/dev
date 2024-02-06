@@ -85,6 +85,21 @@ const Page = () => {
             folder: "/common",
         },
     ];
+
+    const gameLinks = [
+        {
+            url: "https://sites.google.com/view/haleyschool9999",
+            text: "jordan math work games ",
+        },
+        {
+            url: "https://haleyschool.github.io/",
+            text: "online learning games for children",
+        },
+        {
+            url: "https://ubg.haleyschool.com/",
+            text: "free unlocked jordan math games",
+        },
+    ];
     return (
         <>
             <Banner
@@ -223,13 +238,18 @@ const Page = () => {
                 <a className="theme-btn download" href="/images/counting-jordan-math-work.pdf">
                     download counting-jordan-math-work.pdf
                 </a>
-                {/* <iframe
-                    title="build skills for child"
-                    className="my-4"
-                    width={"100%"}
-                    height={500}
-                    src="/images/skills-building.pdf"
-                ></iframe> */}
+
+                <div className="games">
+                    <h2>Jordna math games unlocked</h2>
+                    <div className="urls">
+                    {[...gameLinks].map((game, i) => (
+                        <a title={game.text} target="_blank" key={i} href={game.url}>
+                            {game.text}
+                        </a>
+                    ))}
+                    </div>
+                </div>
+
                 <h2>Jordan's math work online free</h2>
                 <p>
                     Jordan math work is available for free here as we are here to provide three
@@ -296,24 +316,24 @@ const Page = () => {
                 <h2>Jordan's math work online download</h2>
                 <p>
                     Download jordan math work online freely from here to make your children learn
-                    math easily.
-                    Here us the list of types of math work problem you can find here
-Jordans math work typically focus on fundamental concepts that are critical for understanding most compex problems
-<ul>
-    <li>Number Sense and Place Value</li>
-    <li>Basic Arithmetic Operations
-        <ul>
-            <li>Addition and Subtraction</li>
-            <li>Introduction to Multiplication and Division</li>
-        </ul>
-    </li>
-    <li>Fractions</li>
-    <li>Measurement and Data</li>
-    <li>Geometry</li>
-    <li>Problem Solving and Reasoning</li>
-    <li>Patterns and Algebraic Thinking</li>
-   
-</ul>
+                    math easily. Here us the list of types of math work problem you can find here
+                    Jordans math work typically focus on fundamental concepts that are critical for
+                    understanding most compex problems
+                    <ul>
+                        <li>Number Sense and Place Value</li>
+                        <li>
+                            Basic Arithmetic Operations
+                            <ul>
+                                <li>Addition and Subtraction</li>
+                                <li>Introduction to Multiplication and Division</li>
+                            </ul>
+                        </li>
+                        <li>Fractions</li>
+                        <li>Measurement and Data</li>
+                        <li>Geometry</li>
+                        <li>Problem Solving and Reasoning</li>
+                        <li>Patterns and Algebraic Thinking</li>
+                    </ul>
                 </p>
                 <h2>Jordan's math work online 2nd grade</h2>
                 <p>
@@ -571,7 +591,7 @@ const Jordan = styled.div`
             position: relative;
             height: auto;
             border: 2px solid;
-          
+
             a {
                 ${media.minsm} {
                     opacity: 0;
@@ -686,6 +706,33 @@ const Jordan = styled.div`
     ul {
         padding-left: 20px;
         margin-bottom: 20px;
-        ul{margin:10px 0}
+        ul {
+            margin: 10px 0;
+        }
+    }
+    .games {
+        text-align: center;
+      
+        border-radius: 10px;
+        padding: 60px;
+        background: linear-gradient(45deg, #8ba3f1, #eb8ee1);
+      
+        margin: 50px 0;
+       h2{margin-bottom:50px;text-transform:capitalize}
+        .urls{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            ${media.sm}{
+                flex-direction: column;
+            }
+        }
+        a {
+            border-radius: 8px;
+            padding: 10px 20px;
+            background:blue;
+            color: #fff;
+            color: #fff;
+        }
     }
 `;
