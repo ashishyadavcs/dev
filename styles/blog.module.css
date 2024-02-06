@@ -6,7 +6,12 @@
 .blog article code {
   position: relative;
 }
-
+.blog :not(pre)>code{
+  color: blue;
+  background: aliceblue;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
 .blog article code [class='copy'] {
   position: absolute;
   top: -10px;

@@ -116,4 +116,8 @@
     background: #fff;
     color: #000;
   }
+  .shayaries [class*="sub"]{
+    font-size: 20px;
+    padding: 50px 0;
+  }
   

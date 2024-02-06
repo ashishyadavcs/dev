@@ -55,7 +55,8 @@ const Page = ({ data }) => {
       <article className="col">
 
         <p className="text-center sub">
-          Top shayari in roman english with english & roman meaning, read
+          Top shayari in roman english with english ,
+heart touching shayari in roman english & roman meaning, read
           collection of roman english shayari copy & download
         </p>
         <div className={styles.items}>
