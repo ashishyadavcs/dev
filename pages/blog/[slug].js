@@ -6,17 +6,21 @@ import hljs from "highlight.js";
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
 import Relatedposts from "@/components/relatedposts";
-import Inpostad from "@/components/ads/inpostad";
 import Ashish from "@/components/ashish";
-import Fbcomment from "@/components/fbcomment";
+import dynamic from 'next/dynamic'
+
+const Fbcomment = dynamic(() => import('@/components/fbcomment'), {
+  loading: () => <p>Loading...</p>,
+})
+
 import Link from "next/link";
 import {BsArrowRight} from "react-icons/bs";
-
+export const config = {
+    amp: 'hybrid',
+  };
 const Blog = ({ post, posts }) => {
     useEffect(() => {
-        document.querySelector("code") !== null && hljs.highlightAll();
-   
- 
+        document.querySelector("code") !== null &&  hljs.highlightAll();
     }, [post]);
 
     return (

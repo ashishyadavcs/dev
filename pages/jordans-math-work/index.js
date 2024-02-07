@@ -15,6 +15,10 @@ import { animateList } from "utils/animation";
 const Page = () => {
     const [maths, setmaths] = useState([]);
     const slide = useRef();
+    const blogs=[{
+        text:"Jordan’s Math Games – Master math with fun",
+        url:"/blog/jordans-math-games-master-math-with-fun"
+    }]
     const mathgen = e => {
         e.preventDefault();
         const arr = [];
@@ -248,6 +252,17 @@ const Page = () => {
                         </a>
                     ))}
                     </div>
+                </div>
+
+                <div className="blogs games">
+                    <h2>Blogs</h2>
+                <div className="urls">
+                {[...blogs].map((game, i) => (
+                        <a title={game.text} target="_blank" key={i} href={game.url}>
+                            {game.text}
+                        </a>
+                    ))}
+                </div>
                 </div>
 
                 <h2>Jordan's math work online free</h2>
@@ -710,7 +725,7 @@ const Jordan = styled.div`
             margin: 10px 0;
         }
     }
-    .games {
+    .games{
         text-align: center;
       
         border-radius: 10px;
