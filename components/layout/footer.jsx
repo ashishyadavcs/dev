@@ -191,7 +191,7 @@ const Footer = () => {
                   <Link href={"/ashish-yadav"} prefetch={false}>
                     <a className="ml-1">
                       <FaChevronRight className="mr-1" size={15} />
-                       Ashish Yadav (Founder)
+                       Ashish Yadav
                     </a>
                   </Link>
                 </li>
