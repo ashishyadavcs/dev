@@ -1,8 +1,10 @@
 import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import {data} from "public/data/ashish";
 import { contact } from "public/data/contact";
 import React from "react";
+
 import {
     FaExternalLinkAlt,
     FaFacebook,
@@ -14,7 +16,7 @@ import {
 } from "react-icons/fa";
 import styled from "styled-components";
 
-const Page = ({ data }) => {
+const Page = () => {
     return (
         <>
             <NextSeo
@@ -27,6 +29,7 @@ const Page = ({ data }) => {
                         <Image
                             objectFit="cover"
                             layout="fill"
+                            objectPosition="center"
                             priority
                             src="/github-profile.jpg"
                             height="400"
@@ -44,9 +47,10 @@ const Page = ({ data }) => {
                                 color="blue"
                             />
                         </h1>
-                        <span className="description">
-                            Software Engineer | Blogger | Content Creator
-                        </span>
+                        <span
+                            className="description"
+                            dangerouslySetInnerHTML={{ __html: data.interoduction.short }}
+                        ></span>
 
                         <div className="skills">
                             <h2>Technical Skills</h2>
@@ -56,10 +60,41 @@ const Page = ({ data }) => {
                                 })}
                             </ul>
                         </div>
+                       
+                        <h2 className="d-flex justify-content-between">Experience <span>({data.totalexp}years)</span></h2>
+                        <ul className="exp">
+                            {[...data.exp].map(exp => (
+                                <li className="exp">
+                                    <div className="company">
+                                        <a href={exp.company.link}>{exp.company.name}</a>
+                                        <small>{exp.duration}</small>
+                                    </div>
+                                    <strong>{exp.profile}</strong>
+                                    <ul className="desc">
+                                        {exp.description.map(desc=><li>{desc}</li>)}
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                        <h2>Projects</h2>
+                        <ul className="projects">
+                            {data.projects.map(p=><li>
+                                <a href={p.link} referrerPolicy="noreferrer" target="_blank">{p.text}</a>
+                            </li>)}
+                        </ul>
                         <div className="college">
-                            <h2>{data.education.degree} -2020</h2>
+                            <h2>Education</h2>
+                            <p className="duration">{data.education.degree} <span>2016-2020</span></p>
                             <p>{data.education.college}</p>
                         </div>
+                        
+                       
+                        <a className="theme-btn cv mr-2" href="/ashishcv.pdf">
+                            download resume
+                        </a>
+                        <a className="theme-btn connect" href={`tel:${contact.mobile}`}>
+                            contact <FaPhone />
+                        </a>
                         <ul className="social">
                             <strong>social profiles</strong>
                             <li>
@@ -121,40 +156,20 @@ const Page = ({ data }) => {
                                 </a>
                             </li>
                         </ul>
-                        <h2 className="mt-3">services</h2>
-                        <ul className="services">
-                            <li>SEO Optimization</li>
-                            <li>Website performance <strong style={{color:"green"}}>90+</strong></li>
-                            <li>Website design and development</li>
-                            <li>Wordpress website</li>
-                        </ul>
-                        <a className="theme-btn cv mr-2" href="/ashishcv.pdf">download resume</a>
-                        <a className="theme-btn connect" href={`tel:${contact.mobile}`}>
-                            contact for your project / website <FaPhone />
-                        </a>
                     </div>
                 </div>
             </Pagestyle>
         </>
     );
 };
-export async function getStaticProps({ req }) {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/data/ashish.json`).then(res =>
-        res.json()
-    );
-    return {
-        props: {
-            data,
-        },
-    };
-}
+
 export default Page;
 const Pagestyle = styled.div`
-    .cv{
+    .cv {
         margin-top: 20px;
     }
     .connect {
-        background: linear-gradient(to left, teal, #126e9a);
+        background: green;
         margin-top: 30px;
         display: inline-flex;
         max-width: 90%;
@@ -164,6 +179,22 @@ const Pagestyle = styled.div`
     h2 {
         font-size: 20px !important;
         width: max-content;
+        margin:40px 0 10px;
+       
+    }
+    .projects{
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        gap: 10px;
+        a{
+            display: inline-block;
+            padding: 5px;
+            text-transform: capitalize;
+            border-radius: 4px;
+            color: teal;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+        }
     }
     --degree: 120deg;
     @keyframes rotateBorder {
@@ -194,26 +225,66 @@ const Pagestyle = styled.div`
             border-radius: 16px;
             transition: all 0.6s;
             animation: rotateBorder 1s linear infinite alternate;
+            ${media.sm} {
+                height: 40vh;
+            }
         }
         ${media.sm} {
             flex-wrap: wrap;
         }
+    }
+    .exp{
+        
+        list-style: none;
+        a{color:#000;
+        text-decoration:dotted;
+        font-weight:600;
+        color: blue;
+        }
+        >li{
+            margin-bottom: 20px;
+        }
+        .company{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+          
+        }
+        .desc{
+            padding-left: 20px;
+            list-style:square;
+          }
     }
     .info {
         ${media.minsm} {
             width: calc(100% - 400px);
         }
         .services {
-            padding-left: 15px;
+            
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+          
+            gap:10px;
+            li{
+                width: max-content;
+                padding: 6px 12px;
+                background: #f2f2ff;
+                border-radius: 4px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            }
         }
         .description {
-            font-weight: 600;
             ${media.sm} {
                 font-size: 14px;
             }
         }
         .college {
             margin-top: 40px;
+            .duration{
+                display: flex;
+            justify-content: space-between;
+            }
         }
         .social {
             display: flex;
@@ -231,11 +302,13 @@ const Pagestyle = styled.div`
             gap: 10px;
             li {
                 padding: 6px 12px;
-                border: 2px solid teal;
+                background: #f2f2ff;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.4);
                 font-weight: bold;
                 font-size: 14px;
                 min-width: max-content;
-                border-radius: 50px;
+                border-radius: 4px;
+                text-transform: capitalize;
             }
         }
     }

@@ -58,6 +58,7 @@ body:has(.preview-div.active){
   --whiter: #778da9;
   --whitest: #415a77;
   --bg: #0d1b2a;
+  --bggreen:#52b788;
   /*required*/
   --loader-background-color: #EEEEEE;
     --loader-highlight-color: #DEDEDE;
