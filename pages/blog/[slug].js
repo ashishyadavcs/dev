@@ -15,9 +15,7 @@ const Fbcomment = dynamic(() => import('@/components/fbcomment'), {
 
 import Link from "next/link";
 import {BsArrowRight} from "react-icons/bs";
-export const config = {
-    amp: 'hybrid',
-  };
+
 const Blog = ({ post, posts }) => {
     useEffect(() => {
         document.querySelector("code") !== null &&  hljs.highlightAll();
