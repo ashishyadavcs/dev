@@ -128,6 +128,7 @@ const Page = ({ data }) => {
                             <li>Website design and development</li>
                             <li>Wordpress website</li>
                         </ul>
+                        <a className="theme-btn cv mr-2" href="/ashishcv.pdf">download resume</a>
                         <a className="theme-btn connect" href={`tel:${contact.mobile}`}>
                             contact for your project / website <FaPhone />
                         </a>
@@ -149,7 +150,9 @@ export async function getStaticProps({ req }) {
 }
 export default Page;
 const Pagestyle = styled.div`
-    
+    .cv{
+        margin-top: 20px;
+    }
     .connect {
         background: linear-gradient(to left, teal, #126e9a);
         margin-top: 30px;
