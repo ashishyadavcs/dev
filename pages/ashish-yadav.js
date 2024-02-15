@@ -18,12 +18,12 @@ import styled from "styled-components";
 
 const Page = () => {
     return (
-        <>
+        <Pagestyle>
             <NextSeo
                 title="Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology"
                 description="I am Ashish Yadav, a seasoned software engineer with a dynamic and enriching journey spanning three years in the ever-evolving landscape of web development."
             />
-            <Pagestyle className="container my-4">
+            <div className="container my-4">
                 <div className="banner">
                     <span className="dp">
                         <Image
@@ -158,13 +158,15 @@ const Page = () => {
                         </ul>
                     </div>
                 </div>
-            </Pagestyle>
-        </>
+            </div>
+        </Pagestyle>
     );
 };
 
 export default Page;
 const Pagestyle = styled.div`
+padding: 1px 0;
+background: #fbfada21;
     .cv {
         margin-top: 20px;
     }

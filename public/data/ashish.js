@@ -13,6 +13,9 @@ export const data = {
           text: "Frontendzone",
           link: "/",
       },{
+        text:"Old Portfolio",
+        link:"https://ashish221306.github.io/developer/#!/"
+      },{
         text:"Wordpress Theme",
         link:"https://tutorbin.com/blog"
       },
