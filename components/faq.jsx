@@ -58,8 +58,8 @@ const Faq = ({ title, data, cssClass }) => {
           >
             <FiChevronDown className="icon" size={18} />
             <div>
-              <h3 itemProp="name" className="que">
-                {i + 1}. {faq.que}
+              <h3 itemProp="name" className="que" dangerouslySetInnerHTML={{__html:`${i + 1}. ${faq.que}`}}>
+                
               </h3>
               <div
                 className="ans"

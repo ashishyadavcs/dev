@@ -401,7 +401,7 @@ const Page = ({ posts }) => {
                                 ans: `The difficulty of backend vs. frontend development is subjective and depends on individual preferences and skills. Backend development involves complex server-side logic, databases, and security, which can be challenging.`,
                             },
                             {
-                                que: "is frontend development dying ?",
+                                que: " <a href='/blog/is-frontend-development-dying'>is frontend development dying</a> ?",
                                 ans: `Frontend development is not dying; it's evolving. The demand for frontend developers remains strong as user interfaces continue to be a crucial aspect of web and app development. The role is adapting to new technologies and frameworks, ensuring frontend development remains relevant in the ever-changing tech industry.`,
                             },
                         ]}
