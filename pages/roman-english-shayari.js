@@ -49,13 +49,13 @@ const Page = ({ data }) => {
     <div className={`container article my-2 ${styles.shayaries}`}>
       <span className={styles.copied}>copied</span>
       <NextSeo
-        title="Top 10 The Best Shayari in roman english 🔥"
-        description="Top shayari in roman english with english & roman meaning, read collection of roman english shayari copy & download"
+        title="Top 10 The Best roman english shayari🔥"
+        description="Top roman english shayari 🔥 with english & roman meaning, read collection of roman english shayari copy & download"
       />
       <article className="col">
 
         <p className="text-center sub">
-          Top shayari in roman english with english ,
+          Top roman english shayari with english meaning ,
 heart touching shayari in roman english & roman meaning, read
           collection of roman english shayari copy & download
         </p>
