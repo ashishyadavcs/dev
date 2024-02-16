@@ -6,22 +6,24 @@ import Link from "next/link";
 import Seo from "@/components/organization";
 import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
-import {getPostList} from "lib/posts";
-import {FAQPageJsonLd, NextSeo, ProductJsonLd} from "next-seo";
-import {useEffect} from "react";
-import {animateList} from "utils/animation";
+import { getPostList } from "lib/posts";
+import { FAQPageJsonLd, NextSeo, ProductJsonLd } from "next-seo";
+import { useEffect } from "react";
+import { animateList } from "utils/animation";
 import dynamic from "next/dynamic";
 import Ashish from "@/components/ashish";
-import {Bannerstyle} from "@/styles/banner";
+import { Bannerstyle } from "@/styles/banner";
 
-export default function Home({posts}) {
-    const postss=[{
-        title:"Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer",
-        excerpt:`<p>Frontend developers In the ever-evolving world of web development, are the unsung heroes who breathe life into the virtual world we live in. 💕 </p>`,
-        url:'/frontend-developer',
-        date:'Tue Oct 03 2023'
-      
-    },...posts]
+export default function Home({ posts }) {
+    const postss = [
+        {
+            title: "Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer",
+            excerpt: `<p>Frontend developers In the ever-evolving world of web development, are the unsung heroes who breathe life into the virtual world we live in. 💕 </p>`,
+            url: "/frontend-developer",
+            date: "Tue Oct 03 2023",
+        },
+        ...posts,
+    ];
     const steps = [
         "Submit your order",
         "Make half payment to confirm your order",
@@ -29,17 +31,16 @@ export default function Home({posts}) {
         "confirm order completed",
         "Make remaining Payment.",
         "Rate us",
-        "Congrats! Your task delivered "
+        "Congrats! Your task delivered ",
     ];
     useEffect(() => {
-       animateList('.hiw li')
-    }, [])
-    
-    
+        animateList(".hiw li");
+    }, []);
+
     return (
         <>
-           <Seo/>
-             <ProductJsonLd
+            <Seo />
+            <ProductJsonLd
                 productName="frontendzone"
                 type="Product"
                 brand="frontendzone"
@@ -53,20 +54,17 @@ export default function Home({posts}) {
                     ratingValue: "4.5",
                     ratingCount: "505435",
                 }}
-            
             />
-             
+
             <Styled.Banner>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-7 col-12">
-                            
                             <h1 className="gradient-text heading text-capitalize">
                                 Looking for a developer?
                                 <br></br>
-                              
                             </h1>
-                          
+
                             <ul className="list-unstyled mt-3 hiw">
                                 {steps.map((li, i) => {
                                     return (
@@ -77,18 +75,18 @@ export default function Home({posts}) {
                                     );
                                 })}
                             </ul>
-                            
 
                             <Styled.Cta
                                 onClick={e => {
                                     e.currentTarget.href = openwhatsapp();
                                 }}
                             >
-                            Get your website now
+                                Get your website now
                             </Styled.Cta>
                         </div>
                         <div className="col-md-5 col-12 d-flex justify-content-end">
-                            <Image className="img"
+                            <Image
+                                className="img"
                                 alt="website design services in india"
                                 objectFit="contain"
                                 priority
@@ -100,7 +98,7 @@ export default function Home({posts}) {
                     </div>
                 </div>
             </Styled.Banner>
-            
+
             <Styled.Landing>
                 <div className="container">
                     <div className="row my-4 pt-4">
@@ -114,21 +112,19 @@ export default function Home({posts}) {
                             />
                         </div>
                         <div className="col-md-7 d-flex flex-column justify-content-center">
-                            <h2 className="mt-3 mt-md-0">
-                                Website development
-                            </h2>
-               <ul>
-                <li>Get your business website</li>
-                <li>WIth SEO Optimization</li>
-                <li>performing website</li>
-                <li>24x7 support</li>
-               </ul>
+                            <h2 className="mt-3 mt-md-0">Website development</h2>
+                            <ul>
+                                <li>Get your business website</li>
+                                <li>WIth SEO Optimization</li>
+                                <li>performing website</li>
+                                <li>24x7 support</li>
+                            </ul>
                         </div>
                     </div>
                     <div className="row my-4 d-flex align-items-center">
                         <div className="col-md-7">
                             <h2 className="mt-5 mt-md-0">Website redesign</h2>
-                            
+
                             <p>
                                 Whether you are starting a new business, rebranding, or simply need
                                 to update your existing website, our website development services
@@ -185,26 +181,14 @@ export default function Home({posts}) {
                
                 <div className="container">
                     <h2 className="text-center latestblog my-4">Latest blog posts</h2>
-                    <Blogpost posts={postss}/>
+                    <Blogpost posts={postss} />
                     <Link href="/blog">
                         <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
                     </Link>
                 </div>
             </Styled.Landing>
-            <Whatsapp />
-            <FAQPageJsonLd
-      mainEntity={[
-        {
-          questionName: 'who is founder of frontendzone',
-          acceptedAnswerText: 'Ashish Yadav is the founder of frontendzone working as software engineer.',
-        },
-        {
-          questionName: 'CEO of frontendzone',
-          acceptedAnswerText: `Ashish Kumar ${<Ashish/>}`,
-        },
-      ]}></FAQPageJsonLd>
-       <Bannerstyle>
-                <div className="col-md-6 mx-auto">
+            <Bannerstyle>
+                    <div className="col-md-6 mx-auto">
                         <p className="emoji">👨‍💻</p>
                         <h1>Frontend development</h1>
                         <p>
@@ -212,22 +196,35 @@ export default function Home({posts}) {
                             HTML,CSS,JS,React.js.
                         </p>
                         <ul>
-
-                            
-                            <li><Link href="/free-html-css-templates">Free Website templates</Link></li>
-</ul>
-</div>
+                            <li>
+                                <Link href="/free-html-css-templates">Free Website templates</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </Bannerstyle>
+            <Whatsapp />
+            <FAQPageJsonLd
+                mainEntity={[
+                    {
+                        questionName: "who is founder of frontendzone",
+                        acceptedAnswerText:
+                            "Ashish Yadav is the founder of frontendzone working as software engineer.",
+                    },
+                    {
+                        questionName: "CEO of frontendzone",
+                        acceptedAnswerText: `Ashish Kumar ${(<Ashish />)}`,
+                    },
+                ]}
+            ></FAQPageJsonLd>
         </>
     );
 }
-export async function getStaticProps(){
-const posts=await getPostList(0,0,3)
-return {
-    props:{
-        posts:posts.nodes
-    },
-    revalidate: 1,
-    
-}
+export async function getStaticProps() {
+    const posts = await getPostList(0, 0, 3);
+    return {
+        props: {
+            posts: posts.nodes,
+        },
+        revalidate: 1,
+    };
 }

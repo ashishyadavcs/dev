@@ -21,7 +21,7 @@ const Whatsapp = ({title}) => {
         size={38}
         className={`${styles.share} pointer`}
       /> */}
-      <a href="#" role="link" target="_blank">&nbsp;</a>
+      
       <Cta
         onClick={(e) => {
           e.currentTarget.previousElementSibling.setAttribute(

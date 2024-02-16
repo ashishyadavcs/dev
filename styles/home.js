@@ -89,7 +89,7 @@ const Styled = {
         padding-left: 15px;
     }
         padding: 2rem 0;
-        background: rgb(245 252 255);
+        
         ${media.xs} {
             [class*="row"]:nth-child(3) {
                 flex-direction: column-reverse;
