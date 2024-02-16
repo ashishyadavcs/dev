@@ -21,7 +21,7 @@ const Group = () => {
                 />
                 <span className="w-50 ml-2">
                  
-                    click or scan to join <br></br>whatsapp <BsWhatsapp style={{marginBottom:"-2px"}} size={18} color="teal" /> group
+                    Frontend developer <br></br>whatsapp <BsWhatsapp style={{marginBottom:"-2px"}} size={18} color="teal" /> group
                 </span>
             </a>
         </WPGroup>
