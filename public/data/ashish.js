@@ -40,6 +40,23 @@ export const data = {
         college: "Feroze Gandhi Institute of Engineering and Technology",
     },
     exp: [
+        
+        {
+            company: {
+                name: "BOLD Technology",
+                link: "https://bold.com",
+            },
+            duration: "26 October, 2021 - Present",
+            profile: "Software Engineer - UI",
+            description: [
+                `Creating landing pages and update ui for A/B test , fixing bugs , code review and do changes
+              request for UAT`,
+                `Fixing Performance and HTML validation`,
+                `Creating and replacing lottie animation with css and js`,
+                `Implementing new interfacing feature in react/next.js`,
+                `code review`,
+            ],
+        },
         {
             company: {
                 name: "Tutorbin",
@@ -56,22 +73,6 @@ export const data = {
                 ` Public pages of website and migration to next.js`,
                 ` Managing custom theme and performance of blog website.`,
                 `Add , audit and fix seo schemas`,
-            ],
-        },
-        {
-            company: {
-                name: "BOLD Technology",
-                link: "https://bold.com",
-            },
-            duration: "26 October, 2021 - Present",
-            profile: "Software Engineer - UI",
-            description: [
-                `Creating landing pages and update ui for A/B test , fixing bugs , code review and do changes
-              request for UAT`,
-                `Fixing Performance and HTML validation`,
-                `Creating and replacing lottie animation with css and js`,
-                `Implementing new interfacing feature in react/next.js`,
-                `code review`,
             ],
         },
     ],
