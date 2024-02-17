@@ -20,7 +20,6 @@ const Group = () => {
                     alt="frontend developers whatsapp group"
                 />
                 <span className="w-50 ml-2">
-                 
                     Frontend developer <br></br>whatsapp <BsWhatsapp style={{marginBottom:"-2px"}} size={18} color="teal" /> group
                 </span>
             </a>
