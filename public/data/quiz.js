@@ -179,4 +179,75 @@ export const English = [
         options: ["N", "GY", "AY", "G"],
         ans: 2,
     },
+
+   
 ];
+
+export const vovels=[
+     /*vovels */
+     {
+        que: "अ",
+        options: ["A", "GY", "AY", "G"],
+        ans: 0,
+    },
+    {
+        que: "आ",
+        options: ["AA", "A", "AY", "G"],
+        ans: 0,
+    },
+    {
+        que: "इ",
+        options: ["I", "GY", "AY", "G"],
+        ans: 0,
+    },
+    {
+        que: "ई",
+        options: ["E", "EE", "I", "G"],
+        ans: 1,
+    },
+    {
+        que: "उ",
+        options: ["OO", "U", "UU", "O"],
+        ans: 1,
+    },
+    {
+        que: "ऊ",
+        options: ["OO", "U", "UU", "O"],
+        ans: 0,
+    },
+    {
+        que: "ऋ",
+        options: ["RI", "IR", "REE", "IR"],
+        ans: 0,
+    },
+    {
+        que: "ए",
+        options: ["E", "EI", "AY", "G"],
+        ans: 0,
+    },
+    {
+        que: "ऐ",
+        options: ["E", "AI", "EI", "G"],
+        ans: 0,
+    },
+    {
+        que: "ओ",
+        options: ["E", "O", "AY", "G"],
+        ans: 1,
+    },
+    {
+        que: "औ",
+        options: ["AU", "OU", "AI", "AE"],
+        ans: 0,
+    },
+    {
+        que: "अं",
+        options: ["A", "NA", "AN", "NN"],
+        ans: 2,
+    },
+    {
+        que: "अः",
+        options: ["EH", "AH", "HA", "HE"],
+        ans: 1,
+    },
+]
