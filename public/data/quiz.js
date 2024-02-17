@@ -228,7 +228,7 @@ export const vovels=[
     {
         que: "ऐ",
         options: ["E", "AI", "EI", "G"],
-        ans: 0,
+        ans: 1,
     },
     {
         que: "ओ",
