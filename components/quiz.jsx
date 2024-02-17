@@ -16,14 +16,16 @@ const Quiz = ({ quiz }) => {
         if (data[next].ans == i) {
             if (e.isTrusted) {
                 setScore(s => s + 1);
+                mySound.play();
             }
             e.currentTarget.classList = "correct";
-            mySound.play();
+            
         } else if (data[next].ans != i) {
             e.currentTarget.classList = "wrong";
+           if(e.isTrusted){
             mySound.src = "/sound/false.mp3";
             mySound.playbackRate = 1.2;
-            mySound.play();
+            mySound.play();}
         } else {
             e.currentTarget.classList = "";
         }
@@ -60,7 +62,7 @@ const Quiz = ({ quiz }) => {
                 description="css quiz with ansswer , test your css knowledge with css quiz "
             />
             <div className="quiz">
-                {start ? (
+                {(start) ? (
                     <div className="que">
                         <div className="left">
                             <h2 data-index={next + 1}>{data[next]?.que}</h2>
@@ -282,7 +284,7 @@ const Pages = styled.div`
     }
     ${media.sm} {
         .quiz {
-            padding: 20px;
+            padding:40px 20px;
             .que {
                 flex-direction: column;
                 gap: 100px;
