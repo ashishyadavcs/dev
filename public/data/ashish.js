@@ -46,7 +46,7 @@ export const data = {
                 name: "BOLD Technology",
                 link: "https://bold.com",
             },
-            duration: "26 October, 2021 - Present",
+            duration: "26 October, 2022 - Present",
             profile: "Software Engineer - UI",
             description: [
                 `Creating landing pages and update ui for A/B test , fixing bugs , code review and do changes
