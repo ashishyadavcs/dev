@@ -70,4 +70,10 @@ export const clickToCopy=(e,value)=>{
   }, 2000);
 }
 
-
+export const progressBar=()=>{
+  if(typeof document=='undefined') return
+  var winScroll = document.body.scrollTop || document.querySelector('.layout').scrollTop;
+  var height = document.querySelector('.layout').scrollHeight - document.querySelector(".layout").clientHeight;
+  var scrolled = (winScroll / height) * 100;
+   document.querySelector(":root").style.setProperty("--progress-width", `${scrolled}%`);
+}

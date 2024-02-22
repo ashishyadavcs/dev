@@ -8,7 +8,18 @@ export const Styled = {
         z-index: 10;
         top: 0;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
+        ${({progress})=>progress && `
+        &:before{
+            content:"";
+            position:absolute;
+            top:100%;
+            left:0;
+            z-index:9;
+            height:3px;
+            width:var(--progress-width);
+            background:linear-gradient(to right,red,blue)
+        }
+        `}
         a {
             text-decoration: none;
             text-transform: lowercase;

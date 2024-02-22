@@ -10,9 +10,13 @@ const Quiz = ({ quiz }) => {
     const [data, setData] = useState(quiz);
     const [next, setnext] = useState(0);
     const [score, setScore] = useState(0);
+    const [showscore, setshowscore] = useState(false)
     var mySound;
     const checkAns = (e, i) => {
         mySound = new Audio("/sound/true.mp3")
+        setTimeout(() => {
+            setnext(p=>p+1)
+        }, 500);
         if (data[next].ans == i) {
             if (e.isTrusted) {
                 setScore(s => s + 1);
@@ -23,6 +27,7 @@ const Quiz = ({ quiz }) => {
         } else if (data[next].ans != i) {
             e.currentTarget.classList = "wrong";
            if(e.isTrusted){
+            setScore(s => s - 1);
             mySound.src = "/sound/false.mp3";
             mySound.playbackRate = 1.2;
             mySound.play();}
@@ -35,9 +40,9 @@ const Quiz = ({ quiz }) => {
         document.querySelectorAll(".que li").forEach(el => (el.classList = ""));
 
        if(start){
-        var t = 100;
+        var t = 1000;
         const int = setInterval(() => {
-            t = Number(t) - 1;
+            t = Number(t) - 100/t;
 
             document.querySelector(":root").style.setProperty("--twidth", `${100 - t}%`);
             if (t == 0) {
@@ -46,7 +51,7 @@ const Quiz = ({ quiz }) => {
                 document.querySelector(":root").style = "";
                
             }
-        }, 100);
+        }, t);
         return () => {
             clearInterval(int);
         };
@@ -55,6 +60,13 @@ const Quiz = ({ quiz }) => {
     const showAns = () => {
         document.querySelectorAll(".que li").forEach(el => el.click());
     };
+    useEffect(() => {
+      if(next>data.length-1){
+        setStart(false)
+        setnext(0)
+      }
+    }, [next])
+    
     return (
         <Pages>
             <NextSeo
@@ -210,7 +222,7 @@ const Pages = styled.div`
                     bottom: 0;
                     left: 0;
                     display: block;
-                    transition: width 1s;
+                    transition: width .3s;
                 }
             }
             @keyframes zoom {

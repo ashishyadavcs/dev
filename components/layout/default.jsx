@@ -24,7 +24,7 @@ const Layout = ({ children, type = "default" }) => {
                     <Entry/>
                     <Breadcrumb />
                    {!["/","/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
-                    <Header />
+                    <Header progress={true} />
                    
                     <main> {children}</main>
                     <Footer />
