@@ -36,9 +36,7 @@ input:not(article input) {
   border: 2px solid #ddd;
   margin: 10px 0 !important;
 }
-input:not(article input):focus{
-  border-color: blue;
-}
+
 button{font-size:16px;
   cursor: pointer;
 outline: none;
