@@ -13,6 +13,7 @@ import { Globalstyle } from "@/styles/global";
 import { theme } from "themes";
 import { ThemeProvider } from "styled-components";
 import SetTheme from "@/components/themesetting";
+import {useEffect} from "react";
 Router.events.on("routeChangeStart", () => {
     nProgress.start();
     !navigator.onLine ? toast.error("You are offline") : "";
@@ -23,6 +24,12 @@ Router.events.on("routeChangeComplete", () => {
 Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
+    useEffect(() => {
+        setTimeout(() => {
+            console.clear()
+          }, 3000);
+    }, [])
+    
     return (
          <SessionProvider session={session} basePath="/api/auth">
             <ThemeProvider theme={theme}>
