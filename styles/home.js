@@ -38,6 +38,7 @@ const Styled = {
             max-height: unset;
         }
         @keyframes hiw {
+            100%{left:100%;width:60%}
             97% {
                 width: 100%;
             }
@@ -55,11 +56,14 @@ const Styled = {
                 align-items: flex-start;
                 padding-bottom:10px;
                 margin-bottom:10px;
+                width: max-content;
                 &:last-child {
                     visibility: hidden;
+                    opacity: 0;
                     &.active {
                         visibility: visible;
                         margin-bottom: 40px;
+                        opacity: 1;
                     }
                 }
                 display: none;
@@ -73,10 +77,10 @@ const Styled = {
                     color: var(--color);
                     &:before {
                         content: "";
-                        height: 4px;
+                        height: 2px;
                         width: 0%;
                         position: absolute;
-                        top: 95%;
+                        top:90%;
                         left: 6%;
                         background: var(--color);
                         display: inline-block;
