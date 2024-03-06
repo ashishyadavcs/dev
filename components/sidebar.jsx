@@ -27,7 +27,7 @@ const Sidebar = ({ styles, categories }) => {
             )}
             <Group />
             <Inpostad />
-            <Facebookpage/>
+          
         </div>
     );
 };
