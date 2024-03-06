@@ -26,7 +26,7 @@ export default function Home({ posts }) {
     ];
     const steps = [
         "Submit your order",
-        "Make half payment to confirm your order",
+        "Pay half to confirm order",
         "Review Your website",
         "confirm order completed",
         "Make remaining Payment.",
@@ -68,7 +68,7 @@ export default function Home({ posts }) {
                             <ul className="list-unstyled mt-3 hiw">
                                 {steps.map((li, i) => {
                                     return (
-                                        <li key={i} className="mb-2 d-flex align-items-center">
+                                        <li key={i} className=" d-flex align-items-center">
                                             <BsCheck2Circle color="#4cd964" size={20} />
                                             <span className="mx-2">{li}</span>
                                         </li>

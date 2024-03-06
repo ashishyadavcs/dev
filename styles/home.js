@@ -21,6 +21,7 @@ const Styled = {
                 background: linear-gradient(to left, red, #ffecb300);
             }
         }
+        .heading{font-size:24px}
         ${media.sm} {
             padding: 2rem 0;
             display: block;
@@ -51,12 +52,14 @@ const Styled = {
                 transition: all 0.3s;
                 position: relative;
                 overflow: hidden;
-                width: max-content;
-                padding-bottom: 10px;
+                align-items: flex-start;
+                padding-bottom:10px;
+                margin-bottom:10px;
                 &:last-child {
                     visibility: hidden;
                     &.active {
                         visibility: visible;
+                        margin-bottom: 40px;
                     }
                 }
                 display: none;
@@ -107,7 +110,7 @@ const Styled = {
         color: aliceblue;
         border-radius: 8px;
         text-align: center;
-        margin: 40px 0;
+        margin-bottom: 40px;
         font-weight: 600;
         width: 260px;
         text-decoration: none;

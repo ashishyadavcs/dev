@@ -86,23 +86,23 @@ body:has(.preview-div.active){
 }
 
 .heading {
-  font-size: clamp(30px, 3vw, 38px) !important;
-  font-weight: 700 !important;
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 700
 }
 
 h1 {
-  font-size: clamp(22px, 3vw, 24px) !important;
-  font-weight: 700 !important;
+  font-size: clamp(22px, 3vw, 24px);
+  font-weight: 700
 }
 
 h2 {
-  font-size: clamp(22px, 3vw, 27px) !important;
-  font-weight: 700 !important;
+  font-size: clamp(22px, 3vw, 27px);
+  font-weight: 700;
 }
 
 h3 {
-  font-size: clamp(17px, 3vw, 19px) !important;
-  font-weight: 600 !important;
+  font-size: clamp(17px, 3vw, 19px);
+  font-weight: 600;
 }
 
 h1,
@@ -283,10 +283,6 @@ main {
   line-height: 1.4;
 }
 
-.heading {
-  font-size: 40px;
-  font-weight: 800;
-}
 
 .textarea {
   margin: 10px 0;
