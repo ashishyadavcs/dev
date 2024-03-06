@@ -21,7 +21,7 @@ const Styled = {
                 background: linear-gradient(to left, red, #ffecb300);
             }
         }
-        .heading{font-size:24px}
+        
         ${media.sm} {
             padding: 2rem 0;
             display: block;
@@ -38,7 +38,10 @@ const Styled = {
             max-height: unset;
         }
         @keyframes hiw {
-            100%{left:100%;width:60%}
+            100% {
+                left: 100%;
+                width: 60%;
+            }
             97% {
                 width: 100%;
             }
@@ -54,8 +57,8 @@ const Styled = {
                 position: relative;
                 overflow: hidden;
                 align-items: flex-start;
-                padding-bottom:10px;
-                margin-bottom:10px;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
                 width: max-content;
                 &:last-child {
                     visibility: hidden;
@@ -80,7 +83,7 @@ const Styled = {
                         height: 2px;
                         width: 0%;
                         position: absolute;
-                        top:90%;
+                        top: 90%;
                         left: 6%;
                         background: var(--color);
                         display: inline-block;
@@ -92,11 +95,11 @@ const Styled = {
         }
     `,
     Landing: styled.div`
-    ul{
-        padding-left: 15px;
-    }
+        ul {
+            padding-left: 15px;
+        }
         padding: 2rem 0;
-        
+
         ${media.xs} {
             [class*="row"]:nth-child(3) {
                 flex-direction: column-reverse;

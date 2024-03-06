@@ -86,7 +86,7 @@ body:has(.preview-div.active){
 }
 
 .heading {
-  font-size: clamp(30px, 3vw, 38px);
+  font-size: clamp(21px, 3vw, 38px);
   font-weight: 700
 }
 
