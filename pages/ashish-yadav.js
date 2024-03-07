@@ -23,9 +23,12 @@ const Page = () => {
                 title="Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology"
                 description="I am Ashish Yadav, a seasoned software engineer with a dynamic and enriching journey spanning three years in the ever-evolving landscape of web development."
             />
-            <div className="container my-4">
+            <div className="container">
                 <div className="banner">
+               <span className="wrap">
+               <span className="shape"></span>
                     <span className="dp">
+                        
                         <Image
                             objectFit="cover"
                             layout="fill"
@@ -37,6 +40,7 @@ const Page = () => {
                             alt="ashish yadav"
                         />
                     </span>
+               </span>
                     <div className="info">
                         <h1 className="title">
                             Ashish Yadav{" "}
@@ -89,14 +93,9 @@ const Page = () => {
                         </div>
                         
                        
-                        <a className="theme-btn btn cv mr-2" href="/ashishcv.pdf">
-                            download resume
-                        </a>
-                        <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
-                            contact <FaPhone />
-                        </a>
+                        
+                        <h2>social profiles</h2>
                         <ul className="social">
-                            <strong>social profiles</strong>
                             <li>
                                 <a
                                     href="https://www.facebook.com/ashish.15101997"
@@ -105,7 +104,7 @@ const Page = () => {
                                     rel="noreferrer"
                                     className="instagram"
                                 >
-                                    <FaFacebook color="blue" size={20} />
+                                    <FaFacebook color="blue" size={30} />
                                 </a>
                             </li>
                             <li>
@@ -117,7 +116,7 @@ const Page = () => {
                                     className="instagram"
                                     color="pink"
                                 >
-                                    <FaInstagram color="#f402bf" size={20} />
+                                    <FaInstagram color="#f402bf" size={30}  />
                                 </a>
                             </li>
 
@@ -129,7 +128,7 @@ const Page = () => {
                                     href={data.social.linkedin}
                                     className="linkedin"
                                 >
-                                    <FaLinkedinIn color="blue" size={20} />
+                                    <FaLinkedinIn color="blue" size={30}  />
                                 </a>
                             </li>
                             <li>
@@ -140,7 +139,7 @@ const Page = () => {
                                     href={data.social.github}
                                     className="linkedin"
                                 >
-                                    <FaGithub size={20} />
+                                    <FaGithub size={30}  />
                                 </a>
                             </li>
                             <li>
@@ -152,10 +151,16 @@ const Page = () => {
                                     className="linkedin"
                                     aria-label="youtube"
                                 >
-                                    <FaYoutube color="red" size={25} />
+                                    <FaYoutube color="red" size={30} />
                                 </a>
                             </li>
                         </ul>
+                        <a className="theme-btn btn cv mr-2" href="/ashishcv.pdf">
+                            download resume
+                        </a>
+                        <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
+                            contact <FaPhone />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -165,8 +170,12 @@ const Page = () => {
 
 export default Page;
 const Pagestyle = styled.div`
-padding: 1px 0;
+padding: 20px 0;
+${media.minsm}{
+    padding:50px 0;
+}
 background: #fbfada21;
+
     .cv {
         margin-top: 20px;
     }
@@ -181,8 +190,24 @@ background: #fbfada21;
     h2 {
         font-size: 20px !important;
         width: max-content;
-        margin:40px 0 10px;
-       
+        margin:40px 0 30px;
+        position: relative;
+       &:before{
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: -10px;
+          ${media.minsm}{
+            left: -20px;
+          }
+          transform: translateY(-50%);
+          height: 120%;
+          width:70%;
+          min-width:100px;
+          opacity: 0.5;
+          border-radius: 100px;
+          background: linear-gradient(to right,#ff80ea,transparent);
+       }
     }
     .projects{
         display: flex;
@@ -210,27 +235,63 @@ background: #fbfada21;
     }
     .banner {
         display: flex;
-        gap: 40px;
+        gap: 60px;
         max-width: 100%;
-        .dp {
+        position: relative;
+        .wrap{
             position: relative;
+            width: 400px;
+            max-width: 100%;
+            flex-shrink: 0;
             ${media.minsm} {
                 position: sticky;
                 top: 80px;
+                height: 84vh;
             }
+            ${media.sm} {
+                height: 40vh;
+            }
+            &:before{
+                content:"";
+                height:calc(100% + 10px);
+                width:calc(100% + 10px);
+                background: linear-gradient(#4e4ef9, #ff80ea);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border-radius: 16px;
+                
+            }
+            .shape{
+                height: 200px;
+                width: 200px;
+                background: linear-gradient(#4e4ef9, #ff80ea);
+                display: inline-block;
+                position: absolute;
+                top: -10%;
+                left: -10%;
+                border-radius: 200px;
+                transform: rotate(45deg);
+                filter: blur(1px);
+            }
+        .dp {
+            position: relative;
+            width: 400px;
+            height: 100%;
+            display: inline-block;
+            
 
             overflow: hidden;
-            width: 400px;
-            height: 77vh;
+            
             max-width: 100%;
             background: linear-gradient(var(--degree), red, violet);
             padding: 5px;
             border-radius: 16px;
             transition: all 0.6s;
             animation: rotateBorder 1s linear infinite alternate;
-            ${media.sm} {
-                height: 40vh;
-            }
+            
+        }
         }
         ${media.sm} {
             flex-wrap: wrap;
@@ -291,7 +352,8 @@ background: #fbfada21;
         }
         .social {
             display: flex;
-            margin: 50px 0 0;
+            flex-wrap: wrap;
+            margin: 10px 0 0;
             list-style: none;
             gap: 10px;
         }
