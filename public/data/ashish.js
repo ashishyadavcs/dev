@@ -27,7 +27,7 @@ export const data = {
 
     totalexp: 3,
     interoduction: {
-        short: "Software Engineer | Blogger | Content Creator<br><br>I am a frontend developer with almost 3 years of experience in frontend development working in product based companies and having strong skills and experience in frontend development with React and Next js",
+        short: "Frontend Developer | Blogger | Content Creator<br><br>I am a frontend developer with almost <strong>3 years of experience </strong> in frontend development working in product based companies and having strong skills and experience in frontend development with <strong>React</strong> and <strong>Next js</strong>",
     },
     hobby: ["Travelling", "Reading Book", "Coding"],
     social: {
@@ -65,11 +65,8 @@ export const data = {
             duration: "1 march, 2021 - 26 oct, 2022",
             profile: "frontend developer",
             description: [
-                `Student-dashboard : - dashboard where student can create , manage their
-                order of assignment solution and chat with operation executive.
-                `,
-                `Tutor Dashboard - dashboard to access student assignment order , upload the solution and
-                updating status.`,
+                `Student-dashboard - Next.js, Bootstrap, Animation, Performance Optimization,API Integration`,
+                `Tutor Dashboard - Tailwind CSS, Next.js, API Integration`,
                 ` Public pages of website and migration to next.js`,
                 ` Managing custom theme and performance of blog website.`,
                 `Add , audit and fix seo schemas`,
@@ -78,7 +75,7 @@ export const data = {
     ],
     skills: [
         "HTML",
-        "css",
+        "CSS",
         "javascript",
         "React js",
         "Next js",
@@ -90,7 +87,7 @@ export const data = {
         "Vue js",
         "wordpress",
         "Jquery",
-        "tailwind css",
+        "tailwind CSS",
         "REST API",
         "Git - version control",
         "Web accessibility",

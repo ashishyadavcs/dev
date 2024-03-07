@@ -89,10 +89,10 @@ const Page = () => {
                         </div>
                         
                        
-                        <a className="theme-btn cv mr-2" href="/ashishcv.pdf">
+                        <a className="theme-btn btn cv mr-2" href="/ashishcv.pdf">
                             download resume
                         </a>
-                        <a className="theme-btn connect" href={`tel:${contact.mobile}`}>
+                        <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
                             contact <FaPhone />
                         </a>
                         <ul className="social">
@@ -191,10 +191,11 @@ background: #fbfada21;
         gap: 10px;
         a{
             display: inline-block;
-            padding: 5px;
+            padding: 5px 10px;
             text-transform: capitalize;
             border-radius: 4px;
             color: teal;
+            border: 1px solid;
             box-shadow: 0 1px 2px rgba(0,0,0,0.4);
         }
     }
@@ -290,7 +291,7 @@ background: #fbfada21;
         }
         .social {
             display: flex;
-            margin: 20px 0 0;
+            margin: 50px 0 0;
             list-style: none;
             gap: 10px;
         }
@@ -304,7 +305,7 @@ background: #fbfada21;
             gap: 10px;
             li {
                 padding: 6px 12px;
-                background: #f2f2ff;
+                border: 2px solid blue;
                 box-shadow: 0 1px 2px rgba(0,0,0,0.4);
                 font-weight: bold;
                 font-size: 14px;
@@ -313,5 +314,8 @@ background: #fbfada21;
                 text-transform: capitalize;
             }
         }
+    }
+    .btn{
+        border-radius: 8px;
     }
 `;
