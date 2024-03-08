@@ -65,7 +65,7 @@ const Page = () => {
                             </ul>
                         </div>
                        
-                        <h2 className="d-flex justify-content-between">Experience <span>({data.totalexp}years)</span></h2>
+                        <h2 className="d-flex justify-content-between">Experience &nbsp;<small>({data.totalexp}years)</small></h2>
                         <ul className="exp">
                             {[...data.exp].map(exp => (
                                 <li className="exp">
@@ -249,7 +249,7 @@ background: #fbfada21;
                 height: 84vh;
             }
             ${media.sm} {
-                height: 40vh;
+                height: 50vh;
             }
             &:before{
                 content:"";
@@ -338,11 +338,7 @@ background: #fbfada21;
                 box-shadow: 0 1px 2px rgba(0,0,0,0.4);
             }
         }
-        .description {
-            ${media.sm} {
-                font-size: 14px;
-            }
-        }
+        
         .college {
             margin-top: 40px;
             .duration{
