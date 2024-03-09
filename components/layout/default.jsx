@@ -7,7 +7,7 @@ import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import Chat from "../chat";
 import Entry from "../entry";
-import { ThemeContext } from "context";
+// import { ThemeContext } from "context";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
@@ -39,7 +39,7 @@ const Layout = ({ children, type = "default", config }) => {
                       }`,
                 }}
             ></script>
-            <ThemeContext.Provider value={""}>
+            {/* <ThemeContext.Provider value={""}> */}
                 {type == "default" || !["/vrc"].includes(router.pathname) ? (
                     <div className="layout">
                         <Entry />
@@ -66,7 +66,7 @@ const Layout = ({ children, type = "default", config }) => {
                     <main> {children}</main>
                 )}
                 {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
-            </ThemeContext.Provider>
+            {/* </ThemeContext.Provider> */}
         </>
     );
 };
