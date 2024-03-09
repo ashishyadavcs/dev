@@ -13,7 +13,7 @@ import { Globalstyle } from "@/styles/global";
 import { theme } from "themes";
 import { ThemeProvider } from "styled-components";
 import SetTheme from "@/components/themesetting";
-import {useEffect} from "react";
+import { useEffect } from "react";
 Router.events.on("routeChangeStart", () => {
     nProgress.start();
     !navigator.onLine ? toast.error("You are offline") : "";
@@ -24,20 +24,15 @@ Router.events.on("routeChangeComplete", () => {
 Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
-    useEffect(() => {
-        setTimeout(() => {
-            console.clear()
-          }, 3000);
-    }, [])
-    
+
     return (
-         <SessionProvider session={session} basePath="/api/auth">
+        <SessionProvider session={session} basePath="/api/auth">
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
                     <Globalstyle />
                     <div className="loading-lcp">loading</div>
                     {!layout.landing.includes(router.pathname) ? (
-                        <Layout>
+                        <Layout config={pageProps.config}>
                             <Component {...pageProps} />
                             <ToastContainer position="bottom-left" autoClose="1000" theme="light" />
                         </Layout>
@@ -49,7 +44,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                     )}
                 </Provider>
             </ThemeProvider>
-         </SessionProvider> 
+        </SessionProvider>
     );
 }
 export default MyApp;

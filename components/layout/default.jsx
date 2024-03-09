@@ -6,41 +6,67 @@ import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import Chat from "../chat";
-import {useLayoutEffect} from "react";
 import Entry from "../entry";
-
-
+import { ThemeContext } from "context";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
 
-
-const Layout = ({ children, type = "default" }) => {
+const Layout = ({ children, type = "default", config }) => {
     const router = useRouter();
+    config={
+        fontFamilyCSS:config?.fontFamilyCSS||'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap'
+    }
+    console.log(config)
     return (
         <>
-            {(type == "default"|| !['/vrc'].includes(router.pathname)) ? (
-                <div className="layout">
-                    <Entry/>
-                    <Breadcrumb />
-                   {!["/","/online-html-css-editor",'/vrc',"/html-responsive-iframe-generator","/css/button-generator"].includes(router.pathname) &&  <Share />}
-                    <Header progress={true} />
-                   
-                    <main> {children}</main>
-                    <Footer />
-                    <Orderpop Comp={Orderform} />
-                    <div className="backlink sub-footer">
-                        <a href="https://calculatorr.net">calculator</a>
-                        <a href="https://physicsclass.co">physicsclass</a>
-                        <a href="https://jsonviewer.guru">json viewer</a>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: ` function loadStyleSheet(path) {
+                            var head = document.getElementsByTagName('head')[0],
+                                link = document.createElement('link');
+                            link.setAttribute('href', path);
+                            link.setAttribute('rel', 'stylesheet');
+                            link.setAttribute('type', 'text/css');
+                            head.appendChild(link);
+                        };
+                      if (document.readyState === "complete") {
+                        loadStyleSheet('${config.fontFamilyCSS}');
+                      } else {
+                        window.addEventListener("load", function(){ 
+                            loadStyleSheet('${config.fontFamilyCSS}');
+                        });
+                      }`,
+                }}
+            ></script>
+            <ThemeContext.Provider value={""}>
+                {type == "default" || !["/vrc"].includes(router.pathname) ? (
+                    <div className="layout">
+                        <Entry />
+                        <Breadcrumb />
+                        {![
+                            "/",
+                            "/online-html-css-editor",
+                            "/vrc",
+                            "/html-responsive-iframe-generator",
+                            "/css/button-generator",
+                        ].includes(router.pathname) && <Share />}
+                        <Header progress={true} />
+
+                        <main> {children}</main>
+                        <Footer />
+                        <Orderpop Comp={Orderform} />
+                        <div className="backlink sub-footer">
+                            <a href="https://calculatorr.net">calculator</a>
+                            <a href="https://physicsclass.co">physicsclass</a>
+                            <a href="https://jsonviewer.guru">json viewer</a>
+                        </div>
                     </div>
-                </div>
-            ) : (
-                <main> {children}</main>
-            )}
-            {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
-       
-           
+                ) : (
+                    <main> {children}</main>
+                )}
+                {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
+            </ThemeContext.Provider>
         </>
     );
 };
