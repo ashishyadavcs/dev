@@ -14,10 +14,12 @@ const Share = dynamic(() => import("@/components/ui/share"), {
 
 const Layout = ({ children, type = "default", config }) => {
     const router = useRouter();
-    config={
-        fontFamilyCSS:config?.fontFamilyCSS||'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap'
-    }
-    console.log(config)
+    config = {
+        fontFamilyCSS:
+            config?.fontFamilyCSS ||
+            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap",
+    };
+    console.log(config);
     return (
         <>
             <script
@@ -40,32 +42,32 @@ const Layout = ({ children, type = "default", config }) => {
                 }}
             ></script>
             {/* <ThemeContext.Provider value={""}> */}
-                {type == "default" || !["/vrc"].includes(router.pathname) ? (
-                    <div className="layout">
-                        <Entry />
-                        <Breadcrumb />
-                        {![
-                            "/",
-                            "/online-html-css-editor",
-                            "/vrc",
-                            "/html-responsive-iframe-generator",
-                            "/css/button-generator",
-                        ].includes(router.pathname) && <Share />}
-                        <Header progress={true} />
+            {type == "default" || !["/vrc"].includes(router.pathname) ? (
+                <div className="layout">
+                    <Entry />
+                    <Breadcrumb />
+                    {![
+                        "/",
+                        "/online-html-css-editor",
+                        "/vrc",
+                        "/html-responsive-iframe-generator",
+                        "/css/button-generator",
+                    ].includes(router.pathname) && <Share />}
+                    <Header progress={true} />
 
-                        <main> {children}</main>
-                        <Footer />
-                        <Orderpop Comp={Orderform} />
-                        <div className="backlink sub-footer">
-                            <a href="https://calculatorr.net">calculator</a>
-                            <a href="https://physicsclass.co">physicsclass</a>
-                            <a href="https://jsonviewer.guru">json viewer</a>
-                        </div>
-                    </div>
-                ) : (
                     <main> {children}</main>
-                )}
-                {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
+                    <Footer />
+                    <Orderpop Comp={Orderform} />
+                    <div className="backlink sub-footer">
+                        <a href="https://calculatorr.net">calculator</a>
+                        <a href="https://physicsclass.co">physicsclass</a>
+                        <a href="https://jsonviewer.guru">json viewer</a>
+                    </div>
+                </div>
+            ) : (
+                <main> {children}</main>
+            )}
+            {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
             {/* </ThemeContext.Provider> */}
         </>
     );
