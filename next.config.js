@@ -34,7 +34,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-
+      {
+        source:"/portfolio",
+        destination:"/ashish-yadav",
+        permanent: false,
+      },
       {
         source:"/calculator/attendance",
         destination:"/calculator/attendance-percentage-calculator",

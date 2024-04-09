@@ -1,5 +1,6 @@
 import { media } from "config/device";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
 import Image from "next/image";
 import {data} from "public/data/ashish";
 import { contact } from "public/data/contact";
@@ -85,6 +86,8 @@ const Page = () => {
                             {data.projects.map(p=><li>
                                 <a href={p.link} referrerPolicy="noreferrer" target="_blank">{p.text}</a>
                             </li>)}
+                            <li><Link href="/projects">
+                            <a>more</a></Link></li>
                         </ul>
                         <div className="college">
                             <h2>Education</h2>
