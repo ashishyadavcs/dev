@@ -16,7 +16,7 @@ const Entry = () => {
             {seen == true ? (
                 <Styledentry>
                     <div className="action">
-                        <h2>Who you are?</h2>
+                        <h2>Please confirm ?</h2>
                         <Link href="/ashish-yadav">
                             <a onClick={async e => checkin()}>I'm Recruiter</a>
                         </Link>
