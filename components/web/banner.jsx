@@ -1,13 +1,14 @@
+import {media} from "config/device";
 import Image from "next/image";
 import styled from "styled-components";
 
-const Banner = ({title,image,description,height='30vh'}) => {
+const Banner = ({ title, image, description, height = "30vh" }) => {
     return (
-        <Mybanner style={{height:height}}>
+        <Mybanner style={{ height: height }}>
             <div className="container">
-              {image && <Image priority {...image} layout="fill"/>}
-              {title && <h1 dangerouslySetInnerHTML={{__html:title}}></h1>}
-              {description && <p>{description}</p>}
+                {image && <Image priority {...image} layout="fill" />}
+                {title && <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>}
+                {description && <p>{description}</p>}
             </div>
         </Mybanner>
     );
@@ -18,7 +19,7 @@ const Mybanner = styled.div`
     position: relative;
     padding: 1rem;
     min-height: 30vh;
-   
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -39,10 +40,20 @@ const Mybanner = styled.div`
         font-size: clamp(30px, 4vw, 70px) !important;
         text-shadow: 0px 1px 1px #000;
         & + * {
-        z-index: 2;
+            z-index: 2;
+            position: relative;
+        }
     }
+    p{
+        color: #fff;
+        text-align: center;
+        width: 60%;
+        margin: auto;
+        ${media.sm}{
+            width: 80%;
+        }
     }
-    
+
     &:before {
         z-index: 1;
         content: "";

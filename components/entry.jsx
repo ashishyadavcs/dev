@@ -1,26 +1,32 @@
 import { media } from "config/device";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 
 const Entry = () => {
     const [seen, setseen] = useState(true);
-    useEffect(() => {
-        console.log(seen);
+    const checkin = () => {
+        localStorage.setItem("seen", new Date().getTime());
+        setseen(false);
+    };
+    useLayoutEffect(() => {
+        const time=localStorage.getItem('seen')
+        if(time<new Date().getTime()*60*60){
+            setseen(false)
+        }
     }, [seen]);
 
     return (
         <>
             {seen == true ? (
                 <Styledentry>
-                   
                     <div className="action">
-                    <h2>Who you are?</h2>
+                        <h2>Who you are?</h2>
                         <Link href="/ashish-yadav">
-                           <a onClick={async e => await setseen(false)}>I'm Recruiter</a> 
+                            <a onClick={async e => checkin()}>I'm Recruiter</a>
                         </Link>
-                        <Link href={"/"} >
-                           <a onClick={e => setseen(false)}>I'm User</a> 
+                        <Link href={"/"}>
+                            <a onClick={e => checkin()}>I'm User</a>
                         </Link>
                     </div>
                 </Styledentry>
@@ -43,9 +49,12 @@ const Styledentry = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .action {
-        h2{color:#000;margin-bottom:0}
+        h2 {
+            color: #000;
+            margin-bottom: 0;
+        }
         display: flex;
         border-radius: 20px;
         justify-content: center;
@@ -55,15 +64,14 @@ const Styledentry = styled.div`
         width: 80%;
         background: #fff;
         ${media.sm} {
-                flex-direction: column;
-            }
+            flex-direction: column;
+        }
         button,
         a {
             font-size: 20px;
             padding: 10px 20px;
             border: 2px solid red;
             border-radius: 8px;
-           
         }
     }
 `;

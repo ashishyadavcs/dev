@@ -7,6 +7,9 @@ export const Styled = {
         color: rgb(170, 167, 167);
         background-position: center;
         background-blend-mode: overlay;
+        .row{
+            padding: 0 0 30px
+        }
         p {
             color: #fff;
             line-height: 1.4;
