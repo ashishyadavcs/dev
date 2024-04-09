@@ -155,7 +155,7 @@ const Page = () => {
                                 </a>
                             </li>
                         </ul>
-                        <a className="theme-btn btn cv mr-2" href="/ashishcv.pdf">
+                        <a className="theme-btn btn cv mr-2" href="/ashish-frontend-developer.pdf">
                             download resume
                         </a>
                         <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
@@ -228,9 +228,11 @@ background: #fbfada21;
     @keyframes rotateBorder {
         0% {
             --degree: 0deg;
+        
         }
         100% {
             --degree: 120deg;
+          
         }
     }
     .banner {
