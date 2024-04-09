@@ -55,7 +55,7 @@ export const projects = [
         },
     },
     {
-        title: "Porfolio website",
+        title: "Portfolio website",
         url:"/",
         techs: ["html","css",'js','angular js','materializ css'],
         thumbnail: "",
