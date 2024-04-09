@@ -27,7 +27,7 @@ const Page = () => {
                                     height={300}
                                     width={400}
                                     layout="responsive"
-                                    src={p.thumbnail}
+                                    src={'/images/projects.jpg'}
                                     onError={e => (e.currentTarget.src = "/images/projects.jpg")}
                                 />
                                 <div className="content">

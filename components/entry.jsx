@@ -9,12 +9,7 @@ const Entry = () => {
         localStorage.setItem("seen", new Date().getTime());
         setseen(false);
     };
-    useLayoutEffect(() => {
-        const time=localStorage.getItem('seen')
-        if(time<new Date().getTime()*60*60){
-            setseen(false)
-        }
-    }, [seen]);
+
 
     return (
         <>

@@ -43,8 +43,12 @@ const Layout = ({ children, type = "default", config }) => {
             {/* <ThemeContext.Provider value={""}> */}
             {type == "default" || !["/vrc"].includes(router.pathname) ? (
                 <div className="layout">
-                    <Entry />
+                    
                     <Breadcrumb />
+                    {[
+                        "/",
+                       
+                    ].includes(router.pathname) && <Entry />}
                     {![
                         "/",
                         "/online-html-css-editor",
