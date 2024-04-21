@@ -1,6 +1,6 @@
 import { media } from "config/device";
 import Link from "next/link";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 
 const Entry = () => {
@@ -9,12 +9,23 @@ const Entry = () => {
         localStorage.setItem("seen", new Date().getTime());
         setseen(false);
     };
-
+    useEffect(() => {
+        const action=document.querySelector(".entry")
+        action.querySelectorAll('a').forEach(el => {
+            el.onClick = () => {
+                localStorage.setItem("seen", new Date().getTime());
+            };
+        });
+        const a = localStorage.getItem("seen", new Date().getTime());
+        if(a){
+           action.classList.add('d-none') 
+        }
+    }, []);
 
     return (
         <>
             {seen == true ? (
-                <Styledentry>
+                <Styledentry className="entry">
                     <div className="action">
                         <h2>Please confirm ?</h2>
                         <Link href="/ashish-yadav">
