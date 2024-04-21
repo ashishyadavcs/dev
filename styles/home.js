@@ -53,13 +53,19 @@ const Styled = {
         .hiw {
             --color: blue;
             li {
-                transition: all 0.3s;
+                transition: all 0.6s;
                 position: relative;
                 overflow: hidden;
                 align-items: flex-start;
                 padding-bottom: 10px;
                 margin-bottom: 10px;
                 width: max-content;
+                cursor: pointer;
+                &:hover{
+                    &::before{
+                        animation-play-state: paused;
+                    }
+                }
                 &:last-child {
                     visibility: hidden;
                     opacity: 0;
