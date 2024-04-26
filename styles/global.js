@@ -605,6 +605,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .loading-lcp {
+  width: 100%;
   font-size: 25rem;
   font-weight: 700;
   color: transparent;
