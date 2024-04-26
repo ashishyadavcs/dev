@@ -8,36 +8,35 @@ const Page = () => {
     var chunks = [];
     const [files, setFiles] = useState([]);
     const [state, setState] = useState(false);
-      if(typeof document=='undefined') return
-        const video = document.querySelector("video");
-        navigator.mediaDevices
-            .getUserMedia({
-                audio: true,
-                video: true,
-            })
-            .then(stream => {
-                video.srcObject = stream;
-                recorder = new MediaRecorder(stream, { mimeType: "video/webm; codecs=vp9" });
-                recorder.start()
-                recorder.onstart = e => {
-                    chunks = [];
-                };
-                recorder.ondataavailable = e => {
-                    console.log(e);
-                    chunks.push(e.data);
-                };
-                recorder.onstop = e => {
-                    console.log("stop", e);
-                    const blob = new Blob(chunks, { type: "video/mp4" });
-                    setFiles(prev => [...prev, blob]);
-                };
-            });
-
+    if (typeof document == "undefined") return;
+    const video = document.querySelector("video");
+    navigator.mediaDevices
+        .getUserMedia({
+            audio: true,
+            video: true,
+        })
+        .then(stream => {
+            video.srcObject = stream;
+            recorder = new MediaRecorder(stream, { mimeType: "video/webm; codecs=vp9" });
+            recorder.start();
+            recorder.onstart = e => {
+                chunks = [];
+            };
+            recorder.ondataavailable = e => {
+                console.log(e);
+                chunks.push(e.data);
+            };
+            recorder.onstop = e => {
+                console.log("stop", e);
+                const blob = new Blob(chunks, { type: "video/mp4" });
+                setFiles(prev => [...prev, blob]);
+            };
+        });
 
     const record = () => {
         if (typeof recorder == "undefined") return;
-       recorder.stop()
-        setState(!state)
+        recorder.stop();
+        setState(!state);
     };
     return (
         <Pagestyle className="vrc">
@@ -124,7 +123,7 @@ const Pagestyle = styled.div`
     }
     .action {
     }
-    ${media.sm}{
+    ${media.sm} {
         grid-template-columns: auto;
     }
 `;

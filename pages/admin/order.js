@@ -1,4 +1,4 @@
-import {media} from "config/device";
+import { media } from "config/device";
 import Link from "next/link";
 import styled from "styled-components";
 const Page = ({ orders }) => {
@@ -27,15 +27,15 @@ const Pages = styled.div`
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(4, 1fr);
-        ${media.sm}{
-          grid-template-columns: auto;
+        ${media.sm} {
+            grid-template-columns: auto;
         }
         .order {
-          border: 2px solid transparent;
-          &:hover{
-            border: 2px solid blue;
-          }
-          cursor: pointer;
+            border: 2px solid transparent;
+            &:hover {
+                border: 2px solid blue;
+            }
+            cursor: pointer;
             h2 {
                 font-size: 30px;
             }
@@ -51,7 +51,7 @@ export default Page;
 export async function getServerSideProps({ req }) {
     const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/order`, {
         headers: {
-            cookie: req.headers.cookie
+            cookie: req.headers.cookie,
         },
     }).then(res => res.json());
     return {

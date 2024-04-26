@@ -6,23 +6,25 @@ export const data = {
             link: "https://tutorbin.com/dashboard",
         },
         {
-          text:"Tutor Dashboard",
-          link:"https://t.tutorbin.com/"
+            text: "Tutor Dashboard",
+            link: "https://t.tutorbin.com/",
         },
         {
-          text: "Frontendzone",
-          link: "/",
-      },{
-        text:"Old Portfolio",
-        link:"https://ashish221306.github.io/developer/#!/"
-      },{
-        text:"Wordpress Theme",
-        link:"https://tutorbin.com/blog"
-      },
-      {
-        text:"Landing page in next.js",
-        link:"https://www.livecareer.co.uk/lp/lukrsmlp09.aspx?testCountry=UK"
-      }
+            text: "Frontendzone",
+            link: "/",
+        },
+        {
+            text: "Old Portfolio",
+            link: "https://ashish221306.github.io/developer/#!/",
+        },
+        {
+            text: "Wordpress Theme",
+            link: "https://tutorbin.com/blog",
+        },
+        {
+            text: "Landing page in next.js",
+            link: "https://www.livecareer.co.uk/lp/lukrsmlp09.aspx?testCountry=UK",
+        },
     ],
 
     totalexp: 3,
@@ -40,7 +42,6 @@ export const data = {
         college: "Feroze Gandhi Institute of Engineering and Technology",
     },
     exp: [
-        
         {
             company: {
                 name: "BOLD Technology",
@@ -92,6 +93,5 @@ export const data = {
         "Git - version control",
         "Web accessibility",
         "website optimization",
-        
     ],
 };

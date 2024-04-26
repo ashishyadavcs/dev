@@ -1,6 +1,6 @@
 import "nprogress/nprogress.css";
 import "@/styles/bootstrap.css";
-import Layout from "../components/layout/default";
+import Layout from "../components/layout/layout";
 import Router, { useRouter } from "next/router";
 import store from "../store/store";
 import { Provider } from "react-redux";

@@ -1,11 +1,11 @@
-import Script from 'next/script';
+import Script from "next/script";
 
 function Fbchat() {
-  return (
-   <>
-   <div id="fb-root"></div>
-   <Script strategy="lazyOnload">
-        {`
+    return (
+        <>
+            <div id="fb-root"></div>
+            <Script strategy="lazyOnload">
+                {`
             var chatbox = document.getElementById('fb-customer-chat');
             chatbox.setAttribute("page_id", "frontendzonedotcom");
             chatbox.setAttribute("attribution", "biz_inbox");
@@ -25,14 +25,14 @@ function Fbchat() {
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         `}
-      </Script>
-        <div id='fb-customer-chat' className="fb-customerchat"
-          attribution="biz_inbox"
-          page_id="frontendzonedotcom">
-        </div>
-   
-   </>
-  );
+            </Script>
+            <div
+                id="fb-customer-chat"
+                className="fb-customerchat"
+                attribution="biz_inbox"
+                page_id="frontendzonedotcom"
+            ></div>
+        </>
+    );
 }
-export default  Fbchat
-
+export default Fbchat;

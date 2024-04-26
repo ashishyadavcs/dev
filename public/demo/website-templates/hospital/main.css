@@ -6,11 +6,10 @@
 
 :root {
     --primary-color: #000;
-    --font-family: 'Source Sans 3', sans-serif;
-    ;
-    --newsletter-bg: #007FF4;
-    --bodybg: #F8FDFF;
-    --footerbg: #ECF4FF;
+    --font-family: "Source Sans 3", sans-serif;
+    --newsletter-bg: #007ff4;
+    --bodybg: #f8fdff;
+    --footerbg: #ecf4ff;
 }
 
 body {
@@ -22,10 +21,12 @@ header .container {
     display: flex;
     justify-content: space-between;
 }
-header{position: relative;}
-header .shape{
+header {
+    position: relative;
+}
+header .shape {
     left: -3%;
-    top:-90%;
+    top: -90%;
 }
 header ul {
     list-style: none;
@@ -54,7 +55,7 @@ h5,
 h6 {
     font-family: var(--font-family);
     line-height: normal;
-    color: #003B79;
+    color: #003b79;
 }
 
 img {
@@ -79,13 +80,13 @@ button {
 .hero h1 {
     font-size: 64px;
     line-height: 78px;
-    color: #003B79;
+    color: #003b79;
     margin: 29px 0 23px;
 }
-.hero .left{
+.hero .left {
     padding-top: 30px;
 }
-.hero span{
+.hero span {
     font-weight: 600;
     font-size: 24px;
 }
@@ -102,7 +103,7 @@ button {
 
 .btn-group .btn-default {
     border-radius: 30px;
-    background: #FFF;
+    background: #fff;
     padding: 14px 57px;
     box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
 }
@@ -171,8 +172,10 @@ button {
     display: inline-block;
     height: 250px;
     width: 250px;
-    border: 50px solid #FFF;
-    box-shadow: 0px 10px 50px 12.5px rgba(0, 59, 121, 0.07),inset 0px 10px 50px 12.5px rgba(0, 59, 121, 0.07);
+    border: 50px solid #fff;
+    box-shadow:
+        0px 10px 50px 12.5px rgba(0, 59, 121, 0.07),
+        inset 0px 10px 50px 12.5px rgba(0, 59, 121, 0.07);
     position: absolute;
     right: 0;
     background: transparent;
@@ -193,7 +196,7 @@ button {
 
 .review-section h2 {
     font-size: 54px;
-    color: #003B79;
+    color: #003b79;
     margin-bottom: 68px;
 }
 
@@ -204,7 +207,7 @@ button {
 
 .review {
     border-radius: 20px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
     width: 577px;
     position: relative;
@@ -224,8 +227,8 @@ button {
     color: #fff;
     border-radius: 50%;
     position: absolute;
-    right: calc(var(--size)*-1/2);
-    top: calc(var(--size)*-1/2);
+    right: calc(var(--size) * -1 / 2);
+    top: calc(var(--size) * -1 / 2);
 }
 
 .review .user {
@@ -237,7 +240,7 @@ button {
 
 .services h2 {
     font-size: 54px;
-    color: #003B79;
+    color: #003b79;
     margin-bottom: 34px;
     margin-top: 180px;
 }
@@ -251,7 +254,7 @@ button {
 .services .card {
     width: 273px;
     border-radius: 20px;
-    background: #FFF;
+    background: #fff;
     display: flex;
     flex-direction: column;
     padding: 40px 44px 70px;
@@ -295,7 +298,7 @@ button {
     width: 282px;
     padding: 26px;
     border-radius: 20px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
 }
 
@@ -326,7 +329,7 @@ button {
 
 .specialist .dr {
     border-radius: 20px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 0px 10px 50px 25px rgba(0, 59, 121, 0.07);
     overflow: hidden;
     width: 25%;
@@ -367,12 +370,17 @@ footer ul {
 .menu {
     display: none;
 }
-@media (min-width:768px) {
-    header{margin-bottom: 50px;}
+@media (min-width: 768px) {
+    header {
+        margin-bottom: 50px;
+    }
 }
-@media (max-width:768px) {
-    header .shape{display: none;}
-    h2 ,.review-section h2{
+@media (max-width: 768px) {
+    header .shape {
+        display: none;
+    }
+    h2,
+    .review-section h2 {
         font-size: 35px;
         text-align: center;
     }
@@ -380,18 +388,21 @@ footer ul {
     .hero h1 {
         font-size: 40px;
         line-height: 1.3;
-    
     }
-    .btn-group{
+    .btn-group {
         margin-bottom: 30px;
     }
-    .btn-group a{width: 100%;text-align: center;}
-     .services h2{
+    .btn-group a {
+        width: 100%;
+        text-align: center;
+    }
+    .services h2 {
         margin-top: 60px;
-     }
-     .clinic .left{text-align: center;}
+    }
+    .clinic .left {
+        text-align: center;
+    }
     .newsletter form {
-      
         padding: 10px;
     }
 
@@ -499,5 +510,4 @@ footer ul {
         width: 100%;
         background: #000;
     }
-
 }

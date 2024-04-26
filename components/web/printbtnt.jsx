@@ -1,5 +1,5 @@
 import Script from "next/script";
-const Printbtn = ({style, classname,title,uid,filename='newpdf'}) => {
+const Printbtn = ({ style, classname, title, uid, filename = "newpdf" }) => {
     function convertHTMLtoPDF() {
         const { jsPDF } = window.jspdf;
         if (typeof jsPDF == "undefined") return;
@@ -17,12 +17,20 @@ const Printbtn = ({style, classname,title,uid,filename='newpdf'}) => {
     }
     return (
         <>
-            <Script strategy="lazyOnload" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></Script>
-            <Script strategy="lazyOnload" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></Script>
-            <button style={style} onClick={convertHTMLtoPDF} className={classname}>{title}</button>
+            <Script
+                strategy="lazyOnload"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+            ></Script>
+            <Script
+                strategy="lazyOnload"
+                src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+            ></Script>
+            <button style={style} onClick={convertHTMLtoPDF} className={classname}>
+                {title}
+            </button>
         </>
     );
 };
 
 export default Printbtn;
-Printbtn
+Printbtn;

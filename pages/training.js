@@ -5,29 +5,29 @@ import Image from "next/image";
 const Page = () => {
     return (
         <>
-        <style jsx>{`
+            <style jsx>{`
                 .bg {
                     padding: 6vw 0;
                     background: radial-gradient(circle, aqua, lime);
                 }
-                .banner{
+                .banner {
                     position: relative;
                     height: 54vw;
                     width: 100%;
                 }
             `}</style>
-       
-        <div className="bg">
-            <div className="container py-4">
-                <NextSeo
-                    title="Frontend Training | website design and development"
-                    description="GET frontend and website design training with Experienced software engineer "
-                />
-                <h1 className="text-center text-white mb-4">Connect for Frontend Mentorship</h1>
-                <Ashish style={{ maxWidth: "500px", margin: "auto" }} />
-                <Whatsapp />
+
+            <div className="bg">
+                <div className="container py-4">
+                    <NextSeo
+                        title="Frontend Training | website design and development"
+                        description="GET frontend and website design training with Experienced software engineer "
+                    />
+                    <h1 className="text-center text-white mb-4">Connect for Frontend Mentorship</h1>
+                    <Ashish style={{ maxWidth: "500px", margin: "auto" }} />
+                    <Whatsapp />
+                </div>
             </div>
-        </div>
         </>
     );
 };

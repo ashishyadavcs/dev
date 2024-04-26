@@ -53,7 +53,7 @@ const Page = ({ posts }) => {
                 <div className="col-md-8">
                     <h1>
                         # Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend
-                        Developer 
+                        Developer
                     </h1>
 
                     <p>
@@ -63,7 +63,7 @@ const Page = ({ posts }) => {
                         stunning websites and applications you run daily on your phones and laptops.
                     </p>
                     <Image
-                    priority
+                        priority
                         objectFit="contain"
                         src="/dev/frontend-developer.png"
                         alt="frontend developer , frontend development"
@@ -71,12 +71,12 @@ const Page = ({ posts }) => {
                         width="800"
                     />
                     <p>
-                    Frontend developers are not just developers who write the code for websites
+                        Frontend developers are not just developers who write the code for websites
                         and applications. They are artists and architects who give beauty and sculpt
                         the user experience and make it user-friendly and engaging for users of
                         websites and applications.
                     </p>
-                    <Inpostad/>
+                    <Inpostad />
                     <h2>Nature of frontend development</h2>
                     <p>
                         <a
@@ -176,7 +176,7 @@ const Page = ({ posts }) => {
                             and version history tracking.
                         </li>
                     </ul>
-                    <Inpostad/>
+                    <Inpostad />
                     <h2>What are the technologies frontend developers work on ?</h2>
                     <p>basic</p>
                     <ul className="techs">
@@ -344,24 +344,26 @@ const Page = ({ posts }) => {
                         (VUI) has opened up new avenues for front-end developers to explore and
                         master.
                     </p>
-                    <Inpostad/>
+                    <Inpostad />
                     <h2>conclusion</h2>
                     <p>
                         Frontend development is the marriage of creativity and technology, where
-                        developers turn ideas into digital reality.</p>
-                        <p>They are the architects of our
-                        online experiences, responsible for the visual appeal and functionality of
-                        websites and applications.</p>
-                        <p>
-                         The world of front-end development is dynamic,
-                        with a constant stream of innovations and challenges, making it an engaging
-                        and rewarding career choice for those who are passionate about creating the
-                        digital world we live in.
-                        </p><p>
-                         So, whether you're an aspiring developer or simply
-                        curious about the magic behind your favorite websites, remember that
-                        front-end development is where art meets science, and the possibilities are
-                        endless.
+                        developers turn ideas into digital reality.
+                    </p>
+                    <p>
+                        They are the architects of our online experiences, responsible for the
+                        visual appeal and functionality of websites and applications.
+                    </p>
+                    <p>
+                        The world of front-end development is dynamic, with a constant stream of
+                        innovations and challenges, making it an engaging and rewarding career
+                        choice for those who are passionate about creating the digital world we live
+                        in.
+                    </p>
+                    <p>
+                        So, whether you're an aspiring developer or simply curious about the magic
+                        behind your favorite websites, remember that front-end development is where
+                        art meets science, and the possibilities are endless.
                     </p>
                     <h2>Frequently Asked Questions</h2>
 
@@ -406,19 +408,17 @@ const Page = ({ posts }) => {
                             },
                         ]}
                     />
-                    <Ashish style={{'max-width':'400px;margin:auto;'}}/>
+                    <Ashish style={{ "max-width": "400px;margin:auto;" }} />
                 </div>
                 <div className="col-md-2 sticky">
                     <Inpostad />
                 </div>
-
             </div>
-            <Fbcomment/>
-            
+            <Fbcomment />
 
             <Relatedposts posts={posts} />
             <Link href="/blog">
-                        <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
+                <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
             </Link>
         </Article>
     );
@@ -426,7 +426,6 @@ const Page = ({ posts }) => {
 
 export default Page;
 const Article = styled.div`
-
     h1 {
         ${media.minsm} {
             margin: 20px auto;
@@ -486,7 +485,7 @@ const Article = styled.div`
     h2 {
         margin-top: 30px;
     }
-    ul:not(.faqs ul,.techs){
+    ul:not(.faqs ul, .techs) {
         margin-top: 17px;
         margin-left: 20px;
         li {

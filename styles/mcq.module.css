@@ -1,52 +1,52 @@
 .mcq li {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .result {
-  position: fixed;
-  top: 60px;
-  left: 80%;
-  right: 20px;
-  z-index: 2;
-  background: #fff;
-  padding: 10px;
-  width: 200px;
-  box-shadow: 0 1px 2px;
+    position: fixed;
+    top: 60px;
+    left: 80%;
+    right: 20px;
+    z-index: 2;
+    background: #fff;
+    padding: 10px;
+    width: 200px;
+    box-shadow: 0 1px 2px;
 }
 .result li {
-  flex-direction: row;
+    flex-direction: row;
 }
 .mcq ul > li:first-child {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 .mcq ul li {
-  background: #f1f1f1;
-  margin-bottom: 5px;
-  width: 100%;
-  justify-content: center;
+    background: #f1f1f1;
+    margin-bottom: 5px;
+    width: 100%;
+    justify-content: center;
 }
 .mcq ol > li {
-  margin-bottom: 20px;
-  padding: 20px 0;
-  border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-radius: 8px;
 }
 .mcq label {
-  display: grid;
-  cursor: pointer;
-  align-items: center;
-  padding: 10px;
-  grid-column-gap: 20px;
-  grid-template-columns: 20px calc(100% - 20px);
+    display: grid;
+    cursor: pointer;
+    align-items: center;
+    padding: 10px;
+    grid-column-gap: 20px;
+    grid-template-columns: 20px calc(100% - 20px);
 }
 @media (max-width: 767px) {
-  .result {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    left: 0;
-    align-items: center;
-  }
-  .result button {
-    height: 60px;
-  }
+    .result {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 70% 30%;
+        left: 0;
+        align-items: center;
+    }
+    .result button {
+        height: 60px;
+    }
 }

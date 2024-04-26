@@ -22,12 +22,17 @@ const Page = () => {
                 <div className="items">
                     {[...projects].map(p => {
                         return (
-                            <a referrerPolicy="noreferrer" target="_blank" href={p.url} className="project">
+                            <a
+                                referrerPolicy="noreferrer"
+                                target="_blank"
+                                href={p.url}
+                                className="project"
+                            >
                                 <Image
                                     height={300}
                                     width={400}
                                     layout="responsive"
-                                    src={'/images/projects.jpg'}
+                                    src={"/images/projects.jpg"}
                                     onError={e => (e.currentTarget.src = "/images/projects.jpg")}
                                 />
                                 <div className="content">
@@ -56,7 +61,7 @@ const Pages = styled.div`
         margin: 30px 0;
         display: grid;
         grid-gap: 20px;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(3, 1fr);
         ${media.sm} {
             grid-template-columns: auto;
         }
@@ -65,32 +70,33 @@ const Pages = styled.div`
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
-            .type{
-              text-transform: capitalize;
-              color: limegreen;
-              padding: 4px 8px;
-              display: inline-block;
-              margin-top: 20px;
+            .type {
+                text-transform: capitalize;
+                color: limegreen;
+                padding: 4px 8px;
+                display: inline-block;
+                margin-top: 20px;
             }
             img {
                 transition: all 0.3s;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.3);
+                    object-position: left;
                 }
-            
-            &:hover{
-              img{
-                transform: scale(1.3);
-                object-position: left;
-               
-              }
             }
             h2 {
                 background: linear-gradient(to right, #ff00f1, blue);
                 background-clip: text;
-                font-size:18px;
+                font-size: 18px;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
-            h3{font-size:14px}
+            h3 {
+                font-size: 14px;
+            }
             .content {
                 padding: 20px;
             }

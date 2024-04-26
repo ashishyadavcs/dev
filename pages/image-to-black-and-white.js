@@ -3,17 +3,17 @@ import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import React, { useState } from "react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 const Page = () => {
     const [image, setimage] = useState({
         original: "",
         converted: "",
-        type:''
+        type: "",
     });
     function convertToBlackAndWhite() {
-     document.querySelector('.convertbtn').innerHTML='converting...'
+        document.querySelector(".convertbtn").innerHTML = "converting...";
 
         const input = document.getElementById("imageInput");
         const canvas = document.getElementById("canvas");
@@ -24,7 +24,7 @@ const Page = () => {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            console.log(e)
+            console.log(e);
             img.src = e.target.result;
 
             img.onload = function () {
@@ -45,11 +45,12 @@ const Page = () => {
 
                 ctx.putImageData(imageData, 0, 0);
                 setimage(p => ({ ...p, converted: canvas.toDataURL(image.type) }));
-                document.querySelector('.converted')?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+                document
+                    .querySelector(".converted")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 downloadBtn.href = canvas.toDataURL(image.type);
-                toast.success("converted")
-              document.querySelector('.convertbtn').innerHTML='converted'
-
+                toast.success("converted");
+                document.querySelector(".convertbtn").innerHTML = "converted";
             };
         };
 
@@ -65,34 +66,37 @@ const Page = () => {
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/image-to-black-and-white`}
                 openGraph={{
                     type: "software",
-                    url: process.env.NEXT_PUBLIC_APP_URL+'/image-to-black-and-white',
+                    url: process.env.NEXT_PUBLIC_APP_URL + "/image-to-black-and-white",
                     title: `Convert color image / photo to black and white`,
-                    description:`Frontendzone black and white image converter is ther tool to convert image to black & white`,
+                    description: `Frontendzone black and white image converter is ther tool to convert image to black & white`,
 
                     images: [
                         {
                             url: `${process.env.NEXT_PUBLIC_APP_URL}/images/image-black-and-white-converter.webp`,
                             width: 1280,
                             height: 860,
-                            alt: 'black and white image converter',
+                            alt: "black and white image converter",
                             type: "image/webp",
-                        }
-                        
+                        },
                     ],
-                    siteName: 'black and white image converter',
+                    siteName: "black and white image converter",
                 }}
                 additionalMetaTags={[
                     {
                         name: "keywords",
-                        content: 'image to black and white, black and white image converter',
+                        content: "image to black and white, black and white image converter",
                     },
                 ]}
-           />
+            />
             <input
                 onChange={e => {
-                    if(!e.target.files[0]) return
+                    if (!e.target.files[0]) return;
                     try {
-                        setimage(p => ({ converted:'',type:e.target.files[0].type, original: URL.createObjectURL(e.target.files[0]) }));
+                        setimage(p => ({
+                            converted: "",
+                            type: e.target.files[0].type,
+                            original: URL.createObjectURL(e.target.files[0]),
+                        }));
                     } catch {}
                 }}
                 type="file"
@@ -139,8 +143,13 @@ const Page = () => {
                 color image will be converted into black and white image. Now you can download your
                 image.
             </p>
-            <img layout="responsive" width={1280} height={860}  src="/images/image-black-and-white-converter.webp" alt="image to black and white converter"/>
-
+            <img
+                layout="responsive"
+                width={1280}
+                height={860}
+                src="/images/image-black-and-white-converter.webp"
+                alt="image to black and white converter"
+            />
         </PageStyle>
     );
 };
@@ -161,7 +170,7 @@ const PageStyle = styled.div`
         background: #fff;
         border-radius: 50px;
         ${media.sm} {
-            bottom:72px;
+            bottom: 72px;
             border-radius: 0;
             width: 100%;
         }
@@ -170,18 +179,20 @@ const PageStyle = styled.div`
         margin: 30px auto;
     }
     @keyframes ging {
-        0%{transform:translateY(2px)}
-        100%{transform:translateY(-2px)}
-        
+        0% {
+            transform: translateY(2px);
+        }
+        100% {
+            transform: translateY(-2px);
+        }
     }
     .action .a {
         display: flex;
         align-items: center;
         gap: 7px;
-        
     }
-    .action a.active{
-        svg{
+    .action a.active {
+        svg {
             animation: ging 1s linear infinite alternate;
         }
     }

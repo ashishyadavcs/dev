@@ -2,7 +2,7 @@ import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
-import {data} from "public/data/ashish";
+import { data } from "public/data/ashish";
 import { contact } from "public/data/contact";
 import React from "react";
 
@@ -26,22 +26,21 @@ const Page = () => {
             />
             <div className="container">
                 <div className="banner">
-               <span className="wrap">
-               <span className="shape"></span>
-                    <span className="dp">
-                        
-                        <Image
-                            objectFit="cover"
-                            layout="fill"
-                            objectPosition="center"
-                            priority
-                            src="/github-profile.jpg"
-                            height="400"
-                            width="400"
-                            alt="ashish yadav"
-                        />
+                    <span className="wrap">
+                        <span className="shape"></span>
+                        <span className="dp">
+                            <Image
+                                objectFit="cover"
+                                layout="fill"
+                                objectPosition="center"
+                                priority
+                                src="/github-profile.jpg"
+                                height="400"
+                                width="400"
+                                alt="ashish yadav"
+                            />
+                        </span>
                     </span>
-               </span>
                     <div className="info">
                         <h1 className="title">
                             Ashish Yadav{" "}
@@ -65,8 +64,10 @@ const Page = () => {
                                 })}
                             </ul>
                         </div>
-                       
-                        <h2 className="d-flex justify-content-between">Experience &nbsp;<small>({data.totalexp}years)</small></h2>
+
+                        <h2 className="d-flex justify-content-between">
+                            Experience &nbsp;<small>({data.totalexp}years)</small>
+                        </h2>
                         <ul className="exp">
                             {[...data.exp].map(exp => (
                                 <li className="exp">
@@ -76,27 +77,36 @@ const Page = () => {
                                     </div>
                                     <strong>{exp.profile}</strong>
                                     <ul className="desc">
-                                        {exp.description.map(desc=><li>{desc}</li>)}
+                                        {exp.description.map(desc => (
+                                            <li>{desc}</li>
+                                        ))}
                                     </ul>
                                 </li>
                             ))}
                         </ul>
                         <h2>Projects</h2>
                         <ul className="projects">
-                            {data.projects.map(p=><li>
-                                <a href={p.link} referrerPolicy="noreferrer" target="_blank">{p.text}</a>
-                            </li>)}
-                            <li><Link href="/projects">
-                            <a>more</a></Link></li>
+                            {data.projects.map(p => (
+                                <li>
+                                    <a href={p.link} referrerPolicy="noreferrer" target="_blank">
+                                        {p.text}
+                                    </a>
+                                </li>
+                            ))}
+                            <li>
+                                <Link href="/projects">
+                                    <a>more</a>
+                                </Link>
+                            </li>
                         </ul>
                         <div className="college">
                             <h2>Education</h2>
-                            <p className="duration">{data.education.degree} <span>2016-2020</span></p>
+                            <p className="duration">
+                                {data.education.degree} <span>2016-2020</span>
+                            </p>
                             <p>{data.education.college}</p>
                         </div>
-                        
-                       
-                        
+
                         <h2>social profiles</h2>
                         <ul className="social">
                             <li>
@@ -119,7 +129,7 @@ const Page = () => {
                                     className="instagram"
                                     color="pink"
                                 >
-                                    <FaInstagram color="#f402bf" size={30}  />
+                                    <FaInstagram color="#f402bf" size={30} />
                                 </a>
                             </li>
 
@@ -131,7 +141,7 @@ const Page = () => {
                                     href={data.social.linkedin}
                                     className="linkedin"
                                 >
-                                    <FaLinkedinIn color="blue" size={30}  />
+                                    <FaLinkedinIn color="blue" size={30} />
                                 </a>
                             </li>
                             <li>
@@ -142,7 +152,7 @@ const Page = () => {
                                     href={data.social.github}
                                     className="linkedin"
                                 >
-                                    <FaGithub size={30}  />
+                                    <FaGithub size={30} />
                                 </a>
                             </li>
                             <li>
@@ -173,11 +183,11 @@ const Page = () => {
 
 export default Page;
 const Pagestyle = styled.div`
-padding: 20px 0;
-${media.minsm}{
-    padding:50px 0;
-}
-background: #fbfada21;
+    padding: 20px 0;
+    ${media.minsm} {
+        padding: 50px 0;
+    }
+    background: #fbfada21;
 
     .cv {
         margin-top: 20px;
@@ -193,49 +203,47 @@ background: #fbfada21;
     h2 {
         font-size: 20px !important;
         width: max-content;
-        margin:40px 0 30px;
+        margin: 40px 0 30px;
         position: relative;
-       &:before{
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: -10px;
-          ${media.minsm}{
-            left: -20px;
-          }
-          transform: translateY(-50%);
-          height: 120%;
-          width:70%;
-          min-width:100px;
-          opacity: 0.5;
-          border-radius: 100px;
-          background: linear-gradient(to right,#ff80ea,transparent);
-       }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            ${media.minsm} {
+                left: -20px;
+            }
+            transform: translateY(-50%);
+            height: 120%;
+            width: 70%;
+            min-width: 100px;
+            opacity: 0.5;
+            border-radius: 100px;
+            background: linear-gradient(to right, #ff80ea, transparent);
+        }
     }
-    .projects{
+    .projects {
         display: flex;
         list-style: none;
         flex-wrap: wrap;
         gap: 10px;
-        a{
+        a {
             display: inline-block;
             padding: 5px 10px;
             text-transform: capitalize;
             border-radius: 4px;
             color: teal;
             border: 1px solid;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
         }
     }
     --degree: 120deg;
     @keyframes rotateBorder {
         0% {
             --degree: 0deg;
-        
         }
         100% {
             --degree: 120deg;
-          
         }
     }
     .banner {
@@ -243,7 +251,7 @@ background: #fbfada21;
         gap: 60px;
         max-width: 100%;
         position: relative;
-        .wrap{
+        .wrap {
             position: relative;
             width: 400px;
             max-width: 100%;
@@ -256,19 +264,18 @@ background: #fbfada21;
             ${media.sm} {
                 height: 50vh;
             }
-            &:before{
-                content:"";
-                height:calc(100% + 10px);
-                width:calc(100% + 10px);
+            &:before {
+                content: "";
+                height: calc(100% + 10px);
+                width: calc(100% + 10px);
                 background: linear-gradient(#4e4ef9, #ff80ea);
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
                 border-radius: 16px;
-                
             }
-            .shape{
+            .shape {
                 height: 200px;
                 width: 200px;
                 background: linear-gradient(#4e4ef9, #ff80ea);
@@ -280,75 +287,71 @@ background: #fbfada21;
                 transform: rotate(45deg);
                 filter: blur(1px);
             }
-        .dp {
-            position: relative;
-            width: 400px;
-            height: 100%;
-            display: inline-block;
-            
+            .dp {
+                position: relative;
+                width: 400px;
+                height: 100%;
+                display: inline-block;
 
-            overflow: hidden;
-            
-            max-width: 100%;
-            background: linear-gradient(var(--degree), red, violet);
-            padding: 5px;
-            border-radius: 16px;
-            transition: all 0.6s;
-            animation: rotateBorder 1s linear infinite alternate;
-            
-        }
+                overflow: hidden;
+
+                max-width: 100%;
+                background: linear-gradient(var(--degree), red, violet);
+                padding: 5px;
+                border-radius: 16px;
+                transition: all 0.6s;
+                animation: rotateBorder 1s linear infinite alternate;
+            }
         }
         ${media.sm} {
             flex-wrap: wrap;
         }
     }
-    .exp{
-        
+    .exp {
         list-style: none;
-        a{color:#000;
-        text-decoration:dotted;
-        font-weight:600;
-        color: blue;
+        a {
+            color: #000;
+            text-decoration: dotted;
+            font-weight: 600;
+            color: blue;
         }
-        >li{
+        > li {
             margin-bottom: 20px;
         }
-        .company{
+        .company {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
-          
         }
-        .desc{
+        .desc {
             padding-left: 20px;
-            list-style:square;
-          }
+            list-style: square;
+        }
     }
     .info {
         ${media.minsm} {
             width: calc(100% - 400px);
         }
         .services {
-            
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-          
-            gap:10px;
-            li{
+
+            gap: 10px;
+            li {
                 width: max-content;
                 padding: 6px 12px;
                 background: #f2f2ff;
                 border-radius: 4px;
-                box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
             }
         }
-        
+
         .college {
             margin-top: 40px;
-            .duration{
+            .duration {
                 display: flex;
-            justify-content: space-between;
+                justify-content: space-between;
             }
         }
         .social {
@@ -369,7 +372,7 @@ background: #fbfada21;
             li {
                 padding: 6px 12px;
                 border: 2px solid blue;
-                box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
                 font-weight: bold;
                 font-size: 14px;
                 min-width: max-content;
@@ -378,7 +381,7 @@ background: #fbfada21;
             }
         }
     }
-    .btn{
+    .btn {
         border-radius: 8px;
     }
 `;

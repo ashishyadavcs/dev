@@ -8,7 +8,9 @@ export const Styled = {
         z-index: 10;
         top: 0;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        ${({progress})=>progress && `
+        ${({ progress }) =>
+            progress &&
+            `
         &:before{
             content:"";
             position:absolute;
@@ -68,7 +70,7 @@ export const Styled = {
             justify-content: center;
             flex-direction: column;
             border-left: 1px solid #f1f1f1;
-            &:-webkit-tap-highlight-color{
+            &:-webkit-tap-highlight-color {
                 background: #f1f1f1;
             }
             span {
@@ -123,7 +125,7 @@ export const Styled = {
                     padding: 1rem;
                 }
             }
-          
+
             ${media.minsm} {
                 padding: 20px 0;
             }

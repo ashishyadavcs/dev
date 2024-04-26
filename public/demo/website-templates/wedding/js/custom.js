@@ -13,7 +13,6 @@ function openNav() {
     document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style");
 }
 
-
 /** google_map js **/
 
 function myMap() {

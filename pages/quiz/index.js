@@ -5,7 +5,6 @@ import styled from "styled-components";
 const Page = () => {
     return (
         <Pages className="container">
-        
             <div className="animation">
                 <lottie-player
                     preload
@@ -20,7 +19,9 @@ const Page = () => {
                 ></lottie-player>
             </div>
             <h1 className="text-center">Web development quizes</h1>
-            <Link href="/quiz/css-quiz" ><a className="theme-btn mt-4 d-block mx-auto">Start quiz</a></Link>
+            <Link href="/quiz/css-quiz">
+                <a className="theme-btn mt-4 d-block mx-auto">Start quiz</a>
+            </Link>
             <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
         </Pages>
     );

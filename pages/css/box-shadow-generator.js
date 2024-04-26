@@ -1,4 +1,4 @@
-import {NextSeo} from "next-seo";
+import { NextSeo } from "next-seo";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -11,14 +11,18 @@ const Page = () => {
         blur: "10",
         radius: 8,
     });
-  
+
     return (
         <Pages className="container">
-            <NextSeo title="CSS BOX Shadow Generator 👨‍💻" description="Generate css box shadow online with this free css box shadow generator"/>
+            <NextSeo
+                title="CSS BOX Shadow Generator 👨‍💻"
+                description="Generate css box shadow online with this free css box shadow generator"
+            />
             <h1 className="text-center title">CSS BOX Shadow Generator 👨‍💻</h1>
             <style jsx>{`
                 .box {
-                    box-shadow: ${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${shadow.color};
+                    box-shadow: ${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px
+                        ${shadow.color};
                     border-radius: ${shadow.radius}px;
                 }
             `}</style>
@@ -84,12 +88,12 @@ const Page = () => {
                             max={200}
                         />
                     </label>
-                    <textarea  value={`.box{
+                    <textarea
+                        value={`.box{
 box-shadow: ${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}p ${shadow.color};
 border-radius: ${shadow.radius}px;
-}`.trim()}>
-                        
-                    </textarea>
+}`.trim()}
+                    ></textarea>
                 </form>
 
                 <div className="preview">
@@ -137,11 +141,11 @@ const Pages = styled.div`
             padding: 0;
             width: 2em;
         }
-       textarea{
-        min-height: 100px;
-        outline: none;
-        padding: 10px;
-       }
+        textarea {
+            min-height: 100px;
+            outline: none;
+            padding: 10px;
+        }
         label {
             span {
                 text-transform: capitalize;

@@ -21,7 +21,7 @@ const Styled = {
                 background: linear-gradient(to left, red, #ffecb300);
             }
         }
-        
+
         ${media.sm} {
             padding: 2rem 0;
             display: block;
@@ -61,8 +61,8 @@ const Styled = {
                 margin-bottom: 10px;
                 width: max-content;
                 cursor: pointer;
-                &:hover{
-                    &::before{
+                &:hover {
+                    &::before {
                         animation-play-state: paused;
                     }
                 }

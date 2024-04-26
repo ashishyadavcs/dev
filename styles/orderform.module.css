@@ -1,19 +1,17 @@
 .orderform {
-  width: 600px;
-  background: #fff;
-  padding: 2rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
+    width: 600px;
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
 }
 .orderform input {
-  background: #fff;
+    background: #fff;
 }
 
-
-
 .orderform h3 {
-  text-align: center;
+    text-align: center;
 }

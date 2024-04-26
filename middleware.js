@@ -1,4 +1,3 @@
-// eslint-disable-next-line @next/next/no-server-import-in-page
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
@@ -12,13 +11,13 @@ export function middleware(request) {
             if (token) {
                 return NextResponse.next();
             } else {
-                const loginUrl = new URL("/login",request.url);
-                loginUrl.searchParams.set("from",request.nextUrl.pathname);
+                const loginUrl = new URL("/login", request.url);
+                loginUrl.searchParams.set("from", request.nextUrl.pathname);
                 return NextResponse.redirect(loginUrl);
             }
         } catch (e) {
             const loginUrl = new URL("/login", request.url);
-            loginUrl.searchParams.set("from",request.nextUrl.pathname);
+            loginUrl.searchParams.set("from", request.nextUrl.pathname);
             return NextResponse.redirect(loginUrl);
         }
     }

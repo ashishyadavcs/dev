@@ -20,7 +20,8 @@ const Group = () => {
                     alt="frontend developers whatsapp group"
                 />
                 <span className="w-50 ml-2">
-                    Frontend developer <br></br>whatsapp <BsWhatsapp style={{marginBottom:"-2px"}} size={18} color="teal" /> group
+                    Frontend developer <br></br>whatsapp{" "}
+                    <BsWhatsapp style={{ marginBottom: "-2px" }} size={18} color="teal" /> group
                 </span>
             </a>
         </WPGroup>
@@ -30,7 +31,9 @@ const Group = () => {
 export default Group;
 const WPGroup = styled.div`
     margin: 20px 0;
-    h3{font-size:18px!important}
+    h3 {
+        font-size: 18px !important;
+    }
     a {
         text-transform: capitalize;
         align-items: center;

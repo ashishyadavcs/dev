@@ -10,7 +10,6 @@ const Page = () => {
     }, []);
     return (
         <div className="container  my-4">
-           
             <NextSeo
                 title="# Best Instagram VIP Bio formatter For Girls"
                 description="Generate best instagram VIP bio for girls , top 100 best instagram bio for first impression"
@@ -18,7 +17,7 @@ const Page = () => {
             <h1 className="text-center">
                 Craft the perfect<br></br> Instagram Bio For Girls
             </h1>
-           
+
             <span className="notice d-block text-center">click to copy</span>
             <Biolist className="biolist">
                 <li>"Sassy but classy 💁‍♀️"</li>
@@ -47,7 +46,7 @@ const Page = () => {
                 Top instagram bios for girls to decorate and make your instagram profile
                 outstanding. Select and copy styles for your instagram bio
             </p>
-           
+
             <h2>How to use instagram bio for girls tool</h2>
             <p>
                 It is very easy to use this tool . There are two ways to use this tool either you
@@ -80,37 +79,36 @@ const Biolist = styled.ul`
         transition: all 0.3s;
         cursor: pointer;
         position: relative;
-        &::before{
+        &::before {
             position: absolute;
             min-width: max-content;
             transition: all 0.3s;
-                top: 50%;
-                left: 150%;
-                ${media.sm} {
-                    top: 110%;
-                    left: 0%;
-                }
-                transition: all 2s;
-                padding: 10px;
-                border-radius: 8px;
-                display: inline-block;
-                background: #000;
-                color: #fff;
-                z-index: 3;
+            top: 50%;
+            left: 150%;
+            ${media.sm} {
+                top: 110%;
+                left: 0%;
+            }
+            transition: all 2s;
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            z-index: 3;
         }
         &:hover {
             background: teal;
             color: #fff;
-           ${media.minsm}{
-            &::before {
-                content: "click to copy";
+            ${media.minsm} {
+                &::before {
+                    content: "click to copy";
+                }
             }
-           }
         }
         &:active {
             &::before {
                 content: "copied";
-              
             }
         }
     }

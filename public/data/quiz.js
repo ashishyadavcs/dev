@@ -179,13 +179,11 @@ export const English = [
         options: ["N", "GY", "AY", "G"],
         ans: 2,
     },
-
-   
 ];
 
-export const vovels=[
-     /*vovels */
-     {
+export const vovels = [
+    /*vovels */
+    {
         que: "अ",
         options: ["A", "GY", "AY", "G"],
         ans: 0,
@@ -250,4 +248,4 @@ export const vovels=[
         options: ["EH", "AH", "HA", "HE"],
         ans: 1,
     },
-]
+];

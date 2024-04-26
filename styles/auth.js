@@ -50,7 +50,7 @@ export const Styled = {
             padding: 2rem;
             border-radius: 8px;
         }
-        .register-as{
+        .register-as {
             width: 100%;
             outline: none;
             padding: 10px;

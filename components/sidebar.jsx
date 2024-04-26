@@ -7,8 +7,8 @@ import Blogsearch from "./blog-search";
 const Sidebar = ({ styles, categories }) => {
     return (
         <div className={`mb-2 sticky`}>
-          <Blogsearch/>
-           <Toc/>
+            <Blogsearch />
+            <Toc />
             {categories?.length > 0 && (
                 <>
                     <h2 className="mt-4 mb-3 related">Categories</h2>
@@ -27,7 +27,6 @@ const Sidebar = ({ styles, categories }) => {
             )}
             <Group />
             <Inpostad />
-          
         </div>
     );
 };

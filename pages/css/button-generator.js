@@ -4,7 +4,7 @@ import styles from "@/styles/button-generator.module.css";
 import "highlight.js/styles/github.css";
 import { NextSeo, ProductJsonLd } from "next-seo";
 import Image from "next/image";
-import {clickToCopy} from "utils/common";
+import { clickToCopy } from "utils/common";
 
 const Page = () => {
     const [data, setdata] = useState({
@@ -47,8 +47,8 @@ const Page = () => {
             color: "",
         },
     });
-    const title=`✅CSS 3D Button Generator online ➜ #𝟙`
-    const description=`CSS 3d Button Generator is a free online tool to create CSS buttons without code. Use  premium designed templates to easily generate CSS buttons`
+    const title = `✅CSS 3D Button Generator online ➜ #𝟙`;
+    const description = `CSS 3d Button Generator is a free online tool to create CSS buttons without code. Use  premium designed templates to easily generate CSS buttons`;
     const buttonstyle = `
 ${
     data.link.isLink
@@ -210,10 +210,10 @@ transition:all 0.3s;
                                             f == "color"
                                                 ? "color"
                                                 : f == "bold"
-                                                ? "checkbox"
-                                                : f == "size"
-                                                ? "range"
-                                                : ""
+                                                  ? "checkbox"
+                                                  : f == "size"
+                                                    ? "range"
+                                                    : ""
                                         }
                                         value={data.font[f]}
                                         onChange={e =>
@@ -424,7 +424,13 @@ transition:all 0.3s;
                     </div>
                 </div>
                 <div className={`${styles.preview} demo`}>
-                    {data.link.isLink?<a target="_blank" href={data.link.url}><button>{data.text || "button"}</button></a>:<button>{data.text || "button"}</button>}
+                    {data.link.isLink ? (
+                        <a target="_blank" href={data.link.url}>
+                            <button>{data.text || "button"}</button>
+                        </a>
+                    ) : (
+                        <button>{data.text || "button"}</button>
+                    )}
                 </div>
                 <div className={styles.code}>
                     <pre>
@@ -439,9 +445,15 @@ transition:all 0.3s;
   <style>
 .btn{${buttonstyle.trim()}
       `}</code>
-      
                     </pre>
-                    <button onClick={e=>clickToCopy(e,e.currentTarget.previousElementSibling.innerText)} className="theme-btn d-block my-4 mx-auto">copy code</button>
+                    <button
+                        onClick={e =>
+                            clickToCopy(e, e.currentTarget.previousElementSibling.innerText)
+                        }
+                        className="theme-btn d-block my-4 mx-auto"
+                    >
+                        copy code
+                    </button>
                 </div>
             </div>
             <input id="readmore" type="checkbox" />

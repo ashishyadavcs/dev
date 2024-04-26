@@ -3,8 +3,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import { SketchPicker } from "react-color";
 import { media } from "config/device";
-import {NextSeo} from "next-seo";
-import {clickToCopy} from "utils/common";
+import { NextSeo } from "next-seo";
+import { clickToCopy } from "utils/common";
 
 const Page = () => {
     const [gradient, setgradient] = useState({
@@ -14,7 +14,10 @@ const Page = () => {
     });
     return (
         <>
-        <NextSeo title="CSS Radial Gradient Generator" description="Generate css radial gradient online with this css tool - online css radial gradient generator"/>
+            <NextSeo
+                title="CSS Radial Gradient Generator"
+                description="Generate css radial gradient online with this css tool - online css radial gradient generator"
+            />
             <style jsx>{`
                 .preview {
                     background-image: radial-gradient(${gradient.color1}, ${gradient.color2});
@@ -26,7 +29,8 @@ const Page = () => {
                     <div className="field">
                         <label>
                             <span>color1</span>
-                            <SketchPicker className="picker"
+                            <SketchPicker
+                                className="picker"
                                 color={gradient.color1}
                                 onChange={(color, e) => {
                                     setgradient(p => ({ ...p, color1: color.hex }));
@@ -35,7 +39,8 @@ const Page = () => {
                         </label>
                         <label>
                             <span>color2</span>
-                            <SketchPicker className="picker"
+                            <SketchPicker
+                                className="picker"
                                 color={gradient.color2}
                                 onChange={(color, e) => {
                                     setgradient(p => ({ ...p, color2: color.hex }));
@@ -50,7 +55,15 @@ const Page = () => {
                         ${gradient.color2}
                     );
                     `}</span>
-                    <button className="theme-btn" onClick={e=>clickToCopy(e,e.currentTarget.previousElementSibling.textContent)}> copy css</button>
+                        <button
+                            className="theme-btn"
+                            onClick={e =>
+                                clickToCopy(e, e.currentTarget.previousElementSibling.textContent)
+                            }
+                        >
+                            {" "}
+                            copy css
+                        </button>
                     </div>
                 </div>
                 <div className="preview"></div>
@@ -74,7 +87,7 @@ const Radient = styled.section`
             span {
                 margin-bottom: 10px;
                 display: block;
-                ${media.sm}{
+                ${media.sm} {
                     text-align: center;
                 }
             }
@@ -83,8 +96,10 @@ const Radient = styled.section`
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            ${media.sm}{
-                .picker{width:91%!important}
+            ${media.sm} {
+                .picker {
+                    width: 91% !important;
+                }
             }
         }
         .code {
@@ -96,7 +111,7 @@ const Radient = styled.section`
             margin-top: 20px;
             background: #fff;
             padding: 10px;
-            ${media.sm}{
+            ${media.sm} {
                 flex-direction: column;
                 align-items: center;
                 gap: 20px;

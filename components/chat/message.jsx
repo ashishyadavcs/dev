@@ -54,13 +54,12 @@ const Styledmsg = styled.div`
             z-index: -1;
             top: 0;
         }
-        &:after{
+        &:after {
             right: 97%;
             z-index: 3;
             filter: none;
         }
-        
-      
+
         background: #fff;
         border-radius: 16px;
         border-top-left-radius: 0;

@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const portfolio = () => {
-  return (
-    <div className='container'>
-      
-    </div>
-  )
-}
+    return <div className="container"></div>;
+};

@@ -5,10 +5,10 @@ import serviceReducer from "./serviceSlice";
 import userReducer from "./userSlice";
 
 export default configureStore({
-  reducer: {
-    [api.reducerPath]: api.reducer,
-    counter: counterReducer,
-    service: serviceReducer,
-    user: userReducer,
-  },
+    reducer: {
+        [api.reducerPath]: api.reducer,
+        counter: counterReducer,
+        service: serviceReducer,
+        user: userReducer,
+    },
 });

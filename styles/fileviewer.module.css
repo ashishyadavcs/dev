@@ -1,101 +1,124 @@
 .body {
-  min-height: 100vh;
-  min-width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index:100;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
 }
-.content iframe{height: 100%;}
+.content iframe {
+    height: 100%;
+}
 .content {
-  height:calc(100vh - 130px);
-  width:90vw;
-  background: #fff;
-  margin:1rem auto;
-  margin-bottom: 0;
-  overflow: hidden;
-  border-radius: 10px;
+    height: calc(100vh - 130px);
+    width: 90vw;
+    background: #fff;
+    margin: 1rem auto;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-radius: 10px;
 }
 .nav {
-  height:130px;
+    height: 130px;
 }
-.nav::before,.nav::after{
-    content: '';
-    z-index:2;
+.nav::before,
+.nav::after {
+    content: "";
+    z-index: 2;
     position: absolute;
     top: 0;
     height: 100%;
     width: 100px;
     /* background:red; */
 }
-.nav::before{
+.nav::before {
     left: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.9),transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
 }
-.nav::after{right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.9),transparent);
+.nav::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.9), transparent);
 }
-.tool,.index{
+.tool,
+.index {
     height: 40px;
-    background: radial-gradient(rgb(13 13 15),transparent);
+    background: radial-gradient(rgb(13 13 15), transparent);
     border-bottom-left-radius: 10px;
-    top:0;
-    position:absolute;
+    top: 0;
+    position: absolute;
     box-shadow: 0 1px 2px rgba(98, 96, 96, 0.8);
     color: #fff;
-    right:0px;
-    width:138px;
+    right: 0px;
+    width: 138px;
     display: flex;
     align-items: center;
-    justify-content:space-evenly;
-    font-size:14px;
+    justify-content: space-evenly;
+    font-size: 14px;
     font-weight: 600;
     z-index: 20;
 }
-.index{left: 0;border-bottom-right-radius: 10px;border-bottom-left-radius: unset;}
-.tool>svg{cursor: pointer;}
-.tool>svg:active{transform: scale(1.1);}
+.index {
+    left: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: unset;
+}
+.tool > svg {
+    cursor: pointer;
+}
+.tool > svg:active {
+    transform: scale(1.1);
+}
 
 .items {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  overflow-x: auto;
-  height: 100%;
-  max-width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    overflow-x: auto;
+    height: 100%;
+    max-width: 100%;
 }
 
-.items>span{height: 60px;min-width:60px;position: relative;transition: all 0.3s ease-in-out;}
-.items>span.active{
-    transform: scale(1.3);margin: 0 10px;
+.items > span {
+    height: 60px;
+    min-width: 60px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
-.items::-webkit-scrollbar{display: none;}
-.body svg.navigation{
-  cursor: pointer;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  z-index: 20;
-  width: 40px;
-  border-radius: 50%;
-  transition: all 0.3s ease-in-out;
-  transform: translateY(-50%);
-  background: radial-gradient(rgba(0, 0, 0, 0.5),transparent)
+.items > span.active {
+    transform: scale(1.3);
+    margin: 0 10px;
 }
-.body .navigation:hover{transform:translateY(-50%) scale(1.2);}
+.items::-webkit-scrollbar {
+    display: none;
+}
+.body svg.navigation {
+    cursor: pointer;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    width: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-50%);
+    background: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
+}
+.body .navigation:hover {
+    transform: translateY(-50%) scale(1.2);
+}
 .body .left {
-  left: 10px;
+    left: 10px;
 }
 .body .right {
-  right: 10px;
+    right: 10px;
 }
-.upload{
-  position: fixed;
-  top: 0;
-  width: 350px;
-  height: 100vh;
-  right: 0;
-  z-index: 100;
+.upload {
+    position: fixed;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    right: 0;
+    z-index: 100;
 }

@@ -7,18 +7,18 @@ import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
 import Relatedposts from "@/components/relatedposts";
 import Ashish from "@/components/ashish";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-const Fbcomment = dynamic(() => import('@/components/fbcomment'), {
-  loading: () => <p>Loading...</p>,
-})
+const Fbcomment = dynamic(() => import("@/components/fbcomment"), {
+    loading: () => <p>Loading...</p>,
+});
 
 import Link from "next/link";
-import {BsArrowRight} from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 
 const Blog = ({ post, posts }) => {
     useEffect(() => {
-        document.querySelector("code") !== null &&  hljs.highlightAll();
+        document.querySelector("code") !== null && hljs.highlightAll();
     }, [post]);
 
     return (
@@ -29,7 +29,7 @@ const Blog = ({ post, posts }) => {
                         <>
                             <NextSeo
                                 title={post?.title}
-                                titleTemplate='%s 🔥'
+                                titleTemplate="%s 🔥"
                                 description={`${post?.excerpt
                                     .replace(/<[^>]+>/g, "")
                                     .slice(0, 125)}`.toString()}
@@ -67,23 +67,23 @@ const Blog = ({ post, posts }) => {
                                     },
                                 ]}
                                 robotsProps={{
-                                    maxImagePreview: 'standard',
+                                    maxImagePreview: "standard",
                                 }}
                             />
                             <ProductJsonLd
-                productName={post?.title}
-                type="Product"
-                brand="frontendzone"
-                description={`${post.excerpt
-                    .replace(/<[^>]+>/g, "")
-                    .slice(0, 145)}`}
-                aggregateRating={{
-                    worstRating: "1",
-                    bestRating: "5",
-                    ratingValue: "4.5",
-                    ratingCount: "505435",
-                }}
-            />
+                                productName={post?.title}
+                                type="Product"
+                                brand="frontendzone"
+                                description={`${post.excerpt
+                                    .replace(/<[^>]+>/g, "")
+                                    .slice(0, 145)}`}
+                                aggregateRating={{
+                                    worstRating: "1",
+                                    bestRating: "5",
+                                    ratingValue: "4.5",
+                                    ratingCount: "505435",
+                                }}
+                            />
                             <ArticleJsonLd
                                 url={`${process.env.NEXT_PUBLIC_APP_URL}/blog/${post?.slug}`}
                                 title={post.title}
@@ -120,27 +120,29 @@ const Blog = ({ post, posts }) => {
                     )}
 
                     <article>
-                       
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8 my-4">
                                     <h1>{post?.title}</h1>
-                                    
+
                                     <div
                                         className={` article ${styles.article}`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
                                     ></div>
-                                    
+
                                     <div className={styles.category}>
-                                       <ul className={styles.catlist}>
-                                       {post.categories.nodes.map(cat=>
-                                        <li>
-                                            <Link href={`/blog/category/${cat.name}`}>
-                                                <a><BsArrowRight size={18}/>{cat.name}</a>
-                                            </Link>
-                                        </li>
-                                        )}
-                                       </ul>
+                                        <ul className={styles.catlist}>
+                                            {post.categories.nodes.map(cat => (
+                                                <li>
+                                                    <Link href={`/blog/category/${cat.name}`}>
+                                                        <a>
+                                                            <BsArrowRight size={18} />
+                                                            {cat.name}
+                                                        </a>
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
                                     <Fbcomment />
                                     <h2 className="my-3">About Author</h2>
@@ -167,9 +169,9 @@ export default Blog;
 
 export async function getStaticPaths() {
     const posts = await getPostSlugs();
-    const paths =  posts.map(post => ({
+    const paths = posts.map(post => ({
         params: { slug: post.slug },
-    }))
+    }));
     return {
         paths,
         fallback: "blocking",
@@ -178,7 +180,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(req) {
     const post = await getSinglePost(req.params.slug);
     const data = await getPostList(post);
-    const { nodes: posts }=data
+    const { nodes: posts } = data;
     if (post == undefined)
         return {
             notFound: true,

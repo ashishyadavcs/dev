@@ -1,7 +1,7 @@
 export const course = {
-  html: {
-    syllabus: {},
-    price: "",
-    duration: "",
-  },
+    html: {
+        syllabus: {},
+        price: "",
+        duration: "",
+    },
 };

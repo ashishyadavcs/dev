@@ -1,45 +1,45 @@
 .tag a {
-  margin: 10px;
-  display: inline-block;
-  min-width: max-content;
+    margin: 10px;
+    display: inline-block;
+    min-width: max-content;
 }
 .design :where(ol, ul) {
-  counter-reset: my-awesome-counter;
-  list-style: none;
+    counter-reset: my-awesome-counter;
+    list-style: none;
 }
 .design h1::first-letter {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 .design :where(h1, h2, h3) {
-  background: #28ffbb;
-  margin-bottom: 18px;
-  color: #000;
-  border-radius: 8px;
-  transform: skew(-10deg);
-  padding: 10px;
-  box-shadow: 0 3px 1px #ddd;
+    background: #28ffbb;
+    margin-bottom: 18px;
+    color: #000;
+    border-radius: 8px;
+    transform: skew(-10deg);
+    padding: 10px;
+    box-shadow: 0 3px 1px #ddd;
 }
 .design h3 {
-  background: #9df9dc;
+    background: #9df9dc;
 }
 .design :where(ol, ul) li {
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: 35px calc(100% - 35px);
-  grid-column-gap: 10px;
-  counter-increment: my-awesome-counter;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 35px calc(100% - 35px);
+    grid-column-gap: 10px;
+    counter-increment: my-awesome-counter;
 }
 .design :where(ol, ul) li::before {
-  color: #000;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10px 2px #000;
-  text-shadow: 0 -1px 1px #000;
-  transform: skew(-10deg);
-  content: counter(my-awesome-counter);
-  background: #28ffbb;
-  float: left;
+    color: #000;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 2px #000;
+    text-shadow: 0 -1px 1px #000;
+    transform: skew(-10deg);
+    content: counter(my-awesome-counter);
+    background: #28ffbb;
+    float: left;
 }

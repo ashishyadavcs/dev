@@ -10,15 +10,15 @@ const Entry = () => {
         setseen(false);
     };
     useEffect(() => {
-        const action=document.querySelector(".entry")
-        action.querySelectorAll('a').forEach(el => {
+        const action = document.querySelector(".entry");
+        action.querySelectorAll("a").forEach(el => {
             el.onClick = () => {
                 localStorage.setItem("seen", new Date().getTime());
             };
         });
         const a = localStorage.getItem("seen", new Date().getTime());
-        if(a){
-           action.classList.add('d-none') 
+        if (a) {
+            action.classList.add("d-none");
         }
     }, []);
 

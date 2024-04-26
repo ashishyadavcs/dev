@@ -178,7 +178,7 @@ export default function Home({ posts }) {
                         </div>
                     </div>
                 </div>
-               
+
                 <div className="container">
                     <h2 className="text-center latestblog my-4">Latest blog posts</h2>
                     <Blogpost posts={postss} />
@@ -188,20 +188,20 @@ export default function Home({ posts }) {
                 </div>
             </Styled.Landing>
             <Bannerstyle>
-                    <div className="col-md-6 mx-auto">
-                        <p className="emoji">👨‍💻</p>
-                        <h1>Frontend development</h1>
-                        <p>
-                            Learn frontend development with examples and practical exercise of
-                            HTML,CSS,JS,React.js.
-                        </p>
-                        <ul>
-                            <li>
-                                <Link href="/free-html-css-templates">Free Website templates</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </Bannerstyle>
+                <div className="col-md-6 mx-auto">
+                    <p className="emoji">👨‍💻</p>
+                    <h1>Frontend development</h1>
+                    <p>
+                        Learn frontend development with examples and practical exercise of
+                        HTML,CSS,JS,React.js.
+                    </p>
+                    <ul>
+                        <li>
+                            <Link href="/free-html-css-templates">Free Website templates</Link>
+                        </li>
+                    </ul>
+                </div>
+            </Bannerstyle>
             <Whatsapp />
             <FAQPageJsonLd
                 mainEntity={[

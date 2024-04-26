@@ -1,4 +1,4 @@
-.testimonials{
+.testimonials {
     overflow: hidden;
     min-height: 400px;
     display: flex;
@@ -6,24 +6,29 @@
     align-items: center;
     overflow-x: auto;
 }
-.testimonials::-webkit-scrollbar{height:3px;}
-.testimonials::-webkit-scrollbar-thumb{
-    background: linear-gradient(to right,#ddd,white);
+.testimonials::-webkit-scrollbar {
+    height: 3px;
 }
-.testimonial{
+.testimonials::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #ddd, white);
+}
+.testimonial {
     height: 330px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    min-width:250px;
+    min-width: 250px;
     width: 250px;
     background: #fff;
     overflow: hidden;
-    padding-bottom: 1rem
+    padding-bottom: 1rem;
 }
-.testimonial:not(:first-child,:last-child){
+.testimonial:not(:first-child, :last-child) {
     margin: 0 1rem;
 }
-.parent{position: relative;width: 100%;}
-.parent>svg{
+.parent {
+    position: relative;
+    width: 100%;
+}
+.parent > svg {
     position: absolute;
     z-index: 2;
     top: 50%;
@@ -32,45 +37,59 @@
     height: 50px;
     width: 50px;
     padding: 10px;
-    background:#ddd;
+    background: #ddd;
     cursor: pointer;
     border-radius: 50%;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
 }
-.parent>svg::before{
-    content:'';
+.parent > svg::before {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: #ddd;
     height: 120%;
     width: 120%;
 }
-.parent>svg:first-child{left: -30px;}
-.parent>svg.right{right:-30px}
-.testimonial>div:first-child{
-    height:48%;
+.parent > svg:first-child {
+    left: -30px;
+}
+.parent > svg.right {
+    right: -30px;
+}
+.testimonial > div:first-child {
+    height: 48%;
     width: 100%;
-    background-size: cover!important;
-    background-repeat: no-repeat!important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
 }
 
-
-.testimonial>div:last-child{
+.testimonial > div:last-child {
     padding: 10px;
-    height:52%;
+    height: 52%;
 }
-.testimonial>div:last-child>div{
+.testimonial > div:last-child > div {
     max-height: 100%;
 }
 
-.testimonial>div:last-child>div::-webkit-scrollbar{width: 4px;border-radius: 30px;background: #f1f1f1;}
-.testimonial>div:last-child>div::-webkit-scrollbar-thumb{background:rgb(188, 218, 249);border-radius: 30px;}
-@media all and (max-width:500px) {
-
-    .testimonial>div:first-child{overflow: hidden;}
+.testimonial > div:last-child > div::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 30px;
+    background: #f1f1f1;
 }
-@media screen and (max-width:400px) {
-    .testimonial{width: 100%!important;height: 360px;}
+.testimonial > div:last-child > div::-webkit-scrollbar-thumb {
+    background: rgb(188, 218, 249);
+    border-radius: 30px;
+}
+@media all and (max-width: 500px) {
+    .testimonial > div:first-child {
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 400px) {
+    .testimonial {
+        width: 100% !important;
+        height: 360px;
+    }
 }

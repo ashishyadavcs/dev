@@ -1,38 +1,38 @@
 .status ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  overflow: auto;
-  margin: 1rem 0;
-  padding: 1rem 0;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    overflow: auto;
+    margin: 1rem 0;
+    padding: 1rem 0;
 }
 .status ul::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+    width: 4px;
+    height: 4px;
 }
 .status li {
-  margin-right: 20px;
-  position: relative;
-  min-width: max-content;
-  background: #fff;
-  padding: 10px 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+    margin-right: 20px;
+    position: relative;
+    min-width: max-content;
+    background: #fff;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
-.status li.active{
-  background: rgb(15, 211, 123);
-  color: #fff;
+.status li.active {
+    background: rgb(15, 211, 123);
+    color: #fff;
 }
-.status li:has(~ .active){
-  border: 2px solid blue;
+.status li:has(~ .active) {
+    border: 2px solid blue;
 }
 .status li:not(:last-child)::before {
-  content: "";
-  width: 100px;
-  z-index: -1;
-  border: 1px solid teal;
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
+    content: "";
+    width: 100px;
+    z-index: -1;
+    border: 1px solid teal;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
 }

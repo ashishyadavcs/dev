@@ -1,4 +1,4 @@
-import {media} from "config/device";
+import { media } from "config/device";
 import styled from "styled-components";
 export const Styled = {
     footer: styled.footer`
@@ -7,8 +7,8 @@ export const Styled = {
         color: rgb(170, 167, 167);
         background-position: center;
         background-blend-mode: overlay;
-        .row{
-            padding: 0 0 30px
+        .row {
+            padding: 0 0 30px;
         }
         p {
             color: #fff;
@@ -55,9 +55,9 @@ export const Styled = {
             background: #010921f2;
             color: #888;
         }
-        ${media.sm}{
-            ~  .gototop{
-                display: none !important;;
+        ${media.sm} {
+            ~ .gototop {
+                display: none !important;
             }
         }
     `,

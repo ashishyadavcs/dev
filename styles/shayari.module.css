@@ -1,10 +1,12 @@
 .shayaries h2 {
     margin: 40px auto;
     text-align: center;
-  }
-  .shayari p{color: #fff;}
+}
+.shayari p {
+    color: #fff;
+}
 
-  .shayari {
+.shayari {
     padding: 20px;
     font-family: sans-serif;
     background: linear-gradient(to top, #000, transparent);
@@ -18,8 +20,8 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-  }
-  .copied {
+}
+.copied {
     position: fixed;
     top: 70px;
     opacity: 0;
@@ -30,12 +32,12 @@
     border: 2px solid red;
     color: #fff;
     border-radius: 3px;
-  }
-  .copied.active {
+}
+.copied.active {
     opacity: 1;
     right: 20px;
-  }
-  .action {
+}
+.action {
     position: absolute;
     padding: 10px 20px;
     opacity: 1;
@@ -45,35 +47,35 @@
     z-index: 4;
     display: flex;
     gap: 10px;
-  }
-  .action svg {
+}
+.action svg {
     cursor: pointer;
     color: #fff;
-  }
-  .action svg:active {
+}
+.action svg:active {
     transform: scale(0.8);
-  }
-  .shayari:hover .action {
+}
+.shayari:hover .action {
     opacity: 1;
     pointer-events: all;
-  }
-  .shayari code {
+}
+.shayari code {
     font-family: sans-serif;
-  }
-  .shayari .img {
+}
+.shayari .img {
     z-index: -1;
     filter: brightness(0.6);
     pointer-events: none;
-  }
-  
-  .items {
+}
+
+.items {
     display: grid;
     margin: 1rem 0;
     justify-items: center;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-  .download {
+}
+.download {
     width: 500px;
     background: #fff;
     padding: 2rem;
@@ -89,8 +91,8 @@
     justify-content: center;
     flex-direction: column;
     transform: translate(-50%, -50%);
-  }
-  .download .bar {
+}
+.download .bar {
     transition: all 0.3s;
     margin-top: 20px;
     display: inline-block;
@@ -101,8 +103,8 @@
     color: #fff;
     border-radius: 20px;
     width: 10%;
-  }
-  .download a {
+}
+.download a {
     display: inline-block;
     cursor: pointer;
     padding: 5px 20px;
@@ -111,13 +113,12 @@
     margin: 10px auto;
     width: max-content;
     border-radius: 20px;
-  }
-  .download a.cancel {
+}
+.download a.cancel {
     background: #fff;
     color: #000;
-  }
-  .shayaries [class*="sub"]{
+}
+.shayaries [class*="sub"] {
     font-size: 20px;
     padding: 50px 0;
-  }
-  
+}

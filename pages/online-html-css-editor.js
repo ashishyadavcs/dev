@@ -78,9 +78,8 @@ small {
             }
         });
 
-        document.querySelector(
-            "iframe"
-        ).contentDocument.body.innerHTML = `<style>${code.css}</style>${code.html}`;
+        document.querySelector("iframe").contentDocument.body.innerHTML =
+            `<style>${code.css}</style>${code.html}`;
 
         setTimeout(() => {
             document.querySelector(`.${styles.saving}`).style.opacity = 1;
@@ -198,7 +197,7 @@ small {
                     <h1>
                         <strong> Realtime Free online html compiler 👋</strong>
                     </h1>
-                    <p>online html compiler  : The Convenient Solution for HTML Coding</p>
+                    <p>online html compiler : The Convenient Solution for HTML Coding</p>
                 </div>
                 <div className={styles.main} style={{ background: "#ddd" }}>
                     <div className={styles.left}>
@@ -246,11 +245,11 @@ small {
                             HTML editors make it easier and more convenient to code.
                         </p>
                         <p>
-                            An <strong>online html compiler</strong>  is a web-based tool that allows users to create
-                            and edit HTML code from their web browser. These tools offer a variety
-                            of device, whether it be a laptop, desktop, tablet, or smartphone. It
-                            also eliminates the need for users to install software on their
-                            computer, saving both time and disk space.
+                            An <strong>online html compiler</strong> is a web-based tool that allows
+                            users to create and edit HTML code from their web browser. These tools
+                            offer a variety of device, whether it be a laptop, desktop, tablet, or
+                            smartphone. It also eliminates the need for users to install software on
+                            their computer, saving both time and disk space.
                         </p>
                     </div>
                     <div className="col-md-6">

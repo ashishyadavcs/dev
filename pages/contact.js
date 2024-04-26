@@ -133,7 +133,10 @@ const Contact = () => {
                                 className="textarea"
                                 name="body"
                             ></textarea>
-                            <div className="d-flex mt-2" style={{ gap: "10px",alignItems:"center" }}>
+                            <div
+                                className="d-flex mt-2"
+                                style={{ gap: "10px", alignItems: "center" }}
+                            >
                                 <button
                                     ref={el => (refs.current.mail = el)}
                                     type="submit"

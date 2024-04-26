@@ -37,7 +37,7 @@ const Dopdown = styled.div`
     }
     ${media.sm} {
         background: unset;
-        left:0;
+        left: 0;
         width: 100%;
         max-height: 0;
         position: relative;
@@ -56,11 +56,11 @@ const Dopdown = styled.div`
 
     li {
         cursor: pointer;
-        ${media.sm}{
+        ${media.sm} {
             &:last-child {
-                &::before{
-                content:none;
-            }
+                &::before {
+                    content: none;
+                }
             }
         }
         ${media.minsm} {

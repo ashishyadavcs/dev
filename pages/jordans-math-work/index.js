@@ -15,10 +15,12 @@ import { animateList } from "utils/animation";
 const Page = () => {
     const [maths, setmaths] = useState([]);
     const slide = useRef();
-    const blogs=[{
-        text:"Jordan’s Math Games – Master math with fun",
-        url:"/blog/jordans-math-games-master-math-with-fun"
-    }]
+    const blogs = [
+        {
+            text: "Jordan’s Math Games – Master math with fun",
+            url: "/blog/jordans-math-games-master-math-with-fun",
+        },
+    ];
     const mathgen = e => {
         e.preventDefault();
         const arr = [];
@@ -246,23 +248,23 @@ const Page = () => {
                 <div className="games">
                     <h2>Jordna math games unlocked</h2>
                     <div className="urls">
-                    {[...gameLinks].map((game, i) => (
-                        <a title={game.text} target="_blank" key={i} href={game.url}>
-                            {game.text}
-                        </a>
-                    ))}
+                        {[...gameLinks].map((game, i) => (
+                            <a title={game.text} target="_blank" key={i} href={game.url}>
+                                {game.text}
+                            </a>
+                        ))}
                     </div>
                 </div>
 
                 <div className="blogs games">
                     <h2>Blogs</h2>
-                <div className="urls">
-                {[...blogs].map((game, i) => (
-                        <a title={game.text} target="_blank" key={i} href={game.url}>
-                            {game.text}
-                        </a>
-                    ))}
-                </div>
+                    <div className="urls">
+                        {[...blogs].map((game, i) => (
+                            <a title={game.text} target="_blank" key={i} href={game.url}>
+                                {game.text}
+                            </a>
+                        ))}
+                    </div>
                 </div>
 
                 <h2>Jordan's math work online free</h2>
@@ -725,27 +727,30 @@ const Jordan = styled.div`
             margin: 10px 0;
         }
     }
-    .games{
+    .games {
         text-align: center;
-      
+
         border-radius: 10px;
         padding: 60px;
         background: linear-gradient(45deg, #8ba3f1, #eb8ee1);
-      
+
         margin: 50px 0;
-       h2{margin-bottom:50px;text-transform:capitalize}
-        .urls{
+        h2 {
+            margin-bottom: 50px;
+            text-transform: capitalize;
+        }
+        .urls {
             display: flex;
             justify-content: center;
             gap: 20px;
-            ${media.sm}{
+            ${media.sm} {
                 flex-direction: column;
             }
         }
         a {
             border-radius: 8px;
             padding: 10px 20px;
-            background:blue;
+            background: blue;
             color: #fff;
             color: #fff;
         }

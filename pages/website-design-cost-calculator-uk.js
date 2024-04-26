@@ -3,14 +3,13 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import {FaPoundSign} from "react-icons/fa";
+import { FaPoundSign } from "react-icons/fa";
 import styled from "styled-components";
 
 const Page = () => {
     const [inputs, setinputs] = useState({
-        ppc:47.30,
-        pages:1,
-        
+        ppc: 47.3,
+        pages: 1,
     });
     const perc = [...Array(10)];
     return (
@@ -33,36 +32,40 @@ const Page = () => {
                             </select>
                         </label>
                         <label className="price">
-                            <FaPoundSign/>
+                            <FaPoundSign />
                             <span>Price per page</span>
                             <input
                                 value={inputs.ppc}
                                 onChange={e => {
                                     setinputs(p => ({ ...p, ppc: e.target.value }));
-                                    
                                 }}
                                 type="number"
                             />
                         </label>
                         <label className="price">
                             <span> Total cost</span>
-                            <FaPoundSign/>
-                            <input 
-                                value={(inputs.pages*inputs.ppc).toFixed(2)}
-                                type="number"
-                            />
+                            <FaPoundSign />
+                            <input value={(inputs.pages * inputs.ppc).toFixed(2)} type="number" />
                         </label>
                         <button>automatic calculated</button>
                     </form>
-                    <Link href="/ashish-yadav"><a className="theme-btn">contact for website development 👨‍💻</a></Link>
+                    <Link href="/ashish-yadav">
+                        <a className="theme-btn">contact for website development 👨‍💻</a>
+                    </Link>
                     <div className="webd">
-                        <Image objectPosition={"left"} objectFit="cover" src="/images/company/github-profile.png" layout="fill" alt="website design cost calculator uk"/>
+                        <Image
+                            objectPosition={"left"}
+                            objectFit="cover"
+                            src="/images/company/github-profile.png"
+                            layout="fill"
+                            alt="website design cost calculator uk"
+                        />
                     </div>
                 </div>
                 <div className="col-md-8">
                     <h1>💻 Website Design Cost Calculator UK 💷</h1>
                     <p>
-                    🔥 Website design costs are like a box of chocolates; you never know what
+                        🔥 Website design costs are like a box of chocolates; you never know what
                         you're going to get. The complexity of your project, desired features,
                         customizations, and the skills of your designer all play a role in the grand
                         cost symphony.
@@ -74,8 +77,8 @@ const Page = () => {
                             </p>
                             <ul>
                                 <li>
-                                    Size matters! A simple, few-paged website costs less
-                                    than a sprawling e-commerce extravaganza.
+                                    Size matters! A simple, few-paged website costs less than a
+                                    sprawling e-commerce extravaganza.
                                 </li>
                             </ul>
                         </li>
@@ -193,16 +196,19 @@ const Page = () => {
 
 export default Page;
 const Pages = styled.div`
-ul,ol{
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-strong{
-    border-bottom: 3px solid teal;
-    width: max-content;
-    padding-bottom: 5px;
-}
-h2{margin-top:30px}
+    ul,
+    ol {
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+    strong {
+        border-bottom: 3px solid teal;
+        width: max-content;
+        padding-bottom: 5px;
+    }
+    h2 {
+        margin-top: 30px;
+    }
     .result {
         opacity: 0.2;
         transition: all 0.3s;
@@ -219,10 +225,9 @@ h2{margin-top:30px}
         width: max-content;
         background: #fff;
         z-index: 2;
-        padding:5px 0 2rem;
-        
+        padding: 5px 0 2rem;
     }
-    .save{
+    .save {
         position: sticky;
         top: 60px;
         height: max-content;
@@ -246,19 +251,16 @@ h2{margin-top:30px}
         justify-content: space-between;
         border: 1px solid #ddd;
         border-collapse: collapse;
-&.price{
-    margin-right: 30px;
-    padding-right: 30px;
-    position: relative;
-    svg{
-        position: absolute;
-        right: 5px;
-        margin: 5px;
-
-
-    }
-   
-}
+        &.price {
+            margin-right: 30px;
+            padding-right: 30px;
+            position: relative;
+            svg {
+                position: absolute;
+                right: 5px;
+                margin: 5px;
+            }
+        }
         span {
             padding: 10px;
             min-width: max-content;
@@ -289,7 +291,7 @@ h2{margin-top:30px}
             margin-bottom: 20px;
         }
     }
-    .webd{
+    .webd {
         position: relative;
         height: 400px;
         width: 300px;

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Script from "next/script";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 const Paynow = ({ product }) => {
     const router = useRouter();
@@ -22,20 +22,20 @@ const Paynow = ({ product }) => {
             .then(res => res.json())
             .catch(err => "");
 
-        if(data.success){
-            console.log({data})
+        if (data.success) {
+            console.log({ data });
             const issuccess = await fetch("/api/verifypayment", {
                 method: "POST",
                 body: {
                     razorpay_order_id: product.id,
-                    razorpay_payment_id:data.order.id,
+                    razorpay_payment_id: data.order.id,
                 },
-            }).then(res=>res.json())
-            console.log('is success',issuccess)
+            }).then(res => res.json());
+            console.log("is success", issuccess);
             if (issuccess) {
                 router.push(`/dashboard/orders/${product.id}?success=true`);
-            }else{
-                toast.error(issuccess.message)
+            } else {
+                toast.error(issuccess.message);
             }
         }
         const options = {

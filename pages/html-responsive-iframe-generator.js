@@ -11,40 +11,40 @@ const Page = () => {
         title: "frontendzone",
         height: "510",
         width: "100%",
-        allow:'fullscreen',
+        allow: "fullscreen",
         frameBorder: 1,
         src: "https://www.youtube.com/embed/jzCUfzvH9AM",
     });
-    const checkytb=(url)=>{
-        if(url.includes('www.youtube.com/watch?v=')){
-         const v=url.split('v=')[1]
-           return `https://www.youtube.com/embed/${v}`
-        }else{
-            return url
+    const checkytb = url => {
+        if (url.includes("www.youtube.com/watch?v=")) {
+            const v = url.split("v=")[1];
+            return `https://www.youtube.com/embed/${v}`;
+        } else {
+            return url;
         }
-    }
+    };
     useEffect(() => {
         const iframe = document.querySelector(".preview iframe");
         iframe.removeAttribute("class");
         document.querySelector("textarea").value = iframe.parentElement.innerHTML;
     }, [iframe]);
     const showresult = () => {
-        const result=document.querySelector(".result")
+        const result = document.querySelector(".result");
         result.classList.toggle("active");
-        result.scrollIntoView({block:'center'})
-
+        result.scrollIntoView({ block: "center" });
     };
     return (
         <>
             <style jsx>{`
-              
-              .toc{
-                width: 600px;
-                max-width:100%;
-                margin: 10px auto;
-              }
-              h2{scroll-margin-top:200px}
-             
+                .toc {
+                    width: 600px;
+                    max-width: 100%;
+                    margin: 10px auto;
+                }
+                h2 {
+                    scroll-margin-top: 200px;
+                }
+
                 .form input {
                     padding: 10px;
                     color: #555;
@@ -82,9 +82,10 @@ const Page = () => {
                     padding: 0 5px;
                     transform: none;
                     color: #888;
-                   
                 }
-                .form input:not(:empty){border:2px solid blue}
+                .form input:not(:empty) {
+                    border: 2px solid blue;
+                }
                 .form label:has(input:focus)::before {
                     color: blue;
                 }
@@ -110,9 +111,11 @@ const Page = () => {
                     opacity: 0;
                     transition: all 0.3s;
                     position: relative;
-                    
                 }
-                .result button{margin-top:10px;position:relative}
+                .result button {
+                    margin-top: 10px;
+                    position: relative;
+                }
                 .form label:has(input[type="checkbox"]) {
                     align-items: center;
                     justify-content: space-between;
@@ -131,12 +134,12 @@ const Page = () => {
                     padding: 10px 20px;
                     margin: 20px 0 0;
                 }
-                .result.active button:active:before{
+                .result.active button:active:before {
                     content: "code copied";
                     position: absolute;
                     top: 25%;
                     left: 110%;
-                    min-width:max-content;
+                    min-width: max-content;
                     color: green;
                 }
                 textarea {
@@ -164,13 +167,13 @@ const Page = () => {
                     display: flex;
                 }
                 .title {
-                  font-size:28px;
-                  background: teal;
+                    font-size: 28px;
+                    background: teal;
 
                     color: #fff;
                 }
-                .title h1{
-                  font-size:30px;
+                .title h1 {
+                    font-size: 30px;
                 }
                 .content {
                     background: #f1f1f1;
@@ -180,7 +183,9 @@ const Page = () => {
                 .content * {
                     color: #555;
                 }
-               label:has(input[type='checkbox']){cursor:pointer}
+                label:has(input[type="checkbox"]) {
+                    cursor: pointer;
+                }
             `}</style>
             <NextSeo
                 title="🟢 HTML Responsive Iframe Generator : copy code ✅"
@@ -198,10 +203,13 @@ const Page = () => {
                     ratingCount: "505435",
                 }}
             />
-          
-            <Banner description={'Generate responsive iframe online'} title={'HTML Responsive youtube Iframe generator'}/>
+
+            <Banner
+                description={"Generate responsive iframe online"}
+                title={"HTML Responsive youtube Iframe generator"}
+            />
             <div className="toc">
-            <Toc title="table of content"/>
+                <Toc title="table of content" />
             </div>
             <div className="container my-4">
                 <div className="row ">
@@ -221,7 +229,10 @@ const Page = () => {
                                 <input
                                     value={iframe.src}
                                     onChange={e =>
-                                        setiframe(prev => ({ ...prev, src:checkytb(e.target.value)}))
+                                        setiframe(prev => ({
+                                            ...prev,
+                                            src: checkytb(e.target.value),
+                                        }))
                                     }
                                     type="url"
                                     placeholder="https://frontendzone.com"
@@ -247,7 +258,6 @@ const Page = () => {
                             >
                                 <input
                                     placeholder=""
-
                                     value={iframe.title}
                                     onChange={e =>
                                         setiframe(prev => ({ ...prev, title: e.target.value }))
@@ -262,7 +272,7 @@ const Page = () => {
                             >
                                 <input
                                     placeholder=""
-                                    value={iframe.height>1000?1000:iframe.height}
+                                    value={iframe.height > 1000 ? 1000 : iframe.height}
                                     onChange={e =>
                                         setiframe(prev => ({ ...prev, height: e.target.value }))
                                     }
@@ -273,9 +283,8 @@ const Page = () => {
                                 htmlFor="width"
                                 className="d-flex flex-column justify-content-center"
                             >
-                                <input 
+                                <input
                                     placeholder=""
-
                                     value={iframe.width}
                                     onChange={e =>
                                         setiframe(prev => ({ ...prev, width: e.target.value }))
@@ -283,18 +292,15 @@ const Page = () => {
                                     type="text"
                                 />
                             </label>
-                            <label
-                                
-                                className="d-flex"
-                            >
+                            <label className="d-flex">
                                 allow fullscreen
-                                <input 
+                                <input
                                     placeholder=""
                                     value={iframe.allow}
                                     onChange={e =>
                                         setiframe(prev => ({
                                             ...prev,
-                                            allow: e.target.checked === true ? 'fullscreen' : 0,
+                                            allow: e.target.checked === true ? "fullscreen" : 0,
                                         }))
                                     }
                                     type="checkbox"
@@ -304,7 +310,6 @@ const Page = () => {
                                 frameborder
                                 <input
                                     placeholder=""
-
                                     checked={iframe.frameBorder}
                                     onChange={e =>
                                         setiframe(prev => ({
@@ -331,11 +336,9 @@ const Page = () => {
                                 copy code
                             </button>
                         </div>
-                      
                     </div>
-                    
+
                     <div className="col-md-6">
-                    
                         <div className="preview">
                             <iframe {...iframe}></iframe>
                         </div>
@@ -344,7 +347,6 @@ const Page = () => {
             </div>
 
             <div className="content article py-4">
-                
                 <div className=" container">
                     <div className="row">
                         <p>

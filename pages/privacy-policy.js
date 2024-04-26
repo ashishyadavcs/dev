@@ -7,7 +7,8 @@ const Privacy = () => {
 
             <div class="entry-content container my-4" itemprop="text">
                 <p>
-                    At frontendzone, accessible from <a href="https://frontendzone.com">https://frontendzone.com</a>, one of our main
+                    At frontendzone, accessible from{" "}
+                    <a href="https://frontendzone.com">https://frontendzone.com</a>, one of our main
                     priorities is the privacy of our visitors. This Privacy Policy document contains
                     types of information that is collected and recorded by frontendzone and how we
                     use it.

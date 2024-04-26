@@ -1,4 +1,4 @@
-import {media} from "config/device";
+import { media } from "config/device";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -44,12 +44,12 @@ const Mybanner = styled.div`
             position: relative;
         }
     }
-    p{
+    p {
         color: #fff;
         text-align: center;
         width: 60%;
         margin: auto;
-        ${media.sm}{
+        ${media.sm} {
             width: 80%;
         }
     }

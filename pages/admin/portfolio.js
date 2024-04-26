@@ -167,7 +167,7 @@ const Pages = styled.div`
                 object-fit: cover;
             }
             width: 340px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
             .desc {
                 padding: 10px;
             }

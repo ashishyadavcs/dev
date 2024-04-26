@@ -6,17 +6,17 @@ const Page = () => {
     return (
         <Pages className="container py-4">
             <div className="products">
-            <Link href="/admin/order">orders</Link>
-            <Link href="/admin/portfolio">portfolios</Link>
+                <Link href="/admin/order">orders</Link>
+                <Link href="/admin/portfolio">portfolios</Link>
             </div>
         </Pages>
     );
 };
 const Pages = styled.div`
-.products{
-    display: flex;
-    gap: 10px;
-}
+    .products {
+        display: flex;
+        gap: 10px;
+    }
     a {
         text-transform: capitalize;
         padding: 10px 20px;

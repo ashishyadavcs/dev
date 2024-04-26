@@ -10,12 +10,12 @@ const Quiz = ({ quiz }) => {
     const [data, setData] = useState(quiz);
     const [next, setnext] = useState(0);
     const [score, setScore] = useState(0);
-    const [showscore, setshowscore] = useState(false)
+    const [showscore, setshowscore] = useState(false);
     var mySound;
     const checkAns = (e, i) => {
-        mySound = new Audio("/sound/true.mp3")
+        mySound = new Audio("/sound/true.mp3");
         setTimeout(() => {
-            setnext(p=>p+1)
+            setnext(p => p + 1);
         }, 500);
         if (data[next].ans == i) {
             if (e.isTrusted) {
@@ -23,14 +23,14 @@ const Quiz = ({ quiz }) => {
                 mySound.play();
             }
             e.currentTarget.classList = "correct";
-            
         } else if (data[next].ans != i) {
             e.currentTarget.classList = "wrong";
-           if(e.isTrusted){
-            setScore(s => s - 1);
-            mySound.src = "/sound/false.mp3";
-            mySound.playbackRate = 1.2;
-            mySound.play();}
+            if (e.isTrusted) {
+                setScore(s => s - 1);
+                mySound.src = "/sound/false.mp3";
+                mySound.playbackRate = 1.2;
+                mySound.play();
+            }
         } else {
             e.currentTarget.classList = "";
         }
@@ -39,34 +39,33 @@ const Quiz = ({ quiz }) => {
     useEffect(() => {
         document.querySelectorAll(".que li").forEach(el => (el.classList = ""));
 
-       if(start){
-        var t = 1000;
-        const int = setInterval(() => {
-            t = Number(t) - 100/t;
+        if (start) {
+            var t = 1000;
+            const int = setInterval(() => {
+                t = Number(t) - 100 / t;
 
-            document.querySelector(":root").style.setProperty("--twidth", `${100 - t}%`);
-            if (t == 0) {
+                document.querySelector(":root").style.setProperty("--twidth", `${100 - t}%`);
+                if (t == 0) {
+                    clearInterval(int);
+                    setnext(p => (data.length - 1 > p ? Number(p) + 1 : clearInterval(int)));
+                    document.querySelector(":root").style = "";
+                }
+            }, t);
+            return () => {
                 clearInterval(int);
-                setnext(p => (data.length - 1 > p ? Number(p) + 1 : clearInterval(int)));
-                document.querySelector(":root").style = "";
-               
-            }
-        }, t);
-        return () => {
-            clearInterval(int);
-        };
-       }
-    }, [next,start]);
+            };
+        }
+    }, [next, start]);
     const showAns = () => {
         document.querySelectorAll(".que li").forEach(el => el.click());
     };
     useEffect(() => {
-      if(next>data.length-1){
-        setStart(false)
-        setnext(0)
-      }
-    }, [next])
-    
+        if (next > data.length - 1) {
+            setStart(false);
+            setnext(0);
+        }
+    }, [next]);
+
     return (
         <Pages>
             <NextSeo
@@ -74,7 +73,7 @@ const Quiz = ({ quiz }) => {
                 description="css quiz with ansswer , test your css knowledge with css quiz "
             />
             <div className="quiz">
-                {(start) ? (
+                {start ? (
                     <div className="que">
                         <div className="left">
                             <h2 data-index={next + 1}>{data[next]?.que}</h2>
@@ -222,7 +221,7 @@ const Pages = styled.div`
                     bottom: 0;
                     left: 0;
                     display: block;
-                    transition: width .3s;
+                    transition: width 0.3s;
                 }
             }
             @keyframes zoom {
@@ -296,7 +295,7 @@ const Pages = styled.div`
     }
     ${media.sm} {
         .quiz {
-            padding:40px 20px;
+            padding: 40px 20px;
             .que {
                 flex-direction: column;
                 gap: 100px;

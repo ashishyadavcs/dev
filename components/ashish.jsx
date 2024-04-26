@@ -1,7 +1,7 @@
-import {media} from "config/device";
+import { media } from "config/device";
 import Image from "next/image";
 import React from "react";
-import {FaLinkedin, FaLinkedinIn} from "react-icons/fa";
+import { FaLinkedin, FaLinkedinIn } from "react-icons/fa";
 import { styled } from "styled-components";
 
 const Ashish = ({ style }) => {
@@ -10,7 +10,7 @@ const Ashish = ({ style }) => {
         "CSS3",
         "javascript",
         "react js",
-        'Redux.js',
+        "Redux.js",
         "wordpress",
         "Next js",
         "SEO",
@@ -26,34 +26,39 @@ const Ashish = ({ style }) => {
             itemScope
             itemType="https://schema.org/Person"
         >
-           
-            <div  className="hero d-flex align-items-center mb-4">
+            <div className="hero d-flex align-items-center mb-4">
                 <Image src="/ashish-lkd.jpg" alt="" height={90} width={90}></Image>
                 <strong>
                     <span>
-                    <a title="click to see on linkedin"
-                        itemProp="url"
+                        <a
+                            title="click to see on linkedin"
+                            itemProp="url"
+                            target="_blank"
+                            rel="noreferrer"
+                            href="https://linkedin.com/in/ashishfgiet"
+                        >
+                            <span itemProp="name">Ashish Yadav</span>
+                        </a>
+                        <br></br>
+                        <small>Software Engineer</small>
+                    </span>
+                    <a
                         target="_blank"
-                        rel="noreferrer"
+                        className="follow"
                         href="https://linkedin.com/in/ashishfgiet"
                     >
-                        <span itemProp="name">Ashish Yadav</span>
+                        <FaLinkedin size={18} color="#0a66c2" /> Follow
                     </a>
-                    <br></br>
-                    <small>Software Engineer</small>
-                    </span>
-                    <a target="_blank" className="follow" href="https://linkedin.com/in/ashishfgiet">
-            <FaLinkedin size={18} color="#0a66c2"/> Follow 
-            </a>
                 </strong>
             </div>
             <p>
-                Ashish Yadav is a passionate <strong>Software Engineer</strong> and technology enthusiast having{" "}
-                <b>{new Date().getFullYear() - 2021} years</b> of experience in web development with a deep
-                interest in the ever-evolving world of technology.<br></br><br></br> With a background in computer
-                science and extensive experience in <strong>software development</strong>, Ashish brings a unique
-                perspective to his writing in the tech blogosphere & love to learn and work on
-                technologies
+                Ashish Yadav is a passionate <strong>Software Engineer</strong> and technology
+                enthusiast having <b>{new Date().getFullYear() - 2021} years</b> of experience in
+                web development with a deep interest in the ever-evolving world of technology.
+                <br></br>
+                <br></br> With a background in computer science and extensive experience in{" "}
+                <strong>software development</strong>, Ashish brings a unique perspective to his
+                writing in the tech blogosphere & love to learn and work on technologies
             </p>
             <div className="techs">
                 {techs.map((t, i) => (
@@ -66,8 +71,8 @@ const Ashish = ({ style }) => {
 
 export default Ashish;
 const Profile = styled.div`
-max-width: 100%;
-position: relative;
+    max-width: 100%;
+    position: relative;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     padding: 1rem;
     border-radius: 8px;
@@ -78,23 +83,25 @@ position: relative;
         border-radius: 50%;
         object-fit: cover;
     }
-    .follow{
+    .follow {
         display: flex;
         gap: 10px;
         font-weight: 600;
         transition: all 0.3s;
-        color:#3873b4;
+        color: #3873b4;
         margin-top: 7px;
     }
-    .hero{
+    .hero {
         gap: 20px;
-        strong{
-            small{color:#666}
-           ${media.minsm}{
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-           }
+        strong {
+            small {
+                color: #666;
+            }
+            ${media.minsm} {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
         }
     }
 

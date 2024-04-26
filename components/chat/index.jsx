@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Message from "./message";
 import Image from "next/image";
 import { MdArrowBack, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/md";
-import { draghtml } from "utils/graghtml";
+import { draghtml } from "utils/draghtml";
 import { media } from "config/device";
 import { FaCamera } from "react-icons/fa";
 import { useEffect, useState } from "react";

@@ -1,110 +1,109 @@
 .toc {
-  margin:0 0 30px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  overflow: auto;
-  transition: all 0.3s;
-  cursor: pointer;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 8px;
-  border-left: 2px solid teal;
-  position: sticky;
-  top: 65px;
-  z-index: 20;
+    margin: 0 0 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 2px solid teal;
+    position: sticky;
+    top: 65px;
+    z-index: 20;
 }
 
 .toc.active b {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .toc b {
-  display: block;
+    display: block;
 }
 
 .toc ul {
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s;
-  list-style: none;
-  height: 0;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+    list-style: none;
+    height: 0;
+    overflow: hidden;
 }
 
 .toc li {
-  margin-bottom: 5px !important;
+    margin-bottom: 5px !important;
 }
 
 .toc a {
-  text-decoration: none;
-  display: grid !important;
-  grid-column-gap: 8px;
-  grid-template-columns: 15px calc(100% - 25px);
-  color: teal;
-  margin-bottom: 6px;
-  font-weight: 600;
+    text-decoration: none;
+    display: grid !important;
+    grid-column-gap: 8px;
+    grid-template-columns: 15px calc(100% - 25px);
+    color: teal;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .toc a span {
-  background: teal;
-  color: #fff;
-  font-size: 10px;
-  height: 15px;
-  margin-top: 5px;
-  min-width: 15px;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+    background: teal;
+    color: #fff;
+    font-size: 10px;
+    height: 15px;
+    margin-top: 5px;
+    min-width: 15px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 767px) {
-  .toc:not(.active) b>span {
-    display: none;
-  }
-
-  .toc{
-    margin-top: 0;
-    position: fixed;
-    width: unset;
-    padding: 10px;
-    transform: translateX(-50%);
-    top: 10px;
-    z-index: 10;
-    right: 20%;
-    transition: unset;
-    overflow: auto;
-
-  }
-
-  .toc:not(.active) nav {
-    display: none;
-  }
-
-  .toc.active {
-    left: 50%;
-    top: 60px;
-    width: 100%;
-    border-radius: unset;
-  }
-
-  .toc.active nav ul {
-    max-height: 60vh;
-    overflow: auto;
-  }
-
-  @keyframes blink {
-    0% {
-      color: red;
-      transform: scale(0.8);
+    .toc:not(.active) b > span {
+        display: none;
     }
 
-    100% {
-      color: green;
-      transform: scale(1);
+    .toc {
+        margin-top: 0;
+        position: fixed;
+        width: unset;
+        padding: 10px;
+        transform: translateX(-50%);
+        top: 10px;
+        z-index: 10;
+        right: 20%;
+        transition: unset;
+        overflow: auto;
     }
-  }
 
-  .toc.active svg {
-    animation: blink 1s linear infinite alternate;
-  }
+    .toc:not(.active) nav {
+        display: none;
+    }
+
+    .toc.active {
+        left: 50%;
+        top: 60px;
+        width: 100%;
+        border-radius: unset;
+    }
+
+    .toc.active nav ul {
+        max-height: 60vh;
+        overflow: auto;
+    }
+
+    @keyframes blink {
+        0% {
+            color: red;
+            transform: scale(0.8);
+        }
+
+        100% {
+            color: green;
+            transform: scale(1);
+        }
+    }
+
+    .toc.active svg {
+        animation: blink 1s linear infinite alternate;
+    }
 }

@@ -1,16 +1,16 @@
 .whatsapp {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background: #0ed914;
-  position: fixed;
-  bottom: 70px;
-  cursor: pointer;
-  right: 10px;
-  z-index: 10;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #0ed914;
+    position: fixed;
+    bottom: 70px;
+    cursor: pointer;
+    right: 10px;
+    z-index: 10;
 }
 .share {
-  position: fixed;
-  bottom: 150px;
-  right: 15px;
+    position: fixed;
+    bottom: 150px;
+    right: 15px;
 }

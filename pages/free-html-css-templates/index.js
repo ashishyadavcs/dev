@@ -1,4 +1,4 @@
-import {media} from "config/device";
+import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +28,13 @@ const Page = () => {
             <h1 className="text-center">
                 Grab Exclusive Free HTML & CSS Website Templates Now! 🔥
             </h1>
-            <p className="text-center">Revolutionize Your Web Presence with Our Exclusive Free HTML & CSS Website Template! 🌐✨ Elevate your site's aesthetics and functionality with a single click. This template isn't just free; it's a game-changer for your online identity. Download now and embark on a journey of limitless possibilities. Your dream website is just a click away! 💻🚀 #WebDev #FreeTemplate #HTMLCSSMagi</p>
+            <p className="text-center">
+                Revolutionize Your Web Presence with Our Exclusive Free HTML & CSS Website Template!
+                🌐✨ Elevate your site's aesthetics and functionality with a single click. This
+                template isn't just free; it's a game-changer for your online identity. Download now
+                and embark on a journey of limitless possibilities. Your dream website is just a
+                click away! 💻🚀 #WebDev #FreeTemplate #HTMLCSSMagi
+            </p>
             <NextSeo
                 title="Grab Exclusive Free HTML & CSS Website Templates Now! 🔥"
                 description="Dive into our vast collection of stunning, free website templates designed with HTML and CSS."
@@ -53,9 +59,8 @@ const Page = () => {
                 ))}
             </div>
 
-            <Link href="/ashish-yadav" >
-            
-               <a className="theme-btn mx-auto mt-5"> contact for custom website design</a>
+            <Link href="/ashish-yadav">
+                <a className="theme-btn mx-auto mt-5"> contact for custom website design</a>
             </Link>
         </Pages>
     );
@@ -88,8 +93,8 @@ const Pages = styled.div`
                 object-position: bottom;
             }
         }
-        ${media.sm}{
-          margin: 20px 0;
+        ${media.sm} {
+            margin: 20px 0;
         }
         a {
             width: 100%;
