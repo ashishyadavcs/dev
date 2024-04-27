@@ -22,6 +22,32 @@ export const Styled = {
             background:linear-gradient(to right,red,blue)
         }
         `}
+        .logo {
+            position: relative;
+            @keyframes glow {
+                0% {
+                    left: 0%;
+                }
+                100% {
+                    left: 100%;
+                }
+            }
+            &::before {
+                /* content: ""; */
+                position: absolute;
+                top: 25%;
+                height: 15px;
+                width: 5px;
+                display: inline-block;
+                --color: #fff;
+                background: var(--color);
+                filter: blur(6px);
+                box-shadow: 0 0 0 10px var(--color);
+                transform: rotate(20deg);
+                animation-delay: 0.8s;
+                animation: glow 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+            }
+        }
         a {
             text-decoration: none;
             text-transform: lowercase;

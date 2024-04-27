@@ -28,7 +28,7 @@ const Header = ({ progress }) => {
             >
                 <div className="d-flex container justify-content-between align-items-center">
                     <Link href="/">
-                        <a title="frontendzone">
+                        <a title="frontendzone" className="logo">
                             <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
                         </a>
                     </Link>

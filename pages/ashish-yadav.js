@@ -261,6 +261,9 @@ const Pagestyle = styled.div`
             ${media.sm} {
                 width: 100%;
                 height: 50vh;
+                img {
+                    filter: brightness(1.2);
+                }
             }
 
             .shape {
