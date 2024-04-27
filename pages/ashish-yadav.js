@@ -319,7 +319,7 @@ const Pagestyle = styled.div`
         }
     }
     .info {
-        padding: 30px;
+        padding: 30px 15px;
         ${media.minsm} {
             padding: 40px 60px;
         }
