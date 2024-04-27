@@ -48,6 +48,7 @@ const Layout = ({ children, type = "default", config }) => {
                     {![
                         "/",
                         "/online-html-css-editor",
+                        "/ashish-yadav",
                         "/vrc",
                         "/html-responsive-iframe-generator",
                         "/css/button-generator",
