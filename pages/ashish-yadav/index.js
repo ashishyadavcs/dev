@@ -5,7 +5,6 @@ import Image from "next/image";
 import { data } from "public/data/ashish";
 import { contact } from "public/data/contact";
 import React from "react";
-
 import {
     FaExternalLinkAlt,
     FaFacebook,
@@ -17,13 +16,17 @@ import {
 } from "react-icons/fa";
 import styled from "styled-components";
 import Whatsapp from "@/components/whatsapp";
+import Bio from "@/components/bio";
 
-const Page = () => {
+const Page = ({ url }) => {
+    const isBio = url.includes("bio");
     return (
         <Pagestyle>
             <NextSeo
-                title="Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology"
+                title={isBio?'Ashish Yadav Bio':'Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology'}
                 description="I am Ashish Yadav, a seasoned software engineer with a dynamic and enriching journey spanning three years in the ever-evolving landscape of web development."
+                noindex={isBio}
+                nofollow={isBio}
             />
 
             <div className="banner">
@@ -39,140 +42,144 @@ const Page = () => {
                         alt="ashish yadav"
                     />
                 </span>
-                <div className="info">
-                    <h1 className="title">
-                        Ashish Yadav{" "}
-                        <FaExternalLinkAlt
-                            className="pointer"
-                            onClick={e => window.open(`${data.social.linkedin}`)}
-                            size={18}
-                            color="blue"
-                        />
-                    </h1>
-                    <span
-                        className="description"
-                        dangerouslySetInnerHTML={{ __html: data.interoduction.short }}
-                    ></span>
+                {isBio ? (
+                    <Bio />
+                ) : (
+                    <div className="info">
+                        <h1 className="title">
+                            Ashish Yadav{" "}
+                            <FaExternalLinkAlt
+                                className="pointer"
+                                onClick={e => window.open(`${data.social.linkedin}`)}
+                                size={18}
+                                color="blue"
+                            />
+                        </h1>
+                        <span
+                            className="description"
+                            dangerouslySetInnerHTML={{ __html: data.interoduction.short }}
+                        ></span>
 
-                    <div className="skills">
-                        <h2>Technical Skills</h2>
-                        <ul>
-                            {data.skills.map(skill => {
-                                return <li>{skill}</li>;
-                            })}
+                        <div className="skills">
+                            <h2>Technical Skills</h2>
+                            <ul>
+                                {data.skills.map(skill => {
+                                    return <li>{skill}</li>;
+                                })}
+                            </ul>
+                        </div>
+
+                        <h2 className="d-flex justify-content-between">
+                            Experience &nbsp;<small>({data.totalexp}years)</small>
+                        </h2>
+                        <ul className="exp">
+                            {[...data.exp].map(exp => (
+                                <li className="exp">
+                                    <div className="company">
+                                        <a href={exp.company.link}>{exp.company.name}</a>
+                                        <small>{exp.duration}</small>
+                                    </div>
+                                    <strong>{exp.profile}</strong>
+                                    <ul className="desc">
+                                        {exp.description.map(desc => (
+                                            <li>{desc}</li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            ))}
                         </ul>
-                    </div>
-
-                    <h2 className="d-flex justify-content-between">
-                        Experience &nbsp;<small>({data.totalexp}years)</small>
-                    </h2>
-                    <ul className="exp">
-                        {[...data.exp].map(exp => (
-                            <li className="exp">
-                                <div className="company">
-                                    <a href={exp.company.link}>{exp.company.name}</a>
-                                    <small>{exp.duration}</small>
-                                </div>
-                                <strong>{exp.profile}</strong>
-                                <ul className="desc">
-                                    {exp.description.map(desc => (
-                                        <li>{desc}</li>
-                                    ))}
-                                </ul>
-                            </li>
-                        ))}
-                    </ul>
-                    <h2>Projects</h2>
-                    <ul className="projects">
-                        {data.projects.map(p => (
+                        <h2>Projects</h2>
+                        <ul className="projects">
+                            {data.projects.map(p => (
+                                <li>
+                                    <a href={p.link} referrerPolicy="noreferrer" target="_blank">
+                                        {p.text}
+                                    </a>
+                                </li>
+                            ))}
                             <li>
-                                <a href={p.link} referrerPolicy="noreferrer" target="_blank">
-                                    {p.text}
+                                <Link href="/projects">
+                                    <a>more</a>
+                                </Link>
+                            </li>
+                        </ul>
+                        <div className="college">
+                            <h2>Education</h2>
+                            <p className="duration">
+                                {data.education.degree} <span>2016-2020</span>
+                            </p>
+                            <p>{data.education.college}</p>
+                        </div>
+
+                        <h2>social profiles</h2>
+                        <ul className="social">
+                            <li>
+                                <a
+                                    href="https://www.facebook.com/ashish.15101997"
+                                    aria-label="instagram"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="instagram"
+                                >
+                                    <FaFacebook color="blue" size={30} />
                                 </a>
                             </li>
-                        ))}
-                        <li>
-                            <Link href="/projects">
-                                <a>more</a>
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="college">
-                        <h2>Education</h2>
-                        <p className="duration">
-                            {data.education.degree} <span>2016-2020</span>
-                        </p>
-                        <p>{data.education.college}</p>
+                            <li>
+                                <a
+                                    aria-label="instagram"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    href={data.social.instagram}
+                                    className="instagram"
+                                    color="pink"
+                                >
+                                    <FaInstagram color="#f402bf" size={30} />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    aria-label="linkedin"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    href={data.social.linkedin}
+                                    className="linkedin"
+                                >
+                                    <FaLinkedinIn color="blue" size={30} />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    aria-label="github"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    href={data.social.github}
+                                    className="linkedin"
+                                >
+                                    <FaGithub size={30} />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    title="youtube"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    href={contact.youtube}
+                                    className="linkedin"
+                                    aria-label="youtube"
+                                >
+                                    <FaYoutube color="red" size={30} />
+                                </a>
+                            </li>
+                        </ul>
+                        <a className="theme-btn btn cv mr-2" href="/ashish-frontend-developer.pdf">
+                            download resume
+                        </a>
+                        <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
+                            contact <FaPhone />
+                        </a>
                     </div>
-
-                    <h2>social profiles</h2>
-                    <ul className="social">
-                        <li>
-                            <a
-                                href="https://www.facebook.com/ashish.15101997"
-                                aria-label="instagram"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="instagram"
-                            >
-                                <FaFacebook color="blue" size={30} />
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                aria-label="instagram"
-                                target="_blank"
-                                rel="noreferrer"
-                                href={data.social.instagram}
-                                className="instagram"
-                                color="pink"
-                            >
-                                <FaInstagram color="#f402bf" size={30} />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                aria-label="linkedin"
-                                target="_blank"
-                                rel="noreferrer"
-                                href={data.social.linkedin}
-                                className="linkedin"
-                            >
-                                <FaLinkedinIn color="blue" size={30} />
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                aria-label="github"
-                                target="_blank"
-                                rel="noreferrer"
-                                href={data.social.github}
-                                className="linkedin"
-                            >
-                                <FaGithub size={30} />
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                title="youtube"
-                                target="_blank"
-                                rel="noreferrer"
-                                href={contact.youtube}
-                                className="linkedin"
-                                aria-label="youtube"
-                            >
-                                <FaYoutube color="red" size={30} />
-                            </a>
-                        </li>
-                    </ul>
-                    <a className="theme-btn btn cv mr-2" href="/ashish-frontend-developer.pdf">
-                        download resume
-                    </a>
-                    <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
-                        contact <FaPhone />
-                    </a>
-                </div>
+                )}
             </div>
             <Whatsapp />
         </Pagestyle>
@@ -180,6 +187,14 @@ const Page = () => {
 };
 
 export default Page;
+export async function getServerSideProps({ req }) {
+    console.log(req);
+    return {
+        props: {
+            url: req.url,
+        },
+    };
+}
 const Pagestyle = styled.div`
     background: #fbfada21;
 
