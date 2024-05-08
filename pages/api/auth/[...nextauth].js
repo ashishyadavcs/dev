@@ -32,7 +32,7 @@ const nextAuthOptions = (req, res) => ({
                 }),
             })
                 .then(res => res.json())
-                .catch(err => console.log(err));
+                .catch(err => '');
             if (data.success) {
                 setTokenCookies(req, res, data);
             }

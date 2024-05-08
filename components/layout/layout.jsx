@@ -45,8 +45,8 @@ const Layout = ({ children, type = "default", config }) => {
                 <div className="layout">
                     <Breadcrumb />
                     {["/"].includes(router.pathname) && <Entry />}
-                    {![
-                   
+                    {!["/test",
+                        "/cv-creator",
                         "/online-html-css-editor",
                         "/ashish-yadav",
                         "/vrc",

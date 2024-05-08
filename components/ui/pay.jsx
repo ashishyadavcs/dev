@@ -23,7 +23,6 @@ const Paynow = ({ product }) => {
             .catch(err => "");
 
         if (data.success) {
-            console.log({ data });
             const issuccess = await fetch("/api/verifypayment", {
                 method: "POST",
                 body: {
@@ -31,7 +30,6 @@ const Paynow = ({ product }) => {
                     razorpay_payment_id: data.order.id,
                 },
             }).then(res => res.json());
-            console.log("is success", issuccess);
             if (issuccess) {
                 router.push(`/dashboard/orders/${product.id}?success=true`);
             } else {

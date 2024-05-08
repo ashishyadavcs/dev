@@ -23,11 +23,9 @@ const Page = () => {
                 chunks = [];
             };
             recorder.ondataavailable = e => {
-                console.log(e);
                 chunks.push(e.data);
             };
             recorder.onstop = e => {
-                console.log("stop", e);
                 const blob = new Blob(chunks, { type: "video/mp4" });
                 setFiles(prev => [...prev, blob]);
             };

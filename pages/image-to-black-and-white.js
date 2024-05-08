@@ -24,7 +24,6 @@ const Page = () => {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            console.log(e);
             img.src = e.target.result;
 
             img.onload = function () {

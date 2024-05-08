@@ -1,7 +1,6 @@
 import React from "react";
 import { fetchData } from "utils/serversidefetch";
 const Page = ({ data }) => {
-    console.log(data);
     return <div className="my-4 container">{data.dashboard.user.name}</div>;
 };
 

@@ -23,7 +23,11 @@ const Page = ({ url }) => {
     return (
         <Pagestyle>
             <NextSeo
-                title={isBio?'Ashish Yadav Bio':'Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology'}
+                title={
+                    isBio
+                        ? "Ashish Yadav Bio"
+                        : "Ashish Yadav 👨‍💻 | Software Engineer at Bold Technology"
+                }
                 description="I am Ashish Yadav, a seasoned software engineer with a dynamic and enriching journey spanning three years in the ever-evolving landscape of web development."
                 noindex={isBio}
                 nofollow={isBio}
@@ -188,7 +192,6 @@ const Page = ({ url }) => {
 
 export default Page;
 export async function getServerSideProps({ req }) {
-    console.log(req);
     return {
         props: {
             url: req.url,
