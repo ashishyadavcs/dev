@@ -6,7 +6,6 @@ import Breadcrumb from "@/components/breadcrumb";
 import Orderform from "../orderform";
 import dynamic from "next/dynamic";
 import Chat from "../chat";
-import Entry from "../entry";
 // import { ThemeContext } from "context";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
@@ -44,7 +43,6 @@ const Layout = ({ children, type = "default", config }) => {
             {type == "default" || !["/vrc"].includes(router.pathname) ? (
                 <div className="layout">
                     <Breadcrumb />
-                    {["/"].includes(router.pathname) && <Entry />}
                     {![
                         "/test",
                         "/dashboard",
