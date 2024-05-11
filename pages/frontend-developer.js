@@ -84,7 +84,7 @@ const Page = ({ posts }) => {
                             title="Frontend development"
                         >
                             Frontend development
-                        </a>{" "}
+                        </a>
                         is the art of converting designs and ideas into functional, interactive, and
                         aesthetically pleasing web applications by using front-end technologies.
                         Frontend developers are responsible for the user interface (UI), user

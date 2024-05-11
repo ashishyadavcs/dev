@@ -5,9 +5,14 @@ export const fetchData = async (url, req) => {
                 cookie: req.headers.cookie, //dont remove
             },
         });
-        const data = await request.json();
-        return data;
-    } catch {
+        if (request.ok) {
+            const data = await request.json();
+            return data;
+        } else {
+            return null;
+        }
+    } catch (err) {
+        console.log(err);
         return [];
     }
 };
