@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "format:check": "prettier --check '*/**/*.{js,jsx,ts,tsx,css}'",
-    "format:fix": "prettier --write '*/**/*.{js,jsx,ts,tsx,css}'"
+    "format:fix": "prettier --write '*/**/*.{js,jsx,ts,tsx,css}'",
+    "pre-commit": "npm run format:fix"
+
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^36.0.0",
