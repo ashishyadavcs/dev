@@ -19,7 +19,7 @@ import Whatsapp from "@/components/whatsapp";
 import Bio from "@/components/bio";
 
 const Page = ({ url }) => {
-    const isBio = url.includes("bio");
+    const isBio = 0
     return (
         <Pagestyle>
             <NextSeo
@@ -191,13 +191,7 @@ const Page = ({ url }) => {
 };
 
 export default Page;
-export async function getServerSideProps({ req }) {
-    return {
-        props: {
-            url: req.url,
-        },
-    };
-}
+
 const Pagestyle = styled.div`
     background: #fbfada21;
 
