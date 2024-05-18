@@ -31,8 +31,9 @@ const Page = () => {
                                 <Image
                                     height={300}
                                     width={400}
+                                    objectFit="contain"
                                     layout="responsive"
-                                    src={"/images/projects.jpg"}
+                                    src={p.thumbnail||'/images/projects.jpg'}
                                     onError={e => (e.currentTarget.src = "/images/projects.jpg")}
                                 />
                                 <div className="content">

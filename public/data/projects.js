@@ -13,7 +13,7 @@ export const projects = [
     {
         title: "Tutor Dashboard",
         techs: ["react.js", "next.js", "html", "css", "js"],
-        thumbnail: "",
+        thumbnail: "/portfolio/tutor-dashboard.png",
         url: "https://t.tutorbin.com/",
         type: "company project",
         detail: {
@@ -22,9 +22,9 @@ export const projects = [
         },
     },
     {
-        title: "Public Pages",
+        title: "Tutorbin Public Pages",
         techs: ["react.js", "next.js", "html", "css", "js"],
-        thumbnail: "",
+        thumbnail: "/portfolio/publicpages.png",
         url: "https://tutorbin.com/",
         type: "company project",
         detail: {
@@ -35,8 +35,19 @@ export const projects = [
     {
         title: "Birdlens Creation",
         techs: ["react.js", "next.js", "prismic cms", "SEO"],
-        thumbnail: "",
+        thumbnail: "/portfolio/birdlens.png",
         url: "https://birdlenscreation.com",
+        type: "Client project",
+        detail: {
+            title: "",
+            info: {},
+        },
+    },
+    {
+        title: "Milanmagic",
+        techs: ["react.js", "next.js", "prismic cms", "SEO"],
+        thumbnail: "/portfolio/milanmagic.png",
+        url: "https://www.milanmagic.com",
         type: "Client project",
         detail: {
             title: "",
@@ -47,7 +58,7 @@ export const projects = [
         title: "Frontendzone",
         url: "/",
         techs: ["react.js", "next.js", "styled component", "node.js", "express", "mongodb"],
-        thumbnail: "",
+        thumbnail: "/portfolio/frontendzone.png",
         type: "Personal project",
         detail: {
             title: "",
@@ -58,7 +69,7 @@ export const projects = [
         title: "Portfolio website",
         url: "/",
         techs: ["html", "css", "js", "angular js", "materializ css"],
-        thumbnail: "",
+        thumbnail: "/portfolio/portfolio-old.png",
         url: "https://ashish221306.github.io/developer",
         type: "Personal project",
         detail: {
