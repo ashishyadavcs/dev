@@ -14,6 +14,11 @@ import { theme } from "themes";
 import { ThemeProvider } from "styled-components";
 import SetTheme from "@/components/themesetting";
 import { useEffect } from "react";
+import { PersistGate } from "redux-persist/integration/react";
+import {persistStore} from "redux-persist";
+
+let persister=persistStore(store)
+
 Router.events.on("routeChangeStart", () => {
     nProgress.start();
     !navigator.onLine ? toast.error("You are offline") : "";
@@ -29,6 +34,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <SessionProvider session={session} basePath="/api/auth">
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
+                    <PersistGate persistor={persister}>
                     <Globalstyle />
                     <div className="loading-lcp">loading</div>
                     {!layout.landing.includes(router.pathname) ? (
@@ -42,6 +48,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                             <ToastContainer position="bottom-left" autoClose="1000" theme="light" />
                         </>
                     )}
+                    </PersistGate>
                 </Provider>
             </ThemeProvider>
         </SessionProvider>
