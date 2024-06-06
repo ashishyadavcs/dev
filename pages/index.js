@@ -7,10 +7,9 @@ import Seo from "@/components/organization";
 import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
 import { getPostList } from "lib/posts";
-import { FAQPageJsonLd, NextSeo, ProductJsonLd } from "next-seo";
+import { FAQPageJsonLd, ProductJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { animateList } from "utils/animation";
-import dynamic from "next/dynamic";
 import Ashish from "@/components/ashish";
 import { Bannerstyle } from "@/styles/banner";
 
@@ -168,7 +167,7 @@ export default function Home({ posts }) {
                                 your visitors. We&apos;ll also provide ongoing monitoring and
                                 support to keep your website performing at its best.
                             </p>
-                            <Styled.Cta
+                            <Styled.Cta className="mt-4"
                                 onClick={e => {
                                     e.currentTarget.href = openwhatsapp();
                                 }}
@@ -224,6 +223,9 @@ export async function getStaticProps() {
     return {
         props: {
             posts: posts.nodes,
+            index_config:{
+                layout:'default'
+            }
         },
         revalidate: 1,
     };
