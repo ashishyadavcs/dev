@@ -52,9 +52,9 @@ const Footer = () => {
                     <div className="row" role="navigation">
                         <div className="col-md-4">
                             <div className="mb-3">
-                                <h3 className="smallheading ">
+                                <span className="smallheading brand">
                                     {process.env.NEXT_PUBLIC_APP_NAME}
-                                </h3>
+                                </span>
                                 <p>
                                     A modern approach to learn frontend with tutorials, tricks and
                                     tips

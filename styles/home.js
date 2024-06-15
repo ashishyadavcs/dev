@@ -119,7 +119,7 @@ const Styled = {
     Cta: styled.a`
         display: inline-block;
         padding: 15px 30px;
-        background: red;
+        background:#ff0707;
         color: aliceblue;
         border-radius: 8px;
         text-align: center;
