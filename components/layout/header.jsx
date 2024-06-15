@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { nav, userlinks } from "../../public/data/nav";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { VscAccount } from "react-icons/vsc";
 import Dropdown from "../ui/dropdown";
 import { Styled } from "@/styles/header";
-import { progressBar } from "utils/common";
 
 const Header = ({ progress }) => {
-    const dispatch = useDispatch();
     const user = useSelector(state => state.user.data);
     const refs = useRef({});
     useEffect(() => {

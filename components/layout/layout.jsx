@@ -1,13 +1,18 @@
 import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import Orderpop from "@/components/orderpop";
 import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
-import Orderform from "../orderform";
 import dynamic from "next/dynamic";
-import Chat from "../chat";
-// import { ThemeContext } from "context";
+
 const Share = dynamic(() => import("@/components/ui/share"), {
+    ssr: false,
+});
+const Orderform = dynamic(() => import("../orderform"), {
+    ssr: false,
+});
+const Orderpop = dynamic(() => import("@/components/orderpop"), {
+    ssr: false,
+});
+const Footer = dynamic(() => import("@/components/layout/footer"), {
     ssr: false,
 });
 

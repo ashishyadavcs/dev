@@ -10,7 +10,6 @@ import { getPostList } from "lib/posts";
 import { FAQPageJsonLd, ProductJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { animateList } from "utils/animation";
-import Ashish from "@/components/ashish";
 import { Bannerstyle } from "@/styles/banner";
 
 export default function Home({ posts }) {
@@ -211,7 +210,7 @@ export default function Home({ posts }) {
                     },
                     {
                         questionName: "CEO of frontendzone",
-                        acceptedAnswerText: `Ashish Kumar ${(<Ashish />)}`,
+                        acceptedAnswerText: `Ashish Kumar`,
                     },
                 ]}
             ></FAQPageJsonLd>

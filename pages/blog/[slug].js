@@ -5,11 +5,17 @@ import "highlight.js/styles/github-dark.css";
 import hljs from "highlight.js";
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
-import Relatedposts from "@/components/relatedposts";
-import Ashish from "@/components/ashish";
+
+
 import dynamic from "next/dynamic";
 
 const Fbcomment = dynamic(() => import("@/components/fbcomment"), {
+    loading: () => <p>Loading...</p>,
+});
+const Relatedposts = dynamic(() => import("@/components/relatedposts"), {
+    loading: () => <p>Loading...</p>,
+});
+const Ashish = dynamic(() => import("@/components/ashish"), {
     loading: () => <p>Loading...</p>,
 });
 
