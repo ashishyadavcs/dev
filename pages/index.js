@@ -62,7 +62,7 @@ export default function Home({ posts }) {
                                 Looking for a developer?
                                 <br></br>
                             </h1>
-
+                            
                             <ul className="list-unstyled mt-3 hiw">
                                 {steps.map((li, i) => {
                                     return (
@@ -166,7 +166,8 @@ export default function Home({ posts }) {
                                 your visitors. We&apos;ll also provide ongoing monitoring and
                                 support to keep your website performing at its best.
                             </p>
-                            <Styled.Cta className="mt-4"
+                            <Styled.Cta
+                                className="mt-4"
                                 onClick={e => {
                                     e.currentTarget.href = openwhatsapp();
                                 }}
