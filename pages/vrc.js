@@ -79,7 +79,6 @@ export default Page;
 const Pagestyle = styled.div`
     background: #4fffb0;
     box-sizing: border-box;
-    height: 90vh;
     .header {
         position: sticky;
         top: 0;
@@ -105,8 +104,13 @@ const Pagestyle = styled.div`
         .recorder {
             border-radius: 10px;
             overflow: hidden;
-            min-height: 500px;
+            ${media.minsm}{
+                min-height: 500px;
+            }
             max-width: 100%;
+            video{
+                width: 100%;
+            }
         }
     }
     .saved {
