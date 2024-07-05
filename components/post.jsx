@@ -13,6 +13,7 @@ const Post = ({ remove, edit, post }) => {
             {!router.asPath.includes(post.slug) && (
                 <Link
                     key={post._id}
+                    prefetch={false}
                     href={`${post.url ? post.url : `/blog/${post.slug}`}`}
                     as={`${post.url ? post.url : `/blog/${post.slug}`}`}
                     passHref
