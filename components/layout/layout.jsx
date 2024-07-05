@@ -2,6 +2,7 @@ import Header from "@/components/layout/header";
 import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
+import Chat from "../chat";
 
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
@@ -72,7 +73,7 @@ const Layout = ({ children, type = "default", config }) => {
             ) : (
                 <main> {children}</main>
             )}
-            {/* {process.env.NODE_ENV=='development' && <Chat/>} */}
+            {router.query.chat && <Chat/>}
             {/* </ThemeContext.Provider> */}
         </>
     );
