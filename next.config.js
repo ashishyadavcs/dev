@@ -31,8 +31,8 @@ const nextConfig = {
         destination: "/online-json-formatter",
       },
       {
-        source: '/tutorials',
-        destination: 'https://ashish221306.github.io/developer/#!/',
+        source: '/linkedin',
+        destination: 'https://www.linkedin.com/in/ashishfgiet/',
       },
     ];
   },
