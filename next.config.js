@@ -29,7 +29,11 @@ const nextConfig = {
       {
         source: "/tools/online-json-formatter",
         destination: "/online-json-formatter",
-      }
+      },
+      {
+        source: '/tutorials',
+        destination: 'https://ashish221306.github.io/developer/#!/',
+      },
     ];
   },
   async redirects() {
