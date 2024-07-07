@@ -8,7 +8,6 @@ import {
     FaInstagram,
     FaLinkedinIn,
     FaPhone,
-    FaSkype,
     FaTwitter,
     FaYoutube,
 } from "react-icons/fa";
@@ -105,14 +104,7 @@ const Footer = () => {
                                 >
                                     <FaInstagram />
                                 </a>
-                                {/* <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="#"
-                  className="google-plus"
-                >
-                  <FaSkype />
-                </a> */}
+                               
                                 <a
                                     aria-label="linkedin"
                                     target="_blank"
@@ -142,6 +134,14 @@ const Footer = () => {
                                         <a className="ml-1">
                                             <FaChevronRight className="mr-1" size={15} />
                                             Frontend developer roadmap
+                                        </a>
+                                    </Link>
+                                </li>
+                                <li className="d-flex align-items-center">
+                                    <Link href={"/video-tutorials"} prefetch={false}>
+                                        <a className="ml-1">
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            video tutorials
                                         </a>
                                     </Link>
                                 </li>
