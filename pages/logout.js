@@ -1,6 +1,10 @@
 import Cookies from "cookies";
+import { useDispatch } from "react-redux";
+import { logout } from "store/userSlice";
 
-const logout = () => {
+const Logout = () => {
+    const dispatch = useDispatch;
+    dispatch(logout());
     return <div>Please wait</div>;
 };
 export async function getServerSideProps({ req, res }) {
@@ -14,4 +18,4 @@ export async function getServerSideProps({ req, res }) {
         },
     };
 }
-export default logout;
+export default Logout;

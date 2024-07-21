@@ -54,10 +54,10 @@ export const Styled = {
             color: #333;
             font-weight: 600;
         }
+
         ${media.sm} {
             min-height: 60px;
             .innermenu {
-                overflow: hidden;
                 background: #19e6ba;
             }
             &::after {

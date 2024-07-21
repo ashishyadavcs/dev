@@ -5,6 +5,8 @@ const sendRequest = async (req, res, token) => {
     delete req.query.slug;
     const option = {
         method: req.method,
+        mode: 'same-origin',
+        credentials: 'include',
         headers: {
             "Content-Type": req.headers["Content-Type"] || "application/json",
             Authorization: `Bearer ${token}`,

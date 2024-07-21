@@ -64,7 +64,7 @@ export const blognav = [
 ];
 export const userlinks = [
     {
-        link: "/dashboard/profile",
+        link: "/profile",
         text: "profile",
     },
     {
@@ -72,7 +72,7 @@ export const userlinks = [
         text: "dashboard",
     },
     {
-        link: "/dashboard/order",
+        link: "/dashboard",
         text: "orders",
     },
     {

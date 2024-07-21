@@ -1,43 +1,72 @@
+import { media } from "config/device";
+import {useSession} from "next-auth/react";
 import Link from "next/link";
-import React from "react";
 import styled from "styled-components";
-import { fetchData } from "utils/serversidefetch";
-const Page = ({ data }) => {
-    console.log(data);
+const Page = ({ orders }) => {
     return (
-        <Dashboardstyle>
-            <aside>
-                <ul>
-                    {[...Array(5)].map(l => (
-                        <li>
-                            <Link href="/dashboard/profile"><a>Profile</a></Link>
+        <Pages className={`container py-3 `}>
+            <h1>Order List</h1>
+            {orders.length?
+            <ul className="orders">
+                {[...orders].map(order => (
+                    <Link href={`/dashboard/orders/${order._id}`} key={order._id} passHref>
+                        <li className="order">
+                            <p> {order.description}</p>
+                            <a href={order.mobile}>{order.mobile}</a>
+                            <span className="date">{new Date(order.date).toDateString()}</span>
+                            <span className="paid">{order.paid}</span>
                         </li>
-                    ))}
-                </ul>
-            </aside>
-            <main></main>
-        </Dashboardstyle>
+                    </Link>
+                ))}
+            </ul>:<h2>No Oreder yet</h2>}
+        </Pages>
     );
 };
-const Dashboardstyle = styled.section`
-display: flex;
-aside{
-    background: #f1f1f1;
-    width: 25%;
-    a{
-        padding: 10px;
-        display: block;
-        border-bottom: 1px solid #ddd;
-    }
+const Pages = styled.div`
+.date{
+    background: #ddd;
+    border-radius: 100px;
+    padding:2px 10px;
+    width: max-content;
+    font-size: 14px;
 }
-
+    ul {
+        list-style: none;
+    }
+    .orders {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(4, 1fr);
+        ${media.sm} {
+            grid-template-columns: auto;
+        }
+        .order {
+            border: 2px solid transparent;
+            &:hover {
+                border: 2px solid blue;
+            }
+            cursor: pointer;
+            h2 {
+                font-size: 30px;
+            }
+            padding: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+    }
 `;
 export default Page;
 export async function getServerSideProps({ req }) {
-    const data = await fetchData(`${process.env.APP_URL}/api/dashboard`, req);
+    const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/order`, {
+        headers: {
+            cookie: req.headers.cookie,
+        },
+    }).then(res => res.json());
     return {
         props: {
-            data,
+            orders: data.order || [],
         },
     };
 }

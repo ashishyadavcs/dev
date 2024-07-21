@@ -28,3 +28,7 @@
         #cccccc 90%
     );
 }
+
+.login select{
+    font-size: 17px;
+}

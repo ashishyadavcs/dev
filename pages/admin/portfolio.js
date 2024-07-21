@@ -2,71 +2,21 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-import { toast } from "react-toastify";
 import styled from "styled-components";
+import {addPortfolio, deletePortfolio, sendreq} from "utils/forms/portfolio";
+import {fetchData} from "utils/serversidefetch";
 
 const Portfolio = ({ portfolios }) => {
     const router = useRouter();
     const [image, setimage] = useState("");
     const [edit, setEdit] = useState(false);
-    const sendreq = async (e, method, url) => {
-        e.preventDefault();
-        const fdata = new FormData();
-        fdata.append("file", e.target.image.files[0]);
-        await fetch("/api/upload", {
-            method: "post",
-            body: fdata,
-        })
-            .then(res => {
-                return res.json();
-            })
-            .then(async res => {
-                if (res.file?.name) {
-                    const formdata = new FormData(e.target);
-                    formdata.append("image", res.file.url);
-                    const data = await fetch(url, {
-                        method: `${method}`,
-                        body: JSON.stringify(Object.fromEntries(formdata)),
-                    })
-                        .then(res => res.json())
-                        .catch(err => ({ message: err.message }));
-                    if (data.success) {
-                        router.push(`?published=${Math.random()}`);
-                        toast.success(data.message);
-                    } else {
-                        toast.success(data.message);
-                    }
-                }
-            });
-    };
-    const addPortfolio = async e => {
-        sendreq(e, "Post", "/api/portfolio");
-    };
-
-    const deletePortfolio = async id => {
-        const confirm = window.confirm("are you sure to delete ?");
-        if (confirm) {
-            const data = await fetch(`/api/portfolio/${id}`, {
-                method: "delete",
-            })
-                .then(res => res.json())
-                .catch(err => err.message);
-            if (data.success) {
-                router.push(`?deleted=${id}`);
-                toast.success(data.message);
-            } else {
-                toast.error(data.message);
-            }
-        }
-    };
-
     return (
         <Pages className="container py-4">
             <h1>Add New Portfolio</h1>
             <form
                 onSubmit={e => {
                     edit
-                        ? sendreq(e, "put", `/api/portfolio/${edit._id}`)
+                        ? sendreq(e, "put", `/api/portfolio/${edit._id}`,router)
                         : addPortfolio(e, "Post", "/api/portfolio");
                 }}
             >
@@ -111,10 +61,13 @@ const Portfolio = ({ portfolios }) => {
                 {[...portfolios].reverse().map(project => (
                     <div className="project">
                         <span className="action">
-                            <button onClick={e => setEdit(v => (v == false ? project : false))}>
+                            <button onClick={e => {
+                                setEdit(v => (v == false ? project : false))
+                                router.push(`?edit=true`)
+                            }}>
                                 <FiEdit className="pointer" size={20} />
                             </button>
-                            <button onClick={e => deletePortfolio(project._id)}>
+                            <button onClick={e => deletePortfolio(project._id,router)}>
                                 <AiFillDelete className="pointer" size={20} />
                             </button>
                         </span>
@@ -198,13 +151,12 @@ const Pages = styled.div`
     }
 `;
 
-export async function getServerSideProps(req) {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`).then(res =>
-        res.json()
-    );
-    return {
-        props: {
-            portfolios: data.portfolio,
-        },
-    };
+export async function getServerSideProps({req}) {
+    const data = await fetchData(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`,req)
+    return{
+        props:{
+            portfolios:data.portfolio
+        }
+    }
+       
 }

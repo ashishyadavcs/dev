@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { nav, userlinks } from "../../public/data/nav";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { VscAccount } from "react-icons/vsc";
 import Dropdown from "../ui/dropdown";
 import { Styled } from "@/styles/header";
+import { Router } from "next/router";
 
 const Header = ({ progress }) => {
     const user = useSelector(state => state.user.data);
     const refs = useRef({});
+    console.log('header',user)
+
     useEffect(() => {
         const closeNav = () => refs.current.header.classList.remove("active");
         window.onscroll = () => {
@@ -54,7 +57,7 @@ const Header = ({ progress }) => {
                                 );
                             })}
                         </ul>
-                        {false && (
+                        { user?.email && (
                             <ul className="list-unstyled mb-0 innermenu">
                                 {0 ? (
                                     <li>
@@ -71,7 +74,7 @@ const Header = ({ progress }) => {
                                             }}
                                         >
                                             <span className="user">
-                                                <VscAccount size={25} /> Ashish Yadav
+                                                <VscAccount size={25} /> {user.name}
                                             </span>
                                             <Dropdown links={userlinks} />
                                         </li>

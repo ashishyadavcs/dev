@@ -24,6 +24,7 @@ Router.events.on("routeChangeStart", () => {
     !navigator.onLine ? toast.error("You are offline") : "";
 });
 Router.events.on("routeChangeComplete", () => {
+    document.querySelector('header').classList.remove('active')
     nProgress.done();
 });
 Router.events.on("routeChangeError", () => nProgress.done());

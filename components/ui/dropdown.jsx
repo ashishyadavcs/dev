@@ -1,8 +1,19 @@
 import { media } from "config/device";
 import Link from "next/link";
+import { useEffect } from "react";
 import { styled } from "styled-components";
 
 const Dropdown = ({ links }) => {
+    useEffect(() => {
+        //outclick dropdown close
+        document.body.onclick = e => {
+            if (e.target == document.querySelector(".user")) return;
+            if (!e.target.closest(".dropdown")) {
+                document.querySelector(".dropdown").classList.remove("active");
+            }
+        };
+    }, []);
+
     return (
         <Dopdown className="dropdown">
             <ul className="list-unstyled mb-0">
@@ -24,10 +35,9 @@ const Dopdown = styled.div`
     top: 80%;
     width: max-content;
     min-width: 200px;
-    right: 0;
+    right: -50px;
     overflow: hidden;
     opacity: 0;
-    left: 0;
     transition: all 0.2s ease-in-out;
     pointer-events: none;
     color: rgb(136, 136, 136);

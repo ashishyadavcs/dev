@@ -6,10 +6,12 @@ import { useDispatch } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Loginwithgoogle from "@/components/auth/google-login";
 import { Styled } from "@/styles/auth";
+import {saveUser} from "store/userSlice";
 export const Page = () => {
     const [show, setShow] = useState(true);
     const router = useRouter();
     const from = router.query.from;
+    const dispatch=useDispatch()
     const login = async e => {
         const formdata = {
             email: e.target.email.value,
@@ -27,10 +29,11 @@ export const Page = () => {
             .catch(err =>
                 res.json({
                     success: false,
-                    message: "",
+                    message: err.message,
                 })
             );
         if (data?.success) {
+            dispatch(saveUser(data.data.user))
             toast.success("loged in successfully");
             router.push(from || "/dashboard");
         } else {

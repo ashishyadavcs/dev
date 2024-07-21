@@ -1,11 +1,13 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
+import {useDispatch} from "react-redux";
+import {saveUser} from "store/userSlice";
 const Loginwithgoogle = ({ title }) => {
-    const router = useRouter();
     const { data: session } = useSession();
+    const dispatch=useDispatch()
+    dispatch(saveUser(session?.user))
     const getcallbackurl = () => {
-        return "/admin";
+        return "/dashboard";
     };
     return (
         <button

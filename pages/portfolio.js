@@ -1,7 +1,6 @@
 import styles from "@/styles/portfolio.module.css";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-import { useEffect } from "react";
 import { fetchData } from "utils/serversidefetch";
 
 const Portfolio = ({ projects }) => {

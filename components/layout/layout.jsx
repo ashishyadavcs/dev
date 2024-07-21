@@ -2,6 +2,7 @@ import Header from "@/components/layout/header";
 import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
+import Footer from "./footer";
 
 
 const Chat = dynamic(() => import("../chat"), {
@@ -16,9 +17,7 @@ const Orderform = dynamic(() => import("../orderform"), {
 const Orderpop = dynamic(() => import("@/components/orderpop"), {
     ssr: false,
 });
-const Footer = dynamic(() => import("@/components/layout/footer"), {
-    ssr: false,
-});
+
 
 const Layout = ({ children, type = "default", config }) => {
     const router = useRouter();

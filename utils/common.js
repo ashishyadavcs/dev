@@ -43,9 +43,9 @@ export const replacewithspace = text => {
     return `${text.toLowerCase().trim().replace(/-/g, " ")}`;
 };
 
-export const openwhatsapp = (msg = message.sale) => {
+export const openwhatsapp = (msg = message.sale,number) => {
     return `https://${ismobile() ? "api" : "web"}.whatsapp.com/send?phone=${
-        contact.whatsapp
+        number || contact.whatsapp
     }&text=${msg}`;
 };
 export const countryslug = post => {

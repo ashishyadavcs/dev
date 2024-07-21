@@ -6,6 +6,7 @@
 .blog article code {
     position: relative;
 }
+
 .blog :not(pre) > code {
     color: blue;
     background: aliceblue;
@@ -33,6 +34,9 @@
     transition: all 0.3s;
 }
 
+.blog video{
+    width: 800px!important;
+}
 .tag a:hover {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }

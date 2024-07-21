@@ -11,12 +11,17 @@ export const Register = ({ roles }) => {
     const router = useRouter();
     const [show, setShow] = useState(true);
     const signup = async e => {
-        const formdata = {
+        const details={
             name: e.target.name.value,
             email: e.target.email.value,
             password: e.target.password.value,
-            role: e.target.role.value,
-        };
+            phone:'8764781268'
+        }
+        if(details.password.length<8){
+            toast.error("Password should be atleast 8 charactors")
+            return
+        }
+        const formdata = details
         const data = await fetch(`/api/baseauth/register`, {
             method: "POST",
             headers: {
@@ -26,11 +31,12 @@ export const Register = ({ roles }) => {
         })
             .then(res => res.json())
             .catch(err => toast.error(err.message));
+            console.log(data)
         if (data.success) {
             toast.success("Registered successfully ");
             router.push("/dashboard");
         } else {
-            toast.error(data.message);
+            toast.error(JSON.stringify(data.message));
         }
     };
 
@@ -68,7 +74,7 @@ export const Register = ({ roles }) => {
                         />
                         <span
                             className="position-absolute h-100 pointer"
-                            style={{ right: "20px", top: "25%" }}
+                            style={{ right: "20px", top: "31%" }}
                         >
                             {show ? (
                                 <AiOutlineEyeInvisible onClick={e => setShow(false)} size={20} />

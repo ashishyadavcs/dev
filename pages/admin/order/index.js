@@ -6,7 +6,7 @@ const Page = ({ orders }) => {
         <Pages className={`container py-3 `}>
             <ul className="orders">
                 {[...orders].map(order => (
-                    <Link href="/" key={order._id} passHref>
+                    <Link href={`/admin/order/${order._id}`} key={order._id} passHref>
                         <li className="order">
                             <p> {order.description}</p>
                             <a href={order.mobile}>{order.mobile}</a>
