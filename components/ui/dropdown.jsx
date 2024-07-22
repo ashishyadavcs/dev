@@ -6,10 +6,12 @@ import { styled } from "styled-components";
 const Dropdown = ({ links }) => {
     useEffect(() => {
         //outclick dropdown close
+        const dropdown = document.querySelector(".dropdown");
+        if (!dropdown) return;
         document.body.onclick = e => {
             if (e.target == document.querySelector(".user")) return;
             if (!e.target.closest(".dropdown")) {
-                document.querySelector(".dropdown").classList.remove("active");
+                dropdown.classList.remove("active");
             }
         };
     }, []);
@@ -65,6 +67,10 @@ const Dopdown = styled.div`
     }
 
     li {
+        a {
+            width: 100%;
+            display: block;
+        }
         cursor: pointer;
         ${media.sm} {
             &:last-child {
@@ -75,7 +81,7 @@ const Dopdown = styled.div`
         }
         ${media.minsm} {
             background: #fff;
-            padding: 5px 10px;
+            padding: 0 !important;
             &:hover {
                 background: #f1f1f1;
             }
