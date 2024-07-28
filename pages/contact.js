@@ -7,7 +7,7 @@ import { contact } from "public/data/contact";
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-import { openwhatsapp } from "utils/common";
+import { mailTo, openwhatsapp } from "utils/common";
 import Whatsapp from "@/components/whatsapp";
 import { Styled } from "@/styles/contact";
 const Contact = () => {
@@ -93,7 +93,7 @@ const Contact = () => {
                                 <b className="mr-2">
                                     <FaEnvelope size={20} />
                                 </b>
-                                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                                <a href={mailTo(contact.email)}>{contact.email}</a>
                             </p>
                         </div>
                         <span className="d-none d-md-block">

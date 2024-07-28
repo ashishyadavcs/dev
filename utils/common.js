@@ -43,7 +43,7 @@ export const replacewithspace = text => {
     return `${text.toLowerCase().trim().replace(/-/g, " ")}`;
 };
 
-export const openwhatsapp = (msg = message.sale,number) => {
+export const openwhatsapp = (msg = message.sale, number) => {
     return `https://${ismobile() ? "api" : "web"}.whatsapp.com/send?phone=${
         number || contact.whatsapp
     }&text=${msg}`;
@@ -75,3 +75,5 @@ export const progressBar = () => {
     var scrolled = (winScroll / height) * 100;
     document.querySelector(":root").style.setProperty("--progress-width", `${scrolled}%`);
 };
+
+export const mailTo = email => `https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=${email}`;

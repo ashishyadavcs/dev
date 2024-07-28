@@ -14,6 +14,7 @@ import {
 import tools from "public/data/tools";
 import { useEffect } from "react";
 import { Styled } from "@/styles/footer";
+import {mailTo} from "utils/common";
 
 const Footer = () => {
     const goToTop = () => {
@@ -68,7 +69,7 @@ const Footer = () => {
                                     {contact.mobile}
                                 </a>
 
-                                <a href={`mailto:${contact.email}`}>
+                                <a href={mailTo(contact.email)}>
                                     <FaEnvelope className="mr-2" />
                                     {contact.email}
                                 </a>
