@@ -11,7 +11,7 @@ const Quiz = ({ quiz }) => {
     const [next, setnext] = useState(0);
     const [score, setScore] = useState(0);
     const [showscore, setshowscore] = useState(false);
-    mySound = new Audio("/sound/true.mp3");
+   const mySound = new Audio("/sound/true.mp3");
     const checkAns = (e, i) => {
         setTimeout(() => {
             setnext(p => p + 1);
