@@ -1,6 +1,7 @@
 import Cookies from "cookies";
 import { useDispatch } from "react-redux";
 import { logout } from "store/userSlice";
+import { fetchData } from "utils/serversidefetch";
 
 const Logout = () => {
     const dispatch = useDispatch;
@@ -8,9 +9,8 @@ const Logout = () => {
     return <div>Please wait</div>;
 };
 export async function getServerSideProps({ req, res }) {
-    const cookies = new Cookies(req, res);
-    cookies.set("x-refresh"); //to delet refresh token
-    cookies.set("x-token"); //to delet access token
+    const data = await fetchData(`${process.env.APP_URL}/api/baseauth/logout`, req);
+
     return {
         redirect: {
             parmanent: false,
