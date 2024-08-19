@@ -1,25 +1,39 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { ShowMessageData } from "utils/chat";
+import { convertFileToURL, ShowMessageData } from "utils/chat";
 
-const Message = ({ data }) => {
+const Message = ({ data, setuserinfo }) => {
+    const updateImage = async src => {
+        await setuserinfo(p => ({ ...p, image: src }));
+    };
     return (
         <Styledmsg onLoad={e => e.currentTarget.scrollIntoView()} className="message-container">
             {data.type === "message" ? (
                 <div className={`message ${data.reciever && "recieved"}`}>
-                    <Image
-                        objectFit="cover"
-                        layout="fixed"
-                        className="dp"
-                        height={30}
-                        width={30}
-                        alt={data.sender}
-                        src={data.senderimg}
-                    />
+                    <label className="profile">
+                        <input
+                            hidden
+                            type="file"
+                            onChange={async e => {
+                                const url = await convertFileToURL(e.target.files[0]);
+                                await updateImage(url);
+                            }}
+                            accept="images/*"
+                        />
+                        <Image
+                            objectFit="cover"
+                            layout="fixed"
+                            className="dp"
+                            height={30}
+                            width={30}
+                            alt={data.sender}
+                            src={data.senderimg}
+                        />
+                    </label>
                     <div className="content">
                         <span>{data.sender}</span>
                         {ShowMessageData(data)}
-                        <span className="time">{data.time}</span>
+                        <span className="time">{new Date(data.time).toLocaleTimeString()}</span>
                     </div>
                 </div>
             ) : (

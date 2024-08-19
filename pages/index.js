@@ -11,6 +11,7 @@ import { FAQPageJsonLd, ProductJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { animateList } from "utils/animation";
 import { Bannerstyle } from "@/styles/banner";
+import {draghtml} from "utils/draghtml";
 
 export default function Home({ posts }) {
     const postss = [
@@ -32,6 +33,7 @@ export default function Home({ posts }) {
         "Congrats! Your task delivered ",
     ];
     useEffect(() => {
+
         animateList(".hiw li");
     }, []);
 
@@ -58,7 +60,7 @@ export default function Home({ posts }) {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-7 col-12">
-                            <h1 className="gradient-text heading text-capitalize">
+                            <h1 id="h1" className="gradient-text heading text-capitalize">
                                 Looking for a developer?
                                 <br></br>
                             </h1>

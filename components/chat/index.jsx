@@ -23,11 +23,17 @@ import { sounds } from "./sounds";
 
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
+    const [userinfo, setuserinfo] = useState({
+        name: "",
+        id: "",
+        image: "",
+    });
     const [msg, setmsg] = useState({
         text: "",
         file: "",
         voice: "",
     });
+
     useEffect(() => {
         document.querySelector(".inputs .msg").innerHTML = "";
         setmsg(p => ({}));
@@ -36,6 +42,7 @@ const Chat = () => {
     useEffect(() => {
         socket.on(eventsType.join, data => {
             console.log("you joined in room", data);
+            setuserinfo(p => ({ ...p, id: data.chatId }));
             openChat();
             savemessage(setmsgList, {
                 msg: data.roomid,
@@ -67,12 +74,13 @@ const Chat = () => {
 
     return (
         <>
-            <Chatlayout onDrag={e => draghtml("chat")} id="chat" className="chat-container">
+            <Chatlayout id="chat" className="chat-container">
                 {0 ? (
                     <Members />
                 ) : (
                     <>
                         <div
+                            id="mydivheader"
                             className="head active"
                             onClick={e => e.currentTarget.classList.toggle("active")}
                         >
@@ -106,8 +114,9 @@ const Chat = () => {
                         </div>
 
                         <div className="body">
+                            {console.log(msgList)}
                             {msgList.map(msg => (
-                                <Message key={3} data={msg} />
+                                <Message setuserinfo={setuserinfo} key={3} data={msg} />
                             ))}
                         </div>
                         <div className="action">
@@ -155,6 +164,10 @@ const Chat = () => {
                                         await sendMSG(setmsgList, {
                                             msg: msg.text,
                                             ...(msg.file && msg),
+                                            sender: userinfo.id,
+                                            ...(userinfo.image && {
+                                                senderimg: userinfo.image,
+                                            }),
                                         });
                                     }
                                 }}
@@ -178,11 +191,8 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
-    * {
-        transition: all 0.3s;
-    }
     --headheight: 55px;
-    z-index: 2;
+    z-index: 112;
     height: 550px;
     width: 320px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -199,7 +209,6 @@ const Chatlayout = styled.div`
         z-index: 20;
         border-radius: 0px;
     }
-    transition: all 0.6s;
     &:has(.head.active) {
         height: var(--headheight);
         height: 50px;

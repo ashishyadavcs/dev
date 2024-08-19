@@ -1,6 +1,7 @@
 import Chatimg from "@/components/chat/image";
 import socket from "@/components/chat/socket";
 import { sounds } from "@/components/chat/sounds";
+import { FaFile, FaFilePdf } from "react-icons/fa";
 
 export const record = (e, setmsg) => {
     let chunks = [];
@@ -57,7 +58,7 @@ export const savemessage = async (setList, data) => {
             msg: "",
             file: "",
             audio: "",
-            time: "12:00pm",
+            time: new Date().getTime(),
             sender: "ashish",
             senderimg: "/ashish.jpg",
             ...data,
@@ -103,12 +104,33 @@ export const setMessage = async (e, setmsg) => {
     }));
 };
 
+export const download = (src, name) => {
+    const da = document.createElement("a");
+    da.href = src || "";
+    da.download = name || "downloadchatfile";
+    da.click();
+    try {
+        document.removeChild(da);
+    } catch (er) {}
+};
 export const ShowMessageData = data => {
+    // switch(type){
+    //         case 'pdf':
+    // }
     return (
         <>
             {data.file && data.file.type.includes("image") && <Chatimg src={data.file.url} />}
             {data.file && data.file.type.includes("video") && (
                 <video width={"100%"} controls type="video/mp4" src={data.file.url} />
+            )}
+            {data.file && !data.file.type.includes("application")  && data.file.type.includes("application/pdf") ? (
+                <FaFilePdf
+                    onClick={e => download(data.file.url, data.file.name)}
+                    size={40}
+                    color="red"
+                />
+            ) : (
+              data.file &&  data.file.type.includes("application") && <FaFile onClick={e => download(data.file.url, data.file.name)} size={40} />
             )}
             {data.audio && <audio controls src={data.audio} />}
 
