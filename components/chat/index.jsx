@@ -164,9 +164,12 @@ const Chat = () => {
                                         await sendMSG(setmsgList, {
                                             msg: msg.text,
                                             ...(msg.file && msg),
-                                            sender: userinfo.id,
+                                            sender: userinfo.id.substring(8),
                                             ...(userinfo.image && {
                                                 senderimg: userinfo.image,
+                                            }),
+                                            ...(userinfo.name && {
+                                                sender: userinfo.name,
                                             }),
                                         });
                                     }
