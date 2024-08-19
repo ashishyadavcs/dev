@@ -5,8 +5,8 @@ import styled from "styled-components";
 const Members = () => {
     return (
         <Styledcontacts className="home">
-            {[...Array(15)].map(user => (
-                <li>
+            {[...Array(15)].map((user,i) => (
+                <li key={i}>
                     <Image
                         objectFit="cover"
                         className="dp"

@@ -7,60 +7,64 @@ import { media } from "config/device";
 import { FaCamera } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { IoMdSend } from "react-icons/io";
-import { useRouter } from "next/router";
-import { record } from "utils/chat";
+import {
+    eventsType,
+    openChat,
+    playSound,
+    record,
+    savemessage,
+    sendMSG,
+    setMessage,
+    ShowMessageData,
+} from "utils/chat";
 import Members from "./contacts";
-import { io } from "socket.io-client";
+import socket from "./socket";
+import { sounds } from "./sounds";
 
 const Chat = () => {
-    const router = useRouter();
-    const isbhoj = router.asPath.includes("bhojpuri");
-    const [msgList, setmsgList] = useState([
-        {
-            msg: "hi how are you",
-            audio: "",
-            time: "12:00pm",
-            sender: "ashish",
-            senderimg: "/ashish.jpg",
-        },
-    ]);
+    const [msgList, setmsgList] = useState([]);
     const [msg, setmsg] = useState({
         text: "",
         file: "",
         voice: "",
     });
-    const playSound = src => {
-        const ss = new Audio(src);
-        ss.play();
-        setTimeout(() => {
-            ss.pause();
-        }, 5000);
-    };
-    const savemessage = msg => {
-        setmsgList(prev => [
-            ...prev,
-            {
-                msg: msg,
-                audio: "",
-                time: "12:00pm",
-                sender: "ashish",
-                senderimg: "/ashish.jpg",
-            },
-        ]);
-    };
-    /*chat */
-
-    const socket = io("http://localhost:4000");
-    /*chat */
-    const sendMSG = () => {
-        document.querySelector(".inputs .msg").innerHTML = "";
-        socket.emit("message", msg.text);
-        setmsg(prev => ({ ...prev, text: "" }));
-        playSound(`/dev/sound/${isbhoj ? "bhj" : "msg"}.mp3`);
-    };
     useEffect(() => {
         document.querySelector(".inputs .msg").innerHTML = "";
+        setmsg(p => ({}));
     }, [msgList]);
+
+    useEffect(() => {
+        socket.on(eventsType.join, data => {
+            console.log("you joined in room", data);
+            openChat();
+            savemessage(setmsgList, {
+                msg: data.roomid,
+                type: "join",
+            });
+        });
+
+        socket.on(eventsType.message, data => {
+            playSound(sounds.receive);
+            document.title = `💬 ${data}`;
+            openChat();
+            savemessage(setmsgList, {
+                ...data,
+                reciever: true,
+            });
+        });
+
+        socket.emit(eventsType.join, socket.id);
+
+        return () => {
+            // socket.off("join");
+            // socket.off("message");
+            // socket.off("typing")
+            Object.keys(eventsType).forEach(key => {
+                socket.off(eventsType[key]);
+            });
+        };
+    }, []);
+
     return (
         <>
             <Chatlayout onDrag={e => draghtml("chat")} id="chat" className="chat-container">
@@ -91,7 +95,7 @@ const Chat = () => {
                                 src={"/ashish.jpg"}
                             />
                             <div className="name">
-                                <span className="title">Ashish Yadav</span>
+                                <span className="title">Frontendzone</span>
                                 <span className="lastseen">last seen today at 9:23 pm</span>
                             </div>
                             <span className="menu-icon">
@@ -103,45 +107,66 @@ const Chat = () => {
 
                         <div className="body">
                             {msgList.map(msg => (
-                                <Message data={msg} />
+                                <Message key={3} data={msg} />
                             ))}
                         </div>
                         <div className="action">
+                            <div className="inputfile">{ShowMessageData(msg)}</div>
                             <form className="inputs">
                                 <div
                                     autoFocus
                                     spellCheck="false"
                                     onKeyDown={e => {
                                         if (e.key == "Enter") {
-                                            sendMSG();
+                                            document.querySelector(".sender").click();
                                             e.preventDefault();
                                         }
                                     }}
                                     onInput={e => {
                                         setmsg(prev => ({ ...prev, text: e.target.innerText }));
+                                        socket.emit("typing", msg.text);
                                     }}
                                     className="msg"
                                     contentEditable
-                                ></div>
+                                />
                                 <div className="tools">
-                                    <MdOutlineAttachFile
-                                        className="attach"
-                                        color="#888"
-                                        size={20}
-                                    />
+                                    <label>
+                                        <input
+                                            onChange={async e => {
+                                                await setMessage(e, setmsg);
+                                            }}
+                                            type="file"
+                                            hidden
+                                        />
+                                        <MdOutlineAttachFile
+                                            className="attach"
+                                            color="#888"
+                                            size={20}
+                                        />
+                                    </label>
+
                                     <FaCamera size={18} color="#888" />
                                 </div>
                             </form>
                             <div
                                 className="sender"
-                                onClick={e => {
-                                    msg.text.length > 0 ? sendMSG() : record(e, setmsgList);
+                                onClick={async e => {
+                                    if (msg.text?.length > 0 || msg.file) {
+                                        await sendMSG(setmsgList, {
+                                            msg: msg.text,
+                                            ...(msg.file && msg),
+                                        });
+                                    }
                                 }}
                             >
-                                {msg.text?.length > 0 ? (
+                                {msg.text?.length > 0 || msg.file ? (
                                     <IoMdSend color="#fff" size={22} />
                                 ) : (
-                                    <MdKeyboardVoice color="#fff" size={22} />
+                                    <MdKeyboardVoice
+                                        onClick={e => record(e, setmsg)}
+                                        color="#fff"
+                                        size={22}
+                                    />
                                 )}
                             </div>
                         </div>
@@ -153,6 +178,9 @@ const Chat = () => {
 };
 export default Chat;
 const Chatlayout = styled.div`
+    * {
+        transition: all 0.3s;
+    }
     --headheight: 55px;
     z-index: 2;
     height: 550px;
@@ -174,6 +202,14 @@ const Chatlayout = styled.div`
     transition: all 0.6s;
     &:has(.head.active) {
         height: var(--headheight);
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        bottom: 150px;
+        ${media.minsm} {
+            bottom: 250px;
+        }
+        right: 20px;
         .action,
         .body {
             display: none;
@@ -225,9 +261,6 @@ const Chatlayout = styled.div`
         height: calc(500px - 70px);
         padding: 40px 10px;
         overflow: auto;
-        .message-container:nth-of-type(3n) {
-            justify-content: flex-end;
-        }
         &:-webkit-scrollbar-thumb {
             background: #ddd !important;
         }
@@ -242,6 +275,12 @@ const Chatlayout = styled.div`
         bottom: 10px;
         align-items: center;
         justify-content: space-around;
+        .inputfile {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+        }
         .inputs {
             position: relative;
             background: #fff;
@@ -272,7 +311,7 @@ const Chatlayout = styled.div`
                 height: max-content;
                 position: absolute;
                 right: 20px;
-                bottom: 10px;
+                bottom: 5px;
                 .attach {
                     transform: rotate(-45deg);
                 }
@@ -280,9 +319,6 @@ const Chatlayout = styled.div`
         }
     }
     .sender {
-        svg {
-            pointer-events: none;
-        }
         cursor: pointer;
         height: 40px;
         width: 40px;
