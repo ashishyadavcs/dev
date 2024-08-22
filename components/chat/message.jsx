@@ -4,7 +4,7 @@ import { convertFileToURL, ShowMessageData } from "utils/chat";
 
 const Message = ({ data, setuserinfo }) => {
     const updateImage = async src => {
-        await setuserinfo(p => ({ ...p, image: src }));
+        await setuserinfo(p => ({ ...p, senderimg: src }));
     };
     return (
         <Styledmsg onLoad={e => e.currentTarget.scrollIntoView()} className="message-container">
@@ -18,7 +18,7 @@ const Message = ({ data, setuserinfo }) => {
                                 const url = await convertFileToURL(e.target.files[0]);
                                 await updateImage(url);
                             }}
-                            accept="images/*"
+                            accept="image/*"
                         />
                         <Image
                             objectFit="cover"
@@ -31,13 +31,13 @@ const Message = ({ data, setuserinfo }) => {
                         />
                     </label>
                     <div className="content">
-                        <span>{data.sender}</span>
+                        <span className="username">{data.sender?.substring(10)}</span>
                         {ShowMessageData(data)}
                         <span className="time">{new Date(data.time).toLocaleTimeString()}</span>
                     </div>
                 </div>
             ) : (
-                <span className="chat-join">new student joined chat</span>
+                <span className="chat-join">{data.msg}</span>
             )}
         </Styledmsg>
     );
@@ -53,22 +53,31 @@ const Styledmsg = styled.div`
         justify-content: center;
     }
     .chat-join {
+    font-style: italic;
         border-radius: 10px;
         padding: 3px 10px;
-        background: #f1f1f1;
+        border: 2px solid #e0e0eb;
+        background: #fff;
         font-size: 10px;
         margin-bottom: 4px;
         &:last-child {
             margin-bottom: 10px;
         }
     }
+
     .message {
         position: relative;
         margin: 0 0 20px 10px;
-        --fcolor: blue;
+        --fcolor: #bdc2d8;
         filter: drop-shadow(0 1px 2px var(--fcolor));
         width: 100%;
         max-width: 70%;
+        video {
+            border-radius: 10px;
+        }
+        a {
+            color: blue;
+        }
         &:has(audio) {
             max-width: 90%;
         }
@@ -91,7 +100,6 @@ const Styledmsg = styled.div`
             filter: none;
         }
         &.recieved {
-            --fcolor: red;
             margin: 0 10px 20px 0;
             border-top-left-radius: 16px;
             border-top-right-radius: 0;
@@ -123,13 +131,17 @@ const Styledmsg = styled.div`
             }
             p {
                 word-wrap: break-word;
-                font-size: 18px;
+                font-size: 16px;
             }
             .time {
                 margin-top: 7px;
                 float: right;
                 font-size: 10px;
                 color: #888;
+            }
+            .username {
+                margin-bottom: 5px;
+                display: block;
             }
         }
     }

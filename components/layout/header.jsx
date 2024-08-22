@@ -10,7 +10,6 @@ import { Router } from "next/router";
 const Header = ({ progress }) => {
     const user = useSelector(state => state.user.data);
     const refs = useRef({});
-    console.log('header',user)
 
     useEffect(() => {
         const closeNav = () => refs.current.header.classList.remove("active");

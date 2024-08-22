@@ -60,7 +60,7 @@ export const savemessage = async (setList, data) => {
             audio: "",
             time: new Date().getTime(),
             sender: "ashish",
-            senderimg: "/ashish.jpg",
+            senderimg: "/images/profile.jpg",
             ...data,
         },
     ]);
@@ -84,6 +84,8 @@ export const eventsType = {
     join: "join",
     message: "message",
     typing: "typing",
+    profile_update: "profile",
+    videocall:"videocall"
 };
 
 export const convertFileToURL = file => {
@@ -113,28 +115,42 @@ export const download = (src, name) => {
         document.removeChild(da);
     } catch (er) {}
 };
+export const checkLinkType = msg => {
+    if (!msg) return;
+    if (msg.includes("http")) {
+        return (
+            <a rel="noreferrer" target="_blank" href={msg}>
+                {msg}
+            </a>
+        );
+    } else {
+        return msg;
+    }
+};
 export const ShowMessageData = data => {
-    // switch(type){
-    //         case 'pdf':
-    // }
     return (
         <>
             {data.file && data.file.type.includes("image") && <Chatimg src={data.file.url} />}
             {data.file && data.file.type.includes("video") && (
                 <video width={"100%"} controls type="video/mp4" src={data.file.url} />
             )}
-            {data.file && !data.file.type.includes("application")  && data.file.type.includes("application/pdf") ? (
+            {data.file &&
+            !data.file.type.includes("application") &&
+            data.file.type.includes("application/pdf") ? (
                 <FaFilePdf
                     onClick={e => download(data.file.url, data.file.name)}
                     size={40}
                     color="red"
                 />
             ) : (
-              data.file &&  data.file.type.includes("application") && <FaFile onClick={e => download(data.file.url, data.file.name)} size={40} />
+                data.file &&
+                data.file.type.includes("application") && (
+                    <FaFile onClick={e => download(data.file.url, data.file.name)} size={40} />
+                )
             )}
             {data.audio && <audio controls src={data.audio} />}
 
-            <p>{data.msg}</p>
+            {checkLinkType(data.msg)}
         </>
     );
 };

@@ -11,7 +11,6 @@ import { FAQPageJsonLd, ProductJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { animateList } from "utils/animation";
 import { Bannerstyle } from "@/styles/banner";
-import {draghtml} from "utils/draghtml";
 
 export default function Home({ posts }) {
     const postss = [
@@ -39,6 +38,7 @@ export default function Home({ posts }) {
 
     return (
         <>
+       
             <Seo />
             <ProductJsonLd
                 productName="frontendzone"

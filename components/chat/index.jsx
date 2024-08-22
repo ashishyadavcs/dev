@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Message from "./message";
 import Image from "next/image";
 import { MdArrowBack, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/md";
-import { draghtml } from "utils/draghtml";
 import { media } from "config/device";
 import { FaCamera } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -20,13 +19,15 @@ import {
 import Members from "./contacts";
 import socket from "./socket";
 import { sounds } from "./sounds";
+import Call from "./call";
 
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
+    const [users, setusers] = useState([]);
+    const [callerId, setcallerId] = useState("");
     const [userinfo, setuserinfo] = useState({
-        name: "",
-        id: "",
-        image: "",
+        sender: "ashish",
+        senderimg: "/images/profile.jpg",
     });
     const [msg, setmsg] = useState({
         text: "",
@@ -35,32 +36,54 @@ const Chat = () => {
     });
 
     useEffect(() => {
-        document.querySelector(".inputs .msg").innerHTML = "";
+        try {
+            document.querySelector(".inputs .msg").innerHTML = "";
+        } catch (err) {}
         setmsg(p => ({}));
     }, [msgList]);
 
     useEffect(() => {
+        socket.on("connect", () => {
+            savemessage(setmsgList, {
+                msg: `connected`,
+                type: "join",
+            });
+        });
+        socket.on(eventsType.videocall, id => {});
         socket.on(eventsType.join, data => {
-            console.log("you joined in room", data);
+            setusers(v => data.clients);
+            //what to do on join
+            console.log(data.clients);
             setuserinfo(p => ({ ...p, id: data.chatId }));
             openChat();
             savemessage(setmsgList, {
-                msg: data.roomid,
+                msg: `${data.chatId} joined`,
                 type: "join",
             });
         });
 
         socket.on(eventsType.message, data => {
+            console.log(data);
             playSound(sounds.receive);
-            document.title = `💬 ${data}`;
+            document.title = `💬 ${data.msg}`;
             openChat();
             savemessage(setmsgList, {
                 ...data,
                 reciever: true,
             });
         });
+        socket.on(eventsType.profile_update, data => {
+            setmsgList(p => p.map(c => ({ ...c, senderimg: data.senderimg })));
+        });
+        socket.on("leave", id => {
+            savemessage(setmsgList, {
+                msg: `${id} leaved chat`,
+                type: "join",
+                reciever: true,
+            });
+        });
 
-        socket.emit(eventsType.join, socket.id);
+        socket.emit(eventsType.join, socket.id); //to tell server to join me in room
 
         return () => {
             // socket.off("join");
@@ -71,123 +94,123 @@ const Chat = () => {
             });
         };
     }, []);
+    useEffect(() => {
+        socket.emit(eventsType.videocall, callerId);
+    }, [callerId]);
 
     return (
         <>
             <Chatlayout id="chat" className="chat-container">
-                {0 ? (
-                    <Members />
-                ) : (
-                    <>
-                        <div
-                            id="mydivheader"
-                            className="head active"
-                            onClick={e => e.currentTarget.classList.toggle("active")}
-                        >
-                            <MdArrowBack
-                                onClick={e => {
-                                    e.stopPropagation();
-                                    e.currentTarget.parentElement.nextElementSibling.classList.toggle(
-                                        "home"
-                                    );
-                                }}
-                                className="back"
-                                size={25}
-                            />
-                            <Image
-                                className="dp"
-                                objectFit="cover"
-                                height={35}
-                                width={35}
-                                alt=""
-                                src={"/ashish.jpg"}
-                            />
-                            <div className="name">
-                                <span className="title">Frontendzone</span>
-                                <span className="lastseen">last seen today at 9:23 pm</span>
-                            </div>
-                            <span className="menu-icon">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
-                        </div>
+                <>
+                    <div
+                        id="mydivheader"
+                        className="head active"
+                        onClick={e => e.currentTarget.classList.toggle("active")}
+                    >
+                        <MdArrowBack
+                            onClick={e => {
+                                e.stopPropagation();
+                                e.currentTarget.parentElement.nextElementSibling.classList.toggle(
+                                    "home"
+                                );
+                            }}
+                            className="back"
+                            size={25}
+                        />
+                        <span className="dp">
+                            <Image objectFit="cover" layout="fill" alt="" src={"/ashish.jpg"} />
+                        </span>
 
-                        <div className="body">
-                            {console.log(msgList)}
-                            {msgList.map(msg => (
-                                <Message setuserinfo={setuserinfo} key={3} data={msg} />
-                            ))}
+                        <div className="name">
+                            <span className="title">Frontendzone</span>
+                            <span className="lastseen">last seen today at 9:23 pm</span>
                         </div>
-                        <div className="action">
-                            <div className="inputfile">{ShowMessageData(msg)}</div>
-                            <form className="inputs">
+                        <span className="menu-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    {0 ? (
+                        <Members users={users} />
+                    ) : (
+                        <>
+                            <div className="body">
+                                <Call setCallerId={setcallerId} />
+                                {msgList.map(msg => (
+                                    <Message setuserinfo={setuserinfo} key={3} data={msg} />
+                                ))}
+                            </div>
+                            <div className="action">
+                                <div className="inputfile">{ShowMessageData(msg)}</div>
+                                <form className="inputs">
+                                    <div
+                                        autoFocus
+                                        spellCheck="false"
+                                        onKeyDown={e => {
+                                            if (e.key == "Enter") {
+                                                document.querySelector(".sender").click();
+                                                e.preventDefault();
+                                            }
+                                        }}
+                                        onInput={e => {
+                                            setmsg(prev => ({ ...prev, text: e.target.innerText }));
+                                            socket.emit("typing", msg.text);
+                                        }}
+                                        className="msg"
+                                        contentEditable
+                                    />
+                                    <div className="tools">
+                                        <label>
+                                            <input
+                                                onChange={async e => {
+                                                    await setMessage(e, setmsg);
+                                                }}
+                                                type="file"
+                                                multiple
+                                                hidden
+                                            />
+                                            <MdOutlineAttachFile
+                                                className="attach"
+                                                color="#888"
+                                                size={20}
+                                            />
+                                        </label>
+
+                                        <FaCamera size={18} color="#888" />
+                                    </div>
+                                </form>
                                 <div
-                                    autoFocus
-                                    spellCheck="false"
-                                    onKeyDown={e => {
-                                        if (e.key == "Enter") {
-                                            document.querySelector(".sender").click();
-                                            e.preventDefault();
+                                    className="sender"
+                                    onClick={async e => {
+                                        if (msg.text?.length > 0 || msg.file) {
+                                            await sendMSG(setmsgList, {
+                                                msg: msg.text,
+                                                ...(msg.file && msg),
+                                                ...(userinfo.senderimg && {
+                                                    senderimg: userinfo.senderimg,
+                                                }),
+                                                ...(userinfo.sender && {
+                                                    sender: userinfo.sender,
+                                                }),
+                                            });
                                         }
                                     }}
-                                    onInput={e => {
-                                        setmsg(prev => ({ ...prev, text: e.target.innerText }));
-                                        socket.emit("typing", msg.text);
-                                    }}
-                                    className="msg"
-                                    contentEditable
-                                />
-                                <div className="tools">
-                                    <label>
-                                        <input
-                                            onChange={async e => {
-                                                await setMessage(e, setmsg);
-                                            }}
-                                            type="file"
-                                            hidden
+                                >
+                                    {msg.text?.length > 0 || msg.file ? (
+                                        <IoMdSend color="#fff" size={22} />
+                                    ) : (
+                                        <MdKeyboardVoice
+                                            onClick={e => record(e, setmsg)}
+                                            color="#fff"
+                                            size={22}
                                         />
-                                        <MdOutlineAttachFile
-                                            className="attach"
-                                            color="#888"
-                                            size={20}
-                                        />
-                                    </label>
-
-                                    <FaCamera size={18} color="#888" />
+                                    )}
                                 </div>
-                            </form>
-                            <div
-                                className="sender"
-                                onClick={async e => {
-                                    if (msg.text?.length > 0 || msg.file) {
-                                        await sendMSG(setmsgList, {
-                                            msg: msg.text,
-                                            ...(msg.file && msg),
-                                            sender: userinfo.id.substring(8),
-                                            ...(userinfo.image && {
-                                                senderimg: userinfo.image,
-                                            }),
-                                            ...(userinfo.name && {
-                                                sender: userinfo.name,
-                                            }),
-                                        });
-                                    }
-                                }}
-                            >
-                                {msg.text?.length > 0 || msg.file ? (
-                                    <IoMdSend color="#fff" size={22} />
-                                ) : (
-                                    <MdKeyboardVoice
-                                        onClick={e => record(e, setmsg)}
-                                        color="#fff"
-                                        size={22}
-                                    />
-                                )}
                             </div>
-                        </div>
-                    </>
-                )}
+                        </>
+                    )}
+                </>
             </Chatlayout>
         </>
     );
@@ -198,13 +221,13 @@ const Chatlayout = styled.div`
     z-index: 112;
     height: 550px;
     width: 320px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     background: linear-gradient(teal -60%, #f2f2ff 30% 67%, teal 155%);
     border-radius: 16px 16px 0 0;
     overflow: hidden;
     position: fixed;
     bottom: 0px;
     right: 100px;
+    transition: all 0.3s;
     ${media.xs} {
         width: 100%;
         right: 0;
@@ -228,6 +251,7 @@ const Chatlayout = styled.div`
         }
     }
     .head {
+        background: linear-gradient(blue, transparent);
         cursor: pointer;
         z-index: 3;
         height: 60px;
@@ -238,8 +262,19 @@ const Chatlayout = styled.div`
         .back {
             margin-right: 10px;
         }
+        &.active .dp {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
         .dp {
+            position: relative;
+            height: 35px;
+            width: 35px;
             border-radius: 50%;
+            overflow: hidden;
         }
         .name {
             display: flex;
@@ -264,7 +299,6 @@ const Chatlayout = styled.div`
                 margin-bottom: 2px;
             }
         }
-        background: blue;
     }
     .body {
         position: relative;
