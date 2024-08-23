@@ -16,15 +16,14 @@ import {
     setMessage,
     ShowMessageData,
 } from "utils/chat";
-import Members from "./contacts";
 import socket from "./socket";
 import { sounds } from "./sounds";
-import Call from "./call";
+
 
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
-    const [users, setusers] = useState([]);
     const [callerId, setcallerId] = useState("");
+    const [users, setusers] = useState([]);
     const [userinfo, setuserinfo] = useState({
         sender: "ashish",
         senderimg: "/images/profile.jpg",
@@ -131,12 +130,10 @@ const Chat = () => {
                             <span></span>
                         </span>
                     </div>
-                    {0 ? (
-                        <Members users={users} />
-                    ) : (
+                    
                         <>
                             <div className="body">
-                                <Call setCallerId={setcallerId} />
+                              
                                 {msgList.map(msg => (
                                     <Message setuserinfo={setuserinfo} key={3} data={msg} />
                                 ))}
@@ -209,7 +206,7 @@ const Chat = () => {
                                 </div>
                             </div>
                         </>
-                    )}
+                  
                 </>
             </Chatlayout>
         </>
@@ -307,9 +304,19 @@ const Chatlayout = styled.div`
         height: calc(500px - 70px);
         padding: 40px 10px;
         overflow: auto;
-        &:-webkit-scrollbar-thumb {
-            background: #ddd !important;
+        &:has(.media) {
+            padding: 0 10px;
         }
+        &::-webkit-scrollbar{
+            background:transparent;
+            width :5px ;
+        }
+        &::-webkit-scrollbar-thumb{
+            background: #8989f2;
+            width :5px ;
+            border-radius: 10px;
+        }
+
     }
     .action {
         position: absolute;
