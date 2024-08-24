@@ -3,7 +3,7 @@ const urls = [
     "https://frontendzone-chat-api.onrender.com",
     "http://localhost:4000",
     "https://frontendzone-chat-api.vercel.app",
-    "http://192.168.0.6:4000",
+    "http://192.168.1.9:4000",
 ];
 const connectionURL = urls[0]
 const socket =  io(connectionURL)

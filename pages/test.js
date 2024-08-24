@@ -1,11 +1,21 @@
 import { NextSeo } from "next-seo";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Page = () => {
-    return (
-        <div><NextSeo noindex />Page
-        </div>
-    );
+    const [video, setvideo] = useState("")
+    useEffect(() => {
+        navigator.getUserMedia(
+            { video: true, audio: true },
+            function (stream) {
+                setvideo(stream)
+            },
+            function (err) {
+                console.log("Failed to get local stream", err);
+            }
+        );
+    }, []);
+
+    return <video autoPlay muted src={URL.createObjectURL(video)} height={500} width={'100%'}></video>;
 };
 
 export default Page;

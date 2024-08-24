@@ -3,8 +3,8 @@ import Message from "./message";
 import Image from "next/image";
 import { MdArrowBack, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/md";
 import { media } from "config/device";
-import { FaCamera } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { FaCamera, FaVideo } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import {
     eventsType,
@@ -18,12 +18,13 @@ import {
 } from "utils/chat";
 import socket from "./socket";
 import { sounds } from "./sounds";
+import peer, { callTo } from "utils/chat/call";
+
 
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
     const [callerId, setcallerId] = useState("");
-    const [users, setusers] = useState([]);
-    
+
     const [userinfo, setuserinfo] = useState({
         sender: "ashish",
         senderimg: "/images/profile.jpg",
@@ -33,13 +34,26 @@ const Chat = () => {
         file: "",
         voice: "",
     });
-
+    const senderVideo=useRef()
+    const receiverVideo=useRef()
     useEffect(() => {
+        peer.on("open", id => {
+            console.log(id)
+            setcallerId(id)
+        })
+        socket.on(eventsType.videocall,id=>{
+            console.log("remoteid",id)
+            savemessage(setmsgList, {
+                msg: `incomming call`,
+                type: "join",
+            });
+            callTo(senderVideo, receiverVideo, id)
+        })
         try {
             document.querySelector(".inputs .msg").innerHTML = "";
         } catch (err) {}
         setmsg(p => ({}));
-    }, [msgList]);
+    }, []);
 
     useEffect(() => {
         socket.on("connect", () => {
@@ -50,7 +64,6 @@ const Chat = () => {
         });
         socket.on(eventsType.videocall, id => {});
         socket.on(eventsType.join, data => {
-            setusers(v => data.clients);
             //what to do on join
             console.log(data.clients);
             setuserinfo(p => ({ ...p, id: data.chatId }));
@@ -95,9 +108,7 @@ const Chat = () => {
             });
         };
     }, []);
-    useEffect(() => {
-        socket.emit(eventsType.videocall, callerId);
-    }, [callerId]);
+
 
     return (
         <>
@@ -126,15 +137,25 @@ const Chat = () => {
                             <span className="title">Frontendzone</span>
                             <span className="lastseen">last seen today at 9:23 pm</span>
                         </div>
-                        <span className="menu-icon">
+                        <FaVideo
+                            onClick={e => {
+                                socket.emit(eventsType.videocall,callerId)
+                            }}
+                            size={20}
+                        />
+                        {/* <span className="menu-icon">
                             <span></span>
                             <span></span>
                             <span></span>
-                        </span>
+                        </span> */}
                     </div>
 
                     <>
                         <div className="body">
+                           <div className="videocall">
+                            <video ref={senderVideo}></video>
+                            <video ref={receiverVideo}></video>
+                           </div>
                             {msgList.map(msg => (
                                 <Message setuserinfo={setuserinfo} key={3} data={msg} />
                             ))}
@@ -302,7 +323,7 @@ const Chatlayout = styled.div`
         position: relative;
         display: flex;
         flex-direction: column;
-        height: calc(500px - 70px);
+        height: calc(100% - 117px);
         padding: 40px 10px;
         overflow: auto;
         &:has(.media) {
@@ -380,5 +401,14 @@ const Chatlayout = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .videocall{
+        video{
+            border-radius: 10px;
+            overflow: hidden;
+            object-fit: cover;
+            height:50%;
+            width:100%;
+        }
     }
 `;
