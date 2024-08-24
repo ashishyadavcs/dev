@@ -1,6 +1,5 @@
 import Peer from "peerjs";
 const peer = new Peer();
-
 const setVideo = (ref, stream) => {
     ref.current.srcObject = stream;
     ref.current.play();
@@ -38,6 +37,21 @@ export const callTo = (local, remote, id) => {
         }
     );
 };
+
+export const endcall=()=>{
+  peer.off()
+}
+export const mute=(e,ref)=>{
+   console.log( ref.current.muted)
+    if(ref.current.muted){
+        ref.current.muted=false
+        e.target.classList.add("muted")
+    }else{
+        ref.current.muted=true
+        e.target.classList.remove("muted")
+
+    }
+}
 
 
 export default peer;

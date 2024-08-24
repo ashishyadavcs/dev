@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Message from "./message";
 import Image from "next/image";
-import { MdArrowBack, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/md";
+import { MdArrowBack, MdCall, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/md";
 import { media } from "config/device";
-import { FaCamera, FaVideo } from "react-icons/fa";
+import { FaCamera, FaMicrophone, FaVideo } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import {
@@ -18,13 +18,12 @@ import {
 } from "utils/chat";
 import socket from "./socket";
 import { sounds } from "./sounds";
-import peer, { callTo } from "utils/chat/call";
-
+import peer, { callTo, endcall, mute } from "utils/chat/call";
 
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
     const [callerId, setcallerId] = useState("");
-
+    const [incomming, setincomming] = useState(false);
     const [userinfo, setuserinfo] = useState({
         sender: "ashish",
         senderimg: "/images/profile.jpg",
@@ -34,21 +33,20 @@ const Chat = () => {
         file: "",
         voice: "",
     });
-    const senderVideo=useRef()
-    const receiverVideo=useRef()
+    const senderVideo = useRef();
+    const receiverVideo = useRef();
     useEffect(() => {
         peer.on("open", id => {
-            console.log(id)
-            setcallerId(id)
-        })
-        socket.on(eventsType.videocall,id=>{
-            console.log("remoteid",id)
-            savemessage(setmsgList, {
-                msg: `incomming call`,
-                type: "join",
-            });
-            callTo(senderVideo, receiverVideo, id)
-        })
+            setcallerId(id);
+        });
+        socket.on(eventsType.videocall, id => {
+            setincomming(true);
+            // playSound(sounds.call);
+            callTo(senderVideo, receiverVideo, id);
+            setTimeout(() => {
+                endcall();
+            }, 5000);
+        });
         try {
             document.querySelector(".inputs .msg").innerHTML = "";
         } catch (err) {}
@@ -62,10 +60,7 @@ const Chat = () => {
                 type: "join",
             });
         });
-        socket.on(eventsType.videocall, id => {});
         socket.on(eventsType.join, data => {
-            //what to do on join
-            console.log(data.clients);
             setuserinfo(p => ({ ...p, id: data.chatId }));
             openChat();
             savemessage(setmsgList, {
@@ -109,7 +104,6 @@ const Chat = () => {
         };
     }, []);
 
-
     return (
         <>
             <Chatlayout id="chat" className="chat-container">
@@ -138,8 +132,9 @@ const Chat = () => {
                             <span className="lastseen">last seen today at 9:23 pm</span>
                         </div>
                         <FaVideo
+                            className={incomming && "incomming"}
                             onClick={e => {
-                                socket.emit(eventsType.videocall,callerId)
+                                socket.emit(eventsType.videocall, callerId);
                             }}
                             size={20}
                         />
@@ -152,10 +147,21 @@ const Chat = () => {
 
                     <>
                         <div className="body">
-                           <div className="videocall">
-                            <video ref={senderVideo}></video>
-                            <video ref={receiverVideo}></video>
-                           </div>
+                            {incomming && (
+                                <div className="videocall">
+                                    <video className="sender" ref={senderVideo}></video>
+                                    <video className="receiver" ref={receiverVideo}></video>
+                                    <div className="call-helper">
+                                        <FaMicrophone onClick={e => mute(e, senderVideo)} />{" "}
+                                        <button onClick={e=>{
+                                            endcall()
+                                        }} className="drop">
+                                            <MdCall />
+                                        </button>
+                                        <FaVideo />
+                                    </div>
+                                </div>
+                            )}
                             {msgList.map(msg => (
                                 <Message setuserinfo={setuserinfo} key={3} data={msg} />
                             ))}
@@ -326,7 +332,7 @@ const Chatlayout = styled.div`
         height: calc(100% - 117px);
         padding: 40px 10px;
         overflow: auto;
-        &:has(.media) {
+        &:has(.videocall) {
             padding: 0 10px;
         }
         &::-webkit-scrollbar {
@@ -402,13 +408,60 @@ const Chatlayout = styled.div`
         justify-content: center;
         align-items: center;
     }
-    .videocall{
-        video{
+    .videocall {
+        position: sticky;
+        top: -20px;
+        height: 100%;
+        z-index: 2;
+        video {
             border-radius: 10px;
             overflow: hidden;
             object-fit: cover;
-            height:50%;
-            width:100%;
+            height: 430px;
+            width: 100%;
+            transform: rotateY(180deg);
+            &.sender{
+                position: absolute;
+                top: 30px;
+                left: 20px;
+                height:60px;
+                width: 60px;
+                border-radius: 50%;
+                z-index: 1;
+            }
         }
+        .call-helper {
+            padding: 5px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            .muted {
+                opacity: 0.5;
+            }
+            .drop {
+                border-radius: 50%;
+                height: 50px;
+                width: 50px;
+                background: red;
+                color: #fff;
+            }
+        }
+    }
+    @keyframes pulse-animation {
+        0% {
+            box-shadow: 0 0 0 0px rgb(7, 3, 42);
+        }
+        100% {
+            box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+        }
+    }
+    .incomming {
+        border-radius: 50%;
+        animation: pulse-animation 0.4s infinite;
     }
 `;
