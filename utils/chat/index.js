@@ -50,20 +50,17 @@ export const playSound = src => {
 };
 
 export const savemessage = async (setList, data) => {
-    await setList(prev => [
-        ...prev,
-        {
-            reciever: false,
-            type: "message",
-            msg: "",
-            file: "",
-            audio: "",
-            time: new Date().getTime(),
-            sender: "ashish",
-            senderimg: "/images/profile.jpg",
-            ...data,
-        },
-    ]);
+    const messageFromat = {
+        reciever: false,
+        type: "message",
+        msg: "",
+        file: "",
+        audio: "",
+        time: new Date().getTime(),
+        sender: "ashish",
+        senderimg: "/images/profile.jpg",
+    };
+    await setList(prev => [...prev, { ...messageFromat, ...data }]);
 };
 
 export const sendMSG = async (setmsg, data) => {
@@ -85,7 +82,7 @@ export const eventsType = {
     message: "message",
     typing: "typing",
     profile_update: "profile",
-    videocall:"videocall"
+    videocall: "videocall",
 };
 
 export const convertFileToURL = file => {

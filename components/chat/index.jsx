@@ -19,11 +19,11 @@ import {
 import socket from "./socket";
 import { sounds } from "./sounds";
 
-
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
     const [callerId, setcallerId] = useState("");
     const [users, setusers] = useState([]);
+    
     const [userinfo, setuserinfo] = useState({
         sender: "ashish",
         senderimg: "/images/profile.jpg",
@@ -64,7 +64,9 @@ const Chat = () => {
         socket.on(eventsType.message, data => {
             console.log(data);
             playSound(sounds.receive);
-            document.title = `💬 ${data.msg}`;
+            if (data.msg) {
+                document.title = `💬 ${data.msg}`;
+            }
             openChat();
             savemessage(setmsgList, {
                 ...data,
@@ -130,83 +132,81 @@ const Chat = () => {
                             <span></span>
                         </span>
                     </div>
-                    
-                        <>
-                            <div className="body">
-                              
-                                {msgList.map(msg => (
-                                    <Message setuserinfo={setuserinfo} key={3} data={msg} />
-                                ))}
-                            </div>
-                            <div className="action">
-                                <div className="inputfile">{ShowMessageData(msg)}</div>
-                                <form className="inputs">
-                                    <div
-                                        autoFocus
-                                        spellCheck="false"
-                                        onKeyDown={e => {
-                                            if (e.key == "Enter") {
-                                                document.querySelector(".sender").click();
-                                                e.preventDefault();
-                                            }
-                                        }}
-                                        onInput={e => {
-                                            setmsg(prev => ({ ...prev, text: e.target.innerText }));
-                                            socket.emit("typing", msg.text);
-                                        }}
-                                        className="msg"
-                                        contentEditable
-                                    />
-                                    <div className="tools">
-                                        <label>
-                                            <input
-                                                onChange={async e => {
-                                                    await setMessage(e, setmsg);
-                                                }}
-                                                type="file"
-                                                multiple
-                                                hidden
-                                            />
-                                            <MdOutlineAttachFile
-                                                className="attach"
-                                                color="#888"
-                                                size={20}
-                                            />
-                                        </label>
 
-                                        <FaCamera size={18} color="#888" />
-                                    </div>
-                                </form>
+                    <>
+                        <div className="body">
+                            {msgList.map(msg => (
+                                <Message setuserinfo={setuserinfo} key={3} data={msg} />
+                            ))}
+                        </div>
+                        <div className="action">
+                            <div className="inputfile">{ShowMessageData(msg)}</div>
+                            <form className="inputs">
                                 <div
-                                    className="sender"
-                                    onClick={async e => {
-                                        if (msg.text?.length > 0 || msg.file) {
-                                            await sendMSG(setmsgList, {
-                                                msg: msg.text,
-                                                ...(msg.file && msg),
-                                                ...(userinfo.senderimg && {
-                                                    senderimg: userinfo.senderimg,
-                                                }),
-                                                ...(userinfo.sender && {
-                                                    sender: userinfo.sender,
-                                                }),
-                                            });
+                                    autoFocus
+                                    spellCheck="false"
+                                    onKeyDown={e => {
+                                        if (e.key == "Enter") {
+                                            document.querySelector(".sender").click();
+                                            e.preventDefault();
                                         }
                                     }}
-                                >
-                                    {msg.text?.length > 0 || msg.file ? (
-                                        <IoMdSend color="#fff" size={22} />
-                                    ) : (
-                                        <MdKeyboardVoice
-                                            onClick={e => record(e, setmsg)}
-                                            color="#fff"
-                                            size={22}
+                                    onInput={e => {
+                                        setmsg(prev => ({ ...prev, text: e.target.innerText }));
+                                        socket.emit("typing", msg.text);
+                                    }}
+                                    className="msg"
+                                    contentEditable
+                                />
+                                <div className="tools">
+                                    <label>
+                                        <input
+                                            onChange={async e => {
+                                                await setMessage(e, setmsg);
+                                            }}
+                                            type="file"
+                                            multiple
+                                            hidden
                                         />
-                                    )}
+                                        <MdOutlineAttachFile
+                                            className="attach"
+                                            color="#888"
+                                            size={20}
+                                        />
+                                    </label>
+
+                                    <FaCamera size={18} color="#888" />
                                 </div>
+                            </form>
+                            <div
+                                className="sender"
+                                onClick={async e => {
+                                    if (msg.text?.length > 0 || msg.file) {
+                                        await sendMSG(setmsgList, {
+                                            msg: msg.text,
+                                            ...(msg.file && msg),
+                                            ...(userinfo.senderimg && {
+                                                senderimg: userinfo.senderimg,
+                                            }),
+                                            ...(userinfo.sender && {
+                                                sender: userinfo.sender,
+                                            }),
+                                        });
+                                    }
+                                }}
+                            >
+                                {msg.text?.length > 0 || msg.file ? (
+                                    <IoMdSend color="#fff" size={22} />
+                                ) : (
+                                    <MdKeyboardVoice
+                                        onClick={e => record(e, setmsg)}
+                                        color="#fff"
+                                        size={22}
+                                    />
+                                )}
                             </div>
-                        </>
-                  
+                        </div>
+                    </>
                 </>
             </Chatlayout>
         </>
@@ -228,7 +228,8 @@ const Chatlayout = styled.div`
     ${media.xs} {
         width: 100%;
         right: 0;
-        bottom: var(--headheight);
+        bottom: 0;
+        height: 100%;
         z-index: 20;
         border-radius: 0px;
     }
@@ -307,16 +308,15 @@ const Chatlayout = styled.div`
         &:has(.media) {
             padding: 0 10px;
         }
-        &::-webkit-scrollbar{
-            background:transparent;
-            width :5px ;
+        &::-webkit-scrollbar {
+            background: transparent;
+            width: 5px;
         }
-        &::-webkit-scrollbar-thumb{
+        &::-webkit-scrollbar-thumb {
             background: #8989f2;
-            width :5px ;
+            width: 5px;
             border-radius: 10px;
         }
-
     }
     .action {
         position: absolute;
