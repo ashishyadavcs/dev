@@ -18,7 +18,7 @@ import {
 } from "utils/chat";
 import socket from "./socket";
 import { sounds } from "./sounds";
-import peer, { callTo, endcall, mute } from "utils/chat/call";
+import peer, { callTo, endcall, mute, switchPlace } from "utils/chat/call";
 
 const Chat = () => {
     const [msgList, setmsgList] = useState([]);
@@ -131,6 +131,7 @@ const Chat = () => {
                         <FaVideo
                             onClick={e => {
                                 e.stopPropagation();
+                                e.target.classList.add("ongoing")
                                 socket.emit(eventsType.videocall, callerId);
                             }}
                             size={20}
@@ -146,8 +147,8 @@ const Chat = () => {
                         <div className="body">
                             {incomming && (
                                 <div className="videocall">
-                                    <video className="sender" ref={senderVideo}></video>
-                                    <video className="receiver" ref={receiverVideo}></video>
+                                    <video onClick={e=>switchPlace(e)} className="sender video" ref={senderVideo}></video>
+                                    <video onClick={e=>switchPlace(e)} className="receiver video" ref={receiverVideo}></video>
                                     <div className="call-helper">
                                         <FaMicrophone onClick={e => mute(e, senderVideo)} />{" "}
                                         <button
@@ -195,14 +196,26 @@ const Chat = () => {
                                             multiple
                                             hidden
                                         />
+
                                         <MdOutlineAttachFile
                                             className="attach"
                                             color="#888"
                                             size={20}
                                         />
                                     </label>
+                                    <label>
+                                        <input
+                                            onChange={async e => {
+                                                await setMessage(e, setmsg);
+                                            }}
+                                            type="file"
+                                            accept="image/*"
+                                            capture
+                                            hidden
+                                        />
 
-                                    <FaCamera size={18} color="#888" />
+                                        <FaCamera size={18} color="#888" />
+                                    </label>
                                 </div>
                             </form>
                             <div
@@ -219,6 +232,7 @@ const Chat = () => {
                                                 sender: userinfo.sender,
                                             }),
                                         });
+                                        setmsg(p => ({}));
                                     }
                                 }}
                             >

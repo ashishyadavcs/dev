@@ -51,5 +51,7 @@ export const mute = (e, ref) => {
         e.target.classList.remove("muted");
     }
 };
-
+export const switchPlace = e => {
+ 
+};
 export default peer;
