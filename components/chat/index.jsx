@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MdArrowBack, MdCall, MdKeyboardVoice, MdOutlineAttachFile } from "react-icons/md";
 import { media } from "config/device";
 import { FaCamera, FaMicrophone, FaVideo } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { IoMdSend } from "react-icons/io";
 import {
     eventsType,
@@ -40,12 +40,9 @@ const Chat = () => {
             setcallerId(id);
         });
         socket.on(eventsType.videocall, id => {
+            playSound(sounds.call);
             setincomming(true);
-            // playSound(sounds.call);
             callTo(senderVideo, receiverVideo, id);
-            setTimeout(() => {
-                endcall();
-            }, 5000);
         });
         try {
             document.querySelector(".inputs .msg").innerHTML = "";
@@ -132,8 +129,8 @@ const Chat = () => {
                             <span className="lastseen">last seen today at 9:23 pm</span>
                         </div>
                         <FaVideo
-                            className={incomming && "incomming"}
                             onClick={e => {
+                                e.stopPropagation();
                                 socket.emit(eventsType.videocall, callerId);
                             }}
                             size={20}
@@ -153,9 +150,12 @@ const Chat = () => {
                                     <video className="receiver" ref={receiverVideo}></video>
                                     <div className="call-helper">
                                         <FaMicrophone onClick={e => mute(e, senderVideo)} />{" "}
-                                        <button onClick={e=>{
-                                            endcall()
-                                        }} className="drop">
+                                        <button
+                                            onClick={e => {
+                                                endcall();
+                                            }}
+                                            className="drop"
+                                        >
                                             <MdCall />
                                         </button>
                                         <FaVideo />
@@ -239,7 +239,7 @@ const Chat = () => {
         </>
     );
 };
-export default Chat;
+export default memo(Chat);
 const Chatlayout = styled.div`
     --headheight: 55px;
     z-index: 112;
@@ -420,11 +420,11 @@ const Chatlayout = styled.div`
             height: 430px;
             width: 100%;
             transform: rotateY(180deg);
-            &.sender{
+            &.sender {
                 position: absolute;
                 top: 30px;
                 left: 20px;
-                height:60px;
+                height: 60px;
                 width: 60px;
                 border-radius: 50%;
                 z-index: 1;
