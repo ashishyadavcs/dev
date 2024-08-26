@@ -33,7 +33,12 @@ const Message = ({ data, setuserinfo }) => {
                     <div className="content">
                         <span className="username">{data.sender?.substring(10)}</span>
                         {ShowMessageData(data)}
-                        <span className="time">{new Date(data.time).toLocaleTimeString()}</span>
+                        <span className="time">
+                            {new Date(data.time).toLocaleTimeString(navigator.language, {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                            })}
+                        </span>
                     </div>
                 </div>
             ) : (
@@ -46,6 +51,7 @@ const Message = ({ data, setuserinfo }) => {
 export default Message;
 const Styledmsg = styled.div`
     display: flex;
+    word-wrap: break-word;
     &:has(.recieved) {
         justify-content: flex-end;
     }
@@ -53,7 +59,7 @@ const Styledmsg = styled.div`
         justify-content: center;
     }
     .chat-join {
-    font-style: italic;
+        font-style: italic;
         border-radius: 10px;
         padding: 3px 10px;
         border: 2px solid #e0e0eb;
