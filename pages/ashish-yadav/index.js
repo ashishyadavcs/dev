@@ -17,9 +17,10 @@ import {
 import styled from "styled-components";
 import Whatsapp from "@/components/whatsapp";
 import Bio from "@/components/bio";
+import { config } from "public/data/config";
 
 const Page = ({ url }) => {
-    const isBio = 0
+    const isBio = 0;
     return (
         <Pagestyle>
             <NextSeo
@@ -114,74 +115,80 @@ const Page = ({ url }) => {
                             </p>
                             <p>{data.education.college}</p>
                         </div>
+                        {config.contacts && (
+                            <>
+                                <h2>social profiles</h2>
+                                <ul className="social">
+                                    <li>
+                                        <a
+                                            href="https://www.facebook.com/ashish.15101997"
+                                            aria-label="instagram"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="instagram"
+                                        >
+                                            <FaFacebook color="blue" size={30} />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            aria-label="instagram"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={data.social.instagram}
+                                            className="instagram"
+                                            color="pink"
+                                        >
+                                            <FaInstagram color="#f402bf" size={30} />
+                                        </a>
+                                    </li>
 
-                        <h2>social profiles</h2>
-                        <ul className="social">
-                            <li>
+                                    <li>
+                                        <a
+                                            aria-label="linkedin"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={data.social.linkedin}
+                                            className="linkedin"
+                                        >
+                                            <FaLinkedinIn color="blue" size={30} />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            aria-label="github"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={data.social.github}
+                                            className="linkedin"
+                                        >
+                                            <FaGithub size={30} />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            title="youtube"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={contact.youtube}
+                                            className="linkedin"
+                                            aria-label="youtube"
+                                        >
+                                            <FaYoutube color="red" size={30} />
+                                        </a>
+                                    </li>
+                                </ul>
                                 <a
-                                    href="https://www.facebook.com/ashish.15101997"
-                                    aria-label="instagram"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="instagram"
+                                    className="theme-btn btn cv mr-2"
+                                    href="/ashish-frontend-developer.pdf"
                                 >
-                                    <FaFacebook color="blue" size={30} />
+                                    download resume
                                 </a>
-                            </li>
-                            <li>
-                                <a
-                                    aria-label="instagram"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={data.social.instagram}
-                                    className="instagram"
-                                    color="pink"
-                                >
-                                    <FaInstagram color="#f402bf" size={30} />
+                                <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
+                                    contact <FaPhone />
                                 </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    aria-label="linkedin"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={data.social.linkedin}
-                                    className="linkedin"
-                                >
-                                    <FaLinkedinIn color="blue" size={30} />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    aria-label="github"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={data.social.github}
-                                    className="linkedin"
-                                >
-                                    <FaGithub size={30} />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    title="youtube"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={contact.youtube}
-                                    className="linkedin"
-                                    aria-label="youtube"
-                                >
-                                    <FaYoutube color="red" size={30} />
-                                </a>
-                            </li>
-                        </ul>
-                        <a className="theme-btn btn cv mr-2" href="/ashish-frontend-developer.pdf">
-                            download resume
-                        </a>
-                        <a className="theme-btn btn connect" href={`tel:${contact.mobile}`}>
-                            contact <FaPhone />
-                        </a>
+                            </>
+                        )}
                     </div>
                 )}
             </div>
