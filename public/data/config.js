@@ -1,3 +1,3 @@
 export const config = {
-    contacts: false,
+    contacts: true,
 };
