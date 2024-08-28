@@ -1,3 +1,5 @@
+import { config } from "./config";
+
 export const projects = [
     {
         title: "Student Dashboard",
@@ -65,7 +67,10 @@ export const projects = [
             info: {},
         },
     },
-    {
+];
+
+if (config.contacts) {
+    projects.push({
         title: "Portfolio website",
         url: "/",
         techs: ["html", "css", "js", "angular js", "materializ css"],
@@ -76,5 +81,5 @@ export const projects = [
             title: "",
             info: {},
         },
-    },
-];
+    });
+}

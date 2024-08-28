@@ -1,3 +1,5 @@
+import { config } from "./config";
+
 export const data = {
     projects: [
         { text: "birdlens creation", link: "https://birdlenscreation.com/" },
@@ -14,8 +16,10 @@ export const data = {
             link: "/",
         },
         {
-            text: "Old Portfolio",
-            link: "https://ashish221306.github.io/developer/#!/",
+            ...(config.contacts && {
+                text: "Old Portfolio",
+                link: "https://ashish221306.github.io/developer/#!/",
+            }),
         },
         {
             text: "Wordpress Theme",
