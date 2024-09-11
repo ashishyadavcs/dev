@@ -14,8 +14,8 @@ import {
 import tools from "public/data/tools";
 import { useEffect } from "react";
 import { Styled } from "@/styles/footer";
-import {mailTo} from "utils/common";
-import {config} from "public/data/config";
+import { mailTo } from "utils/common";
+import { config } from "public/data/config";
 
 const Footer = () => {
     const goToTop = () => {
@@ -49,184 +49,188 @@ const Footer = () => {
                 `}
             </style>
             <Styled.footer className="pt-4 position-relative">
-                {config.contacts && <div className="container">
-                    <div className="row" role="navigation">
-                        <div className="col-md-4">
-                            <div className="mb-3">
-                                <span className="smallheading brand">
-                                    {process.env.NEXT_PUBLIC_APP_NAME}
-                                </span>
-                                <p>
-                                    A modern approach to learn frontend with tutorials, tricks and
-                                    tips
-                                </p>
-                            </div>
+                {config.contacts && (
+                    <div className="container">
+                        <div className="row" role="navigation">
+                            <div className="col-md-4">
+                                <div className="mb-3">
+                                    <span className="smallheading brand">
+                                        {process.env.NEXT_PUBLIC_APP_NAME}
+                                    </span>
+                                    <p>
+                                        A modern approach to learn frontend with tutorials, tricks
+                                        and tips
+                                    </p>
+                                </div>
 
-                            <h3 className="smallheading">Contact</h3>
+                                <h3 className="smallheading">Contact</h3>
 
-                            <div className="d-flex flex-column">
-                                <a href={`tel:${contact.mobile}`} className="mb-1">
-                                    <FaPhone className="mr-2" />
-                                    {contact.mobile}
-                                </a>
+                                <div className="d-flex flex-column">
+                                    <a href={`tel:${contact.mobile}`} className="mb-1">
+                                        <FaPhone className="mr-2" />
+                                        {contact.mobile}
+                                    </a>
 
-                                <a href={mailTo(contact.email)}>
-                                    <FaEnvelope className="mr-2" />
-                                    {contact.email}
-                                </a>
-                            </div>
+                                    <a href={mailTo(contact.email)}>
+                                        <FaEnvelope className="mr-2" />
+                                        {contact.email}
+                                    </a>
+                                </div>
 
-                            <div className="social-links mt-3 md-mb-0 mb-3">
-                                <a
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    aria-label="facebook"
-                                    href={contact.facebook}
-                                    className="twitter"
-                                >
-                                    <FaFacebookF />
-                                </a>
-                                {contact.twitter && (
+                                <div className="social-links mt-3 md-mb-0 mb-3">
                                     <a
-                                        aria-label="twitter"
                                         target="_blank"
                                         rel="noreferrer"
-                                        href={contact.twitter}
-                                        className="facebook"
+                                        aria-label="facebook"
+                                        href={contact.facebook}
+                                        className="twitter"
                                     >
-                                        <FaTwitter />
+                                        <FaFacebookF />
                                     </a>
-                                )}
-                                <a
-                                    aria-label="instagram"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={contact.instagram}
-                                    className="instagram"
-                                >
-                                    <FaInstagram />
-                                </a>
-                               
-                                <a
-                                    aria-label="linkedin"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={contact.linkedin}
-                                    className="linkedin"
-                                >
-                                    <FaLinkedinIn />
-                                </a>
-                                <a
-                                    title="youtube"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={contact.youtube}
-                                    className="linkedin"
-                                    aria-label="youtube"
-                                >
-                                    <FaYoutube />
-                                </a>
+                                    {contact.twitter && (
+                                        <a
+                                            aria-label="twitter"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={contact.twitter}
+                                            className="facebook"
+                                        >
+                                            <FaTwitter />
+                                        </a>
+                                    )}
+                                    <a
+                                        aria-label="instagram"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        href={contact.instagram}
+                                        className="instagram"
+                                    >
+                                        <FaInstagram />
+                                    </a>
+
+                                    <a
+                                        aria-label="linkedin"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        href={contact.linkedin}
+                                        className="linkedin"
+                                    >
+                                        <FaLinkedinIn />
+                                    </a>
+                                    {contact.youtube && (
+                                        <a
+                                            title="youtube"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={contact.youtube}
+                                            className="linkedin"
+                                            aria-label="youtube"
+                                        >
+                                            <FaYoutube />
+                                        </a>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-4">
-                            <h3 className="smallheading">Useful Links</h3>
-                            <ul className="list-unstyled">
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/frontend-developer"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Frontend developer roadmap
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/video-tutorials"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            video tutorials
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/"}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Home
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/aboutus"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            About us
-                                        </a>
-                                    </Link>
-                                </li>
-
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/services"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Services
-                                        </a>
-                                    </Link>
-                                </li>
-
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/blog"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Blog
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/training"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Training
-                                        </a>
-                                    </Link>
-                                </li>
-
-                                <li className="d-flex align-items-center">
-                                    <Link href={"/ashish-yadav"} prefetch={false}>
-                                        <a className="ml-1">
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Ashish Yadav
-                                        </a>
-                                    </Link>
-                                </li>
-
-                                <li className="d-flex align-items-center">
-                                    <Link href="/privacy-policy">
-                                        <a className="ml-1">
-                                            {" "}
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Privacy policy
-                                        </a>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="col-md-3">
-                            <h3 className="smallheading">tools</h3>
-                            <ul className="list-unstyled">
-                                {tools.map((t, i) => (
-                                    <li key={i} className="ml-1">
-                                        <Link href={t.href} prefetch={false}>
-                                            <a>
+                            <div className="col-md-4">
+                                <h3 className="smallheading">Useful Links</h3>
+                                <ul className="list-unstyled">
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/frontend-developer"} prefetch={false}>
+                                            <a className="ml-1">
                                                 <FaChevronRight className="mr-1" size={15} />
-                                                {t.text}
+                                                Frontend developer roadmap
                                             </a>
                                         </Link>
                                     </li>
-                                ))}
-                            </ul>
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/video-tutorials"} prefetch={false}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                video tutorials
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/"}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                Home
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/aboutus"} prefetch={false}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                About us
+                                            </a>
+                                        </Link>
+                                    </li>
+
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/services"} prefetch={false}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                Services
+                                            </a>
+                                        </Link>
+                                    </li>
+
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/blog"} prefetch={false}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                Blog
+                                            </a>
+                                        </Link>
+                                    </li>
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/training"} prefetch={false}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                Training
+                                            </a>
+                                        </Link>
+                                    </li>
+
+                                    <li className="d-flex align-items-center">
+                                        <Link href={"/ashish-yadav"} prefetch={false}>
+                                            <a className="ml-1">
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                Ashish Yadav
+                                            </a>
+                                        </Link>
+                                    </li>
+
+                                    <li className="d-flex align-items-center">
+                                        <Link href="/privacy-policy">
+                                            <a className="ml-1">
+                                                {" "}
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                Privacy policy
+                                            </a>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="col-md-3">
+                                <h3 className="smallheading">tools</h3>
+                                <ul className="list-unstyled">
+                                    {tools.map((t, i) => (
+                                        <li key={i} className="ml-1">
+                                            <Link href={t.href} prefetch={false}>
+                                                <a>
+                                                    <FaChevronRight className="mr-1" size={15} />
+                                                    {t.text}
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>}
+                )}
                 <div className="sub-footer d-flex justify-content-center align-items-center">
                     <small className="text-secondary text-center container p-3 text-center d-block">
                         copyright&copy;2022-{new Date().getFullYear() + 1}

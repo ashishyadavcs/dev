@@ -30,8 +30,8 @@ const Page = () => {
             </h1>
             <p className="text-center">
                 Revolutionize Your Web Presence with Our Exclusive Free HTML & CSS Website Template!
-                🌐✨ Elevate your site's aesthetics and functionality with a single click. This
-                template isn't just free; it's a game-changer for your online identity. Download now
+                🌐✨ Elevate your site&apos;s aesthetics and functionality with a single click. This
+                template isn&apos;t just free; it&apos;s a game-changer for your online identity. Download now
                 and embark on a journey of limitless possibilities. Your dream website is just a
                 click away! 💻🚀 #WebDev #FreeTemplate #HTMLCSSMagi
             </p>
@@ -40,8 +40,8 @@ const Page = () => {
                 description="Dive into our vast collection of stunning, free website templates designed with HTML and CSS."
             />
             <div className="templates">
-                {[...templates].map(el => (
-                    <div className="card">
+                {[...templates].map((el,i) => (
+                    <div key={i} className="card">
                         <div className="preview">
                             <Image
                                 objectFit="cover"

@@ -1,5 +1,5 @@
 import Image from "next/image";
-const Chatimg = ({ height = "160px", width = "100%", alt, objectFit = "cover", src }) => {
+const Chatimg = ({ height = "300px", width = "100%", alt, objectFit = "cover", src }) => {
     return (
         <span
             style={{

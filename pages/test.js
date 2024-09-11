@@ -1,21 +1,32 @@
-import { NextSeo } from "next-seo";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { toast } from "react-toastify";
 
-const Page = () => {
-    const [video, setvideo] = useState("")
-    useEffect(() => {
-        navigator.getUserMedia(
-            { video: true, audio: true },
-            function (stream) {
-                setvideo(stream)
+const test = () => {
+    const data = JSON.stringify({
+        class: 12,
+        name: "ashish",
+        education:"Btech",
+        from:"mzp"
+    });
+    const updatedSetting = async () => {
+        const result = await fetch("/api/setting", {
+            method: "POST",
+            headers:{
+                "content-type":"application/json"
             },
-            function (err) {
-                console.log("Failed to get local stream", err);
-            }
-        );
-    }, []);
-
-    return <video autoPlay muted src={URL.createObjectURL(video)} height={500} width={'100%'}></video>;
+            body: JSON.stringify({
+                path: "utils/setting.json",
+                data: data,
+            }),
+        });
+        const res = await result.json();
+        toast.success(res.message);
+    };
+    return (
+        <button className="theme-btn" onClick={e => updatedSetting()}>
+            update setting
+        </button>
+    );
 };
 
-export default Page;
+export default test;

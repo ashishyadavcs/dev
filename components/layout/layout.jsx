@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
 import Footer from "./footer";
+import Chat from "chat/component";
 
 
-const Chat = dynamic(() => import("../chat"), {
-    ssr: false,
-});
+
+
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });

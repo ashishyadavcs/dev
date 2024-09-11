@@ -1,6 +1,6 @@
-import Chatimg from "@/components/chat/image";
-import socket from "@/components/chat/socket";
-import { sounds } from "@/components/chat/sounds";
+import Chatimg from "chat/component/image";
+import socket from "chat/socket";
+import { sounds } from "chat/sounds";
 import { FaFile, FaFilePdf } from "react-icons/fa";
 
 export const record = (e, setmsg) => {
@@ -41,17 +41,19 @@ export const record = (e, setmsg) => {
             };
         });
 };
-const ss = new Audio();
-export const playSound = src => {
-    ss.src=src
+let ss;
+export const playSound = (src, loop) => {
+    ss = new Audio();
+    ss.src = src;
+    if (loop) {
+        ss.loop = true;
+    }
     ss.play();
-    setTimeout(() => {
-        ss.pause();
-    }, 5000);
 };
-export const stopSound=()=>{
-    ss.pause()
-}
+
+export const stopSound = () => {
+    ss.pause();
+};
 
 export const savemessage = async (setList, data) => {
     const messageFromat = {

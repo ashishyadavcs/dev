@@ -5,12 +5,11 @@ import styled from "styled-components";
 const Page = () => {
     const updatedSetting = async e => {
         e.preventDefault();
-
         const data = {
             contacts: e.target.contacts.value=="true"?true:false,
         };
         console.log(data)
-        const result = await fetch("/api/setting", {
+        const result = await fetch("http://localhost:4000/setting", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
