@@ -39,9 +39,8 @@ const Page = ({ url }) => {
                     <Image
                         objectFit="cover"
                         layout="fill"
-                        objectPosition="center"
                         priority
-                        src="/github-profile.jpg"
+                        src="/images/ashish-portfolio.jpg"
                         height="400"
                         width="400"
                         alt="ashish yadav"
@@ -276,6 +275,9 @@ const Pagestyle = styled.div`
                 position: sticky;
                 top: 63px;
                 height: 100vh;
+                img{
+                    object-position: bottom;
+                }
             }
             ${media.sm} {
                 width: 100%;
