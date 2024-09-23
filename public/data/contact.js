@@ -6,7 +6,8 @@ export const contact = {
     youtube: "https://www.youtube.com/channel/UCSj5DTDPkqGJ6izZs2CvfQA",
     facebook: "https://www.facebook.com/frontendzonedotcom",
     instagram: "https://instagram.com/frontendzone",
-    // twitter: "https://twitter.com/brandwebdesignr",
+    twitter: "https://twitter.com/ashishfgiet",
     skype: "",
     linkedin: "https://www.linkedin.com/company/frontendzone",
+    topmate:"https://topmate.io/ashishyadav"
 };
