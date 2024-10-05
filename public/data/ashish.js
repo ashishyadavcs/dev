@@ -39,7 +39,7 @@ export const data = {
     social: {
         instagram: "https://instagram.com/ashishyadav.dev",
         linkedin: "https://linkedin.com/in/ashishfgiet",
-        github: "https://github.com/ashish221306",
+        github: "https://github.com/ashishyadavcs",
     },
     education: {
         degree: "BTech(CSE)",
