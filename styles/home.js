@@ -3,11 +3,14 @@ import styled from "styled-components";
 const Styled = {
     Banner: styled.div`
         background: linear-gradient(rgb(247 239 239), rgb(217 240 237));
-        height: 100vh;
+        min-height: 100vh;
         max-height: 700px;
         position: relative;
         display: flex;
         align-items: center;
+        h1 {
+            margin: 20px 0 0;
+        }
         ${media.md} {
             &:before {
                 content: "";
@@ -119,7 +122,7 @@ const Styled = {
     Cta: styled.a`
         display: inline-block;
         padding: 15px 30px;
-        background:#ff0707;
+        background: #ff0707;
         color: aliceblue;
         border-radius: 8px;
         text-align: center;

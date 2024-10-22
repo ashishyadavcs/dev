@@ -53,21 +53,19 @@ const Header = ({ progress }) => {
                                             </a>
                                         </Link>
                                     </li>
-                                    
-
                                 );
                             })}
-                               {!user?.email && <li 
-                                        
-                                    >
-                                        <Link prefetch={false} href={'/login'}>
-                                            <a itemProp="url" title='login'>
-                                               login
-                                            </a>
-                                        </Link>
-                                    </li>}
+                            {!user?.email && (
+                                <li>
+                                    <Link prefetch={false} href={"/login"}>
+                                        <a itemProp="url" title="login">
+                                            login
+                                        </a>
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
-                        { user?.email && (
+                        {user?.email && (
                             <ul className="list-unstyled mb-0 innermenu">
                                 {0 ? (
                                     <li>

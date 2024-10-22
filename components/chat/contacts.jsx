@@ -2,10 +2,10 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
-const Members = ({users}) => {
+const Members = ({ users }) => {
     return (
         <Styledcontacts className="home">
-            {users.map((user,i) => (
+            {users.map((user, i) => (
                 <li key={i}>
                     <Image
                         objectFit="cover"
@@ -31,7 +31,7 @@ const Styledcontacts = styled.ul`
     flex-direction: column;
 
     li {
-    cursor: pointer;
+        cursor: pointer;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         display: flex;
         gap: 20px;

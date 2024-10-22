@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import styled from "styled-components";
-import {addPortfolio, deletePortfolio, sendreq} from "utils/forms/portfolio";
-import {fetchData} from "utils/serversidefetch";
+import { addPortfolio, deletePortfolio, sendreq } from "utils/forms/portfolio";
+import { fetchData } from "utils/serversidefetch";
 
 const Portfolio = ({ portfolios }) => {
     const router = useRouter();
@@ -16,7 +16,7 @@ const Portfolio = ({ portfolios }) => {
             <form
                 onSubmit={e => {
                     edit
-                        ? sendreq(e, "put", `/api/portfolio/${edit._id}`,router)
+                        ? sendreq(e, "put", `/api/portfolio/${edit._id}`, router)
                         : addPortfolio(e, "Post", "/api/portfolio");
                 }}
             >
@@ -61,13 +61,15 @@ const Portfolio = ({ portfolios }) => {
                 {[...portfolios].reverse().map(project => (
                     <div className="project">
                         <span className="action">
-                            <button onClick={e => {
-                                setEdit(v => (v == false ? project : false))
-                                router.push(`?edit=true`)
-                            }}>
+                            <button
+                                onClick={e => {
+                                    setEdit(v => (v == false ? project : false));
+                                    router.push(`?edit=true`);
+                                }}
+                            >
                                 <FiEdit className="pointer" size={20} />
                             </button>
-                            <button onClick={e => deletePortfolio(project._id,router)}>
+                            <button onClick={e => deletePortfolio(project._id, router)}>
                                 <AiFillDelete className="pointer" size={20} />
                             </button>
                         </span>
@@ -151,12 +153,11 @@ const Pages = styled.div`
     }
 `;
 
-export async function getServerSideProps({req}) {
-    const data = await fetchData(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`,req)
-    return{
-        props:{
-            portfolios:data.portfolio
-        }
-    }
-       
+export async function getServerSideProps({ req }) {
+    const data = await fetchData(`${process.env.NEXT_PUBLIC_APP_URL}/api/portfolio`, req);
+    return {
+        props: {
+            portfolios: data.portfolio,
+        },
+    };
 }

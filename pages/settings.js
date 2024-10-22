@@ -7,9 +7,8 @@ const Page = () => {
         e.preventDefault();
 
         const data = {
-            contacts: e.target.contacts.value=="true"?true:false,
+            contacts: e.target.contacts.value == "true" ? true : false,
         };
-        console.log(data)
         const result = await fetch("/api/setting", {
             method: "POST",
             headers: {
@@ -25,7 +24,7 @@ const Page = () => {
     };
     return (
         <StyledPage className="container py-4">
-            <form className="form" onSubmit={e=>updatedSetting(e)}>
+            <form className="form" onSubmit={e => updatedSetting(e)}>
                 <label>
                     <span>contacts</span>
                     <select name="contacts">
@@ -33,19 +32,21 @@ const Page = () => {
                         <option value={false}>hide</option>
                     </select>
                 </label>
-                <button type="submit" className="theme-btn">update</button>
+                <button type="submit" className="theme-btn">
+                    update
+                </button>
             </form>
         </StyledPage>
     );
 };
 
 export default Page;
-const StyledPage=styled.div`
-label{
-    display: flex;
-    flex-direction: column;
-}
-select{
-    padding: 10px;
-}
-`
+const StyledPage = styled.div`
+    label {
+        display: flex;
+        flex-direction: column;
+    }
+    select {
+        padding: 10px;
+    }
+`;

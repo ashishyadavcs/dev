@@ -2,10 +2,10 @@ import { openwhatsapp } from "utils/common";
 import styles from "../styles/orderform.module.css";
 import { createOrder } from "../utils/order";
 import { useRouter } from "next/router";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 const Orderform = ({ title }) => {
-    const user=useSelector(state=>state.user)
+    const user = useSelector(state => state.user);
     const router = useRouter();
     return (
         <div className={styles.orderform}>
@@ -21,7 +21,7 @@ const Orderform = ({ title }) => {
                 <form
                     onSubmit={e => {
                         e.preventDefault();
-                        createOrder(e, router,user);
+                        createOrder(e, router, user);
                     }}
                 >
                     <h2>{title || "Order for website design"}</h2>

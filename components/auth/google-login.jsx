@@ -1,11 +1,11 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import {useDispatch} from "react-redux";
-import {saveUser} from "store/userSlice";
+import { useDispatch } from "react-redux";
+import { saveUser } from "store/userSlice";
 const Loginwithgoogle = ({ title }) => {
     const { data: session } = useSession();
-    const dispatch=useDispatch()
-    dispatch(saveUser(session?.user))
+    const dispatch = useDispatch();
+    dispatch(saveUser(session?.user));
     const getcallbackurl = () => {
         return "/dashboard";
     };

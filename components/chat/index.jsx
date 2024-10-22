@@ -67,7 +67,6 @@ const Chat = () => {
         });
 
         socket.on(eventsType.message, data => {
-            console.log(data);
             playSound(sounds.receive);
             if (data.msg) {
                 document.title = `💬 ${data.msg}`;
@@ -131,7 +130,7 @@ const Chat = () => {
                         <FaVideo
                             onClick={e => {
                                 e.stopPropagation();
-                                e.target.classList.add("ongoing")
+                                e.target.classList.add("ongoing");
                                 socket.emit(eventsType.videocall, callerId);
                             }}
                             size={20}
@@ -147,8 +146,16 @@ const Chat = () => {
                         <div className="body">
                             {incomming && (
                                 <div className="videocall">
-                                    <video onClick={e=>switchPlace(e)} className="sender video" ref={senderVideo}></video>
-                                    <video onClick={e=>switchPlace(e)} className="receiver video" ref={receiverVideo}></video>
+                                    <video
+                                        onClick={e => switchPlace(e)}
+                                        className="sender video"
+                                        ref={senderVideo}
+                                    ></video>
+                                    <video
+                                        onClick={e => switchPlace(e)}
+                                        className="receiver video"
+                                        ref={receiverVideo}
+                                    ></video>
                                     <div className="call-helper">
                                         <FaMicrophone onClick={e => mute(e, senderVideo)} />{" "}
                                         <button

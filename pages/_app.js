@@ -15,16 +15,16 @@ import { ThemeProvider } from "styled-components";
 import SetTheme from "@/components/themesetting";
 import { useEffect } from "react";
 import { PersistGate } from "redux-persist/integration/react";
-import {persistStore} from "redux-persist";
+import { persistStore } from "redux-persist";
 
-let persister=persistStore(store)
+let persister = persistStore(store);
 
 Router.events.on("routeChangeStart", () => {
     nProgress.start();
     !navigator.onLine ? toast.error("You are offline") : "";
 });
 Router.events.on("routeChangeComplete", () => {
-    document.querySelector('header').classList.remove('active')
+    document.querySelector("header").classList.remove("active");
     nProgress.done();
 });
 Router.events.on("routeChangeError", () => nProgress.done());
@@ -36,19 +36,27 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
                     <PersistGate persistor={persister}>
-                    <Globalstyle />
-                    <div className="loading-lcp">loading</div>
-                    {!layout.landing.includes(router.pathname) ? (
-                        <Layout config={pageProps.config}>
-                            <Component {...pageProps} />
-                            <ToastContainer position="bottom-left" autoClose="1000" theme="light" />
-                        </Layout>
-                    ) : (
-                        <>
-                            <Component {...pageProps} />
-                            <ToastContainer position="bottom-left" autoClose="1000" theme="light" />
-                        </>
-                    )}
+                        <Globalstyle />
+                        <div className="loading-lcp">loading</div>
+                        {!layout.landing.includes(router.pathname) ? (
+                            <Layout config={pageProps.config}>
+                                <Component {...pageProps} />
+                                <ToastContainer
+                                    position="bottom-left"
+                                    autoClose="1000"
+                                    theme="light"
+                                />
+                            </Layout>
+                        ) : (
+                            <>
+                                <Component {...pageProps} />
+                                <ToastContainer
+                                    position="bottom-left"
+                                    autoClose="1000"
+                                    theme="light"
+                                />
+                            </>
+                        )}
                     </PersistGate>
                 </Provider>
             </ThemeProvider>

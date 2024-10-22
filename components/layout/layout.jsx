@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
 import Footer from "./footer";
-
+import { LoadFont } from "utils/common";
 
 const Chat = dynamic(() => import("../chat"), {
     ssr: false,
@@ -18,7 +18,6 @@ const Orderpop = dynamic(() => import("@/components/orderpop"), {
     ssr: false,
 });
 
-
 const Layout = ({ children, type = "default", config }) => {
     const router = useRouter();
     config = {
@@ -28,25 +27,7 @@ const Layout = ({ children, type = "default", config }) => {
     };
     return (
         <>
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: ` function loadStyleSheet(path) {
-                            var head = document.getElementsByTagName('head')[0],
-                                link = document.createElement('link');
-                            link.setAttribute('href', path);
-                            link.setAttribute('rel', 'stylesheet');
-                            link.setAttribute('type', 'text/css');
-                            head.appendChild(link);
-                        };
-                      if (document.readyState === "complete") {
-                        loadStyleSheet('${config.fontFamilyCSS}');
-                      } else {
-                        window.addEventListener("load", function(){ 
-                            loadStyleSheet('${config.fontFamilyCSS}');
-                        });
-                      }`,
-                }}
-            ></script>
+            <LoadFont config />
             {/* <ThemeContext.Provider value={""}> */}
             {type == "default" || !["/vrc"].includes(router.pathname) ? (
                 <div className="layout">
@@ -75,8 +56,8 @@ const Layout = ({ children, type = "default", config }) => {
             ) : (
                 <main> {children}</main>
             )}
-            
-            {router.query.chat==1 && <Chat/>}
+
+            {router.query.chat == 1 && <Chat />}
             {/* </ThemeContext.Provider> */}
         </>
     );

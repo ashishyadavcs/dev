@@ -27,7 +27,9 @@ const Page = ({ users }) => {
                                 <tr>
                                     <td>{user._id}</td>
                                     <td>{user.name}</td>
-                                    <td><a href={openEmail(user.email)}>{user.email}</a></td>
+                                    <td>
+                                        <a href={openEmail(user.email)}>{user.email}</a>
+                                    </td>
                                     <td>{user.mobile}</td>
                                     <td>check</td>
                                 </tr>
@@ -53,18 +55,20 @@ const Pages = styled.div`
     }
     table {
         border-collapse: collapse;
-        th{
+        th {
             background: #f1f1f1;
         }
-        tr{
-            &:hover{
+        tr {
+            &:hover {
                 background: #f1f1f1;
             }
         }
-        td,th {
+        td,
+        th {
             border: 2px solid #ddd;
             padding: 10px;
-            a{ background: none;
+            a {
+                background: none;
                 text-transform: none;
             }
         }

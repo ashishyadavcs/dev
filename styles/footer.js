@@ -7,7 +7,7 @@ export const Styled = {
         color: rgb(170, 167, 167);
         background-position: center;
         background-blend-mode: overlay;
-        .brand{
+        .brand {
             font-weight: bold;
             display: block;
             margin-bottom: 10px;

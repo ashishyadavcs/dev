@@ -43,15 +43,15 @@ export const record = (e, setmsg) => {
 };
 const ss = new Audio();
 export const playSound = src => {
-    ss.src=src
+    ss.src = src;
     ss.play();
     setTimeout(() => {
         ss.pause();
     }, 5000);
 };
-export const stopSound=()=>{
-    ss.pause()
-}
+export const stopSound = () => {
+    ss.pause();
+};
 
 export const savemessage = async (setList, data) => {
     const messageFromat = {

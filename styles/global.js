@@ -75,16 +75,6 @@ body:has(.preview-div.active){
   height: 3px;
 }
 
-.notes {
-  background: var(--notesbg);
-  color: var(--text-success);
-  font-style: italic;
-}
-
-.notes a {
-  color: var(--color);
-}
-
 .heading {
   font-size: clamp(21px, 3vw, 38px);
   font-weight: 700

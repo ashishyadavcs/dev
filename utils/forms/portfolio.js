@@ -1,6 +1,6 @@
-const {toast}=require("react-toastify");
+const { toast } = require("react-toastify");
 
-const sendreq = async (e, method, url,router) => {
+const sendreq = async (e, method, url, router) => {
     e.preventDefault();
     const fdata = new FormData();
     fdata.append("file", e.target.image.files[0]);
@@ -34,7 +34,7 @@ const addPortfolio = async e => {
     sendreq(e, "Post", "/api/portfolio");
 };
 
-const deletePortfolio = async (id,router) => {
+const deletePortfolio = async (id, router) => {
     const confirm = window.confirm("are you sure to delete ?");
     if (confirm) {
         const data = await fetch(`/api/portfolio/${id}`, {
@@ -51,5 +51,4 @@ const deletePortfolio = async (id,router) => {
     }
 };
 
-
-module.exports={deletePortfolio,addPortfolio,sendreq}
+module.exports = { deletePortfolio, addPortfolio, sendreq };

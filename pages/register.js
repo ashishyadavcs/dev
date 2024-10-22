@@ -11,17 +11,17 @@ export const Register = ({ roles }) => {
     const router = useRouter();
     const [show, setShow] = useState(true);
     const signup = async e => {
-        const details={
+        const details = {
             name: e.target.name.value,
             email: e.target.email.value,
             password: e.target.password.value,
-            phone:'8764781268'
+            phone: "8764781268",
+        };
+        if (details.password.length < 8) {
+            toast.error("Password should be atleast 8 charactors");
+            return;
         }
-        if(details.password.length<8){
-            toast.error("Password should be atleast 8 charactors")
-            return
-        }
-        const formdata = details
+        const formdata = details;
         const data = await fetch(`/api/baseauth/register`, {
             method: "POST",
             headers: {
@@ -31,7 +31,6 @@ export const Register = ({ roles }) => {
         })
             .then(res => res.json())
             .catch(err => toast.error(err.message));
-            console.log(data)
         if (data.success) {
             toast.success("Registered successfully ");
             router.push("/dashboard");

@@ -1,35 +1,38 @@
 import { media } from "config/device";
-import {useSession} from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import styled from "styled-components";
 const Page = ({ orders }) => {
     return (
         <Pages className={`container py-3 `}>
             <h1>Order List</h1>
-            {orders.length?
-            <ul className="orders">
-                {[...orders].map(order => (
-                    <Link href={`/dashboard/orders/${order._id}`} key={order._id} passHref>
-                        <li className="order">
-                            <p> {order.description}</p>
-                            <a href={order.mobile}>{order.mobile}</a>
-                            <span className="date">{new Date(order.date).toDateString()}</span>
-                            <span className="paid">{order.paid}</span>
-                        </li>
-                    </Link>
-                ))}
-            </ul>:<h2>No Oreder yet</h2>}
+            {orders.length ? (
+                <ul className="orders">
+                    {[...orders].map(order => (
+                        <Link href={`/dashboard/orders/${order._id}`} key={order._id} passHref>
+                            <li className="order">
+                                <p> {order.description}</p>
+                                <a href={order.mobile}>{order.mobile}</a>
+                                <span className="date">{new Date(order.date).toDateString()}</span>
+                                <span className="paid">{order.paid}</span>
+                            </li>
+                        </Link>
+                    ))}
+                </ul>
+            ) : (
+                <h2>No Oreder yet</h2>
+            )}
         </Pages>
     );
 };
 const Pages = styled.div`
-.date{
-    background: #ddd;
-    border-radius: 100px;
-    padding:2px 10px;
-    width: max-content;
-    font-size: 14px;
-}
+    .date {
+        background: #ddd;
+        border-radius: 100px;
+        padding: 2px 10px;
+        width: max-content;
+        font-size: 14px;
+    }
     ul {
         list-style: none;
     }

@@ -4,4 +4,3 @@ export const user = {
     image: "",
     preferances: {},
 };
-

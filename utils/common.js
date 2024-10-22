@@ -76,4 +76,26 @@ export const progressBar = () => {
     document.querySelector(":root").style.setProperty("--progress-width", `${scrolled}%`);
 };
 
+export const LoadFont = ({ config }) => (
+    <script
+        dangerouslySetInnerHTML={{
+            __html: ` function loadStyleSheet(path) {
+            var head = document.getElementsByTagName('head')[0],
+                link = document.createElement('link');
+            link.setAttribute('href', path);
+            link.setAttribute('rel', 'stylesheet');
+            link.setAttribute('type', 'text/css');
+            head.appendChild(link);
+        };
+      if (document.readyState === "complete") {
+        loadStyleSheet('${config.fontFamilyCSS}');
+      } else {
+        window.addEventListener("load", function(){ 
+            loadStyleSheet('${config.fontFamilyCSS}');
+        });
+      }`,
+        }}
+    ></script>
+);
+
 export const mailTo = email => `https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=${email}`;

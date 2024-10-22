@@ -67,7 +67,7 @@ const Page = ({ url }) => {
                         <div className="skills">
                             <h2>Technical Skills</h2>
                             <ul>
-                                {data.skills.map((skill,i) => {
+                                {data.skills.map((skill, i) => {
                                     return <li key={i}>{skill}</li>;
                                 })}
                             </ul>
@@ -77,7 +77,7 @@ const Page = ({ url }) => {
                             Experience &nbsp;<small>({data.totalexp}years)</small>
                         </h2>
                         <ul className="exp">
-                            {[...data.exp].map((exp,i) => (
+                            {[...data.exp].map((exp, i) => (
                                 <li className="exp" key={i}>
                                     <div className="company">
                                         <a href={exp.company.link}>{exp.company.name}</a>
@@ -85,7 +85,7 @@ const Page = ({ url }) => {
                                     </div>
                                     <strong>{exp.profile}</strong>
                                     <ul className="desc">
-                                        {exp.description.map((desc,i) => (
+                                        {exp.description.map((desc, i) => (
                                             <li key={i}>{desc}</li>
                                         ))}
                                     </ul>
@@ -94,7 +94,7 @@ const Page = ({ url }) => {
                         </ul>
                         <h2>Projects</h2>
                         <ul className="projects">
-                            {data.projects.map((p,i) => (
+                            {data.projects.map((p, i) => (
                                 <li key={i}>
                                     <a href={p.link} rel="noreferrer" target="_blank">
                                         {p.text}
@@ -275,7 +275,7 @@ const Pagestyle = styled.div`
                 position: sticky;
                 top: 63px;
                 height: 100vh;
-                img{
+                img {
                     object-position: bottom;
                 }
             }

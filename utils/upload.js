@@ -8,7 +8,7 @@ export const uploadFile = async (file, cb) => {
         body: fdata,
     })
         .then(res => res.json())
-        .catch(err => console.log(err));
+        .catch(err => "");
     if (result.success) {
         cb(result.file);
     } else {

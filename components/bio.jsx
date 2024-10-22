@@ -17,7 +17,6 @@ const Bio = () => {
                     <li>BTech(CSE) - FGIET Raebareli 2016-2020</li>
                     <li>10th - 87% UP Board</li>
                     <li>12th - 86% UP Board</li>
-                
                 </ul>
                 <h2>Professional details</h2>
                 <p>Software Engineer @Bold technology Noida</p>

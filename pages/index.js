@@ -32,13 +32,11 @@ export default function Home({ posts }) {
         "Congrats! Your task delivered ",
     ];
     useEffect(() => {
-
         animateList(".hiw li");
     }, []);
 
     return (
         <>
-       
             <Seo />
             <ProductJsonLd
                 productName="frontendzone"
@@ -64,7 +62,7 @@ export default function Home({ posts }) {
                                 Looking for a developer?
                                 <br></br>
                             </h1>
-                            
+
                             <ul className="list-unstyled mt-3 hiw">
                                 {steps.map((li, i) => {
                                     return (
@@ -225,9 +223,9 @@ export async function getStaticProps() {
     return {
         props: {
             posts: posts.nodes,
-            index_config:{
-                layout:'default'
-            }
+            index_config: {
+                layout: "default",
+            },
         },
         revalidate: 1,
     };

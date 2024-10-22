@@ -6,7 +6,6 @@ import hljs from "highlight.js";
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
 
-
 import dynamic from "next/dynamic";
 
 const Fbcomment = dynamic(() => import("@/components/fbcomment"), {

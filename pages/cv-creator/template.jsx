@@ -21,9 +21,9 @@ const TemplateStyle = styled.div`
         display: flex;
         width: 100%;
         height: 100%;
-        --width:40%;
-        .left{
-            width:var(--width);
+        --width: 40%;
+        .left {
+            width: var(--width);
         }
         .right {
             width: calc(100% - var(--width));

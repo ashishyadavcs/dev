@@ -1,5 +1,5 @@
-import data from './settings.json'
+import data from "./settings.json";
 export const config = {
-    contacts:false,
+    contacts: false,
     ...data,
 };

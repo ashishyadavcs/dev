@@ -11,7 +11,7 @@ const Quiz = ({ quiz }) => {
     const [next, setnext] = useState(0);
     const [score, setScore] = useState(0);
     const [showscore, setshowscore] = useState(false);
-   const mySound = new Audio("/sound/true.mp3");
+    const mySound = new Audio("/sound/true.mp3");
     const checkAns = (e, i) => {
         setTimeout(() => {
             setnext(p => p + 1);
@@ -25,7 +25,6 @@ const Quiz = ({ quiz }) => {
         } else if (data[next].ans != i) {
             e.currentTarget.classList = "wrong";
             if (e.isTrusted) {
-                
                 mySound.src = "/sound/false.mp3";
                 mySound.playbackRate = 1.2;
                 mySound.play();

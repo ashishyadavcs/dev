@@ -22,7 +22,7 @@ const CVcreater = () => {
         const scrollH = el.parentElement.firstChild.clientHeight;
         el.scrollBy(0, scrollH);
     };
-    
+
     return (
         <CVStyles>
             <div className="details">
@@ -63,7 +63,7 @@ const CVcreater = () => {
                 ))}
             </div>
             <div className="preview">
-                <Template data={data}/>
+                <Template data={data} />
             </div>
         </CVStyles>
     );

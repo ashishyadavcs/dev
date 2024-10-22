@@ -5,9 +5,7 @@ import { fetchData } from "utils/serversidefetch";
 
 const Profile = ({ user }) => {
     const [dp, setdp] = useState("");
-    const updateProfile=async ()=>{
-        
-    }
+    const updateProfile = async () => {};
     return (
         <ProfileCSS className="container py-4">
             <h1>Profile details</h1>

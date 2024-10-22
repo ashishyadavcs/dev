@@ -104,11 +104,11 @@ const Pagestyle = styled.div`
         .recorder {
             border-radius: 10px;
             overflow: hidden;
-            ${media.minsm}{
+            ${media.minsm} {
                 min-height: 500px;
             }
             max-width: 100%;
-            video{
+            video {
                 width: 100%;
             }
         }
