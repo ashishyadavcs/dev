@@ -1,10 +1,11 @@
+import {openEmail} from "config";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { fetchData } from "utils/serversidefetch";
 
 const Page = ({ users }) => {
-    const openEmail = email => `https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=${email}`;
+    
 
     return (
         <Pages className="container py-4">
