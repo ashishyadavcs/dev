@@ -21,7 +21,7 @@ const Resume = () => {
             image: "/github-profile.jpg",
         },
         social: {
-            linkedin: "https://linkedin.com/in/ashishfgiet",
+            linkedin: "https://linkedin.com/in/ashishyadavcs",
             github: "https://github.com/ashish221306",
             website: "https://www.frontendzone.com",
         },

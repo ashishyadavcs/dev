@@ -38,7 +38,7 @@ export const data = {
     hobby: ["Travelling", "Reading Book", "Coding"],
     social: {
         instagram: "https://instagram.com/ashishyadav.dev",
-        linkedin: "https://linkedin.com/in/ashishfgiet",
+        linkedin: "https://linkedin.com/in/ashishyadavcs",
         github: "https://github.com/ashishyadavcs",
     },
     education: {
