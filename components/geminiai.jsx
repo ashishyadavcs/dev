@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import {toast} from "react-toastify";
 import styled from "styled-components";
 
 const Geminiai = () => {
@@ -29,6 +30,7 @@ const Geminiai = () => {
             btn.innerText = "generate answer";
         } catch (err) {
             btn.innerText = "generate answer";
+            toast.error("model is busy try afetr sometimes...")
             console.log(err);
         }
     };
