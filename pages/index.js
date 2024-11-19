@@ -11,7 +11,6 @@ import { FAQPageJsonLd, ProductJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { animateList } from "utils/animation";
 import { Bannerstyle } from "@/styles/banner";
-import Geminiai from "@/components/geminiai";
 
 export default function Home({ posts }) {
     const postss = [
@@ -97,7 +96,6 @@ export default function Home({ posts }) {
                     </div>
                 </div>
             </Styled.Banner>
-            <Geminiai/>
             <Styled.Landing>
                 <div className="container">
                     <div className="row my-4 pt-4">
