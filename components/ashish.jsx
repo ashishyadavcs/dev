@@ -35,7 +35,7 @@ const Ashish = ({ style }) => {
                             itemProp="url"
                             target="_blank"
                             rel="noreferrer"
-                            href="https://linkedin.com/in/ashishfgiet"
+                            href="https://linkedin.com/in/ashishyadavcs"
                         >
                             <span itemProp="name">Ashish Yadav</span>
                         </a>
@@ -45,7 +45,7 @@ const Ashish = ({ style }) => {
                     <a
                         target="_blank"
                         className="follow"
-                        href="https://linkedin.com/in/ashishfgiet"
+                        href="https://linkedin.com/in/ashishyadavcs"
                     >
                         <FaLinkedin size={18} color="#0a66c2" /> Follow
                     </a>

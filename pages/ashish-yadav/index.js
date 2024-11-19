@@ -18,6 +18,7 @@ import styled from "styled-components";
 import Whatsapp from "@/components/whatsapp";
 import Bio from "@/components/bio";
 import { config } from "public/data/config";
+import moment, {months} from "moment";
 
 const Page = ({ url }) => {
     const isBio = 0;
@@ -74,7 +75,7 @@ const Page = ({ url }) => {
                         </div>
 
                         <h2 className="d-flex justify-content-between">
-                            Experience &nbsp;<small>({data.totalexp}years)</small>
+                            Experience &nbsp;<small>{data.totalexp}</small>
                         </h2>
                         <ul className="exp">
                             {[...data.exp].map((exp, i) => (

@@ -110,7 +110,7 @@ h5 {
 }
 
 article h3 {
-  font-size: clamp(25px, 3vw, 17px) !important;
+  font-size: clamp(17px, 3vw, 17px) !important;
 }
 
 .head-title::before {
