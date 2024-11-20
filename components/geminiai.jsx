@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 const Geminiai = () => {
@@ -10,6 +10,9 @@ const Geminiai = () => {
     const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+    const formatText = text => {
+        return text.replaceAll(/`([^`]+)`/g, `<code>$1</code>`);
+    };
     const getresult = async e => {
         e.preventDefault();
         const btn = e.target.querySelector(".ai-sub");
@@ -28,9 +31,13 @@ const Geminiai = () => {
 
             setdata(result.data);
             btn.innerText = "generate answer";
+            console.log(result)
+            if(!result.success){
+                toast.error("model is busy try after sometimes...");
+            }
         } catch (err) {
             btn.innerText = "generate answer";
-            toast.error("model is busy try afetr sometimes...")
+            toast.error("model is busy try afetr sometimes...");
             console.log(err);
         }
     };
@@ -41,12 +48,7 @@ const Geminiai = () => {
                 <div
                     className="result"
                     dangerouslySetInnerHTML={{
-                        __html: data
-                            ? data.response.candidates[0].content.parts[0].text.replaceAll(
-                                  "*",
-                                  "\n"
-                              )
-                            : "",
+                        __html: formatText(data.response.candidates[0].content.parts[0].text),
                     }}
                 />
             )}
