@@ -3,13 +3,13 @@ import styled from "styled-components";
 const Styled = {
     Banner: styled.div`
         background: linear-gradient(rgb(247 239 239), rgb(217 240 237));
-        min-height: 100vh;
-        max-height: 700px;
+        min-height: max-content;
+        padding: 80px 0;
         position: relative;
         display: flex;
         align-items: center;
         h1 {
-            margin: 20px 0 0;
+            margin: 20px 0;
         }
         ${media.md} {
             &:before {
@@ -69,15 +69,7 @@ const Styled = {
                         animation-play-state: paused;
                     }
                 }
-                &:last-child {
-                    visibility: hidden;
-                    opacity: 0;
-                    &.active {
-                        visibility: visible;
-                        margin-bottom: 40px;
-                        opacity: 1;
-                    }
-                }
+                
                 display: none;
                 &.active {
                     display: block;
@@ -101,6 +93,9 @@ const Styled = {
                     }
                 }
             }
+        }
+        a{
+            margin: 20px 0;
         }
     `,
     Landing: styled.div`
