@@ -22,7 +22,7 @@ const Header = ({ progress }) => {
     return (
         <>
             <Styled.header
-                progress={progress}
+                
                 ref={el => (refs.current.header = el)}
                 className="d-flex align-items-center"
             >

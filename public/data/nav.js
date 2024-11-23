@@ -23,7 +23,10 @@ export const nav = [
         url: "/services",
         text: "services",
     },
-
+    {
+        url: "/ai",
+        text: "ai",
+    },
     {
         url: "/blog",
         text: "blog",
