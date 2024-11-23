@@ -42,8 +42,6 @@ const Page = ({ url }) => {
                         layout="fill"
                         priority
                         src="/images/ashish-portfolio.jpg"
-                        height="400"
-                        width="400"
                         alt="ashish yadav"
                     />
                 </span>
@@ -104,7 +102,7 @@ const Page = ({ url }) => {
                             ))}
                             <li>
                                 <Link href="/projects">
-                                    <a>more</a>
+                                    more
                                 </Link>
                             </li>
                         </ul>

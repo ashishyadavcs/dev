@@ -26,8 +26,8 @@ const Page = () => {
                     description="Esercizi di base HTML per principianti per imparare l'HTML e fare pratica"
                 />
 
-                <Link href="/online-html-css-editor">
-                    <a className="theme-btn editor">editor-html-css-online</a>
+                <Link href="/online-html-css-editor" className="theme-btn editor">
+                    editor-html-css-online
                 </Link>
                 <h2>come esercitare HTML nell'editor</h2>
                 <p>

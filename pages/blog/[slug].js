@@ -140,10 +140,10 @@ const Blog = ({ post, posts }) => {
                                             {post.categories.nodes.map(cat => (
                                                 <li>
                                                     <Link href={`/blog/category/${cat.name}`}>
-                                                        <a>
+                                                        
                                                             <BsArrowRight size={18} />
                                                             {cat.name}
-                                                        </a>
+                                                        
                                                     </Link>
                                                 </li>
                                             ))}

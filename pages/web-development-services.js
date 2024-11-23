@@ -184,8 +184,8 @@ export default function Home({ posts }) {
                 <div className="container">
                     <h2 className="text-center latestblog my-4">Latest blog posts</h2>
                     <Blogpost posts={postss} />
-                    <Link href="/blog">
-                        <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
+                    <Link href="/blog" className="theme-btn d-block mx-auto text-center">
+                        Read More Blogs
                     </Link>
                 </div>
             </Styled.Landing>

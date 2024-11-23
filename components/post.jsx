@@ -17,13 +17,12 @@ const Post = ({ remove, edit, post }) => {
                     href={`${post.url ? post.url : `/blog/${post.slug}`}`}
                     as={`${post.url ? post.url : `/blog/${post.slug}`}`}
                     passHref
+                    title={post.title}
+                    style={{ textDecoration: "none" }}
+                    className={styles.post}
+                    
                 >
-                    <a
-                        title={post.title}
-                        style={{ textDecoration: "none" }}
-                        className={styles.post}
-                        key={post._id}
-                    >
+                    
                         <span className={styles.thumbnail}>
                             <Image
                                 objectFit="cover"
@@ -49,7 +48,7 @@ const Post = ({ remove, edit, post }) => {
                                 <AiOutlineClockCircle size={15} /> {moment(post.date).fromNow()}
                             </span>
                         </div>
-                    </a>
+                    
                 </Link>
             )}
         </>

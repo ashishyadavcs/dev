@@ -28,11 +28,11 @@ const Entry = () => {
                 <Styledentry className="entry">
                     <div className="action">
                         <h2>Please confirm ?</h2>
-                        <Link href="/ashish-yadav">
-                            <a onClick={async e => checkin()}>I'm Recruiter</a>
+                        <Link onClick={async e => checkin()} href="/ashish-yadav">
+                            I'm Recruiter
                         </Link>
-                        <Link href={"/"}>
-                            <a onClick={e => checkin()}>I'm User</a>
+                        <Link onClick={e => checkin()} href={"/"}>
+                            I'm User
                         </Link>
                     </div>
                 </Styledentry>

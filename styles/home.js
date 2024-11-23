@@ -51,6 +51,7 @@ const Styled = {
         }
 
         .img {
+            z-index: 2;
             animation: imgleft 4s linear infinite forwards;
         }
         .hiw {

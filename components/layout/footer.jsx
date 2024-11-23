@@ -107,7 +107,6 @@ const Footer = () => {
                                     >
                                         <FaInstagram />
                                     </a>
-
                                     <a
                                         aria-label="linkedin"
                                         target="_blank"
@@ -134,79 +133,61 @@ const Footer = () => {
                                 <ul className="list-unstyled">
                                     <li className="d-flex align-items-center">
                                         <Link href={"/frontend-developer"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Frontend developer roadmap
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Frontend developer roadmap
                                         </Link>
                                     </li>
                                     <li className="d-flex align-items-center">
                                         <Link href={"/video-tutorials"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                video tutorials
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            video tutorials
                                         </Link>
                                     </li>
                                     <li className="d-flex align-items-center">
                                         <Link href={"/"}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Home
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Home
                                         </Link>
                                     </li>
                                     <li className="d-flex align-items-center">
                                         <Link href={"/aboutus"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                About us
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            About us
                                         </Link>
                                     </li>
 
                                     <li className="d-flex align-items-center">
                                         <Link href={"/services"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Services
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Services
                                         </Link>
                                     </li>
 
                                     <li className="d-flex align-items-center">
                                         <Link href={"/blog"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Blog
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Blog
                                         </Link>
                                     </li>
                                     <li className="d-flex align-items-center">
                                         <Link href={"/training"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Training
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Training
                                         </Link>
                                     </li>
 
                                     <li className="d-flex align-items-center">
                                         <Link href={"/ashish-yadav"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Ashish Yadav
-                                            </a>
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Ashish Yadav
                                         </Link>
                                     </li>
 
                                     <li className="d-flex align-items-center">
                                         <Link href="/privacy-policy">
-                                            <a className="ml-1">
-                                                {" "}
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Privacy policy
-                                            </a>
+                                            {" "}
+                                            <FaChevronRight className="mr-1" size={15} />
+                                            Privacy policy
                                         </Link>
                                     </li>
                                 </ul>
@@ -217,10 +198,8 @@ const Footer = () => {
                                     {tools.map((t, i) => (
                                         <li key={i} className="ml-1">
                                             <Link href={t.href} prefetch={false}>
-                                                <a>
-                                                    <FaChevronRight className="mr-1" size={15} />
-                                                    {t.text}
-                                                </a>
+                                                <FaChevronRight className="mr-1" size={15} />
+                                                {t.text}
                                             </Link>
                                         </li>
                                     ))}

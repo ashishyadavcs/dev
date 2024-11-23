@@ -55,7 +55,7 @@ export default function Home({ posts }) {
 
             <Styled.Banner>
                 <div className="container">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-md-7 col-12">
                             <h1 id="h1" className="gradient-text heading text-capitalize">
                                 Master Frontend Development

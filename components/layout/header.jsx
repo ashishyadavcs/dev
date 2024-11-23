@@ -26,10 +26,10 @@ const Header = ({ progress }) => {
                 className="d-flex align-items-center"
             >
                 <div className="d-flex container justify-content-between align-items-center">
-                    <Link href="/">
-                        <a title="frontendzone" className="logo">
+                    <Link href="/" title="frontendzone" className="logo">
+                        
                             <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
-                        </a>
+                        
                     </Link>
                     <nav className="d-flex  mobilelinks" role="navigation">
                         <ul
@@ -46,24 +46,22 @@ const Header = ({ progress }) => {
                                             refs.current.header.classList.remove("active")
                                         }
                                     >
-                                        <Link prefetch={false} href={li.url}>
-                                            <a
-                                                {...{ className: li.class }}
+                                        <Link prefetch={false} href={li.url} {...{ className: li.class }}
                                                 itemProp="url"
-                                                title={li?.title}
-                                            >
+                                                title={li?.title}>
+                                            
                                                 {li.text}
-                                            </a>
+                                           
                                         </Link>
                                     </li>
                                 );
                             })}
                             {!user?.email && (
                                 <li>
-                                    <Link prefetch={false} href={"/login"}>
-                                        <a itemProp="url" title="login">
+                                    <Link itemProp="url" title="login" prefetch={false} href={"/login"}>
+                                      
                                             login
-                                        </a>
+                                       
                                     </Link>
                                 </li>
                             )}

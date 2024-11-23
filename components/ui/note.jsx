@@ -7,9 +7,9 @@ const Notes = () => {
     return (
         <StyledNotes className="notes">
             <Link href={contact.youtube}>
-                <a>
+                
                     Learn Advanced frontend, subscribe youtube <BsYoutube color="red" />
-                </a>
+                
             </Link>
         </StyledNotes>
     );

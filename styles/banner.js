@@ -9,6 +9,7 @@ export const Bannerstyle = styled.div`
     .emoji {
         font-size: 40px;
     }
+   
     ul {
         list-style: none;
         margin-top: 20px;

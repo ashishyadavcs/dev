@@ -59,8 +59,8 @@ const Page = () => {
                 ))}
             </div>
 
-            <Link href="/ashish-yadav">
-                <a className="theme-btn mx-auto mt-5"> contact for custom website design</a>
+            <Link href="/ashish-yadav" className="theme-btn mx-auto mt-5">
+                contact for custom website design
             </Link>
         </Pages>
     );

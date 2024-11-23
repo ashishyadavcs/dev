@@ -38,8 +38,8 @@ const Blog = ({ posts, category }) => {
                         {posts.length == 0 && (
                             <div className="w-100 d-flex justify-content-between">
                                 <p className="text-center">No Post</p>
-                                <Link href="/blog">
-                                    <a className="theme-btn">go home</a>
+                                <Link href="/blog" className="theme-btn">
+                                    go home
                                 </Link>
                             </div>
                         )}
