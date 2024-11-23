@@ -22,7 +22,6 @@ const Header = ({ progress }) => {
     return (
         <>
             <Styled.header
-                
                 ref={el => (refs.current.header = el)}
                 className="d-flex align-items-center"
             >
@@ -48,7 +47,11 @@ const Header = ({ progress }) => {
                                         }
                                     >
                                         <Link prefetch={false} href={li.url}>
-                                            <a itemProp="url" title={li?.title}>
+                                            <a
+                                                {...{ className: li.class }}
+                                                itemProp="url"
+                                                title={li?.title}
+                                            >
                                                 {li.text}
                                             </a>
                                         </Link>

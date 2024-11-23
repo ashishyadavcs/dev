@@ -147,6 +147,26 @@ export const Styled = {
                 padding: 0.7rem 1rem;
                 transition: all 0.3s;
                 text-transform: capitalize;
+                &.new{
+                    position: relative;
+                    &::before{
+                    content:"new";
+                    position:absolute;
+                    background:red;
+                    color:#fff;
+                    left: 55%;
+                    bottom: 71%;
+                    ${media.sm}{
+                        bottom:38%
+                    }
+                    font-size:8px;
+                    padding:2px 5px;
+                    transform:skewX(-10deg);
+                    line-height:1;
+                    border-radius:3px;
+
+                }
+                }
                 ${media.sm} {
                     padding: 1rem;
                 }
