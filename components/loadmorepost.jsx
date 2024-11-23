@@ -22,7 +22,7 @@ const Loadmore = ({ pageInfo }) => {
                     return <>{i % 3 == 0 ? <Inpostad /> : <Post key={post.slug} post={post} />}</>;
                 })}
             {more?.pageInfo?.hasNextPage && (
-                <button onClick={e => loadmore(e)} className="theme-btn mx-auto d-block">
+                <button onClick={e => loadmore(e)} className="theme-btn mx-auto d-block loadmore">
                     load more
                 </button>
             )}

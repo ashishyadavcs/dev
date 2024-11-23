@@ -1,10 +1,8 @@
 import { BsCheck2Circle } from "react-icons/bs";
 import Image from "next/image";
 import Whatsapp from "@/components/whatsapp";
-import Blogpost from "@/components/blogpost";
 import Link from "next/link";
 import Seo from "@/components/organization";
-import { openwhatsapp } from "utils/common";
 import Styled from "@/styles/home";
 import { getPostList } from "lib/posts";
 import { FAQPageJsonLd, ProductJsonLd } from "next-seo";

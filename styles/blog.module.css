@@ -319,6 +319,9 @@
 }
 
 @media (max-width: 767px) {
+    .blog [class*="loadmore"]{
+        margin:10px 0 30px
+    }
     .blog [class="download-btn-group"] {
         flex-direction: column;
         gap: 0px;
