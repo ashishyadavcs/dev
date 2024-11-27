@@ -31,8 +31,8 @@ const Geminiai = () => {
 
             setdata(result.data);
             btn.innerText = "generate answer";
-            console.log(result)
-            if(!result.success){
+            console.log(result);
+            if (!result.success) {
                 toast.error("model is busy try after sometimes...");
             }
         } catch (err) {

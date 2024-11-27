@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
 import Footer from "./footer";
 import { LoadFont } from "utils/common";
+import Promotion from "../Promotion";
 
 const Chat = dynamic(() => import("../chat"), {
     ssr: false,
@@ -45,6 +46,7 @@ const Layout = ({ children, type = "default", config }) => {
                     <Header progress={true} />
 
                     <main> {children}</main>
+                    <Promotion />
                     <Footer />
                     <Orderpop Comp={Orderform} />
                     <div className="backlink sub-footer">
@@ -54,7 +56,10 @@ const Layout = ({ children, type = "default", config }) => {
                     </div>
                 </div>
             ) : (
-                <main> {children}</main>
+                <main>
+                    {children}
+                    <Promotion />
+                </main>
             )}
 
             {router.query.chat == 1 && <Chat />}
