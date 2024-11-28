@@ -102,7 +102,7 @@ export default function Home({ posts }) {
                     </Link>
                 </div>
             </Styled.Landing>
-            <Promotion />
+            
             <Whatsapp />
             <FAQPageJsonLd
                 mainEntity={[
