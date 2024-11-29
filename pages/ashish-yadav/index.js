@@ -17,7 +17,6 @@ import styled from "styled-components";
 import Whatsapp from "@/components/whatsapp";
 import Bio from "@/components/bio";
 import { config } from "public/data/config";
-import moment, { months } from "moment";
 
 const Page = ({ url }) => {
     const isBio = 0;
