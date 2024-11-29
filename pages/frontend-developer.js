@@ -2,7 +2,7 @@ import Inpostad from "@/components/ads/inpostad";
 import Faq from "@/components/faq";
 import { media } from "config/device";
 import Image from "next/image";
-import React from "react";
+
 import styled from "styled-components";
 import { TiPointOfInterest } from "react-icons/ti";
 import { GiProgression } from "react-icons/gi";

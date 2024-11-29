@@ -2,7 +2,7 @@ import { media } from "config/device";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
 import styled from "styled-components";
 
 const Page = () => {

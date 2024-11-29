@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { data } from "public/data/ashish";
 import { contact } from "public/data/contact";
-import React from "react";
 import {
     FaExternalLinkAlt,
     FaFacebook,

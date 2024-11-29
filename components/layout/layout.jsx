@@ -24,7 +24,7 @@ const Layout = ({ children, type = "default", config }) => {
     config = {
         fontFamilyCSS:
             config?.fontFamilyCSS ||
-            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap",
+            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
     };
     return (
         <>

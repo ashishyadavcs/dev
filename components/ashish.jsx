@@ -1,6 +1,6 @@
 import { media } from "config/device";
 import Image from "next/image";
-import React from "react";
+
 import { FaLinkedin, FaLinkedinIn } from "react-icons/fa";
 import { styled } from "styled-components";
 
