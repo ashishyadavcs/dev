@@ -28,7 +28,6 @@ const Post = ({ remove, edit, post }) => {
                                 objectFit="cover"
                                 objectPosition="left"
                                 layout="fill"
-                                priority
                                 alt={post.title}
                                 src={
                                     post.featuredImage

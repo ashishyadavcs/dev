@@ -20,10 +20,13 @@ const Ashish = dynamic(() => import("@/components/ashish"), {
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import styles from "../../styles/blog.module.css";
+import Head from "next/head";
 const Blog = ({ post, posts }) => {
+    let imgs = [];
+    console.log(post?.featuredImage?.node.mediaDetails.sizes[1].sourceUrl);
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
-        const imgs = document.querySelectorAll(".article img");
+        imgs = document.querySelectorAll(".article img");
         imgs.length && imgs[0].removeAttribute("loading");
     }, [post]);
 
@@ -71,10 +74,20 @@ const Blog = ({ post, posts }) => {
                                         name: "keywords",
                                         content: post?.title,
                                     },
+                                    
                                 ]}
                                 robotsProps={{
                                     maxImagePreview: "standard",
                                 }}
+                                additionalLinkTags={[
+                                   
+                                    {
+                                      rel: 'preload',
+                                      href: post?.featuredImage?.node.mediaDetails.sizes[1]
+                                      .sourceUrl,
+                                      as:"image"
+                                    }
+                                  ]}
                             />
                             <ProductJsonLd
                                 productName={post?.title}

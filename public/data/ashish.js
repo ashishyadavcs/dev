@@ -18,7 +18,7 @@ export const data = {
         {
             ...(config.contacts && {
                 text: "Old Portfolio",
-                link: "https://ashish221306.github.io/developer/#!/",
+                link: "https://ashishyadavcs.github.io/developer/#!/",
             }),
         },
         {
