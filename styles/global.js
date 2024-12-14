@@ -639,7 +639,24 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-
+//gradient border
+.gradient{
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to right, #ff00e0, #fff7a2, #9fedff)!important;
+  &::before{
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: calc(100% - 3px);
+    width: calc(100% - 3px);
+    background: #fff;
+    border-radius: inherit;
+    z-index: -1;
+  }
+}
 
 ${media.sm}{
   body.share footer{

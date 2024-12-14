@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
 import Footer from "./footer";
 import { LoadFont } from "utils/common";
+import VideoAds from "../ads/video";
 
 const Chat = dynamic(() => import("../chat"), {
     ssr: false,
@@ -52,6 +53,7 @@ const Layout = ({ children, type = "default", config }) => {
                         <a href="https://physicsclass.co">physicsclass</a>
                         <a href="https://jsonviewer.guru">json viewer</a>
                     </div>
+                    <VideoAds vid={"R1b7qSfsQMk"} />
                 </div>
             ) : (
                 <main> {children}</main>
