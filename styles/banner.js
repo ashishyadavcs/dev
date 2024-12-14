@@ -13,6 +13,7 @@ export const Bannerstyle = styled.div`
         list-style: none;
         margin-top: 20px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         li {
             margin: 10px;
@@ -25,6 +26,7 @@ export const Bannerstyle = styled.div`
                 display: block;
                 width: 100%;
                 padding: 10px;
+                min-width: 200px;
             }
         }
     }

@@ -41,7 +41,6 @@
     grid-template-columns: 15px calc(100% - 25px);
     color: teal;
     margin-bottom: 6px;
-    font-weight: 600;
 }
 
 .toc a span {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Styled = {
     Banner: styled.div`
         background: linear-gradient(rgb(247 239 239), rgb(217 240 237));
-        min-height: max-content;
+        min-height: 100vh;
         padding: 80px 0;
         position: relative;
         display: flex;
@@ -69,7 +69,7 @@ const Styled = {
                         animation-play-state: paused;
                     }
                 }
-                
+
                 display: none;
                 &.active {
                     display: block;
@@ -94,7 +94,7 @@ const Styled = {
                 }
             }
         }
-        a{
+        a {
             margin: 20px 0;
         }
     `,

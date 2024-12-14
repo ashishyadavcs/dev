@@ -3,6 +3,7 @@ import Script from "next/script";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
+        console.log(ctx)
         const sheet = new ServerStyleSheet();
         const originalRenderPage = ctx.renderPage;
 
@@ -37,7 +38,7 @@ class MyDocument extends Document {
                     <Script
                         strategy="lazyOnload"
                         src="https://www.googletagmanager.com/gtag/js?id=G-VZ57PF2ETW"
-                    ></Script>
+                    />
                     <Script
                         id="google-analytics"
                         strategy="afterInteractive"
@@ -56,7 +57,7 @@ class MyDocument extends Document {
                             async
                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3446097307175125"
                             crossOrigin="anonymous"
-                        ></Script>
+                        />
                     )}
                 </Head>
                 <body className="body">

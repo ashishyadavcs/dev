@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { data } from "public/data/ashish";
 import { contact } from "public/data/contact";
-import React from "react";
 import {
     FaExternalLinkAlt,
     FaFacebook,
@@ -18,7 +17,6 @@ import styled from "styled-components";
 import Whatsapp from "@/components/whatsapp";
 import Bio from "@/components/bio";
 import { config } from "public/data/config";
-import moment, {months} from "moment";
 
 const Page = ({ url }) => {
     const isBio = 0;

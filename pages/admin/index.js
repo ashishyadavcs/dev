@@ -1,12 +1,10 @@
-import {openEmail} from "config";
+import { openEmail } from "config";
 import Link from "next/link";
-import React from "react";
+
 import styled from "styled-components";
 import { fetchData } from "utils/serversidefetch";
 
 const Page = ({ users }) => {
-    
-
     return (
         <Pages className="container py-4">
             <div className="products">

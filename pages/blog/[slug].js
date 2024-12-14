@@ -1,4 +1,3 @@
-import styles from "../../styles/blog.module.css";
 import Sidebar from "@/components/sidebar";
 import { ArticleJsonLd, NextSeo, ProductJsonLd } from "next-seo";
 import "highlight.js/styles/github-dark.css";
@@ -20,10 +19,14 @@ const Ashish = dynamic(() => import("@/components/ashish"), {
 
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
-
+import styles from "../../styles/blog.module.css";
 const Blog = ({ post, posts }) => {
+    let imgs = [];
+    console.log(post?.featuredImage?.node.mediaDetails.sizes[1].sourceUrl);
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
+        imgs = document.querySelectorAll(".article img");
+        imgs.length && imgs[0].removeAttribute("loading");
     }, [post]);
 
     return (

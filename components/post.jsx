@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/post.module.css";
 import { useRouter } from "next/router";
-import moment from "moment";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
 const Post = ({ remove, edit, post }) => {
@@ -29,7 +28,6 @@ const Post = ({ remove, edit, post }) => {
                                 objectFit="cover"
                                 objectPosition="left"
                                 layout="fill"
-                                priority
                                 alt={post.title}
                                 src={
                                     post.featuredImage
@@ -46,7 +44,7 @@ const Post = ({ remove, edit, post }) => {
                             <h3> {post.title}</h3>
                             <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
                             <span className={styles.date}>
-                                <AiOutlineClockCircle size={15} /> {moment(post.date).fromNow()}
+                                <AiOutlineClockCircle size={15} /> {new Date(post.date).toLocaleDateString()}
                             </span>
                         </div>
                     </a>

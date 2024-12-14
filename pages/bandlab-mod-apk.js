@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import React from "react";
+
 
 const Page = () => {
     return (

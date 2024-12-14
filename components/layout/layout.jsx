@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Footer from "./footer";
 import { LoadFont } from "utils/common";
 import VideoAds from "../ads/video";
+import Promotion from "../Promotion";
 
 const Chat = dynamic(() => import("../chat"), {
     ssr: false,
@@ -24,7 +25,7 @@ const Layout = ({ children, type = "default", config }) => {
     config = {
         fontFamilyCSS:
             config?.fontFamilyCSS ||
-            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap",
+            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
     };
     return (
         <>
@@ -46,6 +47,7 @@ const Layout = ({ children, type = "default", config }) => {
                     <Header progress={true} />
 
                     <main> {children}</main>
+                    <Promotion />
                     <Footer />
                     <Orderpop Comp={Orderform} />
                     <div className="backlink sub-footer">
@@ -56,7 +58,10 @@ const Layout = ({ children, type = "default", config }) => {
                     <VideoAds vid={"R1b7qSfsQMk"} />
                 </div>
             ) : (
-                <main> {children}</main>
+                <main>
+                    {children}
+                    <Promotion />
+                </main>
             )}
 
             {router.query.chat == 1 && <Chat />}

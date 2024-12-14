@@ -26,7 +26,7 @@ export const nav = [
     {
         url: "/ai",
         text: "Ai chat",
-        class:"new",
+        class: "new",
     },
     {
         url: "/blog",

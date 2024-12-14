@@ -1,5 +1,5 @@
 import { config } from "./config";
-const exp=`${new Date().getFullYear() - 2021 }.${new Date().getMonth() - 2} years`
+const exp = `${new Date().getFullYear() - 2021}.${new Date().getMonth() - 2} years`;
 export const data = {
     projects: [
         { text: "birdlens creation", link: "https://birdlenscreation.com/" },
@@ -18,7 +18,7 @@ export const data = {
         {
             ...(config.contacts && {
                 text: "Old Portfolio",
-                link: "https://ashish221306.github.io/developer/#!/",
+                link: "https://ashishyadavcs.github.io/developer/#!/",
             }),
         },
         {
@@ -31,7 +31,7 @@ export const data = {
         },
     ],
 
-    totalexp:exp,
+    totalexp: exp,
     interoduction: {
         short: `Frontend Developer | Blogger <br><br>I am a frontend developer with almost <strong>${exp} of experience </strong> in frontend development working in product based companies and having strong skills and experience in frontend development with <strong>React</strong> and <strong>Next js</strong>`,
     },

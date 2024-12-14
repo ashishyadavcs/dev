@@ -75,7 +75,7 @@ if (config.contacts) {
         url: "/",
         techs: ["html", "css", "js", "angular js", "materializ css"],
         thumbnail: "/portfolio/portfolio-old.png",
-        url: "https://ashish221306.github.io/developer",
+        url: "https://ashishyadavcs.github.io/developer",
         type: "Personal project",
         detail: {
             title: "",
