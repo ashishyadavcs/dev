@@ -1,11 +1,19 @@
+import { useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 const Faq = ({ title, data, cssClass }) => {
+    useEffect(() => {
+        const faqs = document.querySelectorAll(".faq ");
+        faqs.forEach(el => {
+            el.onclick = () => {
+                faqs.forEach(el => el.classList.remove("active"));
+                el.classList.add("active");
+            };
+        });
+    }, []);
+
     return (
         <div className="faqs" itemScope itemType="https://schema.org/FAQPage">
             <style jsx global>{`
-                .faqs h2 {
-                    margin: 38px 0 20px;
-                }
                 .faq .que:first-letter {
                     text-transform: capitalize;
                 }
@@ -39,22 +47,20 @@ const Faq = ({ title, data, cssClass }) => {
                 }
 
                 .faq .ans {
-                    height: 0;
+                    max-height: 0;
                     overflow: hidden;
-                    transition: all 0.3s;
+                    transition: all 0.6s;
                     pointer-events: none;
+                }
+                .faq.active .ans {
+                    max-height: 500px;
+                    overflow: unset;
                 }
             `}</style>
             <h2>{title}</h2>
             <ul className="list-unstyled">
                 {data.map((faq, i) => (
                     <li
-                        onClick={e => {
-                            const ans = e.currentTarget.lastChild.lastChild;
-                            ans.style.height == ""
-                                ? (ans.style.height = ans.scrollHeight + "px")
-                                : ans.removeAttribute("style");
-                        }}
                         className="faq"
                         itemScope
                         itemProp="mainEntity"
