@@ -53,6 +53,7 @@ const Faq = ({ title, data, cssClass }) => {
                     pointer-events: none;
                 }
                 .faq.active .ans {
+                    margin:10px 0 0;
                     max-height: 500px;
                     overflow: unset;
                 }
