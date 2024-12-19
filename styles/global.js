@@ -101,6 +101,7 @@ h3,
 h4,
 h5 {
   scroll-margin-top: 80px;
+  margin-bottom:20px;
 }
 
 :where(h1, h2, h3)::first-letter {

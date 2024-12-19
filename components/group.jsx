@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 const Group = () => {
     return (
         <WPGroup>
-            <h3>Whatsapp Group</h3>
+            <h3 className="mb-2">Whatsapp Group</h3>
             <a
                 className="text-decoration-none d-flex"
                 target="_blank"
