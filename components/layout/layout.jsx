@@ -55,7 +55,11 @@ const Layout = ({ children, type = "default", config }) => {
                         <a href="https://physicsclass.co">physicsclass</a>
                         <a href="https://jsonviewer.guru">json viewer</a>
                     </div>
-                    <VideoAds vid={"R1b7qSfsQMk"} />
+                    {![
+                        "/instagram-vip-bio",
+                        
+                    ].includes(router.pathname) && <VideoAds vid={"R1b7qSfsQMk"} />}
+                    
                 </div>
             ) : (
                 <main>

@@ -34,7 +34,7 @@ const Page = () => {
     return (
         <Vipbio className="container py-4">
             <NextSeo
-                title="Best 540+ Instagram Bio For Boys (2024) | Attitude & Stylish Bio"
+                title="Best 540+ Instagram Bio For Boys (2024) | Attitude & Stylish Bio 🔥"
                 description=" A VIP bio on Instagram is a personal or professional description in the bio section
                 of an Instagram profile that conveys a sense of exclusivity, importance, or
                 uniqueness."
@@ -84,10 +84,11 @@ const Page = () => {
                 ))}
             </div>
             <Image
+                className="image"
                 layout="responsive"
-                objectFit="contain"
-                height={500}
-                width={300}
+                objectFit="cover"
+                height={200}
+                width={400}
                 alt="instagram vip bio generator"
                 src="/images/instagram-vip-bio.jpg"
             />
@@ -97,6 +98,10 @@ const Page = () => {
 
 export default Page;
 const Vipbio = styled.div`
+    .image {
+        border-radius: 8px;
+        overflow: hidden;
+    }
     body:has(.bio) {
         background: red;
     }
@@ -148,6 +153,7 @@ const Vipbio = styled.div`
         padding: 10px;
     }
     .bios {
+        margin: 10px 0 40px;
         width: 100%;
         display: grid;
         gap: 20px;
