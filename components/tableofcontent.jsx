@@ -24,7 +24,7 @@ const Toc = ({ title = "what's inside" }) => {
             {data.length > 0 && (
                 <div
                     title={title}
-                    className={`${styles.toc} ${styles.active}`}
+                    className={`${styles.toc}`}
                     onClick={e => {
                         e.currentTarget.classList.toggle(`${styles.active}`);
                         const ans = e.currentTarget.lastChild.lastChild;
