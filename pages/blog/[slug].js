@@ -22,7 +22,6 @@ import { BsArrowRight } from "react-icons/bs";
 import styles from "../../styles/blog.module.css";
 const Blog = ({ post, posts }) => {
     let imgs = [];
-    console.log(post?.featuredImage?.node.mediaDetails.sizes[1].sourceUrl);
     useEffect(() => {
         document.querySelector("code") !== null && hljs.highlightAll();
         imgs = document.querySelectorAll(".article img");

@@ -3,7 +3,6 @@ import Script from "next/script";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
-        console.log(ctx)
         const sheet = new ServerStyleSheet();
         const originalRenderPage = ctx.renderPage;
 
