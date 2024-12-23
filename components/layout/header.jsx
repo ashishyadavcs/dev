@@ -31,15 +31,17 @@ const Header = ({ progress }) => {
                             <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
                         </a>
                     </Link>
-                    <nav className="d-flex  mobilelinks" role="navigation">
-                        <ul
-                            itemScope
-                            itemType="http://www.schema.org/SiteNavigationElement"
-                            className="list-unstyled d-flex align-items-center mb-0"
-                        >
+                    <nav
+                        className="d-flex  mobilelinks"
+                        role="navigation"
+                        itemscope
+                        itemtype="http://schema.org/SiteNavigationElement"
+                    >
+                        <ul role="menubar" className="list-unstyled d-flex align-items-center mb-0">
                             {nav.map((li, i) => {
                                 return (
                                     <li
+                                        role="menuitem"
                                         itemProp="name"
                                         key={i}
                                         onClick={e =>

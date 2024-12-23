@@ -47,11 +47,7 @@ const Pagestyles = styled.div`
     z-index: 20;
     position: fixed;
     bottom: 10px;
-    ${media.sm} {
-        bottom: 30%;
-    }
-    left: 50%;
-    transform: translateX(-50%);
+    right: 8%;
     border-radius: 10px;
     iframe {
         border-radius: 8px;
