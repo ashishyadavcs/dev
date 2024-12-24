@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { Styled } from "@/styles/footer";
 import { mailTo } from "utils/common";
 import { config } from "public/data/config";
+import { usefullinks } from "public/data/nav";
 
 const Footer = () => {
     const goToTop = () => {
@@ -132,83 +133,16 @@ const Footer = () => {
                             <div className="col-md-4">
                                 <h3 className="smallheading">Useful Links</h3>
                                 <ul className="list-unstyled">
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/frontend-developer"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Frontend developer roadmap
-                                            </a>
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/video-tutorials"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                video tutorials
-                                            </a>
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/"}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Home
-                                            </a>
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/aboutus"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                About us
-                                            </a>
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/services"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Services
-                                            </a>
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/blog"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Blog
-                                            </a>
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/training"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Training
-                                            </a>
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/ashish-yadav"} prefetch={false}>
-                                            <a className="ml-1">
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Ashish Yadav
-                                            </a>
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href="/privacy-policy">
-                                            <a className="ml-1">
-                                                {" "}
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                Privacy policy
-                                            </a>
-                                        </Link>
-                                    </li>
+                                    {usefullinks.map(a => (
+                                        <li className="d-flex align-items-center">
+                                            <Link href={a.link} prefetch={false}>
+                                                <a className="ml-1">
+                                                    <FaChevronRight className="mr-1" size={15} />
+                                                    {a.text}
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="col-md-3">

@@ -116,7 +116,7 @@ export default function Home({ posts }) {
                         acceptedAnswerText: `Ashish Kumar`,
                     },
                 ]}
-            ></FAQPageJsonLd>
+            />
         </>
     );
 }

@@ -104,3 +104,26 @@ export const adminlinks = [
         text: "orders",
     },
 ];
+
+export const usefullinks = [
+    {
+        link: "/",
+        text: "frontend developer roadmap",
+    },
+    {
+        link: "/training",
+        text: "frontend training",
+    },
+    {
+        link: "/ashish-yadav",
+        text: "ashish yadav",
+    },
+ 
+    {
+        link:"/privacy-policy",
+        text:"privacy-policy"
+    } ,  {
+        link: "/faq",
+        text: "faq",
+    },
+];

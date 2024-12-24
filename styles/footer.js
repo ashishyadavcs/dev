@@ -26,7 +26,9 @@ export const Styled = {
             &:hover {
                 text-decoration: none;
                 color: #04ff04;
+                outline: 1px dashed;
             }
+            
         }
         li {
             margin-bottom: 10px;

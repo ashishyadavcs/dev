@@ -1,6 +1,5 @@
 import { media } from "config/device";
 import { shadow } from "config/shadow";
-
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { clickToCopy } from "utils/common";
@@ -68,13 +67,13 @@ const Page = () => {
             <div className="bios">
                 {[...Array(10)].map(bio => (
                     <div className="bio gradient-box">
-                        🌟 VIP Lifestyle Influencer 🌟<br></br>✨ Curator of Exclusivity | Luxury
-                        Enthusiast ✨<br></br>
-                        📍 [Your Location]<br></br>
-                        🔗 Founder, [Your Company/Brand]<br></br>
-                        📸 Creating Moments, Making Memories<br></br>
-                        🚀 Elevate Your Lifestyle with My Journey<br></br>
-                        💌 DM for Exclusive Collaborations
+                        {` 🌟 VIP Lifestyle Influencer 🌟
+                        ✨ Curator of Exclusivity | Luxury Enthusiast ✨
+                        📍 [Your Location]
+                        🔗 Founder, [Your Company/Brand]
+                        📸 Creating Moments, Making Memories
+                        🚀 Elevate Your Lifestyle with My Journey
+                        💌 DM for Exclusive Collaborations`}
                         <button
                             onClick={e => clickToCopy(e, e.currentTarget.parentElement.innerText)}
                         >
