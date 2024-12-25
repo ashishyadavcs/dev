@@ -104,9 +104,9 @@ const Page = () => {
                     height="415"
                     src="https://www.youtube.com/embed/Xoj57DyTk9k"
                     title="VPower777 APK download for android"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
+                    allowFullScreen
                 ></iframe>
                 <h2>Conclusion</h2>
                 <p>

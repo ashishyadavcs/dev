@@ -272,7 +272,10 @@ main {
   line-height: 1.4;
 }
 
-
+textarea{
+  font-family:inherit;
+  font-size: inherit;
+}
 .textarea {
   margin: 10px 0;
   width: 100%;

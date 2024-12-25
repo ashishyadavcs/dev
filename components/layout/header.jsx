@@ -34,8 +34,8 @@ const Header = ({ progress }) => {
                     <nav
                         className="d-flex  mobilelinks"
                         role="navigation"
-                        itemscope
-                        itemtype="http://schema.org/SiteNavigationElement"
+                        itemScope
+                        itemType="http://schema.org/SiteNavigationElement"
                     >
                         <ul role="menubar" className="list-unstyled d-flex align-items-center mb-0">
                             {nav.map((li, i) => {
