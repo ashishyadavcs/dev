@@ -11,13 +11,13 @@ const Chat = dynamic(() => import("../chat"), {
     ssr: false,
 });
 const Share = dynamic(() => import("@/components/ui/share"), {
-    ssr: false,
+    ssr: true,
 });
 const Orderform = dynamic(() => import("../orderform"), {
-    ssr: false,
+    ssr: true,
 });
 const Orderpop = dynamic(() => import("@/components/orderpop"), {
-    ssr: false,
+    ssr: true,
 });
 
 const Layout = ({ children, type = "default", config }) => {
