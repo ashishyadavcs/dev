@@ -1,18 +1,15 @@
 import { media } from "config/device";
 import { shadow } from "config/shadow";
-import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { clickToCopy } from "utils/common";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
+import dynamic from "next/dynamic";
+const EmojiPicker = dynamic(() => import("emoji-picker-react"), {
+    ssr: false,
+});
 
-const EmojiPicker = dynamic(
-    () => {
-        return import("emoji-picker-react");
-    },
-    { ssr: false }
-);
 const Page = () => {
     const [bio, setbio] = useState(`🌟 VIP Lifestyle Influencer 🌟
 ✨ Curator of Exclusivity | Luxury Enthusiast ✨
@@ -217,7 +214,7 @@ const Vipbio = styled.div`
             width: 70%;
             ${media.sm} {
                 width: 100%;
-                min-height: 250px;
+                min-height: 311px;
             }
             resize: none;
             outline: none;
