@@ -2,7 +2,6 @@ import { FAQPageJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 const Faq = ({ title, data, cssClass }) => {
-    
     useEffect(() => {
         const faqs = document.querySelectorAll(".faq ");
         faqs.forEach(el => {
@@ -20,7 +19,7 @@ const Faq = ({ title, data, cssClass }) => {
             <FAQPageJsonLd
                 mainEntity={data.map(el => ({ questionName: el.que, acceptedAnswerText: el.ans }))}
             />
-            <div className="faqs" itemScope itemType="https://schema.org/FAQPage">
+            <div className="faqs">
                 <style jsx global>{`
                     .faq .que:first-letter {
                         text-transform: capitalize;
@@ -70,30 +69,15 @@ const Faq = ({ title, data, cssClass }) => {
                 <h2>{title}</h2>
                 <ul className="list-unstyled">
                     {data.map((faq, i) => (
-                        <li
-                            className="faq"
-                            itemScope
-                            itemProp="mainEntity"
-                            itemType="https://schema.org/Question"
-                            key={i}
-                        >
+                        <li className="faq" key={i}>
                             <FiChevronDown className="icon" size={18} />
                             <div>
                                 <h3
-                                    itemProp="name"
                                     className="que"
                                     dangerouslySetInnerHTML={{ __html: `${i + 1}. ${faq.que}` }}
-                                ></h3>
-                                <div
-                                    className="ans"
-                                    itemScope
-                                    itemProp="acceptedAnswer"
-                                    itemType="https://schema.org/Answer"
-                                >
-                                    <div
-                                        itemProp="text"
-                                        dangerouslySetInnerHTML={{ __html: faq.ans }}
-                                    />
+                                />
+                                <div className="ans">
+                                    <div dangerouslySetInnerHTML={{ __html: faq.ans }} />
                                 </div>
                             </div>
                         </li>
