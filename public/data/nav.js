@@ -20,10 +20,6 @@ export const nav = [
         text: "projects",
     },
     {
-        url: "/services",
-        text: "services",
-    },
-    {
         url: "/ai",
         text: "Ai chat",
         class: "new",
@@ -118,7 +114,10 @@ export const usefullinks = [
         link: "/ashish-yadav",
         text: "ashish yadav",
     },
- 
+    {
+        link: "/ui",
+        text: "ui source codes",
+    },
     {
         link:"/privacy-policy",
         text:"privacy-policy"

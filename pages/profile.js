@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -8,6 +9,7 @@ const Profile = ({ user }) => {
     const updateProfile = async () => {};
     return (
         <ProfileCSS className="container py-4">
+            <NextSeo noindex />
             <h1>Profile details</h1>
             <form className="d-flex flex-column">
                 <label className="profile-img">
