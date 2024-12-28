@@ -1,5 +1,5 @@
 import { media } from "config/device";
-import { shadow } from "config/shadow";
+import { shadow } from "config/color";
 import styled from "styled-components";
 import { clickToCopy } from "utils/common";
 import { useEffect, useState } from "react";

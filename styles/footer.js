@@ -24,11 +24,11 @@ export const Styled = {
             text-decoration: none;
             transition: all 0.3s ease-in-out;
             &:hover {
+                width: max-content;
                 text-decoration: none;
                 color: #04ff04;
                 outline: 1px dashed;
             }
-            
         }
         li {
             margin-bottom: 10px;

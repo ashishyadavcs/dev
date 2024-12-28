@@ -266,11 +266,10 @@ main {
 .themebtn:active {
   transform: scale(1.1);
 }
-.layout p{margin-bottom:10px;}
-.layout :where(li, p) {
-  color: #333;
-  line-height: 1.4;
+.layout p{margin-bottom:10px;
+line-height: 1.4;
 }
+
 
 textarea{
   font-family:inherit;

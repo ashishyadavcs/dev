@@ -2,7 +2,7 @@ import Banner from "@/components/web/banner";
 import styled from "styled-components";
 import Image from "next/image";
 import { media } from "config/device";
-import { shadow } from "config/shadow";
+import { shadow } from "config/color";
 import { projects } from "public/data/projects";
 import { NextSeo } from "next-seo";
 const Page = () => {

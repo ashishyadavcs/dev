@@ -17,6 +17,7 @@ import { Styled } from "@/styles/footer";
 import { mailTo } from "utils/common";
 import { config } from "public/data/config";
 import { usefullinks } from "public/data/nav";
+import Container from "../Container";
 
 const Footer = () => {
     const goToTop = () => {
@@ -51,7 +52,7 @@ const Footer = () => {
             </style>
             <Styled.footer className="pt-4 position-relative">
                 {config.contacts && (
-                    <div className="container">
+                    <Container className="container">
                         <div className="row" role="navigation">
                             <div className="col-md-4">
                                 <div className="mb-3">
@@ -161,7 +162,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </Container>
                 )}
                 <div className="sub-footer d-flex justify-content-center align-items-center">
                     <small className="text-secondary text-center container p-3 text-center d-block">
