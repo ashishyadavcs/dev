@@ -1,4 +1,4 @@
-const Orderpop = ({ Comp }) => {
+const Orderpop = props => {
     return (
         <div
             onClick={e =>
@@ -6,7 +6,7 @@ const Orderpop = ({ Comp }) => {
             }
             className={`orderpop`}
         >
-            <Comp />
+            {props.children}
         </div>
     );
 };

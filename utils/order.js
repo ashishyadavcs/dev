@@ -1,11 +1,12 @@
 import { toast } from "react-toastify";
 import { uploadFile } from "./upload";
 export const createOrder = async (e, router, user) => {
-    if (!e.target.file.files[0]) {
+    const uploadedFile = e.target.file.files[0];
+    if (!uploadedFile) {
         toast.error("file is required");
         return;
     }
-    await uploadFile(e.target.file.files[0], async function callback(file) {
+    await uploadFile(uploadedFile, async file => {
         const formdata = {
             description: e.target.description.value,
             file: file.url,

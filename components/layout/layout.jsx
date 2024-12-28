@@ -49,17 +49,14 @@ const Layout = ({ children, type = "default", config }) => {
                     <main> {children}</main>
                     <Promotion />
                     <Footer />
-                    <Orderpop Comp={Orderform} />
+                    <Orderpop>
+                        <Orderform />
+                    </Orderpop>
                     <div className="backlink sub-footer">
                         <a href="https://calculatorr.net">calculator</a>
                         <a href="https://physicsclass.co">physicsclass</a>
                         <a href="https://jsonviewer.guru">json viewer</a>
                     </div>
-                    {![
-                        "/instagram-vip-bio",
-                        
-                    ].includes(router.pathname) && <VideoAds vid={"R1b7qSfsQMk"} />}
-                    
                 </div>
             ) : (
                 <main>

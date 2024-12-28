@@ -1,3 +1,5 @@
+import {contact} from "./contact";
+
 export const nav = [
     {
         url: "/",
@@ -113,6 +115,14 @@ export const usefullinks = [
     {
         link: "/ashish-yadav",
         text: "ashish yadav",
+    },
+    {
+        link: contact.topmate,
+        text: "topmate",
+    },
+    {
+        link: "/services",
+        text: "services",
     },
     {
         link: "/ui",

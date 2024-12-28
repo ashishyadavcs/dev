@@ -12,7 +12,7 @@ export const uploadFile = async (file, cb) => {
     if (result.success) {
         cb(result.file);
     } else {
-        toast.error(result.message);
+        toast.error("upload failed");
         throw result.message;
     }
 };
