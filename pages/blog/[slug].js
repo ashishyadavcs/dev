@@ -20,6 +20,7 @@ const Ashish = dynamic(() => import("@/components/ashish"), {
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import styles from "../../styles/blog.module.css";
+import Comments from "@/components/blog/comment";
 const Blog = ({ post, posts }) => {
     let imgs = [];
     useEffect(() => {
@@ -151,7 +152,8 @@ const Blog = ({ post, posts }) => {
                                             ))}
                                         </ul>
                                     </div>
-                                    <Fbcomment />
+                                    {/* <Fbcomment /> */}
+                                    <Comments post={post}/>
                                     <h2 className="my-3">About Author</h2>
                                     <Ashish width="100%" />
                                 </div>
