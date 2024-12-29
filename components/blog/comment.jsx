@@ -48,9 +48,9 @@ const Comments = ({ post }) => {
                 <input name="name" type="text" placeholder="name" />
                 <input name="email" type="email" placeholder="your email" />
                 <textarea
-                    // minLength={10}
-                    // autoCorrect={true}
-                    // required
+                    minLength={10}
+                    autoCorrect={true}
+                    required
                     className="textarea"
                     name="comment"
                     type="comment"
