@@ -39,7 +39,7 @@ const Comments = ({ post }) => {
                 items: result.comments.nodes,
             }));
         })();
-    }, []);
+    }, [post.slug]);
 
     return (
         <CommentStyle>
@@ -59,9 +59,9 @@ const Comments = ({ post }) => {
                 <button className="btn">add comment</button>
             </form>
             <div className="comment-list">
-                <p>{comments?.count} comments so far</p>
+            {comments?.count>0 && <p>{comments?.count} comments so far</p>}
                 <ul>
-                    {comments?.items.length &&
+                    {comments?.items.length>0 &&
                         [...comments?.items].map(c => (
                             <li key={c?.id}>
                                 <b> by - {c.author.node.name}</b>
@@ -84,8 +84,8 @@ const CommentStyle = styled.div`
         margin: 10px 0 0;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 1px 2px #666;
-        padding: 20px;
+        /* box-shadow: 0 1px 2px #666; */
+        padding: 20px 0;
     }
     input {
         width: 100%;
