@@ -1,10 +1,10 @@
 import { getCategoryDetails, getCategorySlugs, getPostList } from "lib/posts";
 import { NextSeo } from "next-seo";
-import styles from "@/styles/blog.module.css";
 import { useRouter } from "next/router";
 import Post from "@/components/post";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Blogstyle from "@/styles/blog.styled";
 const Share = dynamic(() => import("@/components/ui/share"), {
     ssr: false,
 });
@@ -13,7 +13,7 @@ const Blog = ({ posts, category }) => {
     return (
         <>
             {category && (
-                <main className={`${styles.blog} mainscrollbar mb-4`}>
+                <Blogstyle className={`blog mainscrollbar mb-4`}>
                     <NextSeo
                         title={`Frontendzone | ${category.name}`}
                         additionalMetaTags={[
@@ -25,14 +25,14 @@ const Blog = ({ posts, category }) => {
                         canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog/category/${category?.slug}`}
                     />
                     <Share />
-                    <div className={styles.postbanner}>
+                    <div className={"postbanner"}>
                         <h1 className="p-2">{category.name}</h1>
                     </div>
                     <div className="container my-4">
-                        <div className={styles.items}>
+                        <div className="items">
                             {posts?.length > 0 &&
                                 posts?.map(post => {
-                                    return <Post key={post._id} post={post} styles={styles} />;
+                                    return <Post key={post._id} post={post}  />;
                                 })}
                         </div>
                         {posts.length == 0 && (
@@ -44,7 +44,7 @@ const Blog = ({ posts, category }) => {
                             </div>
                         )}
                     </div>
-                </main>
+                </Blogstyle>
             )}
         </>
     );

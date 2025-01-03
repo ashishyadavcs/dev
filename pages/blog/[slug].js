@@ -19,8 +19,8 @@ const Ashish = dynamic(() => import("@/components/ashish"), {
 
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
-import styles from "../../styles/blog.module.css";
 import Comments from "@/components/blog/comment";
+import Blogstyle from "@/styles/blog.styled";
 const Blog = ({ post, posts }) => {
     let imgs = [];
     useEffect(() => {
@@ -32,7 +32,7 @@ const Blog = ({ post, posts }) => {
     return (
         <>
             {post && (
-                <div className={`${styles.blog} mainscrollbar mb-4`}>
+                <Blogstyle className={`blog mainscrollbar mb-4`}>
                     {post?.title && (
                         <>
                             <NextSeo
@@ -134,12 +134,12 @@ const Blog = ({ post, posts }) => {
                                     <h1>{post?.title}</h1>
 
                                     <div
-                                        className={` article ${styles.article}`}
+                                        className={` article`}
                                         dangerouslySetInnerHTML={{ __html: post.content }}
                                     ></div>
 
-                                    <div className={styles.category}>
-                                        <ul className={styles.catlist}>
+                                    <div className="category">
+                                        <ul className="catlist">
                                             {post.categories.nodes.map(cat => (
                                                 <li>
                                                     <Link href={`/blog/category/${cat.name}`}>
@@ -169,7 +169,7 @@ const Blog = ({ post, posts }) => {
                     <div className="container my-4">
                         <Relatedposts posts={posts} />
                     </div>
-                </div>
+                </Blogstyle>
             )}
         </>
     );

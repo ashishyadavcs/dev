@@ -1,5 +1,4 @@
 import { createComment, getComments } from "lib/comment";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";

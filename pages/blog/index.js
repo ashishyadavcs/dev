@@ -1,6 +1,4 @@
-
-import styles from "@/styles/blog.module.css";
-import { toast } from "react-toastify";
+import Blogstyle from "@/styles/blog.styled";
 import Sidebar from "@/components/sidebar";
 import Post from "@/components/post";
 import { getCategorySlugs, getPostList } from "lib/posts";
@@ -9,7 +7,7 @@ import Loadmore from "@/components/loadmorepost";
 import Inpostad from "@/components/ads/inpostad";
 const Blog = ({ posts, categories, data }) => {
     return (
-        <div className={`${styles.blog} container my-4`}>
+        <Blogstyle className={`blog container my-4`}>
             <NextSeo
                 title="Frontendzone blog"
                 canonical={`${process.env.NEXT_PUBLIC_APP_URL}/blog`}
@@ -24,7 +22,7 @@ const Blog = ({ posts, categories, data }) => {
             />
             <div className="row">
                 <div className="col-md-8">
-                    <div className={styles.items}>
+                    <div className={"items"}>
                         <Post
                             post={{
                                 title: "Frontend Developer Roadmap, Top 5 Ultimate Guidance To Be A Frontend Developer",
@@ -32,17 +30,13 @@ const Blog = ({ posts, categories, data }) => {
                                 url: "/frontend-developer",
                                 date: "Tue Oct 03 2023",
                             }}
-                            styles={styles}
+                            
                         />
                         {posts?.length > 0 &&
                             posts?.map((post, i) => {
                                 return (
                                     <div key={post.slug}>
-                                        {i % 3 == 0 ? (
-                                            <Inpostad />
-                                        ) : (
-                                            <Post post={post} styles={styles} />
-                                        )}
+                                        {i % 3 == 0 ? <Inpostad /> : <Post post={post} />}
                                     </div>
                                 );
                             })}
@@ -50,10 +44,10 @@ const Blog = ({ posts, categories, data }) => {
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <Sidebar categories={categories} styles={styles} />
+                    <Sidebar categories={categories} />
                 </div>
             </div>
-        </div>
+        </Blogstyle>
     );
 };
 export default Blog;
