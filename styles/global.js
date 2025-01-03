@@ -101,8 +101,7 @@ h3,
 h4,
 h5 {
   scroll-margin-top: 80px;
-  margin-bottom:10px;
-
+  margin-bottom:20px;
 }
 
 :where(h1, h2, h3)::first-letter {
@@ -267,13 +266,15 @@ main {
 .themebtn:active {
   transform: scale(1.1);
 }
-.layout p{margin-bottom:10px;}
-.layout :where(li, p) {
-  color: #333;
-  line-height: 1.4;
+.layout p{margin-bottom:10px;
+line-height: 1.4;
 }
 
 
+textarea{
+  font-family:inherit;
+  font-size: inherit;
+}
 .textarea {
   margin: 10px 0;
   width: 100%;
@@ -639,7 +640,24 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-
+//gradient border
+.gradient{
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to right, #ff00e0, #fff7a2, #9fedff)!important;
+  &::before{
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: calc(100% - 3px);
+    width: calc(100% - 3px);
+    background: #fff;
+    border-radius: inherit;
+    z-index: -1;
+  }
+}
 
 ${media.sm}{
   body.share footer{

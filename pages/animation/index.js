@@ -1,5 +1,5 @@
 import { media } from "config/device";
-import React from "react";
+
 import styled from "styled-components";
 const Page = () => {
     return (

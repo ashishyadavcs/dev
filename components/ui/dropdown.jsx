@@ -22,7 +22,7 @@ const Dropdown = ({ links }) => {
                 {links.map(el => (
                     <li key={el.text}>
                         <Link href={el.link}>
-                            <a>{el.text}</a>
+                            {el.text}
                         </Link>
                     </li>
                 ))}

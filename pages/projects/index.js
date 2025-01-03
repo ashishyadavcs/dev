@@ -2,11 +2,18 @@ import Banner from "@/components/web/banner";
 import styled from "styled-components";
 import Image from "next/image";
 import { media } from "config/device";
-import { shadow } from "config/shadow";
+import { shadow } from "config/color";
 import { projects } from "public/data/projects";
+import { NextSeo } from "next-seo";
 const Page = () => {
     return (
         <Pages>
+            <NextSeo
+                title="My Previous Works - frontend development"
+                description={`
+                Below, you’ll find a selection of my work that best represents my skills in frontend development. Each project is a testament to my commitment to quality, innovation, creativity, efficiency. and showcases the breadth of my expertise.
+                `}
+            />
             <Banner
                 image={{
                     src: "/images/projects.jpg",

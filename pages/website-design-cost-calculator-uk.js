@@ -49,8 +49,8 @@ const Page = () => {
                         </label>
                         <button>automatic calculated</button>
                     </form>
-                    <Link href="/ashish-yadav">
-                        <a className="theme-btn">contact for website development 👨‍💻</a>
+                    <Link href="/ashish-yadav" className="theme-btn">
+                        contact for website development 👨‍💻
                     </Link>
                     <div className="webd">
                         <Image

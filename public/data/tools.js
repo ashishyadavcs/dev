@@ -8,6 +8,10 @@ const tools = [
         href: "/image-to-black-and-white",
     },
     {
+        text: "Html formatter",
+        href: "/formatter/html",
+    },
+    {
         text: "css button generator",
         href: "/css/button-generator",
     },

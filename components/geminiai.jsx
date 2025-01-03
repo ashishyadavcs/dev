@@ -11,7 +11,43 @@ const Geminiai = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const formatText = text => {
-        return text.replaceAll(/`([^`]+)`/g, `<code>$1</code>`);
+        const lines = text.split("\n");
+
+        const container = document.createElement("div");
+
+        let currentSection;
+
+        lines.forEach(line => {
+            if (line.startsWith("***") && line.endsWith("***")) {
+                // Create a new heading
+                const heading = document.createElement("h2");
+                heading.textContent = line.replace(/\*\*\*/g, "").trim();
+                heading.style.color = "#333";
+                container.appendChild(heading);
+            } else if (line.startsWith("*")) {
+                // Create a new paragraph or list item
+                const text = line.replace(/^\*\s*/, "").trim();
+
+                if (line.startsWith("* ") && currentSection && currentSection.tagName === "UL") {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = text;
+                    currentSection.appendChild(listItem);
+                } else if (line.startsWith("* ") && !currentSection) {
+                    currentSection = document.createElement("ul");
+                    const listItem = document.createElement("li");
+                    listItem.textContent = text;
+                    currentSection.appendChild(listItem);
+                    container.appendChild(currentSection);
+                } else {
+                    const paragraph = document.createElement("p");
+                    paragraph.textContent = text;
+                    paragraph.style.margin = "10px 0";
+                    container.appendChild(paragraph);
+                    currentSection = null;
+                }
+            }
+        });
+        return container.innerHTML;
     };
     const getresult = async e => {
         e.preventDefault();
@@ -31,15 +67,12 @@ const Geminiai = () => {
 
             setdata(result.data);
             btn.innerText = "generate answer";
-            console.log(result)
-            if(!result.success){
+            if (!result.success) {
                 toast.error("model is busy try after sometimes...");
             }
         } catch (err) {
             btn.innerText = "generate answer";
-            toast.error("model is busy try afetr sometimes...");
-            console.log(err);
-        }
+            toast.error("model is busy try afetr sometimes...");        }
     };
 
     return (
@@ -107,5 +140,8 @@ const AIStyle = styled.div`
         background: #f1f1f1;
         padding: 20px;
         border-radius: 20px;
+        ul {
+            list-style: inside;
+        }
     }
 `;

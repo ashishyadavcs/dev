@@ -14,12 +14,6 @@ const Whatsapp = ({ title }) => {
     };
     return (
         <>
-            {/* <FaShare
-        onClick={share}
-        color="#fff"
-        size={38}
-        className={`${styles.share} pointer`}
-      /> */}
             <a href="" style={{ display: "none" }}></a>
             <Cta
                 onClick={e => {

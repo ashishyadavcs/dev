@@ -4,18 +4,19 @@ import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
 import Footer from "./footer";
 import { LoadFont } from "utils/common";
+import Promotion from "../Promotion";
 
 const Chat = dynamic(() => import("../chat"), {
     ssr: false,
 });
 const Share = dynamic(() => import("@/components/ui/share"), {
-    ssr: false,
+    ssr: true,
 });
 const Orderform = dynamic(() => import("../orderform"), {
-    ssr: false,
+    ssr: true,
 });
 const Orderpop = dynamic(() => import("@/components/orderpop"), {
-    ssr: false,
+    ssr: true,
 });
 
 const Layout = ({ children, type = "default", config }) => {
@@ -23,7 +24,7 @@ const Layout = ({ children, type = "default", config }) => {
     config = {
         fontFamilyCSS:
             config?.fontFamilyCSS ||
-            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap",
+            "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
     };
     return (
         <>
@@ -45,8 +46,11 @@ const Layout = ({ children, type = "default", config }) => {
                     <Header progress={true} />
 
                     <main> {children}</main>
+                    <Promotion />
                     <Footer />
-                    <Orderpop Comp={Orderform} />
+                    <Orderpop>
+                        <Orderform />
+                    </Orderpop>
                     <div className="backlink sub-footer">
                         <a href="https://calculatorr.net">calculator</a>
                         <a href="https://physicsclass.co">physicsclass</a>
@@ -54,7 +58,10 @@ const Layout = ({ children, type = "default", config }) => {
                     </div>
                 </div>
             ) : (
-                <main> {children}</main>
+                <main>
+                    {children}
+                    <Promotion />
+                </main>
             )}
 
             {router.query.chat == 1 && <Chat />}

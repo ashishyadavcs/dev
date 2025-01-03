@@ -19,8 +19,8 @@ const Page = () => {
                 ></lottie-player>
             </div>
             <h1 className="text-center">Web development quizes</h1>
-            <Link href="/quiz/css-quiz">
-                <a className="theme-btn mt-4 d-block mx-auto">Start quiz</a>
+            <Link href="/quiz/css-quiz" className="theme-btn mt-4 d-block mx-auto">
+                Start quiz
             </Link>
             <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></Script>
         </Pages>

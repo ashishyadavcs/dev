@@ -2,7 +2,7 @@
     height: 300px;
     margin: 1rem 0;
 }
-.sidebarAd:not(:has(div[title="Advertisement"])) {
+.sidebarAd:not(:has(ins[data-ad-status="filled"])) {
     background: linear-gradient(
         90deg,
         var(--loader-background-color) 25%,

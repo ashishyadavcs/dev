@@ -16,6 +16,8 @@ import { useEffect } from "react";
 import { Styled } from "@/styles/footer";
 import { mailTo } from "utils/common";
 import { config } from "public/data/config";
+import { usefullinks } from "public/data/nav";
+import Container from "../Container";
 
 const Footer = () => {
     const goToTop = () => {
@@ -50,7 +52,7 @@ const Footer = () => {
             </style>
             <Styled.footer className="pt-4 position-relative">
                 {config.contacts && (
-                    <div className="container">
+                    <Container className="container">
                         <div className="row" role="navigation">
                             <div className="col-md-4">
                                 <div className="mb-3">
@@ -131,65 +133,16 @@ const Footer = () => {
                             <div className="col-md-4">
                                 <h3 className="smallheading">Useful Links</h3>
                                 <ul className="list-unstyled">
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/frontend-developer"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Frontend developer roadmap
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/video-tutorials"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            video tutorials
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/"}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Home
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/aboutus"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            About us
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/services"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Services
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/blog"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Blog
-                                        </Link>
-                                    </li>
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/training"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Training
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href={"/ashish-yadav"} prefetch={false}>
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Ashish Yadav
-                                        </Link>
-                                    </li>
-
-                                    <li className="d-flex align-items-center">
-                                        <Link href="/privacy-policy">
-                                            {" "}
-                                            <FaChevronRight className="mr-1" size={15} />
-                                            Privacy policy
-                                        </Link>
-                                    </li>
+                                    {usefullinks.map((a,i) => (
+                                        <li key={i} className="d-flex align-items-center">
+                                            <Link className="ml-1" href={a.link} prefetch={false}>
+                                                <>
+                                                    <FaChevronRight className="mr-1" size={15} />
+                                                    {a.text}
+                                                </>
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="col-md-3">
@@ -198,15 +151,17 @@ const Footer = () => {
                                     {tools.map((t, i) => (
                                         <li key={i} className="ml-1">
                                             <Link href={t.href} prefetch={false}>
+                                                <>
                                                 <FaChevronRight className="mr-1" size={15} />
                                                 {t.text}
+                                                </>
                                             </Link>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </Container>
                 )}
                 <div className="sub-footer d-flex justify-content-center align-items-center">
                     <small className="text-secondary text-center container p-3 text-center d-block">

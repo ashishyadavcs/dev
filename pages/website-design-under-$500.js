@@ -1,6 +1,6 @@
 import Ashish from "@/components/ashish";
 import Toc from "@/components/tableofcontent";
-import React from "react";
+
 import styles from "@/styles/website.module.css";
 import { NextSeo } from "next-seo";
 import Whatsapp from "@/components/whatsapp";

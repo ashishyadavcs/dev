@@ -1,5 +1,5 @@
 import Script from "next/script";
-import React from "react";
+
 
 const Facebookpage = () => {
     const pageid = "frontendzonedotcom";

@@ -4,7 +4,7 @@ import Toc from "./tableofcontent";
 import Inpostad from "./ads/inpostad";
 import Facebookpage from "./facebookpage";
 import Blogsearch from "./blog-search";
-const Sidebar = ({ styles, categories }) => {
+const Sidebar = ({ categories }) => {
     return (
         <div className={`mb-2 sticky`}>
             <Blogsearch />
@@ -12,7 +12,7 @@ const Sidebar = ({ styles, categories }) => {
             {categories?.length > 0 && (
                 <>
                     <h2 className="mt-4 mb-3 related">Categories</h2>
-                    <ul className={`list-unstyled d-flex flex-wrap ${styles.tag}`}>
+                    <ul className={`list-unstyled d-flex flex-wrap tag`}>
                         {categories.map(tag => {
                             return (
                                 <li key={Math.random()}>

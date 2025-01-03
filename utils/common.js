@@ -1,6 +1,7 @@
 import { contact } from "public/data/contact";
 import { ismobile } from "./device";
 import { message } from "./message";
+import { useRouter } from "next/router";
 
 export const openform = () => {
     document.querySelector(".orderpop").classList.add("active");
@@ -99,3 +100,8 @@ export const LoadFont = ({ config }) => (
 );
 
 export const mailTo = email => `https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=${email}`;
+
+export const excludPath = arr => {
+    if (typeof window == "undefined") return;
+    return !arr.includes(window.location.pathname);
+};

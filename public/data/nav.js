@@ -1,3 +1,5 @@
+import {contact} from "./contact";
+
 export const nav = [
     {
         url: "/",
@@ -20,13 +22,9 @@ export const nav = [
         text: "projects",
     },
     {
-        url: "/services",
-        text: "services",
-    },
-    {
         url: "/ai",
         text: "Ai chat",
-        class:"new",
+        class: "new",
     },
     {
         url: "/blog",
@@ -102,5 +100,39 @@ export const adminlinks = [
     {
         link: "/admin/orders",
         text: "orders",
+    },
+];
+
+export const usefullinks = [
+    {
+        link: "/",
+        text: "frontend developer roadmap",
+    },
+    {
+        link: "/training",
+        text: "frontend training",
+    },
+    {
+        link: "/ashish-yadav",
+        text: "ashish yadav",
+    },
+    {
+        link: contact.topmate,
+        text: "topmate",
+    },
+    {
+        link: "/services",
+        text: "services",
+    },
+    {
+        link: "/ui",
+        text: "ui source codes",
+    },
+    {
+        link:"/privacy-policy",
+        text:"privacy-policy"
+    } ,  {
+        link: "/faq",
+        text: "faq",
     },
 ];

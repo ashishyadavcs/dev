@@ -3,6 +3,7 @@ export default async function handler(req, res) {
     const { slug } = req.query;
     const option = {
         method: req.method,
+        credentials: "include",
         headers: {
             "Content-Type": "application/json",
             cookie: req.headers.cookie,

@@ -5,7 +5,7 @@ const Blogpost = ({ posts }) => {
     return (
         <>
             {posts.length > 0 ? (
-                posts.map((post, i) => <Post key={i} styles={""} post={post} />)
+                posts.map((post, i) => <Post key={i} post={post} />)
             ) : (
                 <div className="my-4">
                     <FiLoader size={30} className="d-block mx-auto" />

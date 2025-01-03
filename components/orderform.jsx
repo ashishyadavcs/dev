@@ -33,7 +33,7 @@ const Orderform = ({ title }) => {
                         className="textarea"
                         required
                         name="description"
-                    ></textarea>
+                    />
                     <label>Reference website image or urls</label>
                     <input
                         accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
@@ -48,15 +48,15 @@ const Orderform = ({ title }) => {
                             );
                             e.target.nextElementSibling.setAttribute("height", "auto");
                         }}
-                    ></input>
-                    <iframe height={0} frameBorder="none" src=""></iframe>
+                    />
+                    <iframe height={0} frameBorder="none" src=""/>
                     <input
                         name="mobile"
                         className="w-100"
                         maxLength={10}
                         type="tel"
                         placeholder="whatsapp number"
-                    ></input>
+                    />
                     <button className="my-1 theme-btn d-block w-100">submit</button>
 
                     <h3 className="mt-4">

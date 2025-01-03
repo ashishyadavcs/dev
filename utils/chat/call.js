@@ -27,13 +27,13 @@ export const callTo = (local, remote, id) => {
                         });
                     },
                     function (err) {
-                        console.log("Failed to get local stream", err);
+                        // console.log("Failed to get local stream", err);
                     }
                 );
             });
         },
         function (err) {
-            console.log("Failed to get local stream", err);
+            // console.log("Failed to get local stream", err);
         }
     );
 };
@@ -42,7 +42,7 @@ export const endcall = () => {
     window.close();
 };
 export const mute = (e, ref) => {
-    console.log(ref.current.muted);
+    // console.log(ref.current.muted);
     if (ref.current.muted) {
         ref.current.muted = false;
         e.target.classList.add("muted");

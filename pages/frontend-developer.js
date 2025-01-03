@@ -2,7 +2,7 @@ import Inpostad from "@/components/ads/inpostad";
 import Faq from "@/components/faq";
 import { media } from "config/device";
 import Image from "next/image";
-import React from "react";
+
 import styled from "styled-components";
 import { TiPointOfInterest } from "react-icons/ti";
 import { GiProgression } from "react-icons/gi";
@@ -327,10 +327,9 @@ const Page = ({ posts }) => {
                         height="315"
                         src="https://www.youtube.com/embed/nFQ22Wb6Qe8?si=Vrmb8YRJ1dcu2a0h"
                         title="YouTube video player"
-                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                    ></iframe>
+                        allowFullScreen
+                    />
 
                     <h2>The Evolving Landscape</h2>
                     <p>
@@ -417,8 +416,8 @@ const Page = ({ posts }) => {
             <Fbcomment />
 
             <Relatedposts posts={posts} />
-            <Link href="/blog">
-                <a className="theme-btn d-block mx-auto text-center">Read More Blogs</a>
+            <Link href="/blog" className="theme-btn d-block mx-auto text-center">
+                Read More Blogs
             </Link>
         </Article>
     );

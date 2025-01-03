@@ -1,4 +1,4 @@
-import React from "react";
+
 import Services from "../components/service";
 
 import { openform } from "../utils/common";

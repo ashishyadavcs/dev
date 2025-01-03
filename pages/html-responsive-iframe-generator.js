@@ -486,7 +486,7 @@ const Page = () => {
                             {tools.map((t, i) => (
                                 <li key={i}>
                                     <Link href={t.href}>
-                                        <a>{t.text}</a>
+                                        {t.text}
                                     </Link>
                                 </li>
                             ))}

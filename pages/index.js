@@ -9,6 +9,8 @@ import { FAQPageJsonLd, ProductJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { animateList } from "utils/animation";
 import { Bannerstyle } from "@/styles/banner";
+import Promotion from "@/components/Promotion";
+import Blogpost from "@/components/blogpost";
 
 export default function Home({ posts }) {
     const postss = [
@@ -26,7 +28,7 @@ export default function Home({ posts }) {
         "Exercise with real world use case",
         "Cover all frontend topics",
         "Prepare for Interview",
-        "Get Placed"
+        "Get Placed",
     ];
     useEffect(() => {
         animateList(".hiw li");
@@ -72,11 +74,7 @@ export default function Home({ posts }) {
                             </ul>
 
                             <Link href="/blog">
-                            <Styled.Cta
-                                
-                            >
-                                Start Learning Now
-                            </Styled.Cta>
+                                <Styled.Cta>Start Learning Now</Styled.Cta>
                             </Link>
                         </div>
                         <div className="col-md-5 col-12 d-flex justify-content-end">
@@ -94,22 +92,16 @@ export default function Home({ posts }) {
                 </div>
             </Styled.Banner>
 
-            
-            <Bannerstyle>
-                <div className="col-md-6 mx-auto">
-                    <p className="emoji">👨‍💻</p>
-                    <h1>Frontend development</h1>
-                    <p>
-                        Learn frontend development with examples and practical exercise of
-                        HTML,CSS,JS,React.js.
-                    </p>
-                    <ul>
-                        <li>
-                            <Link href="/free-html-css-templates">Free Website templates</Link>
-                        </li>
-                    </ul>
+            <Styled.Landing>
+                <div className="container">
+                    <h2 className="text-center latestblog my-4">Latest blog posts</h2>
+                    <Blogpost posts={postss} />
+                    <Link href="/blog" className="theme-btn d-block mx-auto text-center">
+                        Read More Blogs
+                    </Link>
                 </div>
-            </Bannerstyle>
+            </Styled.Landing>
+            
             <Whatsapp />
             <FAQPageJsonLd
                 mainEntity={[
@@ -123,7 +115,7 @@ export default function Home({ posts }) {
                         acceptedAnswerText: `Ashish Kumar`,
                     },
                 ]}
-            ></FAQPageJsonLd>
+            />
         </>
     );
 }

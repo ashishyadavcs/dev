@@ -1,102 +1,20 @@
 import { media } from "config/device";
-import { shadow } from "config/shadow";
-
-import { NextSeo } from "next-seo";
+import { shadow } from "config/color";
 import styled from "styled-components";
 import { clickToCopy } from "utils/common";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
+import dynamic from "next/dynamic";
+const EmojiPicker = dynamic(() => import("emoji-picker-react"), {
+    ssr: true,
+});
 
-const EmojiPicker = dynamic(
-    () => {
-        return import("emoji-picker-react");
-    },
-    { ssr: false }
-);
-const Page = () => {
-    const [bio, setbio] = useState(`🌟 VIP Lifestyle Influencer 🌟
-✨ Curator of Exclusivity | Luxury Enthusiast ✨
-📍 [Your Location]
-🔗 Founder, [Your Company/Brand]
-📸 Creating Moments, Making Memories
-🚀 Elevate Your Lifestyle with My Journey
-💌 DM for Exclusive Collaborations
-    `);
-    useEffect(() => {
-        document.querySelector(".bio-input").focus();
-    }, [bio]);
-
-    const setEmoji = e => {
-        setbio(v => v + e.emoji);
-    };
-
-    return (
-        <Vipbio className="container py-4">
-            <NextSeo
-                title="Best 540+ Instagram Bio For Boys (2024) | Attitude & Stylish Bio"
-                description=" A VIP bio on Instagram is a personal or professional description in the bio section
-                of an Instagram profile that conveys a sense of exclusivity, importance, or
-                uniqueness."
-            />
-            <h1 className="text-center d-flex align-items-center">
-                <img src="/images/insta.svg" />
-                Instagram VIP Bio generator
-            </h1>
-
-            <div className="generator">
-                <span className="label">your insta bio</span>
-                <textarea
-                    placeholder="Write your instagram bio..."
-                    className="bio-input"
-                    value={bio}
-                    onChange={e => setbio(e.target.value)}
-                ></textarea>
-                <EmojiPicker
-                    lazyLoadEmojis
-                    emojiStyle="facebook"
-                    onEmojiClick={e => setEmoji(e)}
-                    className="picker"
-                />
-            </div>
-            <p className="sub-heading">
-                If you are looking for an Instagram vip bio to edit your bio. Then friends you are
-                in the right place here I will provide a premium Instagram vip bio with which you
-                can set your Instagram profile to look like waw.
-            </p>
-
-            <div className="bios">
-                {[...Array(10)].map(bio => (
-                    <div className="bio gradient-box">
-                        🌟 VIP Lifestyle Influencer 🌟<br></br>✨ Curator of Exclusivity | Luxury
-                        Enthusiast ✨<br></br>
-                        📍 [Your Location]<br></br>
-                        🔗 Founder, [Your Company/Brand]<br></br>
-                        📸 Creating Moments, Making Memories<br></br>
-                        🚀 Elevate Your Lifestyle with My Journey<br></br>
-                        💌 DM for Exclusive Collaborations
-                        <button
-                            onClick={e => clickToCopy(e, e.currentTarget.parentElement.innerText)}
-                        >
-                            copy
-                        </button>
-                    </div>
-                ))}
-            </div>
-            <Image
-                layout="responsive"
-                objectFit="contain"
-                height={500}
-                width={300}
-                alt="instagram vip bio generator"
-                src="/images/instagram-vip-bio.jpg"
-            />
-        </Vipbio>
-    );
-};
-
-export default Page;
 const Vipbio = styled.div`
+    .image {
+        border-radius: 8px;
+        overflow: hidden;
+    }
     body:has(.bio) {
         background: red;
     }
@@ -148,6 +66,7 @@ const Vipbio = styled.div`
         padding: 10px;
     }
     .bios {
+        margin: 10px 0 40px;
         width: 100%;
         display: grid;
         gap: 20px;
@@ -212,7 +131,7 @@ const Vipbio = styled.div`
             width: 70%;
             ${media.sm} {
                 width: 100%;
-                min-height: 250px;
+                min-height: 311px;
             }
             resize: none;
             outline: none;
@@ -230,3 +149,91 @@ const Vipbio = styled.div`
         }
     }
 `;
+const Page = () => {
+    const [bio, setbio] = useState(`🌟 VIP Lifestyle Influencer 🌟
+✨ Curator of Exclusivity | Luxury Enthusiast ✨
+📍 [Your Location]
+🔗 Founder, [Your Company/Brand]
+📸 Creating Moments, Making Memories
+🚀 Elevate Your Lifestyle with My Journey
+💌 DM for Exclusive Collaborations
+    `);
+    useEffect(() => {
+        document.querySelector(".bio-input").focus();
+        
+    }, [bio]);
+  
+    const setEmoji = e => {
+        setbio(v => v + e.emoji);
+    };
+
+    return (
+        <Vipbio className="container py-4">
+            <NextSeo
+                title="Best 540+ Instagram Bio For Boys (2024) | Attitude & Stylish Bio 🔥"
+                description=" A VIP bio on Instagram is a personal or professional description in the bio section
+                of an Instagram profile that conveys a sense of exclusivity, importance, or
+                uniqueness."
+            />
+            <h1 className="text-center d-flex align-items-center">
+                <img src="/images/insta.svg" />
+                Instagram VIP Bio generator
+            </h1>
+
+            <div className="generator">
+                <span className="label">your insta bio</span>
+                <textarea
+                    placeholder="Write your instagram bio..."
+                    className="bio-input"
+                    value={localStorage.getItem("ivb")}
+                    onChange={e => {
+                        setbio(e.target.value)
+                        localStorage.setItem("ivb",e.target.value)
+                    }}
+                ></textarea>
+                <EmojiPicker
+                    lazyLoadEmojis
+                    emojiStyle="facebook"
+                    onEmojiClick={e => setEmoji(e)}
+                    className="picker"
+                />
+            </div>
+            <p className="sub-heading">
+                If you are looking for an Instagram vip bio to edit your bio. Then friends you are
+                in the right place here I will provide a premium Instagram vip bio with which you
+                can set your Instagram profile to look like waw.
+            </p>
+
+            <div className="bios">
+                {[...Array(10)].map(bio => (
+                    <div className="bio gradient-box">
+                        {` 🌟 VIP Lifestyle Influencer 🌟
+                        ✨ Curator of Exclusivity | Luxury Enthusiast ✨
+                        📍 [Your Location]
+                        🔗 Founder, [Your Company/Brand]
+                        📸 Creating Moments, Making Memories
+                        🚀 Elevate Your Lifestyle with My Journey
+                        💌 DM for Exclusive Collaborations`}
+                        <button
+                            onClick={e => clickToCopy(e, e.currentTarget.parentElement.innerText)}
+                        >
+                            copy
+                        </button>
+                    </div>
+                ))}
+            </div>
+            <Image
+                loading="lazy"
+                className="image"
+                layout="responsive"
+                objectFit="cover"
+                height={200}
+                width={400}
+                alt="instagram vip bio generator"
+                src="/images/instagram-vip-bio.jpg"
+            />
+        </Vipbio>
+    );
+};
+
+export default Page;

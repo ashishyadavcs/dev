@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import styles from "@/styles/post.module.css";
 import { useRouter } from "next/router";
-import moment from "moment";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import PostStyle from "@/styles/post.styled";
 
 const Post = ({ remove, edit, post }) => {
     const defaultimg = [1, 2];
@@ -11,7 +9,7 @@ const Post = ({ remove, edit, post }) => {
     return (
         <>
             {!router.asPath.includes(post.slug) && (
-                <Link
+                <PostStyle
                     key={post._id}
                     prefetch={false}
                     href={`${post.url ? post.url : `/blog/${post.slug}`}`}
@@ -19,16 +17,14 @@ const Post = ({ remove, edit, post }) => {
                     passHref
                     title={post.title}
                     style={{ textDecoration: "none" }}
-                    className={styles.post}
-                    
+                    className="post"
                 >
-                    
-                        <span className={styles.thumbnail}>
+                    <>
+                        <span className="thumbnail">
                             <Image
                                 objectFit="cover"
                                 objectPosition="left"
                                 layout="fill"
-                                priority
                                 alt={post.title}
                                 src={
                                     post.featuredImage
@@ -39,17 +35,18 @@ const Post = ({ remove, edit, post }) => {
                                               ]
                                           }.png`
                                 }
-                            ></Image>
+                            />
                         </span>
-                        <div className={styles.content}>
+                        <div className="content">
                             <h3> {post.title}</h3>
                             <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-                            <span className={styles.date}>
-                                <AiOutlineClockCircle size={15} /> {moment(post.date).fromNow()}
+                            <span className="date">
+                                <AiOutlineClockCircle size={15} />{" "}
+                                {new Date(post.date).toLocaleDateString()}
                             </span>
                         </div>
-                    
-                </Link>
+                    </>
+                </PostStyle>
             )}
         </>
     );
