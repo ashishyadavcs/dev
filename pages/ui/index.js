@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Ui = () => {
     return (
+        <Pagestyle>
         <Container classname="py-4">
             <h1 className="mb-4">CSS only loader | source code</h1>
             <style jsx>
@@ -127,7 +128,16 @@ body {
             `}
             />
         </Container>
+        </Pagestyle>
     );
 };
 
 export default Ui;
+const Pagestyle=styled.section`
+h2{
+    margin: 10px 0;
+}
+textarea{
+    padding: 10px;
+}
+`

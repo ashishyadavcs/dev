@@ -247,7 +247,6 @@ const Blogstyle = styled.div`
         color: blue;
         width: max-content;
         border-radius: 4px;
-
         padding: 5px 10px;
     }
 

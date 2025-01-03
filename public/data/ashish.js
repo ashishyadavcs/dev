@@ -1,5 +1,5 @@
 import { config } from "./config";
-const exp = `${new Date().getFullYear() - 2021}.${new Date().getMonth() - 2} years`;
+const exp = `${new Date().getFullYear() - 2021}.${(new Date().getMonth() - 2)} years`;
 export const data = {
     projects: [
         { text: "birdlens creation", link: "https://birdlenscreation.com/" },

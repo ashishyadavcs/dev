@@ -12,8 +12,6 @@ import { SessionProvider } from "next-auth/react";
 import { Globalstyle } from "@/styles/global";
 import { theme } from "themes";
 import { ThemeProvider } from "styled-components";
-import SetTheme from "@/components/themesetting";
-import { useEffect } from "react";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 

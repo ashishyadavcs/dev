@@ -1,9 +1,11 @@
 import Container from "@/components/Container";
+import {NextSeo} from "next-seo";
 import styled from "styled-components";
 
 const Reviews = () => {
     return (
         <Pages>
+            <NextSeo noindex/>
             <Container classname="mcards">
                 {[...Array(10)].map(card => (
                     <div className="card">

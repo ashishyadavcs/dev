@@ -21,7 +21,7 @@ const Page = () => {
             title: "share now",
             url: window.location.href,
         });
-        document.querySelector(".formit").parentElement.click();
+
     };
     return (
         <StyledPage>
@@ -35,7 +35,11 @@ const Page = () => {
                             name="message"
                             className="textarea"
                         />
-                        <button className="theme-btn">share now</button>
+
+                        <button type="submit" className="theme-btn">share now</button>
+                        <button type="button" className="theme-btn btn-white ml-1" onClick={e=>{
+                                    document.querySelector(".formit").parentElement.click();
+                        }}>cancel</button>
                     </form>
                 </Container>
             </Orderpop>
@@ -51,6 +55,7 @@ const Page = () => {
                 >
                     share
                 </button>
+                
             </Container>
         </StyledPage>
     );
@@ -58,6 +63,7 @@ const Page = () => {
 
 export default Page;
 const StyledPage = styled.section`
+   background: linear-gradient(to right,orange,green,yellow);
     padding: 50px 0;
     text-align: center;
     .sharedata {

@@ -160,8 +160,9 @@ const Page = () => {
     `);
     useEffect(() => {
         document.querySelector(".bio-input").focus();
+        
     }, [bio]);
-
+  
     const setEmoji = e => {
         setbio(v => v + e.emoji);
     };
@@ -184,8 +185,11 @@ const Page = () => {
                 <textarea
                     placeholder="Write your instagram bio..."
                     className="bio-input"
-                    value={bio}
-                    onChange={e => setbio(e.target.value)}
+                    value={localStorage.getItem("ivb")}
+                    onChange={e => {
+                        setbio(e.target.value)
+                        localStorage.setItem("ivb",e.target.value)
+                    }}
                 ></textarea>
                 <EmojiPicker
                     lazyLoadEmojis
