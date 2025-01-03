@@ -4,10 +4,12 @@ import "highlight.js/styles/github-dark.css";
 import hljs from "highlight.js";
 import { getPostList, getPostSlugs, getSinglePost } from "lib/posts";
 import { useEffect } from "react";
-
+import Link from "next/link";
+import { BsArrowRight } from "react-icons/bs";
+import Blogstyle from "@/styles/blog.styled";
 import dynamic from "next/dynamic";
 
-const Fbcomment = dynamic(() => import("@/components/fbcomment"), {
+const Comments = dynamic(() => import("@/components/blog/comment"), {
     loading: () => <p>Loading...</p>,
 });
 const Relatedposts = dynamic(() => import("@/components/relatedposts"), {
@@ -16,11 +18,6 @@ const Relatedposts = dynamic(() => import("@/components/relatedposts"), {
 const Ashish = dynamic(() => import("@/components/ashish"), {
     loading: () => <p>Loading...</p>,
 });
-
-import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-import Comments from "@/components/blog/comment";
-import Blogstyle from "@/styles/blog.styled";
 const Blog = ({ post, posts }) => {
     let imgs = [];
     useEffect(() => {
@@ -143,17 +140,15 @@ const Blog = ({ post, posts }) => {
                                             {post.categories.nodes.map(cat => (
                                                 <li>
                                                     <Link href={`/blog/category/${cat.name}`}>
-                                                        
-                                                            <BsArrowRight size={18} />
-                                                            {cat.name}
-                                                        
+                                                        <BsArrowRight size={18} />
+                                                        {cat.name}
                                                     </Link>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
                                     {/* <Fbcomment /> */}
-                                    <Comments post={post}/>
+                                    <Comments post={post} />
                                     <h2 className="my-3">About Author</h2>
                                     <Ashish width="100%" />
                                 </div>

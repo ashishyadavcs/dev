@@ -1,4 +1,3 @@
-
 const Image = props => {
     return <Image {...props} />;
 };

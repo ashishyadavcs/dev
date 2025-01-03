@@ -4,7 +4,7 @@ import Breadcrumb from "@/components/breadcrumb";
 import dynamic from "next/dynamic";
 import Footer from "./footer";
 import { LoadFont } from "utils/common";
-import Promotion from "../Promotion";
+import Promotion from "@/components/Promotion";
 
 const Chat = dynamic(() => import("../chat"), {
     ssr: false,

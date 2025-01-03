@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { VscAccount } from "react-icons/vsc";
 import Dropdown from "../ui/dropdown";
 import { Styled } from "@/styles/header";
-import { Router } from "next/router";
 
 const Header = ({ progress }) => {
     const user = useSelector(state => state.user.data);

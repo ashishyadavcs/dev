@@ -35,14 +35,18 @@ const Page = () => {
                                 href={p.url}
                                 className="project"
                             >
-                                <Image
-                                    height={300}
-                                    width={400}
-                                    objectFit="contain"
-                                    layout="responsive"
-                                    src={p.thumbnail || "/images/projects.jpg"}
-                                    onError={e => (e.currentTarget.src = "/images/projects.jpg")}
-                                />
+                                <div className="thumbnail">
+                                    <Image
+                                        height={300}
+                                        width={400}
+                                        objectFit="contain"
+                                        layout="responsive"
+                                        src={p.thumbnail || "/images/projects.jpg"}
+                                        onError={e =>
+                                            (e.currentTarget.src = "/images/projects.jpg")
+                                        }
+                                    />
+                                </div>
                                 <div className="content">
                                     <h2>{p.title}</h2>
                                     <h3>Technology Used</h3>
@@ -88,7 +92,10 @@ const Pages = styled.div`
             img {
                 transition: all 0.3s;
             }
-
+            .thumbnail {
+                overflow: hidden;
+                height: 200px;
+            }
             &:hover {
                 img {
                     transform: scale(1.3);

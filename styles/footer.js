@@ -38,11 +38,11 @@ export const Styled = {
             a {
                 font-size: 18px;
                 display: inline-block;
-                background: #2a2a2a;
+                background:rgb(80, 83, 86);
                 color: #fff;
                 line-height: 1;
                 padding: 8px 0;
-                margin-right: 4px;
+                margin-right: 7px;
                 border-radius: 50%;
                 text-align: center;
                 width: 36px;

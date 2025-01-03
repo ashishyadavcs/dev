@@ -23,7 +23,7 @@ const Page = () => {
     ];
     const mathgen = e => {
         e.preventDefault();
-        const arr = [];
+        let arr = [];
         for (let i = 0; i <= 10; i++) {
             const num1 = Math.floor(Math.random() * 10) + 1;
             const num2 = Math.floor(Math.random() * 10) + 1;

@@ -68,23 +68,7 @@ const Blogstyle = styled.div`
         top: 20px;
     }
 
-    .post {
-        box-shadow: 0 4px 4px rgb(155, 152, 152);
-        overflow: hidden;
-        border-radius: 4px;
-        background: #fff;
-        position: relative;
-        cursor: pointer;
-        margin-bottom: 25px;
-        text-decoration: none;
-        display: grid;
-        grid-template-columns: 250px calc(100% - 250px);
-        justify-content: space-between;
-    }
-
-    .post:hover {
-        box-shadow: none;
-    }
+  
 
     .post:active {
         box-shadow: none;

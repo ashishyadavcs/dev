@@ -2,14 +2,15 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import PostStyle from "@/styles/post.styled";
+import Link from "next/link";
 
-const Post = ({ remove, edit, post }) => {
+const Post = ({ post }) => {
     const defaultimg = [1, 2];
     const router = useRouter();
     return (
-        <>
-            {!router.asPath.includes(post.slug) && (
-                <PostStyle
+        !router.pathname.includes(post.slug) && (
+            <PostStyle>
+                <Link
                     key={post._id}
                     prefetch={false}
                     href={`${post.url ? post.url : `/blog/${post.slug}`}`}
@@ -46,9 +47,9 @@ const Post = ({ remove, edit, post }) => {
                             </span>
                         </div>
                     </>
-                </PostStyle>
-            )}
-        </>
+                </Link>
+            </PostStyle>
+        )
     );
 };
 

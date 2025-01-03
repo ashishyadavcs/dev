@@ -83,7 +83,6 @@ const CommentStyle = styled.div`
         margin: 10px 0 0;
         display: flex;
         flex-direction: column;
-        /* box-shadow: 0 1px 2px #666; */
         padding: 20px 0;
     }
     input {

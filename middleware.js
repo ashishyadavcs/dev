@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export function middleware(request) {
     if (request.nextUrl.pathname.startsWith("/api")) {
         const response = NextResponse.next();
-
         return response;
     } else {
-        const token = request.cookies.get("x-refresh");
+        const token = cookies.get("x-refresh");
         try {
             if (token) {
                 return NextResponse.next();
@@ -23,5 +23,5 @@ export function middleware(request) {
     }
 }
 export const config = {
-    matcher: ["/profile","/dashboard/:path*", "/api/:path*", "/admin/:path*"],
+    matcher: ["/profile", "/dashboard/:path*", "/api/:path*", "/admin/:path*"],
 };
