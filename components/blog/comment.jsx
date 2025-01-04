@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Comments = ({ post }) => {
     const [comments, setcomments] = useState();
+    const [newComment, setNewComment] = useState("");
     const addComment = async e => {
         e.preventDefault();
         const btn = e.nativeEvent.submitter;
@@ -19,12 +20,17 @@ const Comments = ({ post }) => {
                 comment: comment.value,
                 id: post.databaseId,
             };
+
             const result = await createComment(data);
             if (!result) {
                 throw Error("failed to add comment");
             }
+            console.log(result);
             btn.innerText = btntext;
             toast.success("comment added");
+            setNewComment(prev => {
+                name, comment;
+            });
         } catch (err) {
             toast.error(err.message);
         }
@@ -38,7 +44,7 @@ const Comments = ({ post }) => {
                 items: result.comments.nodes,
             }));
         })();
-    }, [post.slug]);
+    }, [post.slug, newComment]);
 
     return (
         <CommentStyle>
@@ -58,13 +64,23 @@ const Comments = ({ post }) => {
                 <button className="btn">add comment</button>
             </form>
             <div className="comment-list">
-            {comments?.count>0 && <p>{comments?.count} comments so far</p>}
+                {comments?.count > 0 && <p>{comments?.count} comments so far</p>}
                 <ul>
-                    {comments?.items.length>0 &&
+                    {newComment && <li>
+                        <span className="username"> - {newComment?.name}</span>
+                        <div
+                            className="comment"
+                            dangerouslySetInnerHTML={{ __html: newComment.comment }}
+                        />
+                    </li>}
+                    {comments?.items.length > 0 &&
                         [...comments?.items].map(c => (
                             <li key={c?.id}>
-                                <b> by - {c.author.node.name}</b>
-                                <p dangerouslySetInnerHTML={{ __html: c.content }} />
+                                <span className="username"> - {c.author.node.name}</span>
+                                <div
+                                    className="comment"
+                                    dangerouslySetInnerHTML={{ __html: c.content }}
+                                />
                             </li>
                         ))}
                 </ul>
@@ -85,7 +101,8 @@ const CommentStyle = styled.div`
         flex-direction: column;
         padding: 20px 0;
     }
-    input {
+    input,
+    textarea {
         width: 100%;
         font-size: inherit;
         padding: 10px;
@@ -106,10 +123,20 @@ const CommentStyle = styled.div`
         margin: 40px 0;
         ul {
             list-style: none;
+            padding: 0;
             li {
-                border-left: 2px solid orangered;
-                padding: 0 0 0 10px;
+                width: max-content;
+                max-width: 100%;
+                box-shadow: 0 1px 2px #7d5454;
+                border-radius: 8px;
                 margin: 0 0 10px;
+                padding: 10px;
+                .comment {
+                    p {
+                        margin: 5px 0 0;
+                    }
+                    font-size: 15px;
+                }
             }
         }
     }
