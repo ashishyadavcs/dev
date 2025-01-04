@@ -6,7 +6,7 @@ export function middleware(request) {
         const response = NextResponse.next();
         return response;
     } else {
-        const token = cookies.get("x-refresh");
+        const token = cookies().get("x-refresh");
         try {
             if (token) {
                 return NextResponse.next();

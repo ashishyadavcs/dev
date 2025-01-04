@@ -9,11 +9,11 @@ export const userSlice = createSlice({
         saveUser: (state, { payload }) => {
             state.data = payload;
         },
-        logout: (state, {}) => {
-            state.data = false;
+        deleteUser: (state, {payload}) => {
+            state.data ={}
         },
     },
 });
 
-export const { saveUser, logout } = userSlice.actions;
+export const { saveUser, deleteUser } = userSlice.actions;
 export default userSlice.reducer;

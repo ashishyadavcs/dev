@@ -94,19 +94,4 @@ export const Page = () => {
 };
 
 export default Page;
-export async function getServerSideProps({ req }) {
-    if (req.cookies["x-refresh"] || req.cookies["x-token"]) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: req.headers.referer
-                    ? req.headers.referer.split(process.env.APP_URL)[1]
-                    : "/dashboard",
-            },
-        };
-    } else {
-        return {
-            props: {},
-        };
-    }
-}
+
