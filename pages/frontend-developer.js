@@ -11,7 +11,6 @@ import Link from "next/link";
 import Relatedposts from "@/components/relatedposts";
 import { getPostList } from "lib/posts";
 import Ashish from "@/components/ashish";
-import Fbcomment from "@/components/fbcomment";
 const Page = ({ posts }) => {
     return (
         <Article className="article container my-4">
@@ -413,7 +412,6 @@ const Page = ({ posts }) => {
                     <Inpostad />
                 </div>
             </div>
-            <Fbcomment />
 
             <Relatedposts posts={posts} />
             <Link href="/blog" className="theme-btn d-block mx-auto text-center">

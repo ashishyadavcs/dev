@@ -1,6 +1,5 @@
 import Inpostad from "@/components/ads/inpostad";
 import Stickyad from "@/components/ads/stickyad";
-import Fbcomment from "@/components/fbcomment";
 import Banner from "@/components/web/banner";
 import Whatsapp from "@/components/whatsapp";
 import { media } from "config/device";
@@ -469,11 +468,7 @@ const Page = () => {
                     title={`Hi 👋 ,
 can I get more math works sheets`}
                 />
-                <Fbcomment
-                    title={
-                        "ask your questions or give us feedback about this page to improve more 👇"
-                    }
-                />
+                
             </Jordan>
         </>
     );
