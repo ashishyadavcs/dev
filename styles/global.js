@@ -13,7 +13,9 @@ body {
   height: 0;
   overflow: hidden;
 }
-
+img{
+  max-width: 100%;
+}
 .backlink a {
   color: transparent;
 }
