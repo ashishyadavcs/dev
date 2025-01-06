@@ -3,7 +3,7 @@ import { getServerSideSitemap } from "next-sitemap";
 
 export const getServerSideProps = async ctx => {
     const posts = await getPostSlugs(2000);
-    const categories = await getCategorySlugs();
+    // const categories = await getCategorySlugs();
     const path1 = posts.map(post => ({
         loc: `${process.env.APP_URL}/blog/${post.slug}`,
         lastmod: new Date().toISOString(),

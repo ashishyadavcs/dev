@@ -66,13 +66,15 @@ const Comments = ({ post }) => {
             <div className="comment-list">
                 {comments?.count > 0 && <p>{comments?.count} comments so far</p>}
                 <ul>
-                    {newComment && <li>
-                        <span className="username"> - {newComment?.name}</span>
-                        <div
-                            className="comment"
-                            dangerouslySetInnerHTML={{ __html: newComment.comment }}
-                        />
-                    </li>}
+                    {newComment && (
+                        <li>
+                            <span className="username"> - {newComment?.name}</span>
+                            <div
+                                className="comment"
+                                dangerouslySetInnerHTML={{ __html: newComment.comment }}
+                            />
+                        </li>
+                    )}
                     {comments?.items.length > 0 &&
                         [...comments?.items].map(c => (
                             <li key={c?.id}>
@@ -92,7 +94,10 @@ const Comments = ({ post }) => {
 export default Comments;
 const CommentStyle = styled.div`
     margin: 50px 0 0;
-
+    a {
+        color: blue;
+        font-style: italic;
+    }
     form {
         border-radius: 8px;
         margin: 10px 0;
