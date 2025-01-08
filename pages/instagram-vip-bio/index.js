@@ -185,10 +185,9 @@ const Page = () => {
                 <textarea
                     placeholder="Write your instagram bio..."
                     className="bio-input"
-                    value={localStorage.getItem("ivb")}
+                    value={bio}
                     onChange={e => {
                         setbio(e.target.value)
-                        localStorage.setItem("ivb",e.target.value)
                     }}
                 ></textarea>
                 <EmojiPicker
