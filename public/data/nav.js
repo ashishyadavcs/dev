@@ -105,7 +105,7 @@ export const adminlinks = [
 
 export const usefullinks = [
     {
-        link: "/",
+        link: "/frontend-developer",
         text: "frontend developer roadmap",
     },
     {

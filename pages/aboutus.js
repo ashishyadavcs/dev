@@ -48,7 +48,7 @@ const Aboutus = () => {
                     <Image
                         src="/dev/about-frontend.png"
                         height={500}
-                        objectFit="contain"
+                        style={{objectFit:"contain"}}
                         width={500}
                         className="rounded"
                         alt="frontendzone"
