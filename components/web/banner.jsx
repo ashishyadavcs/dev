@@ -2,9 +2,9 @@ import { media } from "config/device";
 import Image from "next/image";
 import styled from "styled-components";
 
-const Banner = ({ title, image, description, height = "30vh" }) => {
+const Banner = ({ title, overlay = true, image, description, height = "30vh" }) => {
     return (
-        <Mybanner style={{ height: height }}>
+        <Mybanner overlay={overlay} className="banner">
             <div className="container">
                 {image && <Image priority {...image} layout="fill" />}
                 {title && <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>}
@@ -54,7 +54,9 @@ const Mybanner = styled.div`
         }
     }
 
-    &:before {
+    ${({ overlay }) =>
+        overlay &&
+        ` &:before {
         z-index: 1;
         content: "";
         position: absolute;
@@ -63,5 +65,5 @@ const Mybanner = styled.div`
         height: 100%;
         width: 100%;
         background: rgba(0, 0, 0, 0.6);
-    }
+    }`}
 `;
