@@ -3,7 +3,6 @@ import { shadow } from "config/color";
 import styled from "styled-components";
 import { clickToCopy } from "utils/common";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import { bios } from "public/data/instagrambio";
@@ -57,11 +56,11 @@ const Page = () => {
                             onChange={e => {
                                 setbio(e.target.value);
                             }}
-                        ></textarea>
+                        />
                         <button
                             className="copy"
                             onClick={e => {
-                                clickToCopy(e, e.currentTarget.previousElementSibling.innerText);
+                                clickToCopy(e, e.currentTarget.previousElementSibling.value);
                             }}
                         >
                             copy
