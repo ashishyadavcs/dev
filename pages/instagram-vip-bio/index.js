@@ -104,8 +104,13 @@ export default Page;
 const Vipbio = styled.div`
     background: #f1f1f1;
     .banner {
-        background: linear-gradient(#f33df8, #6060ff);
-        text-shadow: 0px 1px 1px #6441b2;
+        background: linear-gradient(to right, #f33df8, #6060ff);
+
+        ${media.sm} {
+            p {
+                display: none;
+            }
+        }
     }
     .image {
         border-radius: 8px;
@@ -114,14 +119,7 @@ const Vipbio = styled.div`
     body:has(.bio) {
         background: red;
     }
-    h1 {
-        font-size: 72px;
-        background: -webkit-linear-gradient(#166cff, #ff01f3);
-        -webkit-background-clip: text;
-        background-clip: text;
-        text-align: center;
-        -webkit-text-fill-color: transparent;
-    }
+
     --column: 3;
 
     /* .gradient-box:before {
