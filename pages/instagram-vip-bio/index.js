@@ -31,10 +31,7 @@ const Page = () => {
     return (
         <Vipbio>
             <Banner
-                description={`   If you are looking for an Instagram vip bio to edit your bio. Then friends you
-                    are in the right place here I will provide a premium Instagram vip bio with
-                    which you can set your Instagram profile to look like waw.
-              `}
+                description={`Elevate Your Instagram Profile with Premium VIP Bios – Stand Out, Impress, and Shine!`}
                 overlay={false}
                 title={"Instagram VIP Bio generator"}
             />
