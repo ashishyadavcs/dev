@@ -67,7 +67,7 @@ export const Page = () => {
                         />
                         <span
                             className="position-absolute pointer"
-                            style={{ right: "20px", top: "25%" }}
+                            style={{ right: "20px", top: "30%" }}
                         >
                             {show ? (
                                 <AiOutlineEyeInvisible onClick={e => setShow(false)} size={20} />
