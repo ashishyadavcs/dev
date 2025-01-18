@@ -1,10 +1,12 @@
 import Toc from "@/components/tableofcontent";
 import Banner from "@/components/web/banner";
+import { media } from "config/device";
 import { NextSeo, ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import tools from "public/data/tools";
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 const Page = () => {
     const [iframe, setiframe] = useState({
         name: "My iframe",
@@ -15,6 +17,7 @@ const Page = () => {
         frameBorder: 1,
         src: "https://www.youtube.com/embed/jzCUfzvH9AM",
     });
+    const [moreoptions, setmoreoptions] = useState(false);
     const checkytb = url => {
         if (url.includes("www.youtube.com/watch?v=")) {
             const v = url.split("v=")[1];
@@ -28,165 +31,14 @@ const Page = () => {
         iframe.removeAttribute("class");
         document.querySelector("textarea").value = iframe.parentElement.innerHTML;
     }, [iframe]);
+
     const showresult = () => {
         const result = document.querySelector(".result");
         result.classList.toggle("active");
         result.scrollIntoView({ block: "center" });
     };
     return (
-        <>
-            <style jsx>{`
-                .toc {
-                    width: 600px;
-                    max-width: 100%;
-                    margin: 10px auto;
-                }
-                h2 {
-                    scroll-margin-top: 200px;
-                }
-
-                .form input {
-                    padding: 10px;
-                    color: #555;
-                    border: 2px solid #ddd;
-                    outline: none;
-                    font-size: 16px;
-                    width: 100%;
-                }
-
-                .form input:focus {
-                    border-color: blue;
-                }
-                .form img {
-                    width: 50%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                .form button {
-                    padding: 10px 20px;
-                    font-size: 16px;
-                    background: blue;
-                    color: #fff;
-                    border: none;
-                    border-radius: 4px;
-                    width: 100%;
-                }
-                .form label {
-                    position: relative;
-                    margin-bottom: 17px;
-                }
-                .form label:has(input:focus, input:not(:placeholder-shown)):before {
-                    top: 0%;
-                    background: #fff;
-                    z-index: 1;
-                    padding: 0 5px;
-                    transform: none;
-                    color: #888;
-                }
-                .form input:not(:empty) {
-                    border: 2px solid blue;
-                }
-                .form label:has(input:focus)::before {
-                    color: blue;
-                }
-                .form input::placeholder {
-                    opacity: 0;
-                }
-                .form label::before {
-                    color: #ccc;
-                    content: attr(for);
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    left: 10px;
-                    pointer-events: none;
-                    transition: all 0.3s;
-                }
-                .text-white {
-                    color: #fff;
-                }
-                .result {
-                    max-height: 0;
-                    overflow: hidden;
-                    opacity: 0;
-                    transition: all 0.3s;
-                    position: relative;
-                }
-                .result button {
-                    margin-top: 10px;
-                    position: relative;
-                }
-                .form label:has(input[type="checkbox"]) {
-                    align-items: center;
-                    justify-content: space-between;
-                    border: 2px solid #ddd;
-                    padding: 5px 10px;
-                    display: flex;
-                    width: 100%;
-                }
-                .form label:has(input[type="checkbox"]) input {
-                    width: 50px;
-                }
-                .result.active {
-                    overflow: unset;
-                    max-height: 400px;
-                    opacity: 1;
-                    padding: 10px 20px;
-                    margin: 20px 0 0;
-                }
-                .result.active button:active:before {
-                    content: "code copied";
-                    position: absolute;
-                    top: 25%;
-                    left: 110%;
-                    min-width: max-content;
-                    color: green;
-                }
-                textarea {
-                    min-height: 100px;
-                    width: 100%;
-                    margin: 20px 0 0;
-                    padding: 10px;
-                    outline: none;
-                    resize: none;
-                }
-                .others {
-                    background: #ddd;
-                    padding: 10px;
-                    margin: 10px 0;
-                    border-radius: 8px;
-                    max-width: 100%;
-                }
-                .others ul {
-                    margin-top: 10px;
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 10px;
-                }
-                .content ol li {
-                    display: flex;
-                }
-                .title {
-                    font-size: 28px;
-                    background: teal;
-
-                    color: #fff;
-                }
-                .title h1 {
-                    font-size: 30px;
-                }
-                .content {
-                    background: #f1f1f1;
-                    border-top: 4px solid #999;
-                    margin-top: 80px;
-                }
-                .content * {
-                    color: #555;
-                }
-                label:has(input[type="checkbox"]) {
-                    cursor: pointer;
-                }
-            `}</style>
+        <Pagestyle>
             <NextSeo
                 title="🟢 HTML Responsive Iframe Generator : copy code ✅"
                 description="HTML responsive iframe generator online, generate responsive html iframe embed code with this free tool.Generate iframe code to embed any HTML doc or page to any website or blog with live preview options and customizations"
@@ -227,6 +79,7 @@ const Page = () => {
                                 className="d-flex flex-column justify-content-center"
                             >
                                 <input
+                                    className="iurl"
                                     value={iframe.src}
                                     onChange={e =>
                                         setiframe(prev => ({
@@ -234,102 +87,142 @@ const Page = () => {
                                             src: checkytb(e.target.value),
                                         }))
                                     }
+                                    autoFocus
                                     type="url"
                                     placeholder="https://frontendzone.com"
                                 />
                             </label>
-                            <label
-                                htmlFor="name"
-                                className="d-flex flex-column justify-content-center"
+                            {!moreoptions && (
+                                <button
+                                    className="more-options"
+                                    onClick={e => setmoreoptions(v => !v)}
+                                    type="button"
+                                >
+                                    show more options
+                                </button>
+                            )}
+
+                            {moreoptions && (
+                                <>
+                                    <label
+                                        htmlFor="name"
+                                        className="d-flex flex-column justify-content-center"
+                                    >
+                                        <input
+                                            value={iframe.name}
+                                            placeholder=""
+                                            onChange={e =>
+                                                setiframe(prev => ({
+                                                    ...prev,
+                                                    name: e.target.value,
+                                                }))
+                                            }
+                                            type="text"
+                                            spellCheck="false"
+                                        />
+                                    </label>
+                                    <label
+                                        htmlFor="title"
+                                        className="d-flex flex-column justify-content-center"
+                                    >
+                                        <input
+                                            placeholder=""
+                                            value={iframe.title}
+                                            onChange={e =>
+                                                setiframe(prev => ({
+                                                    ...prev,
+                                                    title: e.target.value,
+                                                }))
+                                            }
+                                            spellCheck="false"
+                                            type="text"
+                                        />
+                                    </label>
+                                    <label
+                                        htmlFor="height"
+                                        className="d-flex flex-column justify-content-center"
+                                    >
+                                        <input
+                                            placeholder=""
+                                            value={iframe.height > 1000 ? 1000 : iframe.height}
+                                            onChange={e =>
+                                                setiframe(prev => ({
+                                                    ...prev,
+                                                    height: e.target.value,
+                                                }))
+                                            }
+                                            type="number"
+                                        />
+                                    </label>
+                                    <label
+                                        htmlFor="width"
+                                        className="d-flex flex-column justify-content-center"
+                                    >
+                                        <input
+                                            placeholder=""
+                                            value={iframe.width}
+                                            onChange={e =>
+                                                setiframe(prev => ({
+                                                    ...prev,
+                                                    width: e.target.value,
+                                                }))
+                                            }
+                                            type="text"
+                                        />
+                                    </label>
+                                    <label className="d-flex">
+                                        allow fullscreen
+                                        <input
+                                            placeholder=""
+                                            value={iframe.allow}
+                                            onChange={e =>
+                                                setiframe(prev => ({
+                                                    ...prev,
+                                                    allow:
+                                                        e.target.checked === true
+                                                            ? "fullscreen"
+                                                            : 0,
+                                                }))
+                                            }
+                                            type="checkbox"
+                                        />
+                                    </label>
+                                    <label className="d-flex">
+                                        frameborder
+                                        <input
+                                            placeholder=""
+                                            checked={iframe.frameBorder}
+                                            onChange={e =>
+                                                setiframe(prev => ({
+                                                    ...prev,
+                                                    frameBorder: e.target.checked === true ? 1 : 0,
+                                                }))
+                                            }
+                                            type="checkbox"
+                                        />
+                                    </label>
+                                </>
+                            )}
+                            <button
+                                title="generate iframe"
+                                className="theme-btn btn mt-4 d-flex"
+                                type="submit"
                             >
-                                <input
-                                    value={iframe.name}
-                                    placeholder=""
-                                    onChange={e =>
-                                        setiframe(prev => ({ ...prev, name: e.target.value }))
-                                    }
-                                    type="text"
-                                    spellCheck="false"
-                                />
-                            </label>
-                            <label
-                                htmlFor="title"
-                                className="d-flex flex-column justify-content-center"
-                            >
-                                <input
-                                    placeholder=""
-                                    value={iframe.title}
-                                    onChange={e =>
-                                        setiframe(prev => ({ ...prev, title: e.target.value }))
-                                    }
-                                    spellCheck="false"
-                                    type="text"
-                                />
-                            </label>
-                            <label
-                                htmlFor="height"
-                                className="d-flex flex-column justify-content-center"
-                            >
-                                <input
-                                    placeholder=""
-                                    value={iframe.height > 1000 ? 1000 : iframe.height}
-                                    onChange={e =>
-                                        setiframe(prev => ({ ...prev, height: e.target.value }))
-                                    }
-                                    type="number"
-                                />
-                            </label>
-                            <label
-                                htmlFor="width"
-                                className="d-flex flex-column justify-content-center"
-                            >
-                                <input
-                                    placeholder=""
-                                    value={iframe.width}
-                                    onChange={e =>
-                                        setiframe(prev => ({ ...prev, width: e.target.value }))
-                                    }
-                                    type="text"
-                                />
-                            </label>
-                            <label className="d-flex">
-                                allow fullscreen
-                                <input
-                                    placeholder=""
-                                    value={iframe.allow}
-                                    onChange={e =>
-                                        setiframe(prev => ({
-                                            ...prev,
-                                            allow: e.target.checked === true ? "fullscreen" : 0,
-                                        }))
-                                    }
-                                    type="checkbox"
-                                />
-                            </label>
-                            <label className="d-flex">
-                                frameborder
-                                <input
-                                    placeholder=""
-                                    checked={iframe.frameBorder}
-                                    onChange={e =>
-                                        setiframe(prev => ({
-                                            ...prev,
-                                            frameBorder: e.target.checked === true ? 1 : 0,
-                                        }))
-                                    }
-                                    type="checkbox"
-                                />
-                            </label>
-                            <button className="theme-btn mt-4 d-flex" type="submit">
                                 generate iframe
                             </button>
                         </form>
                         <div className="result">
-                            <textarea readOnly></textarea>
+                            <textarea className="textarea" readOnly></textarea>
                             <button
+                                title="copy iframe code"
                                 onClick={e => {
-                                    e.target.previousElementSibling.select();
+                                    const target = e.currentTarget;
+                                    target.previousElementSibling.select();
                                     document.execCommand("copy");
+                                    target.innerText = "code copied";
+                                    setTimeout(() => {
+                                        target.innerText = "code code";
+                                    }, 600);
                                 }}
                                 className="theme-btn "
                             >
@@ -485,9 +378,7 @@ const Page = () => {
                         <ul className="list-unstyled">
                             {tools.map((t, i) => (
                                 <li key={i}>
-                                    <Link href={t.href}>
-                                        {t.text}
-                                    </Link>
+                                    <Link href={t.href}>{t.text}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -532,8 +423,163 @@ const Page = () => {
                     </p>
                 </div>
             </div>
-        </>
+        </Pagestyle>
     );
 };
 
 export default Page;
+const Pagestyle = styled.div`
+    .more-options {
+        padding: 2px 10px;
+        border-radius: 20px;
+        color: #999;
+    }
+    .toc {
+        width: 600px;
+        max-width: 100%;
+        margin: 10px auto;
+    }
+    h2 {
+        scroll-margin-top: 200px;
+    }
+
+    .form input {
+        padding: 10px;
+        color: #555;
+        border: 2px solid #ddd;
+        outline: none;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .form input:focus {
+        border-color: blue;
+    }
+    .form img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .form .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: blue;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+    }
+    .form label {
+        position: relative;
+        margin-bottom: 17px;
+    }
+    .form label:has(input:focus, input:not(:placeholder-shown)):before {
+        top: 0%;
+        background: #fff;
+        z-index: 1;
+        padding: 0 5px;
+        transform: none;
+        color: #888;
+    }
+    .form input:not(:empty) {
+        border: 2px solid blue;
+    }
+    .form label:has(input:focus)::before {
+        color: blue;
+    }
+    .form input::placeholder {
+        opacity: 0;
+    }
+    .form label::before {
+        color: #ccc;
+        content: attr(for);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        pointer-events: none;
+        transition: all 0.3s;
+    }
+    .text-white {
+        color: #fff;
+    }
+    .result {
+        opacity: 0;
+        transition: all 0.3s;
+        position: relative;
+        ${media.sm} {
+            max-height: 0;
+            overflow: hidden;
+        }
+    }
+    .result button {
+        margin-top: 10px;
+        position: relative;
+    }
+    .form label:has(input[type="checkbox"]) {
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid #ddd;
+        padding: 5px 10px;
+        display: flex;
+        width: 100%;
+    }
+    .form label:has(input[type="checkbox"]) input {
+        width: 50px;
+    }
+    .result.active {
+        overflow: unset;
+        opacity: 1;
+        ${media.sm} {
+            max-height: 300px;
+            overflow: none;
+        }
+        .textarea {
+            border: 2px solid blue;
+        }
+    }
+
+    textarea {
+        min-height: 100px;
+        width: 100%;
+        margin: 20px 0 0;
+        padding: 10px;
+        outline: none;
+        resize: none;
+    }
+    .others {
+        background: #ddd;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        max-width: 100%;
+    }
+    .others ul {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .content ol li {
+        display: flex;
+    }
+    .title {
+        font-size: 28px;
+        background: teal;
+
+        color: #fff;
+    }
+    .title h1 {
+        font-size: 30px;
+    }
+    .content {
+        background: #f1f1f1;
+        border-top: 4px solid #999;
+        margin-top: 80px;
+    }
+    .content * {
+        color: #555;
+    }
+    label:has(input[type="checkbox"]) {
+        cursor: pointer;
+    }
+`;
