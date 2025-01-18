@@ -58,7 +58,7 @@ const Page = () => {
 
             <Banner
                 description={"Generate responsive iframe online"}
-                title={"HTML Responsive youtube Iframe generator"}
+                title={"HTML Responsive Iframe generator"}
             />
             <div className="toc">
                 <Toc title="table of content" />
