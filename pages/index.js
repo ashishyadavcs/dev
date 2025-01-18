@@ -96,7 +96,7 @@ export default function Home({ posts }) {
                 <div className="container">
                     <h2 className="text-center latestblog my-4">Latest blog posts</h2>
                     <Blogpost posts={postss} />
-                    <Link href="/blog" className="theme-btn d-block mx-auto text-center">
+                    <Link href="/blog" className="theme-btn gradient d-block mx-auto text-center">
                         Read More Blogs
                     </Link>
                 </div>

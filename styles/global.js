@@ -6,6 +6,7 @@ body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+  /* background: red; */
 }
 
 .backlink {
@@ -235,6 +236,12 @@ article h3 {
 }
 
 .theme-btn {
+  &.gradient{
+    
+    &,&:hover{
+      color: #000;
+    }
+  }
   padding: 10px 20px;
   display: inline-block;
   width: max-content;

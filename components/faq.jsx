@@ -65,7 +65,11 @@ const Faq = ({ title, data, cssClass }) => {
                         max-height: 500px;
                         overflow: unset;
                     }
+                    list-unstyled {
+                        padding: 0;
+                    }
                 `}</style>
+
                 <h2>{title}</h2>
                 <ul className="list-unstyled">
                     {data.map((faq, i) => (
