@@ -236,6 +236,12 @@ article h3 {
 }
 
 .theme-btn {
+  &.gradient{
+    
+    &,&:hover{
+      color: #000;
+    }
+  }
   padding: 10px 20px;
   display: inline-block;
   width: max-content;
