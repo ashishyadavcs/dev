@@ -146,8 +146,8 @@ small {
     return (
         <>
             <NextSeo
-                title="online html compiler  ➜ #𝟙"
-                description="online html compiler  is a convenient solution for
+                title="online html css editor"
+                description="online html css editor  is a convenient solution for
           coding websites, especially for beginners. With their user-friendly
           interfaces and real-time previews"
                 additionalMetaTags={[
