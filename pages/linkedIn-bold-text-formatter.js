@@ -2,6 +2,7 @@ import { NextSeo, ProductJsonLd } from "next-seo";
 import React, { useState } from "react";
 import { fontStyles } from "fontmap/fontmap";
 import styled from "styled-components";
+import { media } from "config/device";
 const BoldFontGenerator = () => {
     const [inputText, setInputText] = useState("Linkedin post");
     const [copiedText, setCopiedText] = useState("");
@@ -102,10 +103,18 @@ const BoldFontGenerator = () => {
 export default BoldFontGenerator;
 const Pagestyle = styled.div`
     .banner {
+        max-width: 100%;
         padding: 10px 0 0;
         position: sticky;
         top: 59px;
         background: #fff;
         z-index: 2;
+        ${media.sm} {
+            padding: 10px;
+        }
+        textarea {
+            outline: none;
+            max-width: 100%;
+        }
     }
 `;
