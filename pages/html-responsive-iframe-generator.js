@@ -233,6 +233,7 @@ const Page = () => {
 
                     <div className="col-md-6">
                         <div className="preview">
+                            <h3 className="text-center">preview</h3>
                             <iframe {...iframe}></iframe>
                         </div>
                     </div>
