@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 const Page = () => {
     const [iframe, setiframe] = useState({
-        name: "My iframe",
+        name: "iframe generator",
         title: "frontendzone",
         height: "510",
         width: "100%",
