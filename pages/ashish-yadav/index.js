@@ -161,7 +161,7 @@ const Page = ({ url }) => {
                                             <FaGithub size={30} />
                                         </a>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <a
                                             title="youtube"
                                             target="_blank"
@@ -172,7 +172,7 @@ const Page = ({ url }) => {
                                         >
                                             <FaYoutube color="red" size={30} />
                                         </a>
-                                    </li>
+                                    </li> */}
                                 </ul>
                                 <a
                                     className="theme-btn btn cv mr-2"

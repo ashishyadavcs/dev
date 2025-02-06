@@ -118,7 +118,7 @@ const Footer = () => {
                                     >
                                         <FaLinkedinIn />
                                     </a>
-                                    <a
+                                    {/* <a
                                         title="youtube"
                                         target="_blank"
                                         rel="noreferrer"
@@ -127,7 +127,7 @@ const Footer = () => {
                                         aria-label="youtube"
                                     >
                                         <FaYoutube />
-                                    </a>
+                                    </a> */}
                                 </div>
                             </div>
                             <div className="col-md-4">
