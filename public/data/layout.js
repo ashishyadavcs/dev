@@ -1,3 +1,3 @@
 export const layout = {
-    landing: ["/dashboard/*","happy-new-year"],
+    landing: ["/dashboard/*", "happy-new-year"],
 };

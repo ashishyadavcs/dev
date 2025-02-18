@@ -26,9 +26,7 @@ const Header = ({ progress }) => {
             >
                 <div className="d-flex container justify-content-between align-items-center">
                     <Link href="/" title="frontendzone" className="logo">
-                        
-                            <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
-                        
+                        <b className="m-0">{process.env.NEXT_PUBLIC_APP_NAME}</b>
                     </Link>
                     <nav
                         className="d-flex  mobilelinks"
@@ -47,22 +45,27 @@ const Header = ({ progress }) => {
                                             refs.current.header.classList.remove("active")
                                         }
                                     >
-                                        <Link prefetch={false} href={li.url} {...{ className: li.class }}
-                                                itemProp="url"
-                                                title={li?.title}>
-                                            
-                                                {li.text}
-                                           
+                                        <Link
+                                            prefetch={false}
+                                            href={li.url}
+                                            {...{ className: li.class }}
+                                            itemProp="url"
+                                            title={li?.title}
+                                        >
+                                            {li.text}
                                         </Link>
                                     </li>
                                 );
                             })}
                             {false && !user?.email && (
                                 <li>
-                                    <Link itemProp="url" title="login" prefetch={false} href={"/login"}>
-                                      
-                                            login
-                                       
+                                    <Link
+                                        itemProp="url"
+                                        title="login"
+                                        prefetch={false}
+                                        href={"/login"}
+                                    >
+                                        login
                                     </Link>
                                 </li>
                             )}

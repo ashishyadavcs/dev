@@ -43,15 +43,14 @@ const Toc = ({ title = "what's inside" }) => {
                             {data.length > 0 &&
                                 data.map((h, i) => (
                                     <li key={i}>
-                                        <Link id={replacewithdash(h.innerText)}
-                                                className="d-block"
+                                        <Link
+                                            id={replacewithdash(h.innerText)}
+                                            className="d-block"
                                             scroll={false}
                                             href={`#${replacewithdash(h.innerText)}`}
                                         >
-                                           
-                                                <span>{i + 1}</span>
-                                                {h.innerText}
-                                           
+                                            <span>{i + 1}</span>
+                                            {h.innerText}
                                         </Link>
                                     </li>
                                 ))}

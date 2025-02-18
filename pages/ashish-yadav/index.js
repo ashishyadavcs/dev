@@ -99,9 +99,7 @@ const Page = ({ url }) => {
                                 </li>
                             ))}
                             <li>
-                                <Link href="/projects">
-                                    more
-                                </Link>
+                                <Link href="/projects">more</Link>
                             </li>
                         </ul>
                         <div className="college">

@@ -30,7 +30,6 @@ const Blog = ({ posts, categories, data }) => {
                                 url: "/frontend-developer",
                                 date: "Tue Oct 03 2023",
                             }}
-                            
                         />
                         {posts?.length > 0 &&
                             posts?.map((post, i) => {

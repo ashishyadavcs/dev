@@ -123,16 +123,19 @@ const Page = () => {
                 />
                 <div className="grades">
                     {[...Array(mathworks.length - 1)].map((g, i) => (
-                        <Link className="grade" key={i * Math.random()} passHref href={`#grade-${i + 1}`}>
-                          
-                                <Image
-                                    alt="jordan's math work games online"
-                                    layout="fill"
-                                    priority
-                                    src="/images/jordan/jordan-math-work-grade.webp"
-                                />
-                                <span className="number">{Number(i) + 1}</span>
-                           
+                        <Link
+                            className="grade"
+                            key={i * Math.random()}
+                            passHref
+                            href={`#grade-${i + 1}`}
+                        >
+                            <Image
+                                alt="jordan's math work games online"
+                                layout="fill"
+                                priority
+                                src="/images/jordan/jordan-math-work-grade.webp"
+                            />
+                            <span className="number">{Number(i) + 1}</span>
                         </Link>
                     ))}
                 </div>
@@ -468,7 +471,6 @@ const Page = () => {
                     title={`Hi 👋 ,
 can I get more math works sheets`}
                 />
-                
             </Jordan>
         </>
     );

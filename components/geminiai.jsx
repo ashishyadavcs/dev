@@ -72,7 +72,8 @@ const Geminiai = () => {
             }
         } catch (err) {
             btn.innerText = "generate answer";
-            toast.error("model is busy try afetr sometimes...");        }
+            toast.error("model is busy try afetr sometimes...");
+        }
     };
 
     return (

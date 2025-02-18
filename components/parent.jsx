@@ -1,5 +1,3 @@
-
-
 const Parent = () => {
     return <div>Parent</div>;
 };

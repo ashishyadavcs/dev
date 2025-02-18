@@ -8,7 +8,7 @@ const Loadmore = ({ pageInfo }) => {
         const button = e.target;
         if (button) button.innerText = "loading...";
         const posts = await getPostList(more?.pageInfo?.endCursor);
-         setmore(prev => ({
+        setmore(prev => ({
             posts: [...prev.posts, ...posts.nodes],
             pageInfo: posts.pageInfo,
         }));

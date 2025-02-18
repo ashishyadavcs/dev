@@ -1,5 +1,3 @@
-
-
 const Page = () => {
     return <div className="container">Term of services</div>;
 };

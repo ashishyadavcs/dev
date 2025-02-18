@@ -38,7 +38,7 @@ export const Styled = {
             a {
                 font-size: 18px;
                 display: inline-block;
-                background:rgb(80, 83, 86);
+                background: rgb(80, 83, 86);
                 color: #fff;
                 line-height: 1;
                 padding: 8px 0;

@@ -1,6 +1,5 @@
 import { NextSeo } from "next-seo";
 
-
 const Page = () => {
     return (
         <div className="container my-4">

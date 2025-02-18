@@ -21,9 +21,7 @@ const Dropdown = ({ links }) => {
             <ul className="list-unstyled mb-0">
                 {links.map(el => (
                     <li key={el.text}>
-                        <Link href={el.link}>
-                            {el.text}
-                        </Link>
+                        <Link href={el.link}>{el.text}</Link>
                     </li>
                 ))}
             </ul>

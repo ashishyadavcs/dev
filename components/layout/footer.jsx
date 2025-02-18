@@ -133,7 +133,7 @@ const Footer = () => {
                             <div className="col-md-4">
                                 <h3 className="smallheading">Useful Links</h3>
                                 <ul className="list-unstyled">
-                                    {usefullinks.map((a,i) => (
+                                    {usefullinks.map((a, i) => (
                                         <li key={i} className="d-flex align-items-center">
                                             <Link className="ml-1" href={a.link} prefetch={false}>
                                                 <>
@@ -152,8 +152,8 @@ const Footer = () => {
                                         <li key={i} className="ml-1">
                                             <Link href={t.href} prefetch={false}>
                                                 <>
-                                                <FaChevronRight className="mr-1" size={15} />
-                                                {t.text}
+                                                    <FaChevronRight className="mr-1" size={15} />
+                                                    {t.text}
                                                 </>
                                             </Link>
                                         </li>

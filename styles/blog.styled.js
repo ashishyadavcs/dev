@@ -68,8 +68,6 @@ const Blogstyle = styled.div`
         top: 20px;
     }
 
-  
-
     .post:active {
         box-shadow: none;
     }

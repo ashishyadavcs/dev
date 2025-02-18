@@ -9,8 +9,8 @@ export const userSlice = createSlice({
         saveUser: (state, { payload }) => {
             state.data = payload;
         },
-        deleteUser: (state, {payload}) => {
-            state.data ={}
+        deleteUser: (state, { payload }) => {
+            state.data = {};
         },
     },
 });

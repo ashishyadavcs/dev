@@ -1,4 +1,4 @@
 export const emoji = {
     fire: "🔥",
-    coder:"👨‍💻"
+    coder: "👨‍💻",
 };

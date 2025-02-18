@@ -1,4 +1,4 @@
-import {contact} from "./contact";
+import { contact } from "./contact";
 
 export const nav = [
     {
@@ -129,9 +129,10 @@ export const usefullinks = [
         text: "ui source codes",
     },
     {
-        link:"/privacy-policy",
-        text:"privacy-policy"
-    } ,  {
+        link: "/privacy-policy",
+        text: "privacy-policy",
+    },
+    {
         link: "/faq",
         text: "faq",
     },

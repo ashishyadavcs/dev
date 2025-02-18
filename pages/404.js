@@ -5,10 +5,11 @@ export default function Custom404() {
             <div className="error404">
                 <div className="container">
                     <h1 className="gradient-text">Wrong URL</h1>
-                    <Link href="/" className="theme-btn d-inline-flex align-items-center px-4 cta-btn mt-2 text-decoration-none">
-                      
-                            Go Home
-                      
+                    <Link
+                        href="/"
+                        className="theme-btn d-inline-flex align-items-center px-4 cta-btn mt-2 text-decoration-none"
+                    >
+                        Go Home
                     </Link>
                 </div>
             </div>

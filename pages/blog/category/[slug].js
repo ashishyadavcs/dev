@@ -32,7 +32,7 @@ const Blog = ({ posts, category }) => {
                         <div className="items">
                             {posts?.length > 0 &&
                                 posts?.map(post => {
-                                    return <Post key={post._id} post={post}  />;
+                                    return <Post key={post._id} post={post} />;
                                 })}
                         </div>
                         {posts.length == 0 && (
