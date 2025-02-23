@@ -216,9 +216,12 @@ const Blogstyle = styled.div`
     }
 
     .catlist {
+        padding: 0;
         list-style: none;
         display: flex;
         flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .catlist li a {
