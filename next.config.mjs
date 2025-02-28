@@ -33,7 +33,10 @@ const nextConfig = {
       {
         source: '/linkedin/:path*',
         destination: 'https://www.linkedin.com/:path*',
-      },
+      },{
+        source:"/demo/portfolio:path*",
+        destination:"https://bootstrapmade.com/content/demo/iPortfolio/:path*"
+      }
     ];
   },
   async redirects() {
