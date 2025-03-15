@@ -2,6 +2,17 @@ import { config } from "./config";
 
 export const projects = [
     {
+        title: "Ebook Store",
+        techs: ["next.js 15", "html", "css", "js", "Node.js", "Mongodb"],
+        thumbnail: "/images/ebook-store.png",
+        type: "personal project",
+        url: "https://ebook-store-navy.vercel.app/",
+        detail: {
+            title: "",
+            info: {},
+        },
+    },
+    {
         title: "Student Dashboard",
         techs: ["react.js", "next.js", "html", "css", "js"],
         thumbnail: "",
