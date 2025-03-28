@@ -3,7 +3,16 @@ import { config } from "./config";
 export const projects = [
     {
         title: "Ebook Store",
-        techs: ["next.js 15", "html", "css", "js", "Node.js", "Mongodb"],
+        techs: [
+            "next.js 15",
+            "Redux Toolkit",
+            "html",
+            "css",
+            "js",
+            "Node.js",
+            "Mongodb",
+            "Payment Gateway",
+        ],
         thumbnail: "/images/ebook-store.png",
         type: "personal project",
         url: "https://ebook-store-navy.vercel.app/",
@@ -86,7 +95,7 @@ if (config.contacts) {
         url: "/",
         techs: ["html", "css", "js", "angular js", "materializ css"],
         thumbnail: "/portfolio/portfolio-old.png",
-        url: "https://ashishyadavcs.github.io/developer",
+        urldow: "https://ashishyadavcs.github.io/developer",
         type: "Personal project",
         detail: {
             title: "",
