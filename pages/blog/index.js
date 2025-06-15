@@ -50,11 +50,11 @@ const Blog = ({ posts, categories, data }) => {
     );
 };
 export default Blog;
+
 export async function getStaticProps() {
     try {
         const data = await getPostList(0, 0, 15);
         const categories = await getCategorySlugs();
-
         return {
             props: {
                 data,

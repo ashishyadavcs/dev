@@ -3,14 +3,21 @@ import { NextSeo } from "next-seo";
 import styles from "@/styles/shayari.module.css";
 import * as htmlToImage from "html-to-image";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { MdCloudDownload, MdContentCopy } from "react-icons/md";
 import { romantic, shayaries, friend, mohabbat } from "public/data/shayari";
 
 import DownloadPopup from "@/components/download-popup";
 import { getShayaries } from "lib/shayari";
 import Banner from "@/components/web/banner";
+
+const FALLBACK_SHAYARI = [{ node: { content: "<b>Roman English Shayari Example</b>" } }];
+
 const Page = ({ data }) => {
+    const [download, setdownload] = useState(false);
+    // Memoize fallback for performance
+    const shayariData = useMemo(() => (data && data.length > 0 ? data : FALLBACK_SHAYARI), [data]);
+
     const copy = text => {
         const input = document.createElement("textarea");
         input.value = text;
@@ -23,14 +30,13 @@ const Page = ({ data }) => {
             document.querySelector(`.${styles.copied}`).classList.remove(`${styles.active}`);
         }, 1200);
     };
-    const [download, setdownload] = useState(false);
     const toPng = node => {
         htmlToImage
             .toPng(node)
             .then(function (dataUrl) {
                 setdownload({ name: "shayari", url: dataUrl });
             })
-            .catch(function (error) {});
+            .catch(function () {});
     };
     return (
         <>
@@ -57,8 +63,8 @@ const Page = ({ data }) => {
                         & download
                     </p>
                     <div className={styles.items}>
-                        {data.map((card, i) => (
-                            <div className={styles.shayari}>
+                        {shayariData.map((card, i) => (
+                            <div className={styles.shayari} key={i}>
                                 <div className={styles.action}>
                                     <MdCloudDownload
                                         onClick={e =>
@@ -92,7 +98,7 @@ const Page = ({ data }) => {
                     <h2 className="heading my-2">Shayari in roman english romantic</h2>
                     <div className={styles.items}>
                         {romantic.map((card, i) => (
-                            <div className={styles.shayari}>
+                            <div className={styles.shayari} key={"romantic-" + i}>
                                 <div className={styles.action}>
                                     <MdCloudDownload
                                         onClick={e =>
@@ -118,7 +124,7 @@ const Page = ({ data }) => {
                     <h2 className="heading my-2">Shayari in roman english for friend</h2>
                     <div className={styles.items}>
                         {friend.map((card, i) => (
-                            <div className={styles.shayari}>
+                            <div className={styles.shayari} key={"friend-" + i}>
                                 <div className={styles.action}>
                                     <MdCloudDownload
                                         onClick={e =>
@@ -143,7 +149,7 @@ const Page = ({ data }) => {
                     <h2 className="heading my-2">Shayari in roman english love</h2>
                     <div className={styles.items}>
                         {shayaries.map((card, i) => (
-                            <div className={styles.shayari}>
+                            <div className={styles.shayari} key={"love-" + i}>
                                 <div className={styles.action}>
                                     <MdCloudDownload
                                         onClick={e =>
@@ -163,7 +169,7 @@ const Page = ({ data }) => {
 
                                 <code>
                                     {card.shayari}
-                                    <br></br>
+                                    <br />
                                     {card.translation}
                                 </code>
                             </div>
@@ -173,7 +179,7 @@ const Page = ({ data }) => {
                     <p className="text-center">10 Mohabbat Shayaris in Roman English</p>
                     <div className={styles.items}>
                         {mohabbat.map((card, i) => (
-                            <div className={styles.shayari}>
+                            <div className={styles.shayari} key={"mohabbat-" + i}>
                                 <div className={styles.action}>
                                     <MdCloudDownload
                                         onClick={e =>
@@ -207,7 +213,15 @@ const Page = ({ data }) => {
 
 export default Page;
 export async function getStaticProps() {
-    const data = await getShayaries();
+    let data = [];
+    try {
+        data = await getShayaries();
+    } catch (e) {
+        data = [];
+    }
+    if (!data || !Array.isArray(data) || data.length === 0) {
+        data = FALLBACK_SHAYARI;
+    }
     return {
         props: { data },
         revalidate: 10,
