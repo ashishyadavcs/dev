@@ -47,6 +47,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source:"/",
+        destination:"/ashish-yadav",
+        permanent: false,
+      },
+      {
         source:"/calculator/attendance",
         destination:"/calculator/attendance-percentage-calculator",
         permanent: true,
