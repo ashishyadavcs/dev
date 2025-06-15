@@ -1,5 +1,5 @@
 import { config } from "./config";
-const exp = `3.7 years`;
+const exp = `4+ years`;
 export const data = {
     projects: [
         { text: "birdlens creation", link: "https://birdlenscreation.com/" },
@@ -33,7 +33,7 @@ export const data = {
 
     totalexp: exp,
     interoduction: {
-        short: `Frontend Developer | Blogger <br><br>I am a frontend developer with almost <strong>${exp} of experience </strong> in frontend development working in product based companies and having strong skills and experience in frontend development with <strong>React</strong> and <strong>Next js</strong>`,
+        short: `Frontend Developer | Blogger <br><br>I am a frontend developer with <strong>${exp} of experience </strong> in frontend development working in product based companies and having strong skills and experience in frontend development with <strong>React</strong> and <strong>Next js</strong>`,
     },
     hobby: ["Travelling", "Reading Book", "Coding"],
     social: {
