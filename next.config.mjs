@@ -27,6 +27,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source:"/",
+        destination:"/ashish-yadav",
+      },
+      {
         source: "/tools/online-json-formatter",
         destination: "/online-json-formatter",
       },
@@ -43,11 +47,6 @@ const nextConfig = {
     return [
       {
         source:"/portfolio",
-        destination:"/ashish-yadav",
-        permanent: false,
-      },
-      {
-        source:"/",
         destination:"/ashish-yadav",
         permanent: false,
       },
