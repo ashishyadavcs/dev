@@ -6,7 +6,6 @@ body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  /* background: red; */
 }
 
 .backlink {
