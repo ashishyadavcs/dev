@@ -133,6 +133,18 @@ export const usefullinks = [
         text: "privacy-policy",
     },
     {
+        link: "/term-of-service",
+        text: "terms & conditions",
+    },
+    {
+        link: "/cancellation-and-refund",
+        text: "cancellation & refund",
+    },
+    {
+        link: "/shipping-and-delivery",
+        text: "shipping & delivery",
+    },
+    {
         link: "/faq",
         text: "faq",
     },
