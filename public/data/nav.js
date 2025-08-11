@@ -133,7 +133,7 @@ export const usefullinks = [
         text: "privacy-policy",
     },
     {
-        link: "/term-of-service",
+        link: "/terms-and-conditions",
         text: "terms & conditions",
     },
     {
