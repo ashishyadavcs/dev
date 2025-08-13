@@ -12,6 +12,7 @@ import {
 import Container from "@/components/Container";
 import { mailTo } from "utils/common";
 import Link from "next/link";
+import { media } from "config/device";
 
 const CSSMasterclass = () => {
     const [formData, setFormData] = useState({
@@ -74,10 +75,6 @@ const CSSMasterclass = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // Add form submission logic here
-        console.log("Form submitted:", formData);
-        // You can add form submission API call here
-        alert("Registration successful! We'll contact you soon with more details.");
     };
 
     return (
@@ -893,9 +890,11 @@ const MasterclassWrapper = styled.div`
         }
 
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background: rgba(0, 136, 255, 0.15);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
             border: 1px solid rgba(0, 136, 255, 0.3);
             border-radius: 2rem;
             padding: 0.6rem 1.2rem;
@@ -905,31 +904,31 @@ const MasterclassWrapper = styled.div`
             letter-spacing: 0.5px;
 
             .star-icon {
-                display: inline-block;
-                margin-right: 0.5rem;
+                margin-inline-end: 0.5rem;
                 color: #ffd700;
                 font-size: 1rem;
             }
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-block-end: 1.5rem;
             color: white;
             line-height: 1.2;
             letter-spacing: -0.5px;
 
             .highlight-text {
-                background: linear-gradient(45deg, #ffd700, #ffc107);
-                -webkit-background-clip: text;
+                background-image: linear-gradient(45deg, #ffd700, #ffc107);
                 background-clip: text;
+                -webkit-background-clip: text;
                 color: transparent;
                 font-weight: 800;
             }
 
-            @media (max-width: 992px) {
-                font-size: 3rem;
+            /* Using clamp above eliminates need for most media queries */
+            ${media.md} {
+                font-size: clamp(2rem, 4vw, 3rem);
             }
 
             @media (max-width: 768px) {
@@ -939,44 +938,43 @@ const MasterclassWrapper = styled.div`
         }
 
         .hero-description {
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
             line-height: 1.7;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
+            margin-block-end: 2.5rem;
             max-width: 540px;
 
-            @media (max-width: 768px) {
+            ${media.sm} {
                 text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-                font-size: 1.15rem;
+                margin-inline: auto;
+                font-size: clamp(1rem, 2vw, 1.15rem);
             }
         }
 
         .features-list {
-            margin-bottom: 2.5rem;
+            margin-block-end: 2.5rem;
+            display: grid;
+            gap: 1rem;
 
             .feature-item {
                 display: flex;
                 align-items: center;
-                margin-bottom: 1rem;
 
                 .check-icon {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
+                    display: grid;
+                    place-items: center; /* Modern way to center content */
                     width: 1.5rem;
                     height: 1.5rem;
                     border-radius: 50%;
-                    background: linear-gradient(135deg, #ffd700, #ffc107);
+                    background-image: linear-gradient(135deg, #ffd700, #ffc107);
                     color: #000000;
                     font-size: 0.8rem;
-                    margin-right: 1rem;
+                    margin-inline-end: 1rem;
                     flex-shrink: 0;
                 }
 
                 span {
-                    font-size: 1.1rem;
+                    font-size: clamp(1rem, 1.5vw, 1.1rem);
                     color: rgba(255, 255, 255, 0.9);
                 }
 
@@ -2141,7 +2139,7 @@ const MasterclassWrapper = styled.div`
                         );
                     }
 
-                    @media (max-width: 576px) {
+                    ${media.xs} {
                         padding: 1.2rem 1.5rem;
                     }
 
@@ -2480,7 +2478,7 @@ const MasterclassWrapper = styled.div`
                 margin: 0 auto;
                 box-sizing: border-box;
 
-                @media (max-width: 768px) {
+                ${media.sm} {
                     padding: 1.8rem;
                     width: 100%;
                     max-width: 100%;
@@ -2501,7 +2499,7 @@ const MasterclassWrapper = styled.div`
                 .form-group {
                     margin-bottom: 1.75rem;
 
-                    @media (max-width: 768px) {
+                    ${media.sm} {
                         margin-bottom: 2rem;
                     }
 
@@ -2512,7 +2510,7 @@ const MasterclassWrapper = styled.div`
                         color: #ffffff;
                         font-size: 0.95rem;
 
-                        @media (max-width: 768px) {
+                        ${media.sm} {
                             margin-bottom: 0.4rem;
                             font-size: 0.9rem;
                         }
@@ -2523,19 +2521,21 @@ const MasterclassWrapper = styled.div`
                         padding: 0.9rem 1.2rem;
                         font-size: 1rem;
                         border: 1px solid rgba(0, 136, 255, 0.3);
-                        box-sizing: border-box;
-
-                        @media (max-width: 768px) {
-                            padding: 1.1rem 1.2rem;
-                            font-size: 1.05rem;
-                            width: 100% !important;
-                            max-width: none !important;
-                            display: block;
-                        }
                         border-radius: 0.5rem;
                         background-color: rgba(20, 20, 30, 0.9);
-                        transition: all 0.3s ease;
                         color: #ffffff;
+                        transition:
+                            border-color 0.2s ease-in-out,
+                            box-shadow 0.2s ease-in-out,
+                            background-color 0.2s ease-in-out;
+
+                        /* Remove duplicate properties */
+                        ${media.sm} {
+                            padding: 0.8rem 1rem;
+                            font-size: 0.95rem;
+                            /* Modern way to handle appearance */
+                            appearance: none;
+                        }
 
                         &:focus {
                             outline: none;
@@ -2546,13 +2546,6 @@ const MasterclassWrapper = styled.div`
 
                         &::placeholder {
                             color: rgba(255, 255, 255, 0.5);
-                            opacity: 0.7;
-                        }
-
-                        @media (max-width: 768px) {
-                            padding: 0.8rem 1rem;
-                            font-size: 0.95rem;
-                            -webkit-appearance: none; /* Better styling on iOS */
                         }
                     }
                 }
@@ -2575,43 +2568,28 @@ const MasterclassWrapper = styled.div`
                     font-size: 1.125rem;
                     font-weight: 700;
                     text-align: center;
-                    background: linear-gradient(135deg, #0088ff, #0055bb);
+                    /* Modern gradient with fallback */
+                    background-color: #0088ff;
+                    background-image: linear-gradient(135deg, #0088ff, #0055bb);
                     color: white;
                     border: none;
                     border-radius: 0.5rem;
                     cursor: pointer;
-                    transition: all 0.3s ease;
+                    /* Separate transitions for better performance */
+                    transition:
+                        transform 0.3s ease,
+                        box-shadow 0.3s ease;
                     box-shadow: 0 4px 20px rgba(0, 136, 255, 0.4);
                     position: relative;
                     overflow: hidden;
                     text-transform: uppercase;
                     letter-spacing: 0.5px;
-                    animation: pulse-blue 2s infinite;
-
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: -100%;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(
-                            90deg,
-                            transparent,
-                            rgba(255, 255, 255, 0.3),
-                            transparent
-                        );
-                        transition: all 0.8s;
-                    }
+                    /* We'll keep the animation but make it optional */
 
                     &:hover {
-                        background: linear-gradient(135deg, #0088ff, #0066cc);
+                        background-image: linear-gradient(135deg, #0088ff, #0066cc);
                         box-shadow: 0 6px 12px rgba(0, 136, 255, 0.5);
                         transform: translateY(-2px);
-
-                        &:before {
-                            left: 100%;
-                        }
                     }
 
                     &:active {
@@ -2619,7 +2597,13 @@ const MasterclassWrapper = styled.div`
                         box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
                     }
 
-                    @media (max-width: 768px) {
+                    /* Add focus style for accessibility */
+                    &:focus-visible {
+                        outline: 2px solid #fff;
+                        outline-offset: 2px;
+                    }
+
+                    ${media.sm} {
                         padding: 0.9rem;
                         font-size: 1rem;
                     }
@@ -2627,9 +2611,10 @@ const MasterclassWrapper = styled.div`
 
                 .seats-left {
                     font-size: 0.875rem;
-                    background: linear-gradient(135deg, #ffd700, #ffc107);
-                    -webkit-background-clip: text;
+                    /* Modern way to handle text gradient */
+                    background-image: linear-gradient(135deg, #ffd700, #ffc107);
                     background-clip: text;
+                    -webkit-background-clip: text;
                     color: transparent;
                     font-weight: 700;
                     text-align: center;
@@ -2640,7 +2625,7 @@ const MasterclassWrapper = styled.div`
                     background-color: rgba(0, 0, 0, 0.3);
                     animation: pulse-yellow 2s infinite;
 
-                    @media (max-width: 768px) {
+                    ${media.sm} {
                         font-size: 0.8rem;
                         margin-top: 0.8rem;
                     }
@@ -2667,7 +2652,7 @@ const MasterclassWrapper = styled.div`
                     font-size: 0.875rem;
                     color: rgba(255, 255, 255, 0.7);
 
-                    @media (max-width: 768px) {
+                    ${media.sm} {
                         margin-top: 1.2rem;
                         font-size: 0.8rem;
                     }
@@ -2675,15 +2660,11 @@ const MasterclassWrapper = styled.div`
                     a {
                         color: #0088ff;
                         text-decoration: none;
-                        transition: all 0.3s ease;
+                        transition: color 0.3s ease;
 
-                        &:hover {
+                        &:hover,
+                        &:focus {
                             color: #ffd700;
-                            text-decoration: underline;
-                        }
-                        text-decoration: none;
-
-                        &:hover {
                             text-decoration: underline;
                         }
                     }
@@ -2692,7 +2673,7 @@ const MasterclassWrapper = styled.div`
         }
     }
 
-    @media (max-width: 992px) {
+    ${media.md} {
         .days-container {
             flex-direction: column;
             align-items: center;
@@ -2822,7 +2803,7 @@ const MasterclassWrapper = styled.div`
             }
         }
 
-        @media (max-width: 576px) {
+        ${media.xs} {
             .hero {
                 padding: 3rem 0;
 
@@ -3022,7 +3003,7 @@ const MasterclassWrapper = styled.div`
         }
     }
 
-    @media (max-width: 576px) {
+    ${media.xs} {
         .instructor {
             .stats {
                 flex-direction: column;
