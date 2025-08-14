@@ -2,27 +2,37 @@ import Container from "@/components/Container";
 import { media } from "config/device";
 import { useCallback, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 const Test = () => {
     const [answer, setanswer] = useState(false);
 
     const generateResponse = useCallback(async e => {
-        e.preventDefault();
-        let submitter = e.target.querySelector(".btn");
-        submitter.textContent = "Generating...";
-        const formData = new FormData(e.target);
-        const prompt = formData.get("prompt");
-        const response = await fetch("/api/openai", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ prompt }),
-        });
-        const { data } = await response.json();
-        setanswer(data);
-        submitter.textContent = "Generate";
+        try {
+            e.preventDefault();
+            let submitter = e.target.querySelector(".btn");
+            submitter.textContent = "Generating...";
+            const formData = new FormData(e.target);
+            const prompt = formData.get("prompt");
+            const response = await fetch("/api/openai", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ prompt }),
+            });
+            if (!response.ok) {
+                throw Error("Failed to generate response. Please try again.");
+            }
+            const { data } = await response.json();
+            setanswer(data);
+            submitter.textContent = "Generate";
+        } catch (err) {
+            setanswer(null);
+            submitter.textContent = "Generate";
+            toast.error(err.message);
+        }
     }, []);
 
     return (
