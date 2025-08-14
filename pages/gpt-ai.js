@@ -11,6 +11,7 @@ const Test = () => {
     const generateResponse = useCallback(async e => {
         try {
             e.preventDefault();
+
             let submitter = e.target.querySelector(".btn");
             submitter.textContent = "Generating...";
             const formData = new FormData(e.target);
@@ -28,6 +29,7 @@ const Test = () => {
             const { data } = await response.json();
             setanswer(data);
             submitter.textContent = "Generate";
+            e.target.reset();
         } catch (err) {
             setanswer(null);
             submitter.textContent = "Generate";

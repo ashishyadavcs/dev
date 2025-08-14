@@ -22,8 +22,8 @@ export const nav = [
         text: "projects",
     },
     {
-        url: "/ai",
-        text: "Ai chat",
+        url: "/gpt-ai",
+        text: "AI Chat",
         class: "new",
     },
     {
