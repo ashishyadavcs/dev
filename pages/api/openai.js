@@ -19,9 +19,8 @@ export default async function handler(req, res) {
             store: false,
         });
 
-        res.status(200).json({ data: response });
+        res.status(200).json({ data: response.output_text });
     } catch (error) {
-        console.error(error);
         res.status(500).json({
             error: "Error generating response",
         });
