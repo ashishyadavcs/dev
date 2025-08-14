@@ -8,6 +8,7 @@ import {
     FaLinkedinIn,
     FaGithub,
     FaGlobe,
+    FaUser,
 } from "react-icons/fa";
 import Container from "@/components/Container";
 import { mailTo } from "utils/common";
@@ -307,7 +308,7 @@ const CSSMasterclass = () => {
                         <div className="row align-items-center">
                             <div className="col-md-5">
                                 <img
-                                    src="https://via.placeholder.com/500x400?text=Why+Join+CSS+Masterclass"
+                                    src="/images/css.webp"
                                     alt="Why Join CSS Masterclass"
                                     className="img-fluid rounded"
                                 />
@@ -371,10 +372,7 @@ const CSSMasterclass = () => {
                         </div>
                         <div className="instructor-card">
                             <div className="instructor-image-container">
-                                <img
-                                    src="https://via.placeholder.com/150x150?text=A"
-                                    alt="Ashish Yadav"
-                                />
+                                <img src="/ashish.jpg" alt="Ashish Yadav" />
                             </div>
                             <h3 className="instructor-name">Ashish Yadav</h3>
                             <div className="instructor-title">Frontend Developer & CSS Expert</div>
@@ -437,10 +435,9 @@ const CSSMasterclass = () => {
                                     cleaner.
                                 </p>
                                 <div className="author">
-                                    <img
-                                        src="https://via.placeholder.com/60x60?text=PS"
-                                        alt="Student"
-                                    />
+                                    <span className="author-image">
+                                        <FaUser />
+                                    </span>
                                     <div>
                                         <h4>Priya Sharma</h4>
                                         <p>Frontend Developer</p>
@@ -455,10 +452,9 @@ const CSSMasterclass = () => {
                                     team.
                                 </p>
                                 <div className="author">
-                                    <img
-                                        src="https://via.placeholder.com/60x60?text=RG"
-                                        alt="Student"
-                                    />
+                                    <span className="author-image">
+                                        <FaUser />
+                                    </span>
                                     <div>
                                         <h4>Rahul Gupta</h4>
                                         <p>UI Developer</p>
@@ -473,10 +469,9 @@ const CSSMasterclass = () => {
                                     websites.
                                 </p>
                                 <div className="author">
-                                    <img
-                                        src="https://via.placeholder.com/60x60?text=NP"
-                                        alt="Student"
-                                    />
+                                    <span className="author-image">
+                                        <FaUser />
+                                    </span>
                                     <div>
                                         <h4>Neha Patel</h4>
                                         <p>Web Designer</p>
@@ -690,32 +685,7 @@ const CSSMasterclass = () => {
                                                     required
                                                 />
                                             </div>
-                                            <div className="form-group">
-                                                <label htmlFor="experience">
-                                                    CSS Experience Level
-                                                </label>
-                                                <select
-                                                    id="experience"
-                                                    name="experience"
-                                                    value={formData.experience}
-                                                    onChange={handleChange}
-                                                    className="form-control"
-                                                    required
-                                                >
-                                                    <option value="">
-                                                        Select your experience level
-                                                    </option>
-                                                    <option value="beginner">
-                                                        Beginner (0-1 years)
-                                                    </option>
-                                                    <option value="intermediate">
-                                                        Intermediate (1-3 years)
-                                                    </option>
-                                                    <option value="advanced">
-                                                        Advanced (3+ years)
-                                                    </option>
-                                                </select>
-                                            </div>
+
                                             <button
                                                 type="submit"
                                                 className="btn btn-primary btn-block pulse-btn"
@@ -873,6 +843,9 @@ const MasterclassWrapper = styled.div`
         .hero-content {
             position: relative;
             z-index: 2;
+            ${media.sm} {
+                padding: 0 12px;
+            }
         }
 
         .row {
@@ -882,6 +855,9 @@ const MasterclassWrapper = styled.div`
             .hero-left,
             .hero-right {
                 padding: 1rem;
+                ${media.sm} {
+                    padding: 0 1rem;
+                }
             }
         }
 
@@ -979,8 +955,6 @@ const MasterclassWrapper = styled.div`
                 }
 
                 @media (max-width: 768px) {
-                    justify-content: center;
-
                     span {
                         font-size: 1rem;
                     }
@@ -1208,10 +1182,6 @@ const MasterclassWrapper = styled.div`
                 justify-content: center;
                 align-items: center;
                 height: 100%;
-
-                @media (max-width: 992px) {
-                    margin-top: 3rem;
-                }
             }
 
             .event-card {
@@ -1352,7 +1322,6 @@ const MasterclassWrapper = styled.div`
             display: flex;
             gap: 2rem;
             margin-top: 4rem;
-            flex-wrap: wrap;
             justify-content: center;
 
             @media (max-width: 992px) {
@@ -1362,9 +1331,6 @@ const MasterclassWrapper = styled.div`
 
             .day-card {
                 flex: 1;
-                width: 100%;
-                max-width: 400px;
-                min-width: 300px;
                 background: #111111;
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 12px;
@@ -1457,6 +1423,13 @@ const MasterclassWrapper = styled.div`
     }
 
     .why-join {
+        ${media.sm} {
+            img {
+                width: 30%;
+                display: block;
+                margin: auto;
+            }
+        }
         .benefits {
             display: grid;
             gap: 2rem;
@@ -1486,7 +1459,6 @@ const MasterclassWrapper = styled.div`
                         font-size: 1.25rem;
                         font-weight: 600;
                         margin-bottom: 0.5rem;
-                        color: var(--dark-color);
                     }
 
                     p {
@@ -1821,7 +1793,7 @@ const MasterclassWrapper = styled.div`
 
                     .label {
                         font-size: 1.1rem;
-                        color: #0088ff;
+                        color: #fff;
                         text-align: center;
                         white-space: nowrap;
                         letter-spacing: 0.5px;
@@ -1902,7 +1874,7 @@ const MasterclassWrapper = styled.div`
                 position: absolute;
                 top: 1rem;
                 left: 1.5rem;
-                color: var(--accent-color);
+                color: #ddd;
                 font-family: serif;
                 line-height: 1;
             }
@@ -1919,11 +1891,14 @@ const MasterclassWrapper = styled.div`
                 align-items: center;
                 gap: 1rem;
 
-                img {
+                .author-image {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
                     width: 3rem;
                     height: 3rem;
                     border-radius: 50%;
-                    object-fit: cover;
+                    background: #2b2a2a;
                 }
 
                 h4 {
@@ -2037,8 +2012,7 @@ const MasterclassWrapper = styled.div`
             z-index: 1;
 
             @media (max-width: 768px) {
-                max-width: 95%;
-                padding: 0 10px;
+                padding: 0;
             }
 
             .faq-item {
@@ -2452,7 +2426,7 @@ const MasterclassWrapper = styled.div`
 
                         .unit {
                             font-size: 0.9rem;
-                            color: #0088ff;
+                            color: yellow;
                             letter-spacing: 0.5px;
                             text-transform: uppercase;
                             font-weight: 600;
@@ -2675,9 +2649,6 @@ const MasterclassWrapper = styled.div`
 
     ${media.md} {
         .days-container {
-            flex-direction: column;
-            align-items: center;
-
             .day-card {
                 width: 95%;
                 max-width: 500px;
@@ -2768,12 +2739,6 @@ const MasterclassWrapper = styled.div`
                 text-align: center;
             }
 
-            .features-list {
-                .feature-item {
-                    justify-content: center;
-                }
-            }
-
             .hero-cta {
                 justify-content: center;
                 flex-direction: column;
@@ -2787,16 +2752,11 @@ const MasterclassWrapper = styled.div`
             }
 
             .hero-right {
-                .card-container {
-                    margin-top: 3rem;
-                }
-
                 .event-card {
                     padding: 1.5rem;
 
                     .price-container {
-                        flex-direction: column;
-                        align-items: flex-start;
+                        align-items: center;
                         gap: 1rem;
                     }
                 }
@@ -2805,7 +2765,7 @@ const MasterclassWrapper = styled.div`
 
         ${media.xs} {
             .hero {
-                padding: 3rem 0;
+                padding: 2rem 0;
 
                 h1 {
                     font-size: 2rem;
